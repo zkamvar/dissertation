@@ -1,7 +1,12 @@
-# Oregon State University RMarkdown thesis template
+# Template for Zhian N. Kamvar's Dissertation
 
 This is the unofficial Oregon State University RMarkdown thesis template. You 
 can find a copy of this template at https://github.com/zkamvar/thesisdown/tree/osu-thesis.
+
+This should comply with the [thesis guide for Oregon State University][4]. It's
+based off of the [overleaf template][5]
+
+## Installation
 
 To install the template, be sure you have the following:
 
@@ -76,3 +81,5 @@ them in your document.
  [1]: https://www.latex-project.org/get/
  [2]: https://r-project.org
  [3]: https://rstudio.org
+ [4]: http://gradschool.oregonstate.edu/progress/thesis-guide
+ [5]: https://www.overleaf.com/latex/templates/oregon-state-university-thesis-and-dissertation/wnvzcdhqshxf

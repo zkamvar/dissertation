@@ -4,15 +4,15 @@
 #
 doctype: 'Dissertation'            # or Thesis
 title: 'An Analysis of Something'  # make a better title than this...
-author: 'Joseph A. Student'
+author: 'Zhian N. Kamvar'
 date: 'January 1, 2013'            # date of submission
-commencement: '2013'               # year of commencement
+commencement: '2017'               # year of commencement
 degree: 'Doctor of Philosophy'     # Masters of Science, Art, etc. 
-major: 'Radiation Health Physics'
-depttype: 'School'                 # Department, College, etc.
+major: 'Plant Pathology'
+depttype: 'Department'                 # Department, College, etc.
 depthead: 'Head'                   # Chair, Chancellor, Interim Head, etc.
-department: 'Nuclear Engineering and Radiation Health Physics'
-advisor: 'Jane R. Professor'
+department: 'Botany and Plant Pathology'
+advisor: 'Niklaus J. Grünwald'
 #
 # Optional Information --------------------------------------------------------
 #
