@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+*.loaf
+*.loap
+*.loat
+_bookdown_files/*
