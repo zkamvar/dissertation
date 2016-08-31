@@ -1,10 +1,11 @@
 book_filename: "thesis"
 chapter_name: "Chapter "
 rmd_files: ["index.Rmd",
-#  "chapters/01-chap1.Rmd",
-#  "chapters/02-chap2.Rmd",
-#  "chapters/03-chap3.Rmd",
-#  "chapters/04-conclusion.Rmd",
+  "chapters/01-poppr.Rmd",
+  "chapters/02-ramorum.Rmd",
+  "chapters/03-poppr2.Rmd",
+  "chapters/04-syringae.Rmd",
+  "chapters/05-simulations.Rmd",
   "chapters/99-references.Rmd"
   ]
 download: [["thesis.pdf", "PDF"],
