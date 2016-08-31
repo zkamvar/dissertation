@@ -39,46 +39,46 @@ To render your thesis, you can open `index.Rmd` in RStudio and then hit the
 bookdown::render_book("index.Rmd")
 ```
 
-Your thesis will be deposited in the `_book/` directory.
+You can find the thesis in [_book/thesis.pdf](_book/thesis.pdf)
 
 ## Components
 
 The following components are ones you should edit to customize your thesis:
 
-### _bookdown.yml
+### [_bookdown.yml](_bookdown.yml)
 
 This is the main configuration file for your thesis. Arrange the order of your
 chapters in this file and ensure that the names match the names in your folders.
 
-### index.Rmd
+### [index.Rmd](index.Rmd)
 
 This file contains all the meta information that goes at the beginning of your
 document. Currently, we have the introduction in there, but you can leave that
 part blank if you wish. 
 
-### pre/
+### [pre/](pre/)
 
 This folder contains all of the Rmd files to be included in the pretext of your
-dissertation (e.g. abstract, acknowledgements, author contributions, etc.).
+dissertation (e.g. abstract, acknowledgments, author contributions, etc.).
 
 There is a slight caveat to all of these files: the very first line must be 
 plain text or the rendering will be screwed up.
 
-### chapters/
+### [chapters/](chapters/)
 
 This folder contains the Rmd files for each chapter in your dissertation. Modify
 as you will.
 
-### bib/
+### [bib/](bib/)
 
 Store your bibliography (as bibtex files) here.
 
-### csl/
+### [csl/](csl/)
 
 Specific style files for bibliographies should be stored here. A good source for
 citation styles is https://github.com/citation-style-language/styles#readme
 
-### figure/ and data/
+### [figure/](figure/) and [data/](data/)
 
 These should be self explanatory. Store your figures and data here and reference
 them in your document. 
