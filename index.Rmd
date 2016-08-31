@@ -63,37 +63,50 @@ dedication: >
 ---
 
 
-# Introduction
+Introduction
+============
 
-The objectives of my work were two-fold and included 1. development of
-computational tools to characterize populations and 2. application of these
-tools to populations of the plant pathogen *Phytophthora*.
+The objectives of my work were two-fold and included 
 
-## What is population genetics
+ 1. development of computational tools to characterize populations and 
+ 2. application of these tools to populations of the plant pathogen genus
+    *Phytophthora*.
 
-## Need for tools for population genetics
+The Genus *Phytophthora*
+-------------------------
 
-Clonal pathogens are a special case ...
+### *P. ramorum*
 
-In the past need to reformat files for each program and use of a plethora of
-programs
+ - Sudden Oak Death
 
-The R plafrorm
+### *P. syringae*
 
-The need for poppr
+ - Abundant in OR Nurseries
 
-Ia
 
-Educational tools
+Population genetics of clonal organisms
+------------------------------------------------
 
-## Introduction to _Phytophthora_
+Clonal populations are a special case ...
 
-What is the genus _Phytophthora_.
+Tools for analysis of clonal population genetics
+------------------------------------------------
 
-_P. ramorum_
+### The past
 
-_P. syringae_
+Plethora of tools, most designed for sexual populations except:
 
-## Conclusions
+ - GenClone
+ - GenoDive
 
-## Literature cited
+Problems with file formatting, time, and reproducibility.
+
+### The present
+
+poppr
+
+
+### The future
+
+???
+
