@@ -63,7 +63,7 @@ dedication: >
 ---
 
 
-# Introduction {-}
+# Introduction
 
 The objectives of my work were two-fold and included 1. development of
 computational tools to characterize populations and 2. application of these
