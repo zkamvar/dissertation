@@ -1,0 +1,25 @@
+# *Poppr*: an R Package For Genetic Analysis of Populations With Clonal, Partially Clonal, and/or Sexual Reproduction
+
+## Abstract
+
+
+Many microbial, fungal, or oomcyete populations violate assumptions for
+population genetic analysis because these populations are clonal, admixed,
+partially clonal, and/or sexual. Furthermore, few tools exist that are
+specifically designed for analyzing data from clonal populations, making
+analysis difficult and haphazard. We developed the R package poppr providing
+unique tools for analysis of data from admixed, clonal, mixed, and/or sexual
+populations. Currently, poppr can be used for dominant/codominant and
+haploid/diploid genetic data. Data can be imported from several formats
+including GenAlEx formatted text files and can be analyzed on a user-defined
+hierarchy that includes unlimited levels of subpopulation structure and clone
+censoring. New functions include calculation of Bruvo's distance for
+microsatellites, batch-analysis of the index of association with several indices
+of genotypic diversity, and graphing including dendrograms with bootstrap
+support and minimum spanning networks. While functions for genotypic diversity
+and clone censoring are specific for clonal populations, several functions found
+in poppr are also valuable to analysis of any populations. A manual with
+documentation and examples is provided. Poppr is open source and major releases
+are available on CRAN: http://cran.r-project.org/package=poppr. More supporting
+documentation and tutorials can be found under 'resources' at:
+http://grunwaldlab.cgrb.oregonstate.edu/.

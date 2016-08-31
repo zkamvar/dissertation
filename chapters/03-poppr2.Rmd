@@ -1,0 +1,18 @@
+# Novel R Tools For Analysis of Genome-Wide Population Genetic Data With Emphasis on Clonality
+
+## Abstract
+
+To gain a detailed understanding of how plant microbes evolve and adapt to
+hosts, pesticides, and other factors, knowledge of the population dynamics and
+evolutionary history of populations is crucial. Plant pathogen populations are
+often clonal or partially clonal which requires different analytical tools. With
+the advent of high throughput sequencing technologies, obtaining genome-wide
+population genetic data has become easier than ever before. We previously
+contributed the R package *poppr* specifically addressing issues with analysis
+of clonal populations. In this paper we provide several significant extensions
+to *poppr* with a focus on large, genome-wide SNP data. Specifically, we provide
+several new functionalities including the new function `mlg.filter` to define
+clone boundaries allowing for inspection and definition of what is a clonal
+lineage, minimum spanning networks with reticulation, a sliding-window analysis
+of the index of association, modular bootstrapping of any genetic distance, and
+analyses across any level of hierarchies.

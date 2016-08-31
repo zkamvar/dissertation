@@ -1,0 +1,20 @@
+# Spatial and Temporal Analysis of Populations of the Sudden Oak Death Pathogen in Oregon Forests
+
+## Abstract
+
+Sudden oak death caused by the oomycete *Phytophthora ramorum* was first
+discovered in California toward the end of the 20th century and subsequently
+emerged on tanoak forests in Oregon before its first detection in 2001 by aerial
+surveys. The Oregon Department of Forestry has since monitored the epidemic and
+sampled symptomatic tanoak trees from 2001 to the present. Populations sampled
+over this period were genotyped using microsatellites and studied to infer the
+population genetic history. To date, only the NA1 clonal lineage is established
+in this region, although three lineages exist on the North American west coast.
+The original introduction into the Joe Hall area eventually spread to several
+regions: mostly north but also east and southwest. A new introduction into
+Hunter Creek appears to correspond to a second introduction not clustering with
+the early introduction. Our data are best explained by both introductions
+originating from nursery populations in California or Oregon and resulting from
+two distinct introduction events. Continued vigilance and eradication of nursery
+populations of *P. ramorum* are important to avoid further emergence and
+potential introduction of other clonal lineages.
