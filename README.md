@@ -16,7 +16,7 @@ To install the template, be sure you have the following:
  - [RStudio][3] (optional, but it helps)
 
 To get this document, you've either opened a new Rmarkdown document from Rstudio
-using the oregonstate template or you've run the followin command in a clean
+using the oregonstate template or you've run the following command in a clean
 working directory:
 
 ```r
@@ -28,8 +28,15 @@ rmarkdown::draft("index.Rmd", template = "oregonstate", package = "thesisdown")
 To render your thesis, you can open `index.Rmd` in RStudio and then hit the
 "knit" button. Alternatively, you can use:
 
+
+```sh
+# On the command line
+./render.sh
+```
+
 ```r
-rmarkdown::render("index.Rmd")
+# In R
+bookdown::render_book("index.Rmd")
 ```
 
 Your thesis will be deposited in the `_book/` directory.
