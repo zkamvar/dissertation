@@ -75,6 +75,8 @@ The objectives of my work were two-fold and included
 The Genus *Phytophthora*
 -------------------------
 
+- include a figures such as: phylogenetic placement, morphologial fatures,  life cycle, sexual cycle, GBS
+
 ### *P. ramorum*
 
  - Sudden Oak Death
@@ -93,6 +95,7 @@ The Genus *Phytophthora*
 ## Marker systems
 -SSR
 - GBS and SNPs
+- reference genome of P. syringae ...
 
 
 
