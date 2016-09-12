@@ -3,3 +3,26 @@
 ## Abstract
 
 TBD...
+
+## Introduction
+
+## Methods
+
+All simulations were performed with the python package simuPOP version 1.1.4 in
+python version 3.4
+
+### Microsatellite Simulation
+
+For each scenario, 100 simulations with 10 replicates were created. Each
+replicate started with 10,000 individuals over 20 co-dominant loci containing 6
+to 10 alleles with frequencies drawn from a uniform distribution and normalized.
+Each population was evolved over 10,000 generations for each scenario. Before
+mating, mutations occurred at each locus at a rate of 1e-5 mutations/generation.
+From each replicate, 10, 25, 50, and 100 individuals were sampled without
+replacement for downstream analysis.
+
+### Microsatellite Analysis
+
+The standardized index of association ($\bar{r}_d$) was calculated in R version
+3.2 with the package *poppr* version 2.2.1 using the function `ia()` within
+custom scripts (supplementary information).
