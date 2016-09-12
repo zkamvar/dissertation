@@ -75,6 +75,8 @@ The objectives of my work were two-fold and included
 The Genus *Phytophthora*
 -------------------------
 
+- include a figures such as: phylogenetic placement, morphologial fatures,  life cycle, sexual cycle, GBS
+
 ### *P. ramorum*
 
  - Sudden Oak Death
@@ -83,6 +85,21 @@ The Genus *Phytophthora*
 
  - Abundant in OR Nurseries
 
+
+### life cycle
+
+### Sex and mating types
+
+### Population genetics
+
+## Marker systems
+-SSR
+- GBS and SNPs
+- reference genome of P. syringae ...
+
+
+
+### Examples of pop gen from Phytophthora
 
 Population genetics of clonal organisms
 ------------------------------------------------
@@ -101,12 +118,22 @@ Plethora of tools, most designed for sexual populations except:
 
 Problems with file formatting, time, and reproducibility.
 
+### Introduce R as a great toolbox
+
 ### The present
 
 poppr
 
+> I am not sure intrdocuing poppr ehre is a good idea. This is the result f chapter 2?
 
-### The future
 
-???
+### Conclusion
+
+- Open soruces nature of poppr.
+- Related tools:
+  - adegeent
+  - pegas
+  - etc.
+- Pop gen info for two Phytophthoras
+- - Major results of your work in 2-4 sentences ...
 
