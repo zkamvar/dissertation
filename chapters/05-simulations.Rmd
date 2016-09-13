@@ -13,8 +13,28 @@ TBD...
  -->
 
  - Population Genetics of partially clonal organisms
- 	- This has been studied in the past [@smith1993how; @balloux2003population; @de2004clonal; @orive1993effective]
- - Methods for assessing level of clonal reproduction (CloNcaSe) [@ali2016cloncase]
+ 	- This has been studied in the past [@smith1993how; @balloux2003population;
+ 	  @de2004clonal; @orive1993effective]
+ 	- The index of association [@brown1980multilocus; @smith1993how;
+ 	  @Agapow_2001]
+ 	- In @de2004clonal, it was shown that $\bar{r}_d$ has a high variance in
+ 	  clonal populations and @smith1993how showed that it's affected by
+ 	  population structure.
+ - Methods for assessing level of clonal reproduction (CloNcaSe)
+   [@ali2016cloncase]
+ 	- This only works for populations with discrete generations with an
+ 	  observable sexual stage.
+ - Limitations of previous studies
+ 	- No HTS markers
+ 	- Significance tests are routinely performed via permutation analysis, but
+ 	  could not be performed due to software limitations [@burt1996molecular;
+ 	  @de2004clonal]
+ - Objectives
+ 	1. Analyze mixtures of clonal populations to assess effect of sampling
+ 	   multiple clonal populations
+ 	2. Re-analyze rates of sexual reproduction to confirm previous study
+ 	3. Assess significance tests for $\bar{r}_d$
+
 
 ## Methods
 
