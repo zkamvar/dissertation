@@ -6,9 +6,19 @@ TBD...
 
 ## Introduction
 
+<!-- ZHIAN
+
+ Thinking about different topics to address here 
+
+ -->
+
+ - Population Genetics of partially clonal organisms
+ 	- This has been studied in the past [@smith1993how; @balloux2003population; @de2004clonal; @orive1993effective]
+ - Methods for assessing level of clonal reproduction (CloNcaSe) [@ali2016cloncase]
+
 ## Methods
 
-All simulations were performed with the python package simuPOP version 1.1.4 in
+All simulations were performed with the python package simuPOP version 1.1.7 in
 python version 3.4
 
 ### Microsatellite Simulation
