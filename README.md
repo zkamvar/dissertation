@@ -54,7 +54,7 @@ To add a bibliography entry, add it to
 about what the entry is about. If the title has specific capitalization or a
 italicization, put an extra set of curly braces `{}` around it:
 
-```bibtex
+```latex
 % Index of Association application ---------------------------------------------
 @article{burt1996molecular,
   title={{Molecular markers reveal cryptic sex in the human pathogen \textit{Coccidioides immitis}}},
