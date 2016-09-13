@@ -154,6 +154,24 @@ manuscript.}
   \section{\texorpdfstring{The Genus
   \emph{Phytophthora}}{The Genus Phytophthora}}\label{the-genus-phytophthora}
   
+  \subsection{life cycle}\label{life-cycle}
+  
+  \subsection{Sex and mating types}\label{sex-and-mating-types}
+  
+  \subsection{Population genetics}\label{population-genetics}
+  
+  \section{Marker systems}\label{marker-systems}
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    SSR
+  \item
+    GBS and SNPs
+  \item
+    reference genome of P. syringae \ldots{} 
+  \end{itemize}
+  
   \subsection{\texorpdfstring{\emph{P.
   ramorum}}{P. ramorum}}\label{p.-ramorum}
   
@@ -171,6 +189,9 @@ manuscript.}
   \item
     Abundant in OR Nurseries
   \end{itemize}
+  
+  \subsection{Examples of pop gen from
+  Phytophthora}\label{examples-of-pop-gen-from-phytophthora}
   
   \section{Population genetics of clonal
   organisms}\label{population-genetics-of-clonal-organisms}
@@ -194,13 +215,32 @@ manuscript.}
   
   Problems with file formatting, time, and reproducibility.
   
+  \subsection{Introduce R as a great
+  toolbox}\label{introduce-r-as-a-great-toolbox}
+  
   \subsection{The present}\label{the-present}
   
   poppr
   
-  \subsection{The future}\label{the-future}
+  \subsection{Conclusion}\label{conclusion}
   
-  ???
+  \begin{itemize}
+  \tightlist
+  \item
+    Open soruces nature of poppr.
+  \item
+    Related tools:
+  \item
+    adegeent
+  \item
+    pegas
+  \item
+    etc.
+  \item
+    Pop gen info for two Phytophthoras
+  \item
+    Major results of your work in 2-4 sentences \ldots{}
+  \end{itemize}
   
   \chapter{\texorpdfstring{\emph{Poppr}: an R Package For Genetic Analysis
   of Populations With Clonal, Partially Clonal, and/or Sexual
@@ -295,6 +335,47 @@ manuscript.}
   
   TBD\ldots{}
   
+  \section{Introduction}\label{introduction-1}
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    Population Genetics of partially clonal organisms
+  
+    \begin{itemize}
+    \tightlist
+    \item
+      This has been studied in the past (Orive 1993; Smith \emph{et al.}
+      1993; Balloux \emph{et al.} 2003; Meeûs \& Balloux 2004)
+    \end{itemize}
+  \item
+    Methods for assessing level of clonal reproduction (CloNcaSe) (Ali
+    \emph{et al.} 2016)
+  \end{itemize}
+  
+  \section{Methods}\label{methods}
+  
+  All simulations were performed with the python package simuPOP version
+  1.1.7 in python version 3.4
+  
+  \subsection{Microsatellite Simulation}\label{microsatellite-simulation}
+  
+  For each scenario, 100 simulations with 10 replicates were created. Each
+  replicate started with 10,000 individuals over 20 co-dominant loci
+  containing 6 to 10 alleles with frequencies drawn from a uniform
+  distribution and normalized. Each population was evolved over 10,000
+  generations for each scenario. Before mating, mutations occurred at each
+  locus at a rate of 1e-5 mutations/generation. From each replicate, 10,
+  25, 50, and 100 individuals were sampled without replacement for
+  downstream analysis.
+  
+  \subsection{Microsatellite Analysis}\label{microsatellite-analysis}
+  
+  The standardized index of association (\(\bar{r}_d\)) was calculated in
+  R version 3.2 with the package \emph{poppr} version 2.2.1 using the
+  function \texttt{ia()} within custom scripts (supplementary
+  information).
+  
   \backmatter
   
   \chapter{References}\label{references}
@@ -305,11 +386,36 @@ manuscript.}
   \setlength{\parskip}{8pt}
   
   \hypertarget{refs}{}
+  \hypertarget{ref-ali2016cloncase}{}
+  Ali S, Soubeyrand S, Gladieux P \emph{et al.} (2016) Cloncase:
+  Estimation of sex frequency and effective population size by clonemate
+  resampling in partially clonal organisms. \emph{Molecular ecology
+  resources}.
+  
+  \hypertarget{ref-balloux2003population}{}
+  Balloux F, Lehmann L, Meeûs T de (2003) The population genetics of
+  clonal and partially clonal diploids. \emph{Genetics}, \textbf{164},
+  1635--1644.
+  
   \hypertarget{ref-grunwald2011phytophthora}{}
-  Grünwald, N. J., Martin, F. N., Larsen, M. M., Sullivan, C. M., Press,
-  C. M., Coffey, M. D., \ldots{} Parke, J. L. (2011). Phytophthora-ID.
+  Grünwald NJ, Martin FN, Larsen MM \emph{et al.} (2011) Phytophthora-ID.
   org: a sequence-based \emph{Phytophthora} identification tool.
-  \emph{Plant Disease}, \emph{95}(3), 337--342.
+  \emph{Plant Disease}, \textbf{95}, 337--342.
+  
+  \hypertarget{ref-de2004clonal}{}
+  Meeûs T de, Balloux F (2004) Clonal reproduction and linkage
+  disequilibrium in diploids: A simulation study. \emph{Infection,
+  genetics and evolution}, \textbf{4}, 345--351.
+  
+  \hypertarget{ref-orive1993effective}{}
+  Orive ME (1993) Effective population size in organisms with complex
+  life-histories. \emph{Theoretical population biology}, \textbf{44},
+  316--340.
+  
+  \hypertarget{ref-smith1993how}{}
+  Smith JM, Smith NH, O'Rourke M, Spratt BG (1993) How clonal are
+  bacteria? \emph{Proceedings of the National Academy of Sciences},
+  \textbf{90}, 4384--4388.
 
 
 \end{document}
