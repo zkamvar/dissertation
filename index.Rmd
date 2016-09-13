@@ -36,9 +36,9 @@ output:
 # or use code similar to the line below for the files.  If you are producing in 
 # a different format than PDF, you can delete or ignore the following lines in 
 # this YAML header.
-bibliography: ['bib/fronteirs_citations.bib']
+bibliography: ['bib/fronteirs_citations.bib', 'bib/main_bibliography.bib']
 # Download your specific bibliography database file and refer to it in the line above.
-csl: csl/apa.csl
+csl: csl/molecular-ecology.csl
 # Download your specific csl file and refer to it in the line above.
 # header-includes:
 #- \usepackage{tikz}
@@ -62,9 +62,16 @@ dedication: >
 #  like the files above.
 ---
 
+<!-- NIK
 
-Introduction
-============
+THIS IS A BLOCK COMMENT
+
+ -->
+
+<!-- NIK This is an inline comment -->
+
+
+# Introduction
 
 The objectives of my work were two-fold and included 
 
@@ -72,10 +79,27 @@ The objectives of my work were two-fold and included
  2. application of these tools to populations of the plant pathogen genus
     *Phytophthora*.
 
-The Genus *Phytophthora*
--------------------------
+## The Genus *Phytophthora*
 
-- include a figures such as: phylogenetic placement, morphologial fatures,  life cycle, sexual cycle, GBS
+<!-- NIK
+
+include a figures such as: phylogenetic placement, morphologial fatures,  life cycle, sexual cycle, GBS
+
+ -->
+
+### life cycle
+
+### Sex and mating types
+
+### Population genetics
+
+## Marker systems
+
+- SSR
+- GBS and SNPs
+- reference genome of P. syringae ... <!-- ZHIAN Are we allowed to publish this? -->
+
+
 
 ### *P. ramorum*
 
@@ -86,28 +110,15 @@ The Genus *Phytophthora*
  - Abundant in OR Nurseries
 
 
-### life cycle
-
-### Sex and mating types
-
-### Population genetics
-
-## Marker systems
--SSR
-- GBS and SNPs
-- reference genome of P. syringae ...
-
-
-
 ### Examples of pop gen from Phytophthora
 
-Population genetics of clonal organisms
-------------------------------------------------
+
+## Population genetics of clonal organisms
+
 
 Clonal populations are a special case ...
 
-Tools for analysis of clonal population genetics
-------------------------------------------------
+## Tools for analysis of clonal population genetics
 
 ### The past
 
@@ -124,8 +135,17 @@ Problems with file formatting, time, and reproducibility.
 
 poppr
 
-> I am not sure intrdocuing poppr ehre is a good idea. This is the result f chapter 2?
+<!-- NIK
 
+I am not sure intrdocuing poppr ehre is a good idea. This is the result f chapter 2?
+
+ZHIAN
+
+I believe it was in the right place until things were moved around :P In any
+case, Currently the structure of this does not match the structure that we 
+discussed. I believe more discussion is needed to resolve this. 
+
+ -->
 
 ### Conclusion
 
@@ -135,5 +155,5 @@ poppr
   - pegas
   - etc.
 - Pop gen info for two Phytophthoras
-- - Major results of your work in 2-4 sentences ...
+  - Major results of your work in 2-4 sentences ...
 
