@@ -6,8 +6,13 @@ can find a copy of this template at https://github.com/zkamvar/thesisdown/tree/o
 This should comply with the [thesis guide for Oregon State University][4]. It's
 based off of the [overleaf template][5]
 
-#### [VIEW THE PDF](_book/thesis.pdf)
+----
 
+<center>
+### [VIEW THE PDF](_book/thesis.pdf)
+</center>
+
+----
 
 ## Editing Guidelines
 
@@ -43,6 +48,27 @@ there is a long thread.
 Minor edits (spelling, grammar, etc.) can be made right away and committed to
 the master branch. Other commits should be made to a new branch and submitted as
 a pull request (check the second button when making changes on github). 
+
+### Bibliography
+
+To add a bibliography entry, add it to
+[bib/main_bibliography.bib](bib/main_bibliography.bib). If you can, put a note
+about what the entry is about. If the title has specific capitalization or a
+italicization, put an extra set of curly braces `{}` around it:
+
+```latex
+% Index of Association application ---------------------------------------------
+@article{burt1996molecular,
+  title={{Molecular markers reveal cryptic sex in the human pathogen \textit{Coccidioides immitis}}},
+  author={Burt, Austin and Carter, Deidre A and Koenig, Gina L and White, Thomas J and Taylor, John W},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={93},
+  number={2},
+  pages={770--773},
+  year={1996},
+  publisher={National Acad Sciences}
+}
+```
 
 ## Installation
 
