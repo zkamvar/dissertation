@@ -6,6 +6,44 @@ can find a copy of this template at https://github.com/zkamvar/thesisdown/tree/o
 This should comply with the [thesis guide for Oregon State University][4]. It's
 based off of the [overleaf template][5]
 
+#### [VIEW THE PDF](_book/thesis.pdf)
+
+
+## Editing Guidelines
+
+### Comments
+
+Comments will be HTML-style comments. To ensure that we have effective
+communication, I'm outlining a style guide for commenting. Comments will look
+like this:
+
+```html
+
+
+<!-- NIK
+
+This is a block comment
+
+ZHIAN
+
+With replies continuing
+
+ -->
+
+Here's some text <!-- NIK This is an inline comment -->
+
+```
+
+The comments will start with the author's name in all caps so that it's easy to 
+quickly identify who wrote the comment and where the replies are in the case
+there is a long thread.
+
+### Editing
+
+Minor edits (spelling, grammar, etc.) can be made right away and committed to
+the master branch. Other commits should be made to a new branch and submitted as
+a pull request (check the second button when making changes on github). 
+
 ## Installation
 
 To install the template, be sure you have the following:
@@ -39,7 +77,7 @@ To render your thesis, you can open `index.Rmd` in RStudio and then hit the
 bookdown::render_book("index.Rmd")
 ```
 
-You can find the thesis in [_book/thesis.pdf](_book/thesis.pdf)
+You can find the thesis in [**_book/thesis.pdf**](_book/thesis.pdf)
 
 ## Components
 
