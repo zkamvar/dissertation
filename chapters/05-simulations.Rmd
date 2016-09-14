@@ -8,7 +8,7 @@ TBD...
 
 <!-- ZHIAN
 
- Thinking about different topics to address here 
+ Thinking about different topics to address here. 
 
  -->
 
@@ -55,4 +55,8 @@ replacement for downstream analysis.
 
 The standardized index of association ($\bar{r}_d$) was calculated in R version
 3.2 with the package *poppr* version 2.2.1 using the function `ia()` within
-custom scripts (supplementary information).
+custom scripts (supplementary information). Tests for significance were
+performed by randomly permuting the alleles at each locus independently and then
+assessing $\bar{r}_d$. This was done 999 times for each replicate population.
+The p-values reflect the proportion of observations greater than the observed
+statistic.
