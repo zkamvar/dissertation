@@ -8,7 +8,7 @@ based off of the [overleaf template][5]
 
 ----
 
-### [VIEW THE PDF](_book/thesis.pdf)
+## [VIEW THE PDF](_book/thesis.pdf)
 
 ----
 
