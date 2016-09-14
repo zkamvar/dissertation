@@ -1,0 +1,94 @@
+# Introduction
+
+<!-- NIK
+
+THIS IS A BLOCK COMMENT
+
+ -->
+
+<!-- NIK This is an inline comment -->
+
+
+The objectives of my work were two-fold and included 
+
+ 1. development of computational tools to characterize populations and 
+ 2. application of these tools to populations of the plant pathogen genus
+    *Phytophthora*.
+
+## The Genus *Phytophthora*
+
+<!-- NIK
+
+include a figures such as: phylogenetic placement, morphologial fatures,  life cycle, sexual cycle, GBS
+
+ -->
+
+### life cycle
+
+### Sex and mating types
+
+### Population genetics
+
+## Marker systems
+
+- SSR
+- GBS and SNPs
+- reference genome of P. syringae ... <!-- ZHIAN Are we allowed to publish this? -->
+
+
+
+### *P. ramorum*
+
+ - Sudden Oak Death
+
+### *P. syringae*
+
+ - Abundant in OR Nurseries (found in foliar isolates) [@parke2014phytophthora]
+
+
+### Examples of pop gen from Phytophthora
+
+
+## Population genetics of clonal organisms
+
+
+Clonal populations are a special case ...
+
+## Tools for analysis of clonal population genetics
+
+### The past
+
+Plethora of tools, most designed for sexual populations except:
+
+ - GenClone
+ - GenoDive
+
+Problems with file formatting, time, and reproducibility.
+
+### Introduce R as a great toolbox
+
+### The present
+
+poppr
+
+<!-- NIK
+
+I am not sure intrdocuing poppr ehre is a good idea. This is the result f chapter 2?
+
+ZHIAN
+
+I believe it was in the right place until things were moved around :P In any
+case, Currently the structure of this does not match the structure that we 
+discussed. I believe more discussion is needed to resolve this. 
+
+ -->
+
+### Conclusion
+
+- Open soruces nature of poppr.
+- Related tools:
+  - adegeent
+  - pegas
+  - etc.
+- Pop gen info for two Phytophthoras
+  - Major results of your work in 2-4 sentences ...

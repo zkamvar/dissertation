@@ -1,6 +1,7 @@
 book_filename: "thesis"
 chapter_name: "Chapter "
 rmd_files: ["index.Rmd",
+  "chapters/00-introduction.Rmd",
   "chapters/01-poppr.Rmd",
   "chapters/02-ramorum.Rmd",
   "chapters/03-poppr2.Rmd",
