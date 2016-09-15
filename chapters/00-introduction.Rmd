@@ -1,15 +1,12 @@
 # Introduction
 
 <!-- NIK
-
-THIS IS A BLOCK COMMENT
-
- -->
-
-<!-- NIK This is an inline comment -->
-
 INTRO Paragraph: Plant pathogens evolve ... adapt to crops ... udnerstnaindg evolutiona nd population dynamics is useful ... HEnce your work .. focuisng on Phytophthora and tool development. The objectives of my work were thus two-fold and included (1) development of computational tools to characterize populations and (2) application of these tools to populations of the plant pathogen genus *Phytophthora*.
 
+ZHIAN 
+
+I put this as a comment since it's a guideline
+ -->
 ## Population genetics of clonal organisms
 
 Clonal populations are a special case ...
@@ -37,12 +34,21 @@ production of oospores and biflagellate zoospores that place them into the
 Stramenopiles [@baldauf2003deep]. They are most closely related to golden brown
 algae and quite diverged from fungi. 
 
-<!-- 
+<!-- NIK
 This might better be ina  separate section. 
 Since your dissertation does not include effector work, this is not crucial howevever.
 If you decide to incldue maker sure you explain what effectors are incldue the PAMP amnd MAMP and PTI concepts, etc.
 RXLR are not the only effectors. CRN and others are also important.
---->
+
+ZHIAN 
+
+See the note above. This was a copy/paste from my original project proposal. 
+I said that I would re-work it. 
+
+I'm not sure what you mean by "if you decide to include maker"? Are you
+referring to the software? 
+
+-->
 
 One of the distinguishing molecular
 characteristics of *Phytophthora spp.* are the presence of effector proteins
