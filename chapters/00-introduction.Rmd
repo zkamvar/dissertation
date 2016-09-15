@@ -8,14 +8,7 @@ THIS IS A BLOCK COMMENT
 
 <!-- NIK This is an inline comment -->
 
-
-
-
-The objectives of my work were two-fold and included 
-
- 1. development of computational tools to characterize populations and 
- 2. application of these tools to populations of the plant pathogen genus
-    *Phytophthora*.
+INTRO Paragraph: Plant pathogens evolve ... adapt to crops ... udnerstnaindg evolutiona nd population dynamics is useful ... HEnce your work .. focuisng on Phytophthora and tool development. The objectives of my work were thus two-fold and included (1) development of computational tools to characterize populations and (2) application of these tools to populations of the plant pathogen genus *Phytophthora*.
 
 ## Population genetics of clonal organisms
 
@@ -42,7 +35,16 @@ problem on tomato and potato crops, resulting in losses exceeding $6 billion,
 annually [@haas2009genome]. *Phytophthora spp.* are water molds characterized by
 production of oospores and biflagellate zoospores that place them into the
 Stramenopiles [@baldauf2003deep]. They are most closely related to golden brown
-algae and quite diverged from fungi. One of the distinguishing molecular
+algae and quite diverged from fungi. 
+
+<!-- 
+This might better be ina  separate section. 
+Since your dissertation does not include effector work, this is not crucial howevever.
+If you decide to incldue maker sure you explain what effectors are incldue the PAMP amnd MAMP and PTI concepts, etc.
+RXLR are not the only effectors. CRN and others are also important.
+--->
+
+One of the distinguishing molecular
 characteristics of *Phytophthora spp.* are the presence of effector proteins
 with an RxLR motif. These proteins are necessary to confer virulence against the
 host and they are under extreme diversifying selection within species
