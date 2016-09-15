@@ -60,6 +60,16 @@ dedication: >
 # preface: >  
 #  Uncomment the above to include a preface. Again, this can be rendered much
 #  like the files above.
+# header-includes: >
+#   \usepackage{fontspec}
+#   \setmainfont[Mapping=tex-text, 
+#        Numbers=OldStyle, 
+#        % SizeFeatures={{Size=12}}
+#        ]{Times}
+#   \setsansfont[Mapping=tex-text, 
+#        Numbers=OldStyle, 
+#        % SizeFeatures={{Size=12}}
+#      ]{Helvetica}
 ---
 
 
