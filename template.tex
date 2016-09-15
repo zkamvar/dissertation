@@ -6,13 +6,16 @@
 %%
 % \documentclass{<something>} must begin each LaTeX document
 \documentclass[double,12pt]{beavtex}
+$for(header-includes)$
+  $header-includes$
+$endfor$
 % Added by CII
 \usepackage{graphicx,latexsym}
 \usepackage{amsmath}
 \usepackage{amssymb,amsthm}
 \usepackage{longtable,booktabs,setspace}
 \usepackage[hyphens]{url}
-\usepackage[colorlinks = true, 
+\usepackage[colorlinks = true,
 			urlcolor = blue,
 			linkcolor = black,
 			citecolor = black,
@@ -43,9 +46,6 @@
 \usepackage{caption}
 \captionsetup{width=5in}
 % End of CII addition
-$for(header-includes)$
-  $header-includes$
-$endfor$
 
 \title{$title$} % {An Analysis of Something}
 \author{$author$} % {Joseph A. Student}
