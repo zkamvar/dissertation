@@ -48,7 +48,7 @@
 \author{Zhian N. Kamvar} % {Joseph A. Student}
 \degree{Doctor of Philosophy} % {Master of Science}
 \doctype{Dissertation}
-\submitdate{January 1, 2013} % {January 1, 2013}
+\submitdate{December 6, 2016} % {January 1, 2013}
 \commencementyear{2017} % {2013}
 
 \department{Botany and Plant Pathology} % {Nuclear Engineering and Radiation Health Physics}
@@ -151,6 +151,11 @@ manuscript.}
     \emph{Phytophthora}.
   \end{enumerate}
   
+  \section{Population genetics of clonal
+  organisms}\label{population-genetics-of-clonal-organisms}
+  
+  Clonal populations are a special case \ldots{}
+  
   \section{\texorpdfstring{The Genus
   \emph{Phytophthora}}{The Genus Phytophthora}}\label{the-genus-phytophthora}
   
@@ -159,7 +164,7 @@ manuscript.}
   which have significant impact on US agriculture. \emph{P. sojae} is a
   major problem on soybean, causing \$1-2 billion in losses each year
   (Tyler 2007). \emph{P. ramorum} is changing the landscape of the North
-  American West due to its wide host range (Gruenwald \emph{et al.} 2008),
+  American West due to its wide host range (Grünwald \emph{et al.} 2008),
   which results in devastating losses for the US forestry and nursery
   industries. And \emph{P. infestans}, which was a root cause of over a
   million deaths during the Irish Potato Famine and continues to be a
@@ -178,51 +183,68 @@ manuscript.}
   
   \subsection{Sex and mating types}\label{sex-and-mating-types}
   
-  \subsection{Population genetics}\label{population-genetics}
-  
-  \section{Marker systems}\label{marker-systems}
-  
-  \begin{itemize}
-  \tightlist
-  \item
-    SSR
-  \item
-    GBS and SNPs
-  \item
-    reference genome of \emph{P. syringae} \ldots{} 
-  \end{itemize}
-  
-  \subsection{\texorpdfstring{\emph{P.
-  ramorum}}{P. ramorum}}\label{p.-ramorum}
+  \subsection{\texorpdfstring{Heterothallic, clonal: \emph{P.
+  ramorum}}{Heterothallic, clonal: P. ramorum}}\label{heterothallic-clonal-p.-ramorum}
   
   \begin{itemize}
   \tightlist
   \item
     Sudden Oak Death
+  \item
+    Population genetics in US nurseries (Goss \emph{et al.} 2009)
   \end{itemize}
   
-  \subsection{\texorpdfstring{\emph{P.
-  syringae}}{P. syringae}}\label{p.-syringae}
+  \subsection{\texorpdfstring{Homothallic, partially clonal: \emph{P.
+  syringae}}{Homothallic, partially clonal: P. syringae}}\label{homothallic-partially-clonal-p.-syringae}
   
   \begin{itemize}
   \tightlist
   \item
     Abundant in OR Nurseries (found in foliar isolates) (Parke \emph{et
     al.} 2014)
+  \item
+    Genetic structure uncharacterized
   \end{itemize}
-  
-  \subsection{Examples of pop gen from
-  Phytophthora}\label{examples-of-pop-gen-from-phytophthora}
-  
-  \section{Population genetics of clonal
-  organisms}\label{population-genetics-of-clonal-organisms}
-  
-  Clonal populations are a special case \ldots{}
   
   \section{Tools for analysis of clonal population
   genetics}\label{tools-for-analysis-of-clonal-population-genetics}
   
-  \subsection{The past}\label{the-past}
+  Recommendations have been made for analysis (Arnaud-Hanod \emph{et al.}
+  2007)
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    MLG diversity
+  \item
+    Genotype Accumulation Curve
+  \item
+    \(P_{sex}\) and \(P_{gen}\)
+  \end{itemize}
+  
+  \subsection{Index of Association}\label{index-of-association}
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    Standardized Version (Agapow \& Burt 2001)
+  \item
+    Previous Simulation Analyses (de Meeûs \& Balloux 2004)
+  \item
+    What's missing
+  
+    \begin{itemize}
+    \tightlist
+    \item
+      Sympatric clonal lineages
+    \item
+      Analysis of significance testing
+    \item
+      HTS markers
+    \end{itemize}
+  \end{itemize}
+  
+  \subsection{Software Limitations}\label{software-limitations}
   
   Plethora of tools, most designed for sexual populations except:
   
@@ -236,27 +258,43 @@ manuscript.}
   
   Problems with file formatting, time, and reproducibility.
   
-  \subsection{Introduce R as a great
-  toolbox}\label{introduce-r-as-a-great-toolbox}
-  
-  \subsection{The present}\label{the-present}
-  
-  poppr
-  
-  \subsection{Conclusion}\label{conclusion}
+  \subsection{poppr}\label{poppr}
   
   \begin{itemize}
   \tightlist
   \item
-    Open soruces nature of poppr.
+    R
   \item
-    Related tools:
+    poppr
+  \end{itemize}
+  
+  \section{Applications of novel tools for analysis of partially-clonal
+  populations}\label{applications-of-novel-tools-for-analysis-of-partially-clonal-populations}
+  
+  \begin{itemize}
+  \tightlist
   \item
-    adegent
+    Simulation analysis of \(\bar{r}_d\)
   \item
-    pegas
+    SSR analysis of \emph{P. ramorum}
   \item
-    etc.
+    GBS analysis of \emph{P. syringae}
+  \end{itemize}
+  
+  \section{Conclusion}\label{conclusion}
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    Open Source Scientific Software Development of Poppr
+  
+    \begin{itemize}
+    \tightlist
+    \item
+      Related tools
+    \end{itemize}
+  \item
+    Simulation Analysis
   \item
     Pop gen info for two \emph{Phytophthoras}
   \item
@@ -385,12 +423,12 @@ manuscript.}
     \tightlist
     \item
       This has been studied in the past (Orive 1993; Smith \emph{et al.}
-      1993; Balloux \emph{et al.} 2003; Meeûs \& Balloux 2004)
+      1993; Balloux \emph{et al.} 2003; de Meeûs \& Balloux 2004)
     \item
       The index of association (Brown \emph{et al.} 1980; Smith \emph{et
       al.} 1993; Agapow \& Burt 2001)
     \item
-      In Meeûs \& Balloux (2004), it was shown that \(\bar{r}_d\) has a
+      In de Meeûs \& Balloux (2004), it was shown that \(\bar{r}_d\) has a
       high variance in clonal populations and Smith \emph{et al.} (1993)
       showed that it's affected by population structure.
     \end{itemize}
@@ -414,7 +452,7 @@ manuscript.}
     \item
       Significance tests are routinely performed via permutation analysis,
       but could not be performed due to software limitations (Burt
-      \emph{et al.} 1996; Meeûs \& Balloux 2004)
+      \emph{et al.} 1996; de Meeûs \& Balloux 2004)
     \end{itemize}
   \item
     Objectives
@@ -435,18 +473,17 @@ manuscript.}
   \section{Methods}\label{methods}
   
   All simulations were performed with the python package simuPOP version
-  1.1.7 in python version 3.4
+  1.1.7 in python version 3.4. For each scenario, 100 simulations with 10
+  replicates were created with a census size of 10,000 individuals evolved
+  over 10,000 generations. From each replicate, 10, 25, 50, and 100
+  individuals were sampled without replacement for downstream analysis.
   
   \subsection{Microsatellite Simulation}\label{microsatellite-simulation}
   
-  For each scenario, 100 simulations with 10 replicates were created. Each
-  replicate started with 10,000 individuals over 20 co-dominant loci
-  containing 6 to 10 alleles with frequencies drawn from a uniform
-  distribution and normalized. Each population was evolved over 10,000
-  generations for each scenario. Before mating, mutations occurred at each
-  locus at a rate of 1e-5 mutations/generation. From each replicate, 10,
-  25, 50, and 100 individuals were sampled without replacement for
-  downstream analysis.
+  Each population was simulated with 20 co-dominant loci containing 6 to
+  10 alleles with frequencies drawn from a uniform distribution and
+  normalized. Before mating, mutations occurred at each locus at a rate of
+  1e-5 mutations/generation.
   
   \subsection{Microsatellite Analysis}\label{microsatellite-analysis}
   
@@ -458,6 +495,13 @@ manuscript.}
   \(\bar{r}_d\). This was done 999 times for each replicate population.
   The p-values reflect the proportion of observations greater than the
   observed statistic.
+  
+  \subsection{GBS Simulations}\label{gbs-simulations}
+  
+  Simulations of 10,000 binary loci at intervals of 1 Mbp over 100
+  chromosomal fragments were simulated with a mutation rate of 1e-5
+  mutations per generation and a recombination rate of 1e-5 for sexually
+  recombining populations.
   
   \backmatter
   
@@ -479,12 +523,17 @@ manuscript.}
   resampling in partially clonal organisms. \emph{Molecular ecology
   resources}.
   
+  \hypertarget{ref-arnaud2007standardizing}{}
+  Arnaud-Hanod S, Duarte CM, Alberto F, Serrão EA (2007) Standardizing
+  methods to address clonality in population studies. \emph{Molecular
+  Ecology}, \textbf{16}, 5115--5139.
+  
   \hypertarget{ref-baldauf2003deep}{}
   Baldauf S (2003) The deep roots of eukaryotes. \emph{Science},
   \textbf{300}, 1703--1706.
   
   \hypertarget{ref-balloux2003population}{}
-  Balloux F, Lehmann L, Meeûs T de (2003) The population genetics of
+  Balloux F, Lehmann L, de Meeûs T (2003) The population genetics of
   clonal and partially clonal diploids. \emph{Genetics}, \textbf{164},
   1635--1644.
   
@@ -499,16 +548,27 @@ manuscript.}
   immitis}. \emph{Proceedings of the National Academy of Sciences},
   \textbf{93}, 770--773.
   
+  \hypertarget{ref-de2004clonal}{}
+  de Meeûs T, Balloux F (2004) Clonal reproduction and linkage
+  disequilibrium in diploids: A simulation study. \emph{Infection,
+  genetics and evolution}, \textbf{4}, 345--351.
+  
   \hypertarget{ref-erwin1996phytophthora}{}
   Erwin DC, Ribeiro OK, others (1996) \emph{Phytophthora diseases
-  worldwide.} American Phytopathological Society (APS Press), St. Paul,
+  worldwide}. American Phytopathological Society (APS Press), St. Paul,
   Minnesota, USA.
   
+  \hypertarget{ref-goss2009population}{}
+  Goss EM, Larsen M, Chastagner GA, Givens DR, Grünwald NJ (2009)
+  Population genetic analysis infers migration pathways of
+  \emph{Phytophthora ramorum} in US nurseries. \emph{PLoS Pathog},
+  \textbf{5}, e1000583.
+  
   \hypertarget{ref-grunwald2008phytophthora}{}
-  Gruenwald NJ, Goss EM, Press CM (2008) Phytophthora ramorum: A pathogen
-  with a remarkably wide host range causing sudden oak death on oaks and
-  ramorum blight on woody ornamentals. \emph{Molecular Plant Pathology},
-  \textbf{9}, 729--740.
+  Grünwald NJ, Goss EM, Press CM (2008) \emph{Phytophthora ramorum}: a
+  pathogen with a remarkably wide host range causing sudden oak death on
+  oaks and ramorum blight on woody ornamentals. \emph{Molecular Plant
+  Pathology}, \textbf{9}, 729--740.
   
   \hypertarget{ref-grunwald2011phytophthora}{}
   Grünwald NJ, Martin FN, Larsen MM \emph{et al.} (2011)
@@ -517,17 +577,12 @@ manuscript.}
   
   \hypertarget{ref-haas2009genome}{}
   Haas BJ, Kamoun S, Zody MC \emph{et al.} (2009) Genome sequence and
-  analysis of the irish potato famine pathogen phytophthora infestans.
-  \emph{Nature}, \textbf{461}, 393--398.
+  analysis of the Irish potato famine pathogen \emph{Phytophthora
+  infestans}. \emph{Nature}, \textbf{461}, 393--398.
   
   \hypertarget{ref-kroon2012genus}{}
-  Kroon LP, Brouwer H, Cock AW de, Govers F (2012) The genus phytophthora
-  anno 2012. \emph{Phytopathology}, \textbf{102}, 348--364.
-  
-  \hypertarget{ref-de2004clonal}{}
-  Meeûs T de, Balloux F (2004) Clonal reproduction and linkage
-  disequilibrium in diploids: A simulation study. \emph{Infection,
-  genetics and evolution}, \textbf{4}, 345--351.
+  Kroon LP, Brouwer H, Cock AW de, Govers F (2012) The Genus
+  \emph{Phytophthora}. \emph{Phytopathology}, \textbf{102}, 348--364.
   
   \hypertarget{ref-orive1993effective}{}
   Orive ME (1993) Effective population size in organisms with complex
@@ -536,7 +591,7 @@ manuscript.}
   
   \hypertarget{ref-parke2014phytophthora}{}
   Parke JL, Knaus BJ, Fieland VJ, Lewis C, Grünwald NJ (2014) Phytophthora
-  community structure analyses in oregon nurseries inform systems
+  community structure analyses in Oregon nurseries inform systems
   approaches to disease management. \emph{Phytopathology}, \textbf{104},
   1052--1062.
   
@@ -546,13 +601,13 @@ manuscript.}
   \textbf{90}, 4384--4388.
   
   \hypertarget{ref-tyler2007phytophthora}{}
-  Tyler BM (2007) Phytophthora sojae: Root rot pathogen of soybean and
-  model oomycete. \emph{Molecular plant pathology}, \textbf{8}, 1--8.
+  Tyler BM (2007) \emph{Phytophthora sojae}: root rot pathogen of soybean
+  and model oomycete. \emph{Molecular plant pathology}, \textbf{8}, 1--8.
   
   \hypertarget{ref-yoshida2013rise}{}
   Yoshida K, Schuenemann VJ, Cano LM \emph{et al.} (2013) The rise and
-  fall of the phytophthora infestans lineage that triggered the irish
-  potato famine. \emph{Elife}, \textbf{2}, e00731.
+  fall of the \emph{Phytophthora infestans} lineage that triggered the
+  Irish potato famine. \emph{Elife}, \textbf{2}, e00731.
 
 
 \end{document}
