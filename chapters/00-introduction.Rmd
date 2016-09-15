@@ -42,7 +42,14 @@ problem on tomato and potato crops, resulting in losses exceeding $6 billion,
 annually [@haas2009genome]. *Phytophthora spp.* are water molds characterized by
 production of oospores and biflagellate zoospores that place them into the
 Stramenopiles [@baldauf2003deep]. They are most closely related to golden brown
-algae and quite diverged from fungi. One of the distinguishing molecular
+algae and quite diverged from fungi. 
+
+<!-- 
+This might better be ina  separate section. 
+Since your dissertation does not include effector work, this is not crucial howevever.
+If you decide to incldue maker sure you explain what effectors are incldue the PAMP amnd MAMP and PTI concepts, etc.
+--->
+One of the distinguishing molecular
 characteristics of *Phytophthora spp.* are the presence of effector proteins
 with an RxLR motif. These proteins are necessary to confer virulence against the
 host and they are under extreme diversifying selection within species
