@@ -77,15 +77,44 @@ To install the template, be sure you have the following:
  - [R >= 3.3.0][2]
  - [RStudio][3] (optional, but it helps)
 
-To get this document, you've either opened a new Rmarkdown document from Rstudio
-using the oregonstate template or you've run the following command in a clean
-working directory:
+## Rendering
 
-```r
-rmarkdown::draft("index.Rmd", template = "oregonstate", package = "thesisdown")
+### GITBOOK
+
+To render the document as an html gitbook, use the `render.sh` utility:
+
+
+```sh
+$ ./render.sh
+# ----------------------------------------------------------------------
+# Rendering EBOOK
+# 
+# If you want to render the PDF, set the -pdf flag
+# 
+#     ./render.sh -pdf
+# ----------------------------------------------------------------------
+# 
+# 
+# 
+# processing file: thesis.Rmd
+#   |.................................................................| 100%
+#    inline R code fragments
+# 
+# 
+# output file: thesis.knit.md
+# 
+# /usr/local/bin/pandoc +RTS -K512m -RTS thesis.utf8.md --to html --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output thesis.html --smart --email-obfuscation none --standalone --section-divs --table-of-contents --toc-depth 3 --template /Users/zhian/R/bookdown/templates/gitbook.html --number-sections --include-in-header /var/folders/qd/dpdhfsz12wb3c7wz0xdm6dbm0000gn/T//Rtmpyw5Xnp/rmarkdown-strd456e0723e9.html --mathjax --highlight-style pygments --bibliography bib/fronteirs_citations.bib --bibliography bib/main_bibliography.bib --filter /usr/local/bin/pandoc-citeproc
+# 
+# Output created: _book/1-introduction.html
 ```
 
-## Rendering
+You can view the rendered html document by typing (in osx):
+
+```sh
+open _book/1-introduction.html
+```
+
+### PDF
 
 To render your thesis, you can open `index.Rmd` in RStudio and then hit the
 "knit" button. Alternatively, you can use:
@@ -93,7 +122,7 @@ To render your thesis, you can open `index.Rmd` in RStudio and then hit the
 
 ```sh
 # On the command line
-./render.sh
+./render.sh -pdf
 ```
 
 ```r

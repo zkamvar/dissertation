@@ -6,3 +6,6 @@
 *.loap
 *.loat
 _bookdown_files/*
+*_book/*html
+*_book/libs/*
+*_book/*json
