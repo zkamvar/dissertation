@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $# -lt 1]; then
+if [ $# ]; then
 	echo
 	echo "Rendering EBOOK"
 	echo
@@ -8,11 +8,11 @@ if [ $# -lt 1]; then
 	echo
 	echo "    ./render.sh -pdf"
 	echo
-	sed -i 's/^[ \t]*\(beaver.*pdf.*$\)/  # \1/' index.Rmd
-	sed -i 's/^[ \t]*# \(beaver.*gitbook.*$\)/   \1/' index.Rmd
+	sed -i '' 's/^[ \t]*\(beaver.*pdf.*$\)/  # \1/' index.Rmd
+	sed -i '' 's/^[ \t]*# \(beaver.*gitbook.*$\)/  \1/' index.Rmd
 	Rscript -e 'bookdown::render_book("index.Rmd")'
-	sed -i 's/^[ \t]*# \(beaver.*pdf.*$\)/   \1/' index.Rmd
-	sed -i 's/^[ \t]*\(beaver.*gitbook.*$\)/  # \1/' index.Rmd
+	sed -i '' 's/^[ \t]*# \(beaver.*pdf.*$\)/  \1/' index.Rmd
+	sed -i '' 's/^[ \t]*\(beaver.*gitbook.*$\)/  # \1/' index.Rmd
 else
 	echo
 	echo "Rendering PDF"
