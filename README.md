@@ -1,7 +1,7 @@
 # Template for Zhian N. Kamvar's Dissertation
 
 This is the unofficial Oregon State University RMarkdown thesis template. You 
-can find a copy of this template at https://github.com/zkamvar/thesisdown/tree/osu-thesis.
+can find a copy of this template at https://github.com/zkamvar/beaverdown.
 
 This should comply with the [thesis guide for Oregon State University][4]. It's
 based off of the [overleaf template][5]
