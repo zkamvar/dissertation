@@ -77,6 +77,17 @@ To install the template, be sure you have the following:
  - [R >= 3.3.0][2]
  - [RStudio][3] (optional, but it helps)
 
+Open RStudio and run the following code:
+
+```r
+if (!require("beaverdown")){
+  if (!require("devtools") || packageVersion("devtools") < package_version("1.6")){
+    install.packages("devtools", repos = "http://cran.rstudio.com")
+  }
+  devtools::install_github("zkamvar/beaverdown")
+}
+```
+
 ## Rendering
 
 ### GITBOOK
