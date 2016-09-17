@@ -21,7 +21,15 @@ I put this as a comment since it's a guideline
 
 ## Population genetics of clonal organisms
 
-Clonal populations are a special case ...
+ - Population genetics is traditionally centered around HWE
+ - Clonal populations violate basic statistical inference
+ 	- non-independent samples (clones)
+ 	- excess heterozygosity
+ 	- Meselson effect [@balloux2003population; @butlin2000virgin;
+ 	  @welch2000evidence; @welch2001rates]
+ - Tools for assessing clonality
+ 	- MLG distribution [@arnaud2007standardizing]
+ 	- Index of Association [@Agapow_2001]
 
 ## The Genus *Phytophthora*
 
@@ -48,7 +56,7 @@ algae and quite diverged from fungi.
 
 <!-- NIK
 
-include a figures such as: phylogenetic placement, morphologial fatures,  life cycle, sexual cycle, GBS
+include a figures such as: phylogenetic placement, morphologial fatures, life cycle, sexual cycle, GBS
 
  -->
 
