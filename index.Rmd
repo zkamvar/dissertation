@@ -3,7 +3,7 @@
 # Required Information --------------------------------------------------------
 #
 doctype: 'Dissertation'            # or Thesis
-title: 'An Analysis of Something'  # make a better title than this...
+title: 'Development and Application of Tools for Analysis of Clonal Population Genetics'
 author: 'Zhian N. Kamvar'
 date: 'December 6, 2016'            # date of submission
 commencement: '2017'               # year of commencement
