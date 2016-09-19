@@ -7,9 +7,26 @@ ZHIAN
 
 I put this as a comment since it's a guideline
  -->
+
+ - Plant Pathogens 
+ 	- Evolution and Adaptation
+ 	- Understanding clonal population dynamics (*Phytophthora* and *Zymoseptoria* examples)
+ - Tools for analysis
+ 	- Tools for clonal populations always come after sexual populations
+ 	- We wrote our own tools
+ - Goals of my work
+ 	1. development of computational tools to characterize populations
+ 	2. application of these tools to address empirical and theoretical questions
+
+
 ## Population genetics of clonal organisms
 
-Clonal populations are a special case ...
+ - Population genetics is traditionally centered around HWE
+ - Clonal populations violate basic statistical inference
+ 	- non-independent samples (clones)
+ 	- excess heterozygosity
+ 	- Meselson effect [@balloux2003population; @butlin2000virgin;
+ 	  @welch2000evidence; @welch2001rates]
 
 ## The Genus *Phytophthora*
 
@@ -35,30 +52,8 @@ Stramenopiles [@baldauf2003deep]. They are most closely related to golden brown
 algae and quite diverged from fungi. 
 
 <!-- NIK
-This might better be ina  separate section. 
-Since your dissertation does not include effector work, this is not crucial howevever.
-If you decide to incldue maker sure you explain what effectors are incldue the PAMP amnd MAMP and PTI concepts, etc.
-RXLR are not the only effectors. CRN and others are also important.
 
-ZHIAN 
-
-See the note above. This was a copy/paste from my original project proposal. 
-I said that I would re-work it. 
-
-I'm not sure what you mean by "if you decide to include maker"? Are you
-referring to the software? 
-
--->
-
-One of the distinguishing molecular
-characteristics of *Phytophthora spp.* are the presence of effector proteins
-with an RxLR motif. These proteins are necessary to confer virulence against the
-host and they are under extreme diversifying selection within species
-[@haas2009genome; @yoshida2013rise].
-
-<!-- NIK
-
-include a figures such as: phylogenetic placement, morphologial fatures,  life cycle, sexual cycle, GBS
+include a figures such as: phylogenetic placement, morphologial fatures, life cycle, sexual cycle, GBS
 
  -->
 
@@ -106,22 +101,6 @@ Problems with file formatting, time, and reproducibility.
 
  - R
  - poppr
-
-<!-- NIK
-
-I am not sure intrdocuing poppr ehre is a good idea. This is the result f chapter 2?
-
-ZHIAN
-
-I believe it was in the right place until things were moved around :P In any
-case, Currently the structure of this does not match the structure that we 
-discussed. I believe more discussion is needed to resolve this. 
-
-ZHIAN
-
-I've moved things around a bit in a way that makes sense to me. Again, we can
-discuss this.
- -->
 
 ## Applications of novel tools for analysis of partially-clonal populations
 
