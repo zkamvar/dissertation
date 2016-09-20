@@ -88,7 +88,6 @@ only clonal reproduction.
 
 ### Microsatellite Analysis
 
-
 The standardized index of association ($\bar{r}_d$) was calculated using the
 *poppr* function `ia()`. Tests for significance were performed by randomly
 permuting the alleles at each locus independently and then assessing
@@ -97,4 +96,22 @@ reflect the proportion of observations greater than the observed statistic.
 Estimates of genotypic diversity were assessed with the *poppr* function
 `diversity_boot()` with 999 bootstrap replicates, recording the variance.
 
+### GBS Analysis
 
+Because GBS data are associated with high error rates, we additionally wanted to
+assess the effect of error and missing data on analysis. To do this, we used
+scripts written for @kamvar2015novel to randomly insert missing data (via the
+`pop_NA()` function) and genotyping errors (via the `pop_mutator()`)
+[@kamvar2015poppr2supp] at rates of 5% and 10% each. We then used the *poppr*
+function `mlg.filter()` to with the farthest neighbor algorithm to collapse
+multilocus genotypes with 5% and 10% similarity and compared the results with
+the known genotypes. Genotypic diversity was assessed with the *poppr* function
+`diversity_boot()` with 999 bootstrap replicates on the filtered data sets,
+recording the variance.
+
+The overall value of $\bar{r}_d$ was calculated for each simulation with the
+*poppr* function `bitwise.ia()`. To assess within-chromosome dynamics, values of
+$\bar{r}_d$ were calculated along chromosomes using the *poppr* function
+`win.ia()` along windows of 50 and 100 SNPs. Cross-chromosome dynamics of
+$\bar{r}_d$ were assessed by utilizing random samples of 50, 100, and 1000 SNPs
+replicated 999 times for each population sample. 
