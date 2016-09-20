@@ -84,6 +84,7 @@ Estimates of genotypic diversity were assessed with the *poppr* function
 
 ### GBS Simulations
 
-Simulations of 10,000 binary loci at intervals of 1 Mbp over 100 chromosomal
-fragments were simulated with a mutation rate of 1e-5 mutations per generation
-and a recombination rate of 1e-5 for sexually recombining populations.
+Simulations of 10,000 binary loci at spread evenly over 10 chromosomal fragments
+were simulated with a mutation rate of 1e-5 mutations per generation for forward
+and backward mutations using the `SNPMutator()` operator and and a recombination
+rate of 1e-5 between adjacent loci using the `Recombinator()` operator.
