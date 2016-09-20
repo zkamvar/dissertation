@@ -115,3 +115,24 @@ $\bar{r}_d$ were calculated along chromosomes using the *poppr* function
 `win.ia()` along windows of 50 and 100 SNPs. Cross-chromosome dynamics of
 $\bar{r}_d$ were assessed by utilizing random samples of 50, 100, and 1000 SNPs
 replicated 999 times for each population sample. 
+
+
+### Power Analysis
+
+ROC analysis was carried as described in @metz1978basic as a comparison of the
+false positive fraction to the true positive fraction as you increase the level
+of rejection, ($\alpha$). Briefly, if a method has perfect explanatory power,
+the area under the ROC curve will be equal to 1. If a method has no explanatory
+power, the area under the ROC curve will be equal to 0.5. The null hypothesis
+for the ROC analysis was defined where the rate of sexual reproduction was 100%.
+All other rates were considered to be separate alternative hypotheses. The
+curves were calculated by analyzing the data sets over increasing values of
+$\alpha$ from 0 to 1 in increments of 0.01. The area under the ROC curves was
+calculated using the `trapz()` function in the R package *pracma* version
+1.9.5 [@borchers2016pracma]. ANOVA was run with the following models:
+
+|                                               |
+|:---------------------------------------------:|
+| False Positive Rate ∼ Sex Rate + Sample Size  |
+| Area Under ROC Curve ∼ Sex Rate + Sample Size |
+
