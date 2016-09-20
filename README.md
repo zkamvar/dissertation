@@ -92,10 +92,16 @@ if (!require("beaverdown")){
 
 ### GITBOOK
 
-To render the document as an html gitbook, use the `render.sh` utility:
+Open `index.Rmd` in RStudio and then hit the "knit" button. Alternatively, you
+can use:
 
+```r
+# In R
+bookdown::render_book("index.Rmd")
+```
 
 ```sh
+# In the Terminal
 $ ./render.sh
 # ----------------------------------------------------------------------
 # Rendering EBOOK
@@ -127,17 +133,13 @@ open _book/1-introduction.html
 
 ### PDF
 
-To render your thesis, you can open `index.Rmd` in RStudio and then hit the
-"knit" button. Alternatively, you can use:
-
-
 ```sh
 # On the command line
 ./render.sh -pdf
 ```
 
 ```r
-# In R
+# In R, make sure to edit index.Rmd to beaverdown::thesis_pdf
 bookdown::render_book("index.Rmd")
 ```
 
@@ -155,8 +157,7 @@ chapters in this file and ensure that the names match the names in your folders.
 ### [index.Rmd](index.Rmd)
 
 This file contains all the meta information that goes at the beginning of your
-document. Currently, we have the introduction in there, but you can leave that
-part blank if you wish. 
+document.
 
 ### [pre/](pre/)
 
