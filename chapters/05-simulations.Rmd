@@ -72,13 +72,14 @@ operator.
 
 ### Microsatellite Analysis
 
-The standardized index of association ($\bar{r}_d$) was calculated in R version
-3.2 with the package *poppr* version 2.2.1 using the function `ia()` within
-custom scripts (supplementary information). Tests for significance were
-performed by randomly permuting the alleles at each locus independently and then
-assessing $\bar{r}_d$. This was done 999 times for each replicate population.
-The p-values reflect the proportion of observations greater than the observed
-statistic.
+
+The standardized index of association ($\bar{r}_d$) was calculated using the
+*poppr* function `ia()`.  Tests for significance were performed by randomly
+permuting the alleles at each locus independently and then assessing
+$\bar{r}_d$. This was done 999 times for each replicate population. The p-values
+reflect the proportion of observations greater than the observed statistic.
+Estimates of genotypic diversity were assessed with the *poppr* function
+`diversity_boot()` with 999 bootstrap replicates, recording the variance.
 
 
 ### GBS Simulations
