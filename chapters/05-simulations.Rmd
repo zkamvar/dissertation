@@ -29,11 +29,21 @@ TBD...
  	- Significance tests are routinely performed via permutation analysis, but
  	  could not be performed due to software limitations [@burt1996molecular;
  	  @de2004clonal]
+ - Questions
+ 	1. With the advent of GBS, does marker choice affect inference of clonality?
+ 	2. Does sample size significantly affect our ability to detect clonal reproduction?
+ 	3. Can a combination of genotypic diversity estimators and allelic diversity
+ 	   estimator provide support for significantly negative values of $\bar{r}_d$?
  - Objectives
  	1. Analyze mixtures of clonal populations to assess effect of sampling
- 	   multiple clonal populations
+ 	   multiple clonal populations.
  	2. Re-analyze rates of sexual reproduction to confirm previous study
- 	3. Assess significance tests for $\bar{r}_d$
+ 	   [@de2004clonal].
+ 	3. Power analysis of $\bar{r}_d$.
+ 	4. Investigate dynamics of populations with significantly negative (p = 1)
+ 	   values of $\bar{r}_d$.
+	5. Assess $E_5$, *H*, $eMLG_{10}$, and unbiased Simpson's diversity.
+
 
 
 ## Methods
