@@ -40,9 +40,12 @@ TBD...
 
 All simulations were performed with the python package simuPOP version 1.1.7 in
 python version 3.4. For each scenario, 100 simulations with 10 replicates were
-created with a census size of 10,000 individuals with equal mating type proportions evolved over 10,000
-generations. From each replicate, 10, 25, 50, and 100 individuals were sampled
-without replacement for downstream analysis.
+created with a census size of 10,000 individuals with equal mating type
+proportions evolved over 10,000 generations. From each replicate, 10, 25, 50,
+and 100 individuals were sampled without replacement for downstream analysis in
+R version 3.2 with the package *poppr* version 2.2.1 on full and clone-corrected
+data sets. All downstream analyses were run via custom scripts on the OSU CGRB
+Core Computing Facility (supplementary information).
 
 ### Sexual Reproduction
 
