@@ -566,11 +566,12 @@ z <- mlg.filter(x, threshold = thresh18, distance = bruvo.dist, replen = ssr, lo
 
 ### Figure 3
 
-```{r, Figure-3, out.width = "0.5\\linewidth", echo = FALSE, fig.cap = paste(f3capn)}
+```{r, Figure-3, message = FALSE, out.width = "0.5\\linewidth", echo = FALSE, fig.cap = paste(f3capn)}
 knitr::include_graphics("figure/frontiers/Figure-3.png")
 
 tmpdir <- tempdir()
 bib <- paste0(knitr::opts_knit$get("output.dir"), "/bib/fronteirs_citations.bib")
+csl <- paste0(knitr::opts_knit$get("output.dir"), "/csl/molecular-ecology.csl")
 
 txt <- paste0("<!--pandoc
 t: latex
@@ -578,12 +579,13 @@ s:
 mathjax:
 number-sections:
 bibliography: ", bib, "\n",
+"csl: ", csl, "\n",
 "o: ", paste0(tmpdir, "/fig3.tex"), "\n",
 "-->
 
 CUT=======
 
-**Figure 3** (**A-B**) Minimum spanning networks of the hemagglutinin (HA)
+(**A-B**) Minimum spanning networks of the hemagglutinin (HA)
 segment of H3N2 viral DNA from the *adegenet* package representing flu epidemics
 from 2001 to 2006 without reticulation (**A**) and with reticulation (**B**)
 [@Jombart_2008; @jombart2010discriminant]. Each node represents a unique
