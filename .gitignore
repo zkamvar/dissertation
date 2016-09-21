@@ -9,3 +9,5 @@ _bookdown_files/*
 *_book/*html
 *_book/libs/*
 *_book/*json
+_book/figure/*
+_book/thesis_files/*
