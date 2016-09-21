@@ -518,9 +518,33 @@ is always < 0.451.
 
 \newpage
 
-### Figure 2
 
-```{r, Figure-2, echo = FALSE, message = FALSE, out.width = "0.5\\linewidth", fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = "Filtered multilocus genotypes"}
+```{r, Figure-2, echo = FALSE, message = FALSE, out.width = "0.5\\linewidth", fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = paste(capn)}
+if (knitr::opts_knit$get('rmarkdown.pandoc.to') == "latex"){
+ capn <- '
+Graphical representation of three different clustering algorithms
+collapsing multilocus genotypes for 12 SSR loci from \\textit{Phytophthora infestans}
+representing 18 clonal lineages. The horizontal axis is Bruvo\'s genetic distance
+assuming the genome addition model. The vertical axis represents the number of
+multilocus lineages observed. Each point shows the threshold at which one would
+observe a given number of multilocus genotypes. The horizontal black line
+represents 18 multilocus genotypes and vertical dashed lines mark the thresholds
+used to collapse the multilocus genotypes into 18 multilocus lineages.
+'
+} else {
+  capn <- '
+Graphical representation of three different clustering algorithms
+collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
+representing 18 clonal lineages. The horizontal axis is Bruvo\'s genetic distance
+assuming the genome addition model. The vertical axis represents the number of
+multilocus lineages observed. Each point shows the threshold at which one would
+observe a given number of multilocus genotypes. The horizontal black line
+represents 18 multilocus genotypes and vertical dashed lines mark the thresholds
+used to collapse the multilocus genotypes into 18 multilocus lineages.
+'	
+}
+
+print(knitr::opts_knit$get('rmarkdown.pandoc.to'))
 library('poppr')
 library('ape')
 library('phangorn')
@@ -537,23 +561,27 @@ thresh18 <- fstats$average$thresholds[nmll(x) - nPop(x)] + .Machine$double.eps^0
 z <- mlg.filter(x, threshold = thresh18, distance = bruvo.dist, replen = ssr, loss = FALSE, stats = "MLGS", algorithm = "average")
 ```
 
-**Figure 2** Graphical representation of three different clustering algorithms
-collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
-representing 18 clonal lineages. The horizontal axis is Bruvo's genetic distance
-assuming the genome addition model. The vertical axis represents the number of
-multilocus lineages observed. Each point shows the threshold at which one would
-observe a given number of multilocus genotypes. The horizontal black line
-represents 18 multilocus genotypes and vertical dashed lines mark the thresholds
-used to collapse the multilocus genotypes into 18 multilocus lineages.
 
 \newpage
 
 ### Figure 3
 
-```{r, Figure-3, out.width = "0.5\\linewidth", echo = FALSE, fig.cap = "Reticulated Minimum Spanning Network"}
+```{r, Figure-3, out.width = "0.5\\linewidth", echo = FALSE, fig.cap = paste(f3capn)}
 knitr::include_graphics("figure/frontiers/Figure-3.png")
-```
-\@ref(fig:Figure-3)
+
+tmpdir <- tempdir()
+bib <- paste0(knitr::opts_knit$get("output.dir"), "/bib/fronteirs_citations.bib")
+
+txt <- paste0("<!--pandoc
+t: latex
+s:
+mathjax:
+number-sections:
+bibliography: ", bib, "\n",
+"o: ", paste0(tmpdir, "/fig3.tex"), "\n",
+"-->
+
+CUT=======
 
 **Figure 3** (**A-B**) Minimum spanning networks of the hemagglutinin (HA)
 segment of H3N2 viral DNA from the *adegenet* package representing flu epidemics
@@ -564,6 +592,32 @@ absolute genetic distance. (**C**) Shannon entropy values for population
 assignments compared with communities determined by the infoMAP algorithm on
 (**A**) and (**B**). (**D**) Graphic reproduced from @jombart2010discriminant
 showing that the 2006 epidemic does not cluster neatly with the other years.
+
+CUT=======
+")
+
+intmp <- paste0(tmpdir, "/fig3.Rmd")
+cat(txt, file = intmp)
+
+
+outfile <- knitr::pandoc(intmp)
+tmptxt  <- readLines(outfile)
+outinds <- which(tmptxt == "CUT=======")
+inds    <- seq(from = outinds[1] + 2, to = outinds[2] - 2, by = 1)
+f3capn  <- paste(tmptxt[inds], collapse = "\n")
+
+```
+<!-- 
+
+**Figure 3** (**A-B**) Minimum spanning networks of the hemagglutinin (HA)
+segment of H3N2 viral DNA from the *adegenet* package representing flu epidemics
+from 2001 to 2006 without reticulation (**A**) and with reticulation (**B**)
+[@Jombart_2008; @jombart2010discriminant]. Each node represents a unique
+multilocus genotype, colors represent epidemic year, and edge color represents
+absolute genetic distance. (**C**) Shannon entropy values for population
+assignments compared with communities determined by the infoMAP algorithm on
+(**A**) and (**B**). (**D**) Graphic reproduced from @jombart2010discriminant
+showing that the 2006 epidemic does not cluster neatly with the other years. -->
 
 
 \newpage
@@ -723,6 +777,17 @@ par(mar = c(5, 4, 4, 2) + 0.1)
 layout(matrix(1))
 ```
 
+**Figure 6** **(A)** Sliding window analysis of the standardized index of
+association ($\bar{r}_d$) across a simulated $1.1 \times 10^4$ nt chromosome
+containing 1,100 variants among 100 individuals. Each window analyzed variants
+within 500nt chunks. The black line refers to the clonal and the blue line to
+the sexual populations. **(B)** boxplots showing 100 random samples of 50
+variants to calculate a distribution of $\bar{r}_d$ for the clonal (red) and
+sexual (blue) populations. Each box is centered around the mean, with whiskers
+extending out to 1.5 times the interquartile range. The median is indicated by
+the center line. **(A)** and **(B)** are plotted on the same y-axis.
+
+
 \newpage
 
 **Table 1** Contingency table comparing multilocus lineages assigned based on
@@ -740,15 +805,7 @@ knitr::kable(res, align = "c")
 
 
 
-**Figure 6** **(A)** Sliding window analysis of the standardized index of
-association ($\bar{r}_d$) across a simulated $1.1 \times 10^4$ nt chromosome
-containing 1,100 variants among 100 individuals. Each window analyzed variants
-within 500nt chunks. The black line refers to the clonal and the blue line to
-the sexual populations. **(B)** boxplots showing 100 random samples of 50
-variants to calculate a distribution of $\bar{r}_d$ for the clonal (red) and
-sexual (blue) populations. Each box is centered around the mean, with whiskers
-extending out to 1.5 times the interquartile range. The median is indicated by
-the center line. **(A)** and **(B)** are plotted on the same y-axis.
+
 
 
 ## References
