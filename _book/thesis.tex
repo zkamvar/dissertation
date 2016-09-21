@@ -418,13 +418,750 @@ manuscript.}
   association, modular bootstrapping of any genetic distance, and analyses
   across any level of hierarchies.
   
+  \section{Introduction}\label{introduction-1}
+  
+  To paraphrase Dobzhansky, nothing in the field of plant-microbe
+  interactions makes sense except in the light of population genetics
+  (Dobzhansky 1973). Genetic forces such as selection and drift act on
+  alleles in a population. Thus, a true understanding of how plant
+  pathogens emerge, evolve and adapt to crops, fungicides, or other
+  factors, can only be elucidated in the context of population level
+  phenomena given the demographic history of populations (Milgroom
+  \emph{et al.} 1989; McDonald \& Linde 2002; Grünwald \& Goss 2011). The
+  field of population genetics, in the era of whole genome resequencing,
+  provides unprecedented power to describe the evolutionary history and
+  population processes that drive coevolution between pathogens and hosts.
+  This powerful field thus critically enables effective deployment of R
+  genes, design of pathogen informed plant resistance breeding programs,
+  and implementation of fungicide rotations that minimize emergence of
+  resistance.
+  
+  Most computational tools for population genetics are based on concepts
+  developed for sexual model organisms. Populations that reproduce
+  clonally or are polyploid are thus difficult to characterize using
+  classical population genetic tools because theoretical assumptions
+  underlying the theory are violated. Yet, many plant pathogen populations
+  are at least partially clonal if not completely clonal (Anderson \& Kohn
+  1995; Milgroom 1996). Thus, development of tools for analysis of clonal
+  or polyploid populations is needed.
+  
+  Genotyping by sequencing and whole genome resequencing provide the
+  unprecedented ability to identify thousands of single nucleotide
+  polymorphisms (SNPs) in populations (Luikart \emph{et al.} 2003; Davey
+  \emph{et al.} 2011; Elshire \emph{et al.} 2011). With traditional marker
+  data (e.g., SSR, AFLP) a clone was typically defined as a unique
+  multilocus genotype (MLG) (Falush \emph{et al.} 2003; Taylor \& Fisher
+  2003; Grünwald \& Hoheisel 2006; Goss \emph{et al.} 2009; Cooke \emph{et
+  al.} 2012). Availability of large SNP data sets provides new challenges
+  for data analysis. These data are based on reduced representation
+  libraries and high throughput sequencing with moderate sequencing depth
+  which invariably results in substantial missing data, error in SNP
+  calling due to sequencing error, lack of read depth or other sources of
+  spurious allele calls (Mastretta-Yanes \emph{et al.} 2015). It is thus
+  not clear what a clone is in large SNP data sets and novel tools are
+  required for definition of clone boundaries.
+  
+  The research community using the R statistical and computing language (R
+  Core Team 2015) has developed a plethora of new resources for population
+  genetic analysis. R is particularly appealing because all code is open
+  source and functions can be evaluated and modified by any user.
+  Recently, we introduced the R package \emph{poppr} specifically
+  developed for analysis of clonal populations (Kamvar \emph{et al.}
+  2014b). \emph{Poppr} previously introduced several novel features
+  including the ability to conduct a hierarchical analysis across
+  unlimited hierarchies, test for linkage association, graph minimum
+  spanning networks or provide bootstrap support for Bruvo's distance in
+  resulting trees. \emph{Poppr} has been rapidly adopted and applied to a
+  range of studies including for example horizontal transmission in
+  leukemia of clams (Metzger \emph{et al.} 2015), study of the
+  vector-mediated parent-to-offspring transmission in an avian
+  malaria-like parasite (Chakarov \emph{et al.} 2015), and
+  characterization of the emergence of the invasive forest pathogen
+  \emph{Hymenoscyphus pseudoalbidus} (Gross \emph{et al.} 2014). It has
+  also been used to implement real-time, online R based tools for
+  visualizing relationships among unknown MLGs in reference databases\\
+  (\url{http://phytophthora-id.org/}) (Grünwald \emph{et al.} 2011).
+  
+  Here, we introduce \emph{poppr} 2.0, which provides a major update to
+  \emph{poppr} (Kamvar \emph{et al.} 2014b) including novel tools for
+  analysis of clonal populations specifically addressing large SNP data.
+  Significant novel tools include functions for calculating clone
+  boundaries and collapsing individuals into clonal groups based on a
+  user-specified genetic distance threshold, sliding window analyses,
+  genotype accumulation curves, reticulations in minimum spanning
+  networks, and bootstrapping for any genetic distance.
+  
+  \section{Implementations and
+  Examples}\label{implementations-and-examples}
+  
+  \subsection{Clonal identification}\label{clonal-identification}
+  
+  As highlighted in previous work, clone correction is an important
+  component of population genetic analysis of organisms that are known to
+  reproduce asexually (Milgroom 1996; Grünwald \emph{et al.} 2003; Kamvar
+  \emph{et al.} 2014b). This method is a partial correction for bias that
+  affects metrics that rely on allele frequencies assuming panmixia and
+  was initially designed for data with only a handful of markers. With the
+  advent of large-scale sequencing and reduced- representation libraries,
+  it has become easier to sequence tens of thousands of markers from
+  hundreds of individuals (Davey \& Blaxter 2010; Davey \emph{et al.}
+  2011; Elshire \emph{et al.} 2011). With this larger number of markers,
+  the genetic resolution is much greater, but the chance of genotyping
+  error is also greatly increased and missing data is frequent
+  (Mastretta-Yanes \emph{et al.} 2015). Taking this fact and occasional
+  somatic mutations into account, it would be impossible to separate true
+  clones from independent individuals by just comparing what MLGs are
+  different. We introduce a new method for collapsing unique multilocus
+  genotypes determined by naive string comparison into multilocus lineages
+  utilizing any genetic distance given three different clustering
+  algorithms: farthest neighbor, nearest neighbor, and UPGMA (average
+  neighbor) (Sokal 1958).
+  
+  These clustering algorithms act on a distance matrix that is either
+  provided by the user or generated via a function that will calculate a
+  distance from genetic data such as \texttt{bruvo.dist}, which in
+  particular applies to any level of ploidy (Bruvo \emph{et al.} 2004).
+  All algorithms have been implemented in C and utilize the OpenMP
+  framework for optional parallel processing (Dagum \& Menon 1998).
+  Default is the conservative farthest neighbor algorithm (Fig. 1A), which
+  will only cluster samples together if all samples in the cluster are at
+  a distance less than the given threshold. By contrast, the nearest
+  neighbor algorithm will have a chaining effect that will cluster samples
+  akin to adding links on a chain where a sample can be included in a
+  cluster if all of the samples have at least one connection below a given
+  threshold (Fig. 1C). The UPGMA, or average neighbor clustering algorithm
+  is the one most familiar to biologists as it is often used to generate
+  ultra-metric trees based on genetic distance (Fig. 1B). This algorithm
+  will cluster by creating a representative sample per cluster and joining
+  clusters if these representative samples are closer than the given
+  threshold.
+  
+  We utilize data from the microbe \emph{Phytophthora infestans} to show
+  how the \texttt{mlg.filter} function collapses multilocus genotypes with
+  Bruvo's distance assuming a genome addition model (Bruvo \emph{et al.}
+  2004). \emph{P. infestans} is the causal agent of potato late blight
+  originating from Mexico that spread to Europe in the mid 19th century
+  (Yoshida \emph{et al.} 2013; Goss \emph{et al.} 2014). \emph{P.
+  infestans} reproduces both clonally and sexually. The clonal lineages of
+  \emph{P. infestans} have been formally defined into 18 separate clonal
+  lineages using a combination of various molecular methods including AFLP
+  and microsatellite markers (Lees \emph{et al.} 2006; Li \emph{et al.}
+  2013). For these data, we used \texttt{mlg.filter} to detect all of the
+  distance thresholds at which 18 multilocus lineages would be resolved.
+  We used these thresholds to define multilocus lineages and create
+  contingency tables and dendrograms to determine how well the multilocus
+  lineages were detected.
+  
+  For the \emph{P. infestans} population, the three algorithms were able
+  to detect 18 multilocus lineages at different distance thresholds (Fig.
+  2). Contingency tables between the described multilocus genotypes and
+  the genotypes defined by distance show that most of the 18 lineages were
+  resolved, except for US-8, which is polytomic (Table 1).
+  
+  We utilized simulated data to evaluate the effect of sequencing error
+  and missing data on MLG calling. We constructed the data using the
+  \texttt{glSim} function in \emph{adegenet} (Jombart \& Ahmed 2011) to
+  obtain a SNP data set for demonstration. Two diploid data sets were
+  created, each with 10k SNPs (25\% structured into two groups) and 200
+  samples with 10 ancestral populations of even sizes. Clones were created
+  in one data set by marking each sample with a unique identifier and then
+  randomly sampling with replacement. It is well documented that reduced-
+  representation sequencing can introduce several erroneous calls and
+  missing data (Mastretta-Yanes \emph{et al.} 2015). To reflect this, we
+  mutated SNPs at a rate of 10\% and inserted an average of 10\% missing
+  data for each sample after clones were created, ensuring that no two
+  sequences were alike. The number of mutations and missing data per
+  sample were determined by sampling from a Poisson distribution with
+  \(\lambda = 1000\). After pooling, 20\% of the data set was randomly
+  sampled for analysis. Genetic distance was obtained with the function
+  \texttt{bitwise.dist}, which calculates the fraction of different sites
+  between samples equivalent to Provesti's distance, counting missing data
+  as equivalent in comparison (Prevosti \emph{et al.} 1975).
+  
+  All three filtering algorithms were run with a threshold of 1, returning
+  a numeric vector of length \(n - 1\) where each element represented a
+  threshold at which two samples/clusters would join. Since each data set
+  would have varying distances between samples, the clonal boundary
+  threshold was defined as the midpoint of the largest gap between two
+  thresholds that collapsed less than 50\% of the data.
+  
+  Out of the 100 simulations run, we found that across all methods,
+  detection of duplicated samples had \(\sim\) 98\% true positive fraction
+  and \(\sim\) 0.8\% false positive fraction indicating that this method
+  is robust to simulated populations (supplementary materials\footnote{Supplementary
+    data available at
+    \url{https://github.com/grunwaldlab/supplementary-poppr-2.0}; DOI:
+    \href{http://dx.doi.org/10.5281/zenodo.17424}{10.5281/zenodo.17424}}).
+  
+  \subsection{Minimum Spanning Networks with
+  Reticulation}\label{minimum-spanning-networks-with-reticulation}
+  
+  In its original iteration, \emph{poppr} introduced minimum spanning
+  networks that were based on the \emph{igraph} function
+  \texttt{minimum.spanning.tree} (Csardi \& Nepusz 2006). This algorithm
+  produces a minimum spanning tree with no reticulations where nodes
+  represent individual MLGs. In other minimum spanning network programs,
+  reticulation is obtained by calculating the minimum spanning tree
+  several times and returning the set of all edges included in the trees.
+  Due to the way \emph{igraph} has implemented Prim's algorithm, it is not
+  possible to utilize this strategy, thus we implemented an internal C
+  function to walk the space of minimum spanning trees based on genetic
+  distance to connect groups of nodes with edges of equal weight.
+  
+  To demonstrate the utility of minimum spanning networks with
+  reticulation, we used two clonal data sets: the H3N2 flu virus data from
+  the \emph{adegenet} package using years of each epidemic as the
+  population factor, and \emph{Phytophthora ramorum} data from Nurseries
+  and Oregon forests (Jombart \emph{et al.} 2010; Kamvar \emph{et al.}
+  2014a). Minimum spanning networks were created with and without
+  reticulation using the \emph{poppr} functions \texttt{diss.dist} and
+  \texttt{bruvo.msn} for the H3N2 and \emph{P. ramorum} data, respectively
+  (Bruvo \emph{et al.} 2004; Kamvar \emph{et al.} 2014b). To detect mlg
+  clusters, the infoMAP community detection algorithm was applied with
+  10,000 trials as implemented in the R package \emph{igraph} version
+  0.7.1 utilizing genetic distance as edge weights and number of samples
+  in each MLG as vertex weights (Csardi \& Nepusz 2006; Rosvall \&
+  Bergstrom 2008).
+  
+  To evaluate the results, we compared the number, size, and entropy
+  (\(H\)) of the resulting communities as we expect a highly clonal
+  organism with low genetic diversity to result in a few, large
+  communities. We also created contingency tables of the community
+  assignments with the defined populations and used those to calculate
+  entropy using Shannon's index with the function \texttt{diversity} from
+  the R package \emph{vegan} version 2.2-1 (Shannon 2001; Oksanen \emph{et
+  al.} 2015). A low entropy indicates presence of a few large communities
+  whereas high entropy indicates presence of many small communities.
+  
+  The infoMAP algorithm revealed 63 communities with a maximum community
+  size of 77 and \(H = 3.56\) for the reticulate network of the H3N2 data
+  and 117 communities with a maximum community size of 26 and \(H = 4.65\)
+  for the minimum spanning tree. The entropy across years was greatly
+  decreased for all populations with the reticulate network compared to
+  the minimum spanning tree (Fig. 3). Note that the reticulated network
+  (Fig. 3B) showed patterns corresponding with those resulting from a
+  discriminant analysis of principal components (Fig. 3D) (Jombart
+  \emph{et al.} 2010).
+  
+  Graph walking of the reticulated minimum spanning network of \emph{P.
+  ramorum} by the infoMAP algorithm revealed 16 communities with a maximum
+  community size of 13 and \(H = 2.60\). The un-reticulated minimum
+  spanning tree revealed 20 communities with a maximum community size of 7
+  and \(H = 2.96\). In the ability to predict Hunter Creek as belonging to
+  a single community, the reticulated network was successful whereas the
+  minimum spanning tree separated one genotype from that community. The
+  entropy for the reticulated network was lower for all populations except
+  for the coast population (supplementary materials\footnote{Supplementary
+    data available at
+    \url{https://github.com/grunwaldlab/supplementary-poppr-2.0}; DOI:
+    \href{http://dx.doi.org/10.5281/zenodo.17424}{10.5281/zenodo.17424}}).
+  
+  \subsection{Bootstrapping}\label{bootstrapping}
+  
+  Assessing population differentiation through methods such as \(G_{st}\),
+  AMOVA, and Mantel tests relies on comparing samples within and across
+  populations (Mantel 1967; Nei 1973; Excoffier \emph{et al.} 1992).
+  Confidence in distance metrics is related to the confidence in the
+  markers to accurately represent the diversity of the data. Especially
+  true with microsatellite markers, a single hyper-diverse locus can make
+  a population appear to have more diversity based on genetic distance.
+  Using a bootstrapping procedure of randomly sampling loci with
+  replacement when calculating a distance matrix provides support for
+  clades in hierarchical clustering.
+  
+  Data in genind and genpop objects are represented as matrices with
+  individuals in rows and alleles in columns (Jombart 2008). This gives
+  the advantage of being able to use R's matrix algebra capabilities to
+  efficiently calculate genetic distance. Unfortunately, this also means
+  that bootstrapping is a non- trivial task as all alleles at a single
+  locus need to be sampled together. To remedy this, we have created an
+  internal S4 class called ``bootgen'', which extends the internal ``gen''
+  class from \emph{adegenet}. This class can be created from any genind,
+  genclone, or genpop object, and allows loci to be sampled with
+  replacement. To further facilitate bootstrapping, a function called
+  \texttt{aboot}, which stands for ``any boot'', is introduced that will
+  bootstrap any genclone, genind, or genpop object with any genetic
+  distance that can be calculated from it.
+  
+  To demonstrate calculating a dendrogram with bootstrap support, we used
+  the \emph{poppr} function \texttt{aboot} on population allelic
+  frequencies derived from the data set \texttt{microbov} in the
+  \emph{adegenet} package with 1000 bootstrap replicates (Laloë \emph{et
+  al.} 2007; Jombart 2008). The resulting dendrogram shows bootstrap
+  support values \(>50\%\) (Fig. 4) and used the following code:
+  
+  \begin{Shaded}
+  \begin{Highlighting}[]
+  \KeywordTok{library}\NormalTok{(}\StringTok{"poppr"}\NormalTok{)}
+  \KeywordTok{data}\NormalTok{(}\StringTok{"microbov"}\NormalTok{, }\DataTypeTok{package =} \StringTok{"adegenet"}\NormalTok{) }
+  \KeywordTok{strata}\NormalTok{(microbov) <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{other}\NormalTok{(microbov)) }
+  \KeywordTok{setPop}\NormalTok{(microbov) <-}\StringTok{ }\ErrorTok{~}\NormalTok{coun/spe/breed }
+  \NormalTok{bov_pop <-}\StringTok{ }\KeywordTok{genind2genpop}\NormalTok{(microbov) }
+  
+  \KeywordTok{set.seed}\NormalTok{(}\DecValTok{20150428}\NormalTok{)}
+  \NormalTok{pop_tree <-}\StringTok{ }\KeywordTok{aboot}\NormalTok{(bov_pop, }\DataTypeTok{sample =} \DecValTok{1000}\NormalTok{, }\DataTypeTok{cutoff =} \DecValTok{50}\NormalTok{)}
+  \end{Highlighting}
+  \end{Shaded}
+  
+  \subsection{Genotype Accumulation
+  Curve}\label{genotype-accumulation-curve}
+  
+  Analysis of population genetics of clonal organisms often borrows from
+  ecological methods such as analysis of diversity within populations
+  (Milgroom 1996; Grünwald \emph{et al.} 2003; Arnaud-Hanod \emph{et al.}
+  2007). When choosing markers for analysis, it is important to make sure
+  that the observed diversity in your sample will not appreciably increase
+  if an additional marker is added (Arnaud-Hanod \emph{et al.} 2007). This
+  concept is analogous to a species accumulation curve, obtained by
+  rarefaction. The genotype accumulation curve in \emph{poppr} is
+  implemented in the function \texttt{genotype\_curve}. The curve is
+  constructed by randomly sampling \(x\) loci and counting the number of
+  observed MLGs. This repeated \(r\) times for 1 locus up to \(n-1\) loci,
+  creating \(n-1\) distributions of observed MLGs.
+  
+  The following code example demonstrates the genotype accumulation curve
+  for data from Everhart \& Scherm (2015) showing that these data reach a
+  small plateau and have a greatly decreased variance with 12 markers,
+  indicating that there are enough markers such that adding more markers
+  to the analysis will not create very many new genotypes (Fig. 5).
+  
+  \begin{Shaded}
+  \begin{Highlighting}[]
+  \KeywordTok{library}\NormalTok{(}\StringTok{"poppr"}\NormalTok{)}
+  \KeywordTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+  \KeywordTok{data}\NormalTok{(}\StringTok{"monpop"}\NormalTok{, }\DataTypeTok{package =} \StringTok{"poppr"}\NormalTok{)}
+  
+  \KeywordTok{set.seed}\NormalTok{(}\DecValTok{20150428}\NormalTok{)}
+  \KeywordTok{genotype_curve}\NormalTok{(monpop, }\DataTypeTok{sample =} \DecValTok{1000}\NormalTok{)}
+  \NormalTok{p <-}\StringTok{ }\KeywordTok{last_plot}\NormalTok{() +}\StringTok{ }\KeywordTok{theme_bw}\NormalTok{()   }\CommentTok{# get the last plot}
+  \NormalTok{p +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{group =} \DecValTok{1}\NormalTok{)) }\CommentTok{# plot with a trendline}
+  \end{Highlighting}
+  \end{Shaded}
+  
+  \subsection{Index of association}\label{index-of-association-1}
+  
+  The index of association (\(I_A\)) is a measure of multilocus linkage
+  disequilibrium that is most often used to detect clonal reproduction
+  within organisms that have the ability to reproduce via sexual or
+  asexual processes (Brown \emph{et al.} 1980; Smith \emph{et al.} 1993;
+  Milgroom 1996). It was standardized in 2001 as \(\bar{r}_d\) by Agapow
+  \& Burt (2001) to address the issue of scaling with increasing number of
+  loci. This metric is typically applied to traditional dominant and
+  co-dominant markers such as AFLPs, SNPs, or microsatellite markers. With
+  the advent of high throughput sequencing, SNP data is now available in a
+  genome-wide context and in very large matrices including thousands of
+  SNPs. For this reason, we devised two approaches using the index of
+  association for large numbers of markers typical for population genomic
+  studies. Both functions utilize \emph{adegenet}'s ``genlight'' object
+  class, which efficiently stores 8 binary alleles in a single byte
+  (Jombart \& Ahmed 2011). As calculation of the \(\bar{r}_d\) requires
+  distance matrices of absolute number of differences, we utilize a
+  function that calculates these distances directly from the compressed
+  data called \texttt{bitwise.dist}.
+  
+  The first approach is a sliding window analysis implemented in the
+  function \texttt{win.ia}. It utilizes the position of markers in the
+  genome to calculate \(\bar{r}_d\) among any number of SNPs found within
+  a user-specified windowed region. It is important that this calculation
+  utilize \(\bar{r}_d\) as the number of loci will be different within
+  each window (Agapow \& Burt 2001). This approach would be suited for a
+  quick calculation of linkage disequilibrium across the genome that can
+  detect potential hotspots of LD that could be investigated further with
+  more computationally intensive methods assuming that the number of
+  samples \textless{}\textless{} the number of loci.
+  
+  As it would necessarily focus on loci within a short section of the
+  genome that may or may not be recombining, a sliding window approach
+  would not be good for utilizing \(\bar{r}_d\) as a test for clonal
+  reproduction. A remedy for this is implemented in the function
+  \texttt{samp.ia}, which will randomly sample \(m\) loci, calculate
+  \(\bar{r}_d\), and repeat \(r\) times, thus creating a distribution of
+  expected values of \(\bar{r}_d\).
+  
+  To demonstrate the sliding window and random sampling of \(\bar{r}_d\)
+  with respect to clonal populations, we simulated two populations
+  containing 1,100 neutral SNPs for 100 diploid individuals under the same
+  initial seed. One population had individuals randomly sampled with
+  replacement, representing the clonal population. After sampling, both
+  populations had 5\% random error and 1\% missing data independently
+  propagated across all samples. On average, we obtained a higher value of
+  \(\bar{r}_d\) for the clonal population compared to the sexual
+  population for both methods (Fig. 6).
+  
+  \subsection{Data format updates: population strata and
+  hierarchies}\label{data-format-updates-population-strata-and-hierarchies}
+  
+  Assessments of population structure through methods such as hierarchical
+  \(F_{st}\) (Goudet 2005) and AMOVA (Michalakis \& Excoffier 1996)
+  require hierarchical sampling of populations across space or time (Linde
+  \emph{et al.} 2002; Grünwald \& Hoheisel 2006; Everhart \& Scherm 2015).
+  With clonal organisms, basic practice has been to clone-censor data to
+  avoid downward bias in diversity due to duplicated genotypes that may or
+  may not represent different samples (Milgroom 1996). This correction
+  should be performed with respect to a population hierarchy to accurately
+  reflect the biology of the organism. Traditional data structures for
+  population genetic data in most analysis tools allow for only one level
+  of hierarchical definition. The investigator thus had to provide the
+  data set for analysis at each hierarchical level.
+  
+  To facilitate handling hierarchical and mutlilocus genotypic metadata,
+  \emph{poppr} version 1.1 introduced a new S4 data object called
+  ``genclone'', extending \emph{adegenet}'s ``genind'' object (Kamvar and
+  Grünwald, unpublished). The genclone object formalized the definitions
+  of multilocus genotypes and population hierarchies by adding two slots
+  called ``mlg'' and ``hierarchy'' that carried a numeric vector and a
+  data frame, respectively. These new slots allow for increased efficiency
+  and ease of use by allowing these metadata to travel with the genetic
+  data. The hierarchy slot in particular contains a data frame where each
+  column represents a separate hierarchical level. This is then used to
+  set the population factor of the data by supplying a hierarchical
+  formula containing one or more column names of the data frame in the
+  hierarchy slot.
+  
+  The functionality represented by the hierarchy slot has now been
+  migrated from the \emph{poppr} to the \emph{adegenet} package version
+  2.0 to allow hierarchical analysis in \emph{adegenet}, \emph{poppr}, and
+  other dependent packages. The prior \emph{poppr} \texttt{hierarchy} slot
+  and methods have now been renamed \texttt{strata} in \emph{adegenet}. A
+  short example of the utility of these methods can be seen in the code
+  segment under \textbf{Bootstrapping}, above. This migration provides end
+  users with a broader ability to analyze data hierarchically in R across
+  packages.
+  
+  \section{Availability}\label{availability}
+  
+  As of this writing, the \emph{poppr} R package version 2.0 containing
+  all of the features described here is located at
+  \url{https://github.com/grunwaldlab/poppr/tree/2.0-rc}. It is necessary
+  to install \emph{adegenet} 2.0 before installing \emph{poppr}. It can be
+  found at \url{https://github.com/thibautjombart/adegenet}. Both of these
+  can be installed via the R package \emph{devtools} (Wickham \& Chang
+  2015). More information and example code can be found in the
+  supplementary materials\footnote{Supplementary data available at
+    \url{https://github.com/grunwaldlab/supplementary-poppr-2.0}; DOI:
+    \href{http://dx.doi.org/10.5281/zenodo.17424}{10.5281/zenodo.17424}}.
+  
+  \subsection{Requirements}\label{requirements}
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    R version 3.0 or better
+  \item
+    A C compiler. For windows, it can be obtained via Rtools
+    (\url{http://cran.r-project.org/bin/windows/Rtools/}). On OSX, it can
+    be obtained via Xcode. For parallel support, gcc version 4.6 or better
+    is needed.
+  \end{itemize}
+  
+  \subsection{Installation}\label{installation}
+  
+  From within R, \emph{poppr} can be installed via:
+  
+  \begin{Shaded}
+  \begin{Highlighting}[]
+  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"devtools"}\NormalTok{)}
+  \KeywordTok{library}\NormalTok{(}\StringTok{"devtools"}\NormalTok{)}
+  \KeywordTok{install_github}\NormalTok{(}\StringTok{"thibautjombart/adegenet"}\NormalTok{)}
+  \KeywordTok{install_github}\NormalTok{(}\StringTok{"grunwaldlab/poppr@2.0-rc"}\NormalTok{)}
+  \end{Highlighting}
+  \end{Shaded}
+  
+  Several population genetics packages in R are currently going through a
+  major upgrade following the 2015 R hackathon on population genetics
+  (\url{https://github.com/NESCent/r-popgen-hackathon}) and have not yet
+  been updated in CRAN. We will upload \emph{poppr} 2.0 to CRAN once all
+  other reverse dependent packages have been updated.
+  
+  \section{Discussion}\label{discussion}
+  
+  Given low cost and high throughput of current sequencing technologies we
+  are entering a new era of population genetics where large SNP data sets
+  with thousands of markers are becoming available for large populations
+  in a genome- wide context. This data provides new possibilities and
+  challenges for population genetic analyses. We provide novel tools that
+  enable analysis of this data in R with a particular emphasis on clonal
+  organisms.
+  
+  Particularly useful is the implementation of \(\bar{r}_d\) in a genomic
+  context (Agapow \& Burt 2001). Random sampling of loci across the genome
+  can give an expected distribution of \(\bar{r}_d\), which is expected to
+  have a mean of zero for panmictic populations. This metric is not
+  affected by the number of loci sampled, is model free, and has the
+  ability to detect population structure. \(\bar{r}_d\) is also
+  implemented for sliding window analyses that are useful to detect
+  candidate regions of linkage disequilibrium for further analysis.
+  
+  Clustering multilocus genotypes into multilocus lineages based on
+  genetic distances is a non-trivial task given large SNP data sets.
+  Moreover, this has not previously been implemented for genomic data for
+  clonal populations. Clonal assignment has previously been available in
+  the programs \textsc{GenClone} and \textsc{Genodive} for classical
+  markers (Meirmans \& Van Tienderen 2004; Arnaud-Hanod \emph{et al.}
+  2007). Our method with \texttt{mlg.filter} builds upon this idea and
+  allows the user to choose between three different approaches for
+  clustering MLGs. The choice of clustering algorithm has an impact on the
+  data (Fig 1, 2), where for example a genetic distance cutoff of 0.1
+  would be the difference between 14 multilocus lineages (MLLs) and 17
+  MLLs for nearest neighbor and UPGMA clustering, respectively (Fig. 2).
+  The option to choose the clustering algorithm gives the user the ability
+  to choose what is biologically relevant to their populations. While
+  there is not one optimal procedure for defining boundaries in clonal
+  lineages, our tool provides a means of exploring the potential MLG or
+  MLL boundary space.
+  
+  Minimum spanning networks are a useful tool to analyze the relationships
+  between individuals in a population, because it reduces the complexity
+  of a distance matrix to the connections that are strongest. By default,
+  these networks are drawn without reticulations, but for clonal organisms
+  where many of the connections between samples are equivalent, the
+  minimum spanning network appears as a chain and reduces the information
+  that can be communicated. This is problematic because the ability to
+  detect population structure with one instance of a minimum spanning
+  network is limited. Adding reticulation into the minimum spanning
+  network thus presents all equivalent connections and allows population
+  structure to be more readily detectable. As shown in Fig. 3, population
+  structure is apparent both visually and by graph community detection
+  algorithms such as the infoMAP algorithm (Rosvall \& Bergstrom 2008).
+  Additionally, the current implementation in \emph{poppr} has been
+  successfully used in analyses such as reconstruction of the \emph{P.
+  ramorum} epidemic in Oregon forests (Kamvar \emph{et al.} 2014a, 2015).
+  
+  \emph{Poppr} 2.0 is open source and available on GitHub. Members of the
+  community are invited to contribute by raising issues or pull requests
+  on our repository at \url{https://github.com/grunwaldlab/poppr/issues}.
+  
+  \section{Acknowledgements}\label{acknowledgements}
+  
+  We thank Ignazio Carbone for discussions on the index of association;
+  David Cooke, Sanmohan Baby, and Jens Hansen for beta testing; and
+  Thibaut Jombart for allowing us to incorporate the \texttt{strata} slot
+  and related methods in \emph{adegenet}. We also thank all the members of
+  the 2015 R hackathon on population genetics in Durham, NC for their
+  advice and input (\url{https://github.com/NESCent/r-popgen-hackathon}).
+  This work was supported in part by US Department of Agriculture (USDA)
+  Agricultural Research Service Grant 5358-22000-039-00D, USDA National
+  Institute of Food and Agriculture Grant 2011-68004-30154, USDA APHIS,
+  the USDA- ARS Floriculture Nursery Initiative, and the USDA-Forest
+  Service Forest Health Monitoring Program (to NJG).
+  
+  \section{Conflict of Interest
+  Statement}\label{conflict-of-interest-statement}
+  
+  The authors declare no observable conflict of interest.
+  
+  \section{Author Contributions}\label{author-contributions}
+  
+  ZNK and JCB wrote and tested the code. ZNK maintains the code. ZNK and
+  NJG conceived, discussed implications, and wrote the manuscript. NJG
+  coordinated the collaborative effort.
+  
+  \section{Figures and Tables}\label{figures-and-tables}
+  
+  \subsection{Figure 1}\label{figure-1}
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.5\linewidth]{figure/frontiers/Figure-1} 
+  
+  }
+  
+  \caption[Clustering Algorithms]{Clustering Algorithms}\label{fig:Figure-1}
+  \end{figure}
+  
+  \textbf{Figure 1} Diagrammatic representation of the three clustering
+  algorithms implemented in \texttt{mlg.filter}. (\textbf{A-C}) Represent
+  different clustering algorithms on the same imaginary network with a
+  threshold of 0.451. Edge weights are represented in arbitrary units
+  noted by the line thickness and numerical values next to the lines. All
+  outer angles are 90 degrees, so the un-labeled edge weights can be
+  obtained with simply geometry. Colored circles represent clusters of
+  genotypes. (\textbf{A}) Farthest neighbor clustering does not cluster
+  nodes B and C because nodes A and C are more than a distance of 0.451
+  apart. (\textbf{B}) UPGMA (average neighbor) clustering clusters nodes
+  A, B, and C together because the average distance between them and C is
+  \textless{} 0.451. (\textbf{C}) Nearest neighbor clustering clusters all
+  nodes together because the minimum distance between them is always
+  \textless{} 0.451.
+  
+  \newpage
+  
+  \subsection{Figure 2}\label{figure-2}
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.5\linewidth]{thesis_files/figure-latex/Figure-2-1} 
+  
+  }
+  
+  \caption[Filtered multilocus genotypes]{Filtered multilocus genotypes}\label{fig:Figure-2}
+  \end{figure}
+  
+  \textbf{Figure 2} Graphical representation of three different clustering
+  algorithms collapsing multilocus genotypes for 12 SSR loci from
+  \emph{Phytophthora infestans} representing 18 clonal lineages. The
+  horizontal axis is Bruvo's genetic distance assuming the genome addition
+  model. The vertical axis represents the number of multilocus lineages
+  observed. Each point shows the threshold at which one would observe a
+  given number of multilocus genotypes. The horizontal black line
+  represents 18 multilocus genotypes and vertical dashed lines mark the
+  thresholds used to collapse the multilocus genotypes into 18 multilocus
+  lineages.
+  
+  \newpage
+  
+  \subsection{Figure 3}\label{figure-3}
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.5\linewidth]{figure/frontiers/Figure-3} 
+  
+  }
+  
+  \caption[Reticulated Minimum Spanning Network]{Reticulated Minimum Spanning Network}\label{fig:Figure-3}
+  \end{figure}
+  
+  \ref{fig:Figure-3}
+  
+  \textbf{Figure 3} (\textbf{A-B}) Minimum spanning networks of the
+  hemagglutinin (HA) segment of H3N2 viral DNA from the \emph{adegenet}
+  package representing flu epidemics from 2001 to 2006 without
+  reticulation (\textbf{A}) and with reticulation (\textbf{B}) (Jombart
+  2008; Jombart \emph{et al.} 2010). Each node represents a unique
+  multilocus genotype, colors represent epidemic year, and edge color
+  represents absolute genetic distance. (\textbf{C}) Shannon entropy
+  values for population assignments compared with communities determined
+  by the infoMAP algorithm on (\textbf{A}) and (\textbf{B}). (\textbf{D})
+  Graphic reproduced from Jombart \emph{et al.} (2010) showing that the
+  2006 epidemic does not cluster neatly with the other years.
+  
+  \newpage
+  
+  \subsection{Figure 4}\label{figure-4}
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.5\linewidth]{thesis_files/figure-latex/Figure-4-1} 
+  
+  }
+  
+  \caption[Bootstrapped Dendrogram]{Bootstrapped Dendrogram}\label{fig:Figure-4}
+  \end{figure}
+  
+  \textbf{Figure 4} UPGMA dendrogram generated from Nei's genetic distance
+  on 15 breeds of \emph{Bos taurus} (BT) or \emph{Bos indicus} (BI) from
+  Africa (AF) or France (FR). These data are from Laloë \emph{et al.}
+  (2007). Node labels represent bootstrap support \(>50\%\) out of 1,000
+  bootstrap replicates.
+  
+  \newpage
+  
+  \subsection{Figure 5}\label{figure-5}
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.5\linewidth]{thesis_files/figure-latex/Figure-5-1} 
+  
+  }
+  
+  \caption[Genotype Accumulation Curve]{Genotype Accumulation Curve}\label{fig:Figure-5}
+  \end{figure}
+  
+  \textbf{Figure 5} Genotype accumulation curve for 694 isolates of the
+  peach brown rot pathogen, \emph{Monilinia fructicola} genotyped over 13
+  loci from Everhart \& Scherm (2015). The horizontal axis represents the
+  number of loci randomly sampled without replacement up to \(n - 1\)
+  loci, the vertical axis shows the number of multilocus genotypes
+  observed, up to 262, the number of unique multilocus genotypes in the
+  data set. The red dashed line represents 90\% of the total observed
+  multilocus genotypes. A trendline (blue) has been added using the
+  \emph{ggplot2} function \texttt{stat\_smooth}.
+  
+  \newpage
+  
+  \subsection{Figure 6}\label{figure-6}
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.5\linewidth]{thesis_files/figure-latex/Figure-6-1} 
+  
+  }
+  
+  \caption[Sliding Window of the Index of Association]{Sliding Window of the Index of Association}\label{fig:Figure-6}
+  \end{figure}
+  
+  \newpage
+  
+  \textbf{Table 1} Contingency table comparing multilocus lineages
+  assigned based on average neighbor clustering (columns) vs.~multilocus
+  lineages defined in Li \emph{et al.} (2013) and Lees \emph{et al.}
+  (2006).
+  
+  \begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+  \hline
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 & 29\\
+  \hline
+  B & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & .\\
+  \hline
+  C & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & .\\
+  \hline
+  D.1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & .\\
+  \hline
+  D.2 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & .\\
+  \hline
+  EU-13 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & . & . & .\\
+  \hline
+  EU-4 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & . & .\\
+  \hline
+  EU-5 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & 1 & . & . & . & . & . & . & . & . & . & .\\
+  \hline
+  EU-8 & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
+  \hline
+  US-11 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & 1\\
+  \hline
+  US-12 & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
+  \hline
+  US-14 & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
+  \hline
+  US-17 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & .\\
+  \hline
+  US-20 & . & 1 & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
+  \hline
+  US-21 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & 1 & . & .\\
+  \hline
+  US-22 & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & .\\
+  \hline
+  US-23 & . & . & . & . & . & . & . & . & . & . & . & . & 1 & 1 & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
+  \hline
+  US-24 & . & . & . & . & . & . & 1 & 2 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
+  \hline
+  US-8 & . & . & . & . & 1 & 1 & . & . & . & 1 & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
+  \hline
+  \end{tabular}
+  
+  \section{Figure Legends}\label{figure-legends}
+  
+  \textbf{Figure 6} \textbf{(A)} Sliding window analysis of the
+  standardized index of association (\(\bar{r}_d\)) across a simulated
+  \(1.1 \times 10^4\) nt chromosome containing 1,100 variants among 100
+  individuals. Each window analyzed variants within 500nt chunks. The
+  black line refers to the clonal and the blue line to the sexual
+  populations. \textbf{(B)} boxplots showing 100 random samples of 50
+  variants to calculate a distribution of \(\bar{r}_d\) for the clonal
+  (red) and sexual (blue) populations. Each box is centered around the
+  mean, with whiskers extending out to 1.5 times the interquartile range.
+  The median is indicated by the center line. \textbf{(A)} and
+  \textbf{(B)} are plotted on the same y-axis.
+  
+  \section{References}\label{references}
+  
   \chapter{\texorpdfstring{{[}Tentative Title{]} Population Dynamics of
   the Plant Pathogen \emph{Phytophthora syringae} in Oregon
   Nurseries}{{[}Tentative Title{]} Population Dynamics of the Plant Pathogen Phytophthora syringae in Oregon Nurseries}}\label{tentative-title-population-dynamics-of-the-plant-pathogen-phytophthora-syringae-in-oregon-nurseries}
   
   \section{Abstract}\label{abstract-3}
   
-  \section{Introduction}\label{introduction-1}
+  \section{Introduction}\label{introduction-2}
   
   \emph{Phytophthora syringae} is the most important species affecting
   ornamentals produced in the Pacific Northwest. Recent nursery sampling
@@ -452,7 +1189,7 @@ manuscript.}
   
   TBD\ldots{}
   
-  \section{Introduction}\label{introduction-2}
+  \section{Introduction}\label{introduction-3}
   
   \begin{itemize}
   \tightlist
@@ -545,7 +1282,7 @@ manuscript.}
   
   \backmatter
   
-  \chapter{References}\label{references}
+  \chapter{References}\label{references-1}
   
   \noindent
   
@@ -562,6 +1299,10 @@ manuscript.}
   Estimation of sex frequency and effective population size by clonemate
   resampling in partially clonal organisms. \emph{Molecular Ecology
   Resources}.
+  
+  \hypertarget{ref-anderson1995clonality}{}
+  Anderson JB, Kohn LM (1995) Clonality in soilborne, plant-pathogenic
+  fungi. \emph{Annual review of phytopathology}, \textbf{33}, 369--391.
   
   \hypertarget{ref-arnaud2007standardizing}{}
   Arnaud-Hanod S, Duarte CM, Alberto F, Serrão EA (2007) Standardizing
@@ -582,6 +1323,11 @@ manuscript.}
   populations of \emph{Hordeum spontaneum}. \emph{Genetics}, \textbf{96},
   523--536.
   
+  \hypertarget{ref-bruvo2004simple}{}
+  Bruvo R, Michiels NK, D'Souza TG, Schulenburg H (2004) A simple method
+  for the calculation of microsatellite genotype distances irrespective of
+  ploidy level. \emph{Molecular Ecology}, \textbf{13}, 2101--2106.
+  
   \hypertarget{ref-burt1996molecular}{}
   Burt A, Carter DA, Koenig GL, White TJ, Taylor JW (1996) Molecular
   markers reveal cryptic sex in the human pathogen \emph{Coccidioides
@@ -592,21 +1338,107 @@ manuscript.}
   Butlin RK (2000) Virgin rotifers. \emph{Trends in Ecology \& Evolution},
   \textbf{15}, 389--390.
   
+  \hypertarget{ref-chakarov2015apparent}{}
+  Chakarov N, Linke B, Boerner M \emph{et al.} (2015) Apparent
+  vector-mediated parent-to-offspring transmission in an avian
+  malaria-like parasite. \emph{Molecular ecology}, \textbf{24},
+  1355--1363.
+  
+  \hypertarget{ref-cooke2012genome}{}
+  Cooke DE, Cano LM, Raffaele S \emph{et al.} (2012) Genome analyses of an
+  aggressive and invasive lineage of the Irish potato famine pathogen.
+  \emph{PLoS pathogens}, \textbf{8}, e1002940.
+  
+  \hypertarget{ref-csardi2006igraph}{}
+  Csardi G, Nepusz T (2006) The igraph software package for complex
+  network research. \emph{InterJournal}, \textbf{Complex Systems}, 1695.
+  
+  \hypertarget{ref-dagum1998openmp}{}
+  Dagum L, Menon R (1998) OpenMP: An industry standard API for
+  shared-memory programming. \emph{Computational Science \& Engineering,
+  IEEE}, \textbf{5}, 46--55.
+  
+  \hypertarget{ref-davey2010rad}{}
+  Davey JW, Blaxter ML (2010) RADSeq: Next-generation population genetics.
+  \emph{Briefings in Functional Genomics}, \textbf{9}, 416--423.
+  
+  \hypertarget{ref-davey2011genome}{}
+  Davey JW, Hohenlohe PA, Etter PD \emph{et al.} (2011) Genome-wide
+  genetic marker discovery and genotyping using next-generation
+  sequencing. \emph{Nature Reviews Genetics}, \textbf{12}, 499--510.
+  
   \hypertarget{ref-de2004clonal}{}
   de Meeûs T, Balloux F (2004) Clonal reproduction and linkage
   disequilibrium in diploids: A simulation study. \emph{Infection,
   genetics and evolution}, \textbf{4}, 345--351.
+  
+  \hypertarget{ref-dobzhansky2013nothing}{}
+  Dobzhansky T (1973) Nothing in biology makes sense except in the light
+  of evolution. \emph{The American Biology Teacher}, \textbf{75}, 87--91.
+  
+  \hypertarget{ref-elshire2011robust}{}
+  Elshire RJ, Glaubitz JC, Sun Q \emph{et al.} (2011) A robust, simple
+  genotyping-by-sequencing (GBS) approach for high diversity species.
+  \emph{PloS one}, \textbf{6}, e19379.
   
   \hypertarget{ref-erwin1996phytophthora}{}
   Erwin DC, Ribeiro OK, others (1996) \emph{Phytophthora diseases
   worldwide}. American Phytopathological Society (APS Press), St. Paul,
   Minnesota, USA.
   
+  \hypertarget{ref-everhart2014fine}{}
+  Everhart S, Scherm H (2015) Fine-scale genetic structure of
+  \emph{Monilinia fructicola} during brown rot epidemics within individual
+  peach tree canopies. \emph{Phytopathology}, \textbf{105}, 542--549.
+  
+  \hypertarget{ref-excoffier1992analysis}{}
+  Excoffier L, Smouse PE, Quattro JM (1992) Analysis of molecular variance
+  inferred from metric distances among DNA haplotypes: Application to
+  human mitochondrial DNA restriction data. \emph{Genetics}, \textbf{131},
+  479--491.
+  
+  \hypertarget{ref-Falush01082003}{}
+  Falush D, Stephens M, Pritchard JK (2003) Inference of population
+  structure using multilocus genotype data: Linked loci and correlated
+  allele frequencies. \emph{Genetics}, \textbf{164}, 1567--1587.
+  
   \hypertarget{ref-goss2009population}{}
   Goss EM, Larsen M, Chastagner GA, Givens DR, Grünwald NJ (2009)
   Population genetic analysis infers migration pathways of
   \emph{Phytophthora ramorum} in US nurseries. \emph{PLoS Pathogens},
   \textbf{5}, e1000583.
+  
+  \hypertarget{ref-goss2014irish}{}
+  Goss EM, Tabima JF, Cooke DE \emph{et al.} (2014) The Irish potato
+  famine pathogen \emph{Phytophthora infestans} originated in central
+  Mexico rather than the Andes. \emph{Proceedings of the National Academy
+  of Sciences}, \textbf{111}, 8791--8796.
+  
+  \hypertarget{ref-goudet2005hierfstat}{}
+  Goudet J (2005) Hierfstat, a package for R to compute and test
+  hierarchical F-statistics. \emph{Molecular Ecology Notes}, \textbf{5},
+  184--186.
+  
+  \hypertarget{ref-gross2014population}{}
+  Gross A, Hosoya T, Queloz V (2014) Population structure of the invasive
+  forest pathogen \emph{Hymenoscyphus pseudoalbidus}. \emph{Molecular
+  ecology}, \textbf{23}, 2943--2960.
+  
+  \hypertarget{ref-grunwald2011evolution}{}
+  Grünwald NJ, Goss EM (2011) Evolution and population genetics of exotic
+  and re-emerging pathogens: Novel tools and approaches. \emph{Annual
+  Review of Phytopathology}, \textbf{49}, 249--267.
+  
+  \hypertarget{ref-grunwald2006hierarchical}{}
+  Grünwald NJ, Hoheisel G-A (2006) Hierarchical analysis of diversity,
+  selfing, and genetic differentiation in populations of the oomycete
+  \emph{Aphanomyces euteiches}. \emph{Phytopathology}, \textbf{96},
+  1134--1141.
+  
+  \hypertarget{ref-grunwald2003analysis}{}
+  Grünwald NJ, Goodwin SB, Milgroom MG, Fry WE (2003) Analysis of
+  genotypic diversity data for populations of microorganisms.
+  \emph{Phytopathology}, \textbf{93}, 738--46.
   
   \hypertarget{ref-grunwald2008phytophthora}{}
   Grünwald NJ, Goss EM, Press CM (2008) \emph{Phytophthora ramorum}: a
@@ -624,9 +1456,113 @@ manuscript.}
   analysis of the Irish potato famine pathogen \emph{Phytophthora
   infestans}. \emph{Nature}, \textbf{461}, 393--398.
   
+  \hypertarget{ref-Jombartux5f2008}{}
+  Jombart T (2008) Adegenet: a R package for the multivariate analysis of
+  genetic markers. \emph{Bioinformatics}, \textbf{24}, 1403--1405.
+  
+  \hypertarget{ref-jombart2011adegenet}{}
+  Jombart T, Ahmed I (2011) Adegenet 1.3-1: New tools for the analysis of
+  genome-wide SNP data. \emph{Bioinformatics}, \textbf{27}, 3070--3071.
+  
+  \hypertarget{ref-jombart2010discriminant}{}
+  Jombart T, Devillard S, Balloux F (2010) Discriminant analysis of
+  principal components: A new method for the analysis of genetically
+  structured populations. \emph{BMC genetics}, \textbf{11}, 94.
+  
+  \hypertarget{ref-kamvar2014sudden}{}
+  Kamvar ZN, Larsen MM, Kanaskie AM, Hansen EM, Grünwald NJ (2014a)
+  Sudden\_Oak\_Death\_in\_Oregon\_Forests: Spatial and temporal population
+  dynamics of the sudden oak death epidemic in Oregon Forests.
+  
+  \hypertarget{ref-kamvar2015spatial}{}
+  Kamvar ZN, Larsen MM, Kanaskie AM, Hansen EM, Grünwald NJ (2015) Spatial
+  and temporal analysis of populations of the sudden oak death pathogen in
+  Oregon forests. \emph{Phytopathology}, in press.
+  
+  \hypertarget{ref-kamvar2014poppr}{}
+  Kamvar ZN, Tabima JF, Grünwald NJ (2014b) Poppr: An R package for
+  genetic analysis of populations with clonal, partially clonal, and/or
+  sexual reproduction. \emph{PeerJ}, \textbf{2}, e281.
+  
   \hypertarget{ref-kroon2012genus}{}
   Kroon LP, Brouwer H, Cock AW de, Govers F (2012) The Genus
   \emph{Phytophthora}. \emph{Phytopathology}, \textbf{102}, 348--364.
+  
+  \hypertarget{ref-laloe2007consensus}{}
+  Laloë D, Jombart T, Dufour A-B, Moazami-Goudarzi K (2007) Consensus
+  genetic structuring and typological value of markers using multiple
+  co-inertia analysis. \emph{Genetics Selection Evolution}, \textbf{39},
+  1--23.
+  
+  \hypertarget{ref-lees2006novel}{}
+  Lees A, Wattier R, Shaw D \emph{et al.} (2006) Novel microsatellite
+  markers for the analysis of \emph{Phytophthora infestans} populations.
+  \emph{Plant Pathology}, \textbf{55}, 311--319.
+  
+  \hypertarget{ref-li2013efficient}{}
+  Li Y, Cooke DE, Jacobsen E, Lee T van der (2013) Efficient multiplex
+  simple sequence repeat genotyping of the oomycete plant pathogen
+  \emph{Phytophthora infestans}. \emph{Journal of microbiological
+  methods}, \textbf{92}, 316--322.
+  
+  \hypertarget{ref-linde2002population}{}
+  Linde C, Zhan J, McDonald B (2002) Population structure of
+  \emph{Mycosphaerella graminicola}: From lesions to continents.
+  \emph{Phytopathology}, \textbf{92}, 946--955.
+  
+  \hypertarget{ref-luikart2003power}{}
+  Luikart G, England PR, Tallmon D, Jordan S, Taberlet P (2003) The power
+  and promise of population genomics: From genotyping to genome typing.
+  \emph{Nature Reviews Genetics}, \textbf{4}, 981--994.
+  
+  \hypertarget{ref-mantel1967detection}{}
+  Mantel N (1967) The detection of disease clustering and a generalized
+  regression approach. \emph{Cancer research}, \textbf{27}, 209--220.
+  
+  \hypertarget{ref-mastretta2015restriction}{}
+  Mastretta-Yanes A, Arrigo N, Alvarez N \emph{et al.} (2015) Restriction
+  site-associated DNA sequencing, genotyping error estimation and de novo
+  assembly optimization for population genetic inference. \emph{Molecular
+  ecology resources}, \textbf{15}, 28--41.
+  
+  \hypertarget{ref-Mcdonald2002}{}
+  McDonald BA, Linde C (2002) The population genetics of plant pathogens
+  and breeding strategies for durable resistance. \emph{Euphytica},
+  \textbf{124}, 163--180.
+  
+  \hypertarget{ref-meirmans2004genotype}{}
+  Meirmans PG, Van Tienderen PH (2004) GENOTYPE and GENODIVE: Two programs
+  for the analysis of genetic diversity of asexual organisms.
+  \emph{Molecular Ecology Notes}, \textbf{4}, 792--794.
+  
+  \hypertarget{ref-metzger2015horizontal}{}
+  Metzger MJ, Reinisch C, Sherry J, Goff SP (2015) Horizontal transmission
+  of clonal cancer cells causes leukemia in soft-shell clams. \emph{Cell},
+  \textbf{161}, 255--263.
+  
+  \hypertarget{ref-michalakis1996generic}{}
+  Michalakis Y, Excoffier L (1996) A generic estimation of population
+  subdivision using distances between alleles with special reference for
+  microsatellite loci. \emph{Genetics}, \textbf{142}, 1061--1064.
+  
+  \hypertarget{ref-milgroom1996recombination}{}
+  Milgroom MG (1996) Recombination and the multilocus structure of fungal
+  populations. \emph{Annual review of phytopathology}, \textbf{34},
+  457--477.
+  
+  \hypertarget{ref-milgroom1989population}{}
+  Milgroom MG, Levin SA, Fry WE (1989) Population genetics theory and
+  fungicide resistance. \emph{Plant disease epidemiology}, \textbf{2},
+  340--367.
+  
+  \hypertarget{ref-nei1973analysis}{}
+  Nei M (1973) Analysis of gene diversity in subdivided populations.
+  \emph{Proceedings of the National Academy of Sciences}, \textbf{70},
+  3321--3323.
+  
+  \hypertarget{ref-oksanen2015vegan}{}
+  Oksanen J, Blanchet FG, Kindt R \emph{et al.} (2015) \emph{Vegan:
+  Community ecology package}.
   
   \hypertarget{ref-orive1993effective}{}
   Orive ME (1993) Effective population size in organisms with complex
@@ -639,10 +1575,39 @@ manuscript.}
   approaches to disease management. \emph{Phytopathology}, \textbf{104},
   1052--1062.
   
+  \hypertarget{ref-prevosti1975distances}{}
+  Prevosti A, Ocaña J, Alonso G (1975) Distances between populations of
+  \emph{Drosophila subobscura}, based on chromosome arrangement
+  frequencies. \emph{Theoretical and Applied Genetics}, \textbf{45},
+  231--241.
+  
+  \hypertarget{ref-R}{}
+  R Core Team (2015) \emph{R: A language and environment for statistical
+  computing}. R Foundation for Statistical Computing, Vienna, Austria.
+  
+  \hypertarget{ref-rosvall2008maps}{}
+  Rosvall M, Bergstrom CT (2008) Maps of random walks on complex networks
+  reveal community structure. \emph{Proceedings of the National Academy of
+  Sciences}, \textbf{105}, 1118--1123.
+  
+  \hypertarget{ref-shannon2001mathematical}{}
+  Shannon C (2001) A mathematical theory of communication. \emph{ACM
+  SIGMOBILE Mobile Computing and Communications Review}, \textbf{5},
+  3--55.
+  
   \hypertarget{ref-smith1993how}{}
   Smith JM, Smith NH, O'Rourke M, Spratt BG (1993) How clonal are
   bacteria? \emph{Proceedings of the National Academy of Sciences},
   \textbf{90}, 4384--4388.
+  
+  \hypertarget{ref-sokal1958statistical}{}
+  Sokal RR (1958) A statistical method for evaluating systematic
+  relationships. \emph{Univ Kans Sci Bull}, \textbf{38}, 1409--1438.
+  
+  \hypertarget{ref-taylor2003fungal}{}
+  Taylor JW, Fisher MC (2003) Fungal multilocus sequence typing --- it's
+  not just for bacteria. \emph{Current opinion in microbiology},
+  \textbf{6}, 351--356.
   
   \hypertarget{ref-tyler2007phytophthora}{}
   Tyler BM (2007) \emph{Phytophthora sojae}: root rot pathogen of soybean
@@ -657,6 +1622,15 @@ manuscript.}
   Welch DBM, Meselson MS (2001) Rates of nucleotide substitution in sexual
   and anciently asexual rotifers. \emph{Proceedings of the National
   Academy of Sciences}, \textbf{98}, 6720--6724.
+  
+  \hypertarget{ref-wickham2015devtools}{}
+  Wickham H, Chang W (2015) \emph{Devtools: Tools to make developing R
+  packages easier}.
+  
+  \hypertarget{ref-yoshida2013rise}{}
+  Yoshida K, Schuenemann VJ, Cano LM \emph{et al.} (2013) The rise and
+  fall of the \emph{Phytophthora infestans} lineage that triggered the
+  Irish potato famine. \emph{eLife}, \textbf{2}, e00731.
 
 
 \end{document}
