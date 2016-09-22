@@ -14,7 +14,7 @@ I put this as a comment since it's a guideline
  	  *Zymoseptoria* examples)
  - Tools for analysis
  	- Tools for clonal populations always come after sexual populations
- 	- We wrote our own tools
+ 	- We wrote our own tools.
  - Goals of my work
  	1. development of computational tools to characterize populations
  	2. application of these tools to address empirical and theoretical questions
