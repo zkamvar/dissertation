@@ -114,21 +114,43 @@ genetic distance given three different clustering algorithms: farthest neighbor,
 nearest neighbor, and UPGMA (average neighbor) [@sokal1958statistical].
 
 These clustering algorithms act on a distance matrix that is either provided by
-the user or generated via a function that will calculate a distance from
-genetic data such as `bruvo.dist`, which in particular applies to any level
-of ploidy [@bruvo2004simple]. All algorithms have been implemented in C and
-utilize the OpenMP framework for optional parallel processing
-[@dagum1998openmp]. Default is the conservative farthest neighbor algorithm
-(Fig. 1A), which will only cluster samples together if all samples in the
-cluster are at a distance less than the given threshold. By contrast, the
-nearest neighbor algorithm will have a chaining effect that will cluster samples
-akin to adding links on a chain where a sample can be included in a cluster if
-all of the samples have at least one connection below a given threshold (Fig.
-1C). The UPGMA, or average neighbor clustering algorithm is the one most
-familiar to biologists as it is often used to generate ultra-metric trees based
-on genetic distance (Fig. 1B). This algorithm will cluster by creating a
-representative sample per cluster and joining clusters if these representative
-samples are closer than the given threshold.
+the user or generated via a function that will calculate a distance from genetic
+data such as `bruvo.dist`, which in particular applies to any level of ploidy
+[@bruvo2004simple]. All algorithms have been implemented in C and utilize the
+OpenMP framework for optional parallel processing [@dagum1998openmp]. Default is
+the conservative farthest neighbor algorithm (Fig. \@ref(fig:Figure1)A), which
+will only cluster samples together if all samples in the cluster are at a
+distance less than the given threshold. By contrast, the nearest neighbor
+algorithm will have a chaining effect that will cluster samples akin to adding
+links on a chain where a sample can be included in a cluster if all of the
+samples have at least one connection below a given threshold (Fig.
+\@ref(fig:Figure1)C). The UPGMA, or average neighbor clustering algorithm is the
+one most familiar to biologists as it is often used to generate ultra-metric
+trees based on genetic distance (Fig. \@ref(fig:Figure1)B). This algorithm will
+cluster by creating a representative sample per cluster and joining clusters if
+these representative samples are closer than the given threshold.
+
+```{r, Figure1, echo = FALSE, fig.cap = paste(figcap1), fig.scap = paste(figscap1), out.width = "0.5\\linewidth"}
+knitr::include_graphics("figure/frontiers/Figure-1.png")
+cap <- "Diagrammatic representation of the three clustering algorithms
+implemented in `mlg.filter`. (**A-C**) Represent different clustering algorithms
+on the same imaginary network with a threshold of 0.451. Edge weights are
+represented in arbitrary units noted by the line thickness and numerical values
+next to the lines. All outer angles are 90 degrees, so the un-labeled edge
+weights can be obtained with simply geometry. Colored circles represent clusters
+of genotypes. (**A**) Farthest neighbor clustering does not cluster nodes B and
+C because nodes A and C are more than a distance of 0.451 apart. (**B**) UPGMA
+(average neighbor) clustering clusters nodes A, B, and C together because the
+average distance between them and  C is < 0.451. (**C**) Nearest neighbor
+clustering clusters all nodes together because the minimum distance between them
+is always < 0.451."
+
+scap <- "Diagrammatic representation of the three clustering algorithms
+implemented in `mlg.filter`."
+
+figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1")
+figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s")
+```
 
 We utilize data from the microbe *Phytophthora infestans* to show how the
 `mlg.filter` function collapses multilocus genotypes with Bruvo's distance
@@ -145,10 +167,62 @@ contingency tables and dendrograms to determine how well the multilocus lineages
 were detected.
 
 For the *P. infestans* population, the three algorithms were able to detect 18
-multilocus lineages at different distance thresholds (Fig. 2). Contingency
-tables between the described multilocus genotypes and the genotypes defined by
-distance show that most of the 18 lineages were resolved, except for US-8, which
-is polytomic (Table 1).
+multilocus lineages at different distance thresholds (Fig. \@ref(fig:Figure-2)).
+Contingency tables between the described multilocus genotypes and the genotypes
+defined by distance show that most of the 18 lineages were resolved, except for
+US-8, which is polytomic (Table 1).
+
+
+
+```{r, Figure-2, echo = FALSE, message = FALSE, fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = paste(figcap2), fig.scap = paste(figscap2)}
+
+cap <- "Graphical representation of three different clustering algorithms
+collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
+representing 18 clonal lineages. The horizontal axis is Bruvo's genetic distance
+assuming the genome addition model. The vertical axis represents the number of
+multilocus lineages observed. Each point shows the threshold at which one would
+observe a given number of multilocus genotypes. The horizontal black line
+represents 18 multilocus genotypes and vertical dashed lines mark the thresholds
+used to collapse the multilocus genotypes into 18 multilocus lineages.
+"
+scap <- "Graphical representation of three different clustering algorithms
+collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
+representing 18 clonal lineages."
+
+figcap2 <- beaverdown::render_caption(caption = cap, figname = "fig2")
+figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig2s")
+
+# print(knitr::opts_knit$get('rmarkdown.pandoc.to'))
+library('poppr')
+library('ape')
+library('phangorn')
+infdat <- "data/reduced_database.txt.csv"
+infdat <- read.table(infdat, header = TRUE)
+pinf   <- df2genind(infdat[-c(1,2)], sep = "/", ploidy = 3, ind.names = infdat[[1]], pop = infdat[[2]])
+ssr    <- c(3, 3, 2, 3, 3, 2, 2, 3, 3, 3, 3, 3)
+x      <- as.genclone(pinf)
+fstats <- filter_stats(x, bruvo.dist, plot = TRUE, replen = ssr, loss = FALSE, nclone = 18, hist = NULL)
+title(main = expression(paste(italic("P. infestans"), " reference isolates (12 SSR loci)")))
+## Getting the threshold for average neighbor beyond which 18 MLGs would be
+## contracted. This is the number of multilocus genotypes minus 18.
+thresh18 <- fstats$average$thresholds[nmll(x) - nPop(x)] + .Machine$double.eps^0.5
+z <- mlg.filter(x, threshold = thresh18, distance = bruvo.dist, replen = ssr, loss = FALSE, stats = "MLGS", algorithm = "average")
+```
+
+<!-- FIXME -->
+
+```{r pinf_table, echo = FALSE, message = FALSE, results='asis'}
+res <- table(pop(x), z, dnn = NULL)
+res[res == 0] <- "."
+cap <- "Contingency table comparing multilocus lineages assigned based on
+average neighbor clustering (columns) vs. multilocus lineages defined in
+@li2013efficient and @lees2006novel."
+
+tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd")
+
+knitr::kable(t(res), align = "c", format = "latex")
+
+```
 
 We utilized simulated data to evaluate the effect of sequencing error and
 missing data on MLG calling. We constructed the data using the `glSim` function
@@ -219,9 +293,28 @@ The infoMAP algorithm revealed 63 communities with a maximum community size of
 communities with a maximum community size of 26 and $H = 4.65$ for the minimum
 spanning tree. The entropy across years was greatly decreased for all
 populations with the reticulate network compared to the minimum spanning tree
-(Fig. 3). Note that the reticulated network (Fig. 3B) showed patterns
-corresponding with those resulting from a discriminant analysis of principal
-components (Fig. 3D) [@jombart2010discriminant].
+(Fig. \@ref(fig:Figure-3)). Note that the reticulated network (Fig.
+\@ref(fig:Figure-3)B) showed patterns corresponding with those resulting from a
+discriminant analysis of principal components (Fig. \@ref(fig:Figure-3)D)
+[@jombart2010discriminant].
+
+```{r, Figure-3, message = FALSE, echo = FALSE, fig.cap = paste(figcap3), fig.scap = paste(figscap3)}
+knitr::include_graphics("figure/frontiers/Figure-3.png")
+
+cap <- "(**A-B**) Minimum spanning networks of the hemagglutinin (HA)
+segment of H3N2 viral DNA from the *adegenet* package representing flu epidemics
+from 2001 to 2006 without reticulation (**A**) and with reticulation (**B**)
+[@Jombart_2008; @jombart2010discriminant]. Each node represents a unique
+multilocus genotype, colors represent epidemic year, and edge color represents
+absolute genetic distance. (**C**) Shannon entropy values for population
+assignments compared with communities determined by the infoMAP algorithm on
+(**A**) and (**B**). (**D**) Graphic reproduced from @jombart2010discriminant
+showing that the 2006 epidemic does not cluster neatly with the other years.
+"
+
+figscap3 <- "Minimum Spanning Networks with Reticulation"
+figcap3  <- beaverdown::render_caption(caption = cap, figname = "fig3")
+```
 
 Graph walking of the reticulated minimum spanning network of *P. ramorum* by the
 infoMAP algorithm revealed 16 communities with a maximum community size of 13
@@ -261,9 +354,19 @@ To demonstrate calculating a dendrogram with bootstrap support, we used the
 *poppr* function `aboot` on population allelic frequencies derived from the data
 set `microbov` in the *adegenet* package with 1000 bootstrap replicates
 [@Jombart_2008; @laloe2007consensus]. The resulting dendrogram shows bootstrap
-support values $>50\%$ (Fig. 4) and used the following code:
+support values $>50\%$ (Fig. \@ref(fig:microboot)) and used the following code:
 
-```{r, microboot, eval = FALSE}
+```{r, echo = FALSE}
+cap <- "UPGMA dendrogram generated from Nei's genetic distance on 15 breeds
+of *Bos taurus* (BT) or *Bos indicus* (BI) from Africa (AF) or France (FR).
+These data are from @laloe2007consensus. Node labels represent bootstrap support
+$>50\\%$ out of 1,000 bootstrap replicates."
+
+figscap4 <- "UPGMA dendrogram generated from Nei's genetic distance"
+figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig4")
+```
+
+```{r, microboot, results = "hide", fig.width = 5, fig.height = 5, fig.cap = paste(figcap4), fig.scap = paste(figscap4)}
 library("poppr")
 data("microbov", package = "adegenet") 
 strata(microbov) <- data.frame(other(microbov)) 
@@ -292,9 +395,23 @@ The following code example demonstrates the genotype accumulation curve for data
 from @everhart2014fine showing that these data reach a small plateau and have a
 greatly decreased variance with 12 markers, indicating that there are enough
 markers such that adding more markers to the analysis will not create very many
-new genotypes (Fig. 5). 
+new genotypes (Fig. \@ref(fig:moniliniacurve)). 
 
-```{r, monilinia_curve, eval = FALSE}
+```{r, echo = FALSE}
+cap <- "Genotype accumulation curve for 694 isolates of the peach brown rot
+pathogen, *Monilinia fructicola* genotyped over 13 loci from @everhart2014fine.
+The horizontal axis represents the number of loci randomly sampled without
+replacement up to *n - 1* loci, the vertical axis shows the number of multilocus
+genotypes observed, up to 262, the number of unique multilocus genotypes in the
+data set. The red dashed line represents 90% of the total observed multilocus
+genotypes. A trendline (blue) has been added using the *ggplot2* function
+`stat_smooth`."
+
+figscap5 <- "Genotype accumulation curve"
+figcap5  <- beaverdown::render_caption(caption = cap, figname = "fig5")
+```
+
+```{r, moniliniacurve, results = "hide", fig.width = 5, fig.height = 5, fig.keep = "last", message = FALSE, fig.cap = paste(figcap5), fig.scap = paste(figscap5)}
 library("poppr")
 library("ggplot2")
 data("monpop", package = "poppr")
@@ -348,271 +465,7 @@ population had individuals randomly sampled with replacement, representing the
 clonal population. After sampling, both populations had 5% random error and 1%
 missing data independently propagated across all samples. On average, we
 obtained a higher value of $\bar{r}_d$ for the clonal population compared to the
-sexual population for both methods (Fig. 6).
-
-
-### Data format updates: population strata and hierarchies
-
-Assessments of population structure through methods such as hierarchical
-$F_{st}$ [@goudet2005hierfstat] and AMOVA [@michalakis1996generic] require
-hierarchical sampling of populations across space or time [@linde2002population;
-@everhart2014fine; @grunwald2006hierarchical]. With clonal organisms, basic
-practice has been to clone-censor data to avoid downward bias in diversity due
-to duplicated genotypes that may or may not represent different samples
-[@milgroom1996recombination]. This correction should be performed with respect
-to a population hierarchy to accurately reflect the biology of the organism.
-Traditional data structures for population genetic data in most analysis tools
-allow for only one level of hierarchical definition. The investigator thus had
-to provide the data set for analysis at each hierarchical level.
-
-To facilitate handling hierarchical and mutlilocus genotypic metadata, *poppr*
-version 1.1 introduced a new S4 data object called "genclone", extending
-*adegenet*'s "genind" object (Kamvar and Grünwald, unpublished). The genclone
-object formalized the definitions of multilocus genotypes and population
-hierarchies by adding two slots called "mlg" and "hierarchy" that carried a
-numeric vector and a data frame, respectively. These new slots allow for
-increased efficiency and ease of use by allowing these metadata to travel with
-the genetic data. The hierarchy slot in particular contains a data frame where
-each column represents a separate hierarchical level. This is then used to set
-the population factor of the data by supplying a hierarchical formula containing
-one or more column names of the data frame in the hierarchy slot.
-
-The functionality represented by the hierarchy slot has now been migrated from
-the  *poppr* to the *adegenet* package version 2.0 to allow hierarchical
-analysis in *adegenet*, *poppr*, and other dependent packages. The prior *poppr*
-`hierarchy` slot and methods have now been renamed `strata` in *adegenet*. A
-short example of the utility of these methods can be seen in the code segment
-under **Bootstrapping**, above. This migration provides end users with a broader
-ability to analyze data hierarchically in R across packages.
-
-## Availability
-
-As of this writing, the *poppr* R package version 2.0 containing all of the
-features described here is located at
-https://github.com/grunwaldlab/poppr/tree/2.0-rc. It is necessary to install
-*adegenet* 2.0 before installing *poppr*. It can be found at
-https://github.com/thibautjombart/adegenet. Both of these can be installed via
-the R package *devtools* [@wickham2015devtools]. More information and example
-code can be found in the supplementary materials[^1].
-
-### Requirements
-
- - R version 3.0 or better
- - A C compiler. For windows, it can be obtained via Rtools
-   (http://cran.r-project.org/bin/windows/Rtools/). On OSX, it can be obtained
-   via Xcode. For parallel support, gcc version 4.6 or better is needed.
-
-### Installation
-
-From within R, *poppr* can be installed via:
-
-```{r, eval = FALSE}
-install.packages("devtools")
-library("devtools")
-install_github("thibautjombart/adegenet")
-install_github("grunwaldlab/poppr@2.0-rc")
-```
-
-Several population genetics packages in R are currently going through a major
-upgrade following the 2015 R hackathon on population genetics
-(https://github.com/NESCent/r-popgen-hackathon) and have not yet been updated
-in CRAN. We will upload *poppr* 2.0 to CRAN once all other reverse dependent
-packages have been updated.
-
-## Discussion
-
-Given low cost and high throughput of current sequencing technologies we are
-entering a new era of population genetics where large SNP data sets with
-thousands of markers are becoming available for large populations in a genome-
-wide context. This data provides new possibilities and challenges for population
-genetic analyses. We provide novel tools that enable analysis of this data in R
-with a particular emphasis on clonal organisms.
-
-Particularly useful is the implementation of $\bar{r}_d$ in a genomic context
-[@Agapow_2001]. Random sampling of loci across the genome can give an expected
-distribution of $\bar{r}_d$, which is expected to have a mean of zero for
-panmictic populations. This metric is not affected by the number of loci
-sampled, is model free, and has the ability to detect population structure.
-$\bar{r}_d$ is also implemented for sliding window analyses that are useful to
-detect candidate regions of linkage disequilibrium for further analysis.
-
-Clustering multilocus genotypes into multilocus lineages based on genetic
-distances is a non-trivial task given large SNP data sets. Moreover, this has
-not previously been implemented for genomic data for clonal populations. Clonal
-assignment has previously been available in the programs \textsc{GenClone} and
-\textsc{Genodive} for classical markers [@arnaud2007standardizing;
-@meirmans2004genotype]. Our method with `mlg.filter` builds upon this idea and
-allows the user to choose between three different approaches for clustering
-MLGs. The choice of clustering algorithm has an impact on the data (Fig 1, 2),
-where for example a genetic distance cutoff of 0.1 would be the difference
-between 14 multilocus lineages (MLLs) and 17 MLLs for nearest neighbor and UPGMA
-clustering, respectively (Fig. 2). The option to choose the clustering algorithm
-gives the user the ability to choose what is biologically relevant to their
-populations. While there is not one optimal procedure for defining boundaries in
-clonal lineages, our tool provides a means of exploring the potential MLG or MLL
-boundary space.
-
-Minimum spanning networks are a useful tool to analyze the relationships between
-individuals in a population, because it reduces the complexity of a distance
-matrix to the connections that are strongest. By default, these networks are
-drawn without reticulations, but for clonal organisms where many of the
-connections between samples are equivalent, the minimum spanning network appears
-as a chain and reduces the information that can be communicated. This is
-problematic because the ability to detect population structure with one instance of a
-minimum spanning network is limited. Adding reticulation into the minimum
-spanning network thus presents all equivalent connections and allows population
-structure to be more readily detectable. As shown in Fig. 3, population structure
-is apparent both visually and by graph community detection algorithms such as
-the infoMAP algorithm [@rosvall2008maps]. Additionally, the current
-implementation in *poppr* has been successfully used in analyses such as
-reconstruction of the *P. ramorum* epidemic in Oregon forests
-[@kamvar2014sudden; @kamvar2015spatial].
-
-*Poppr* 2.0 is open source and available on GitHub. Members of the community are
-invited to contribute by raising issues or pull requests on our repository at
-https://github.com/grunwaldlab/poppr/issues.
-
-## Acknowledgements
-
-We thank Ignazio Carbone for discussions on the index of association; David
-Cooke, Sanmohan Baby, and Jens Hansen for beta testing; and Thibaut Jombart for
-allowing us to incorporate the `strata` slot and related methods in *adegenet*.
-We also thank all the members of the 2015 R hackathon on population genetics in
-Durham, NC for their advice and input 
-(https://github.com/NESCent/r-popgen-hackathon). This work was supported in part
-by US Department of Agriculture (USDA) Agricultural Research Service Grant
-5358-22000-039-00D, USDA National Institute of Food and Agriculture Grant
-2011-68004-30154, USDA APHIS, the USDA- ARS Floriculture Nursery Initiative, and
-the USDA-Forest Service Forest Health Monitoring Program (to NJG).
-
-## Conflict of Interest Statement
-
-The authors declare no observable conflict of interest. 
-
-## Author Contributions
-
-ZNK and JCB wrote and tested the code. ZNK maintains the code. ZNK and NJG
-conceived, discussed implications, and wrote the manuscript. NJG coordinated the
-collaborative effort.
-
-
-```{r, Figure1, echo = FALSE, fig.cap = paste(figcap1), fig.scap = paste(figscap1), out.width = "0.5\\linewidth"}
-knitr::include_graphics("figure/frontiers/Figure-1.png")
-cap <- "Diagrammatic representation of the three clustering algorithms
-implemented in `mlg.filter`. (**A-C**) Represent different clustering algorithms
-on the same imaginary network with a threshold of 0.451. Edge weights are
-represented in arbitrary units noted by the line thickness and numerical values
-next to the lines. All outer angles are 90 degrees, so the un-labeled edge
-weights can be obtained with simply geometry. Colored circles represent clusters
-of genotypes. (**A**) Farthest neighbor clustering does not cluster nodes B and
-C because nodes A and C are more than a distance of 0.451 apart. (**B**) UPGMA
-(average neighbor) clustering clusters nodes A, B, and C together because the
-average distance between them and  C is < 0.451. (**C**) Nearest neighbor
-clustering clusters all nodes together because the minimum distance between them
-is always < 0.451."
-
-scap <- "Diagrammatic representation of the three clustering algorithms
-implemented in `mlg.filter`."
-
-figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1")
-figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s")
-```
-
-\newpage
-
-
-```{r, Figure-2, echo = FALSE, message = FALSE, fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = paste(figcap2), fig.scap = paste(figscap2)}
-
-cap <- "Graphical representation of three different clustering algorithms
-collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
-representing 18 clonal lineages. The horizontal axis is Bruvo's genetic distance
-assuming the genome addition model. The vertical axis represents the number of
-multilocus lineages observed. Each point shows the threshold at which one would
-observe a given number of multilocus genotypes. The horizontal black line
-represents 18 multilocus genotypes and vertical dashed lines mark the thresholds
-used to collapse the multilocus genotypes into 18 multilocus lineages.
-"
-scap <- "Graphical representation of three different clustering algorithms
-collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
-representing 18 clonal lineages."
-
-figcap2 <- beaverdown::render_caption(caption = cap, figname = "fig2")
-figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig2s")
-
-# print(knitr::opts_knit$get('rmarkdown.pandoc.to'))
-library('poppr')
-library('ape')
-library('phangorn')
-infdat <- "data/reduced_database.txt.csv"
-infdat <- read.table(infdat, header = TRUE)
-pinf   <- df2genind(infdat[-c(1,2)], sep = "/", ploidy = 3, ind.names = infdat[[1]], pop = infdat[[2]])
-ssr    <- c(3, 3, 2, 3, 3, 2, 2, 3, 3, 3, 3, 3)
-x      <- as.genclone(pinf)
-fstats <- filter_stats(x, bruvo.dist, plot = TRUE, replen = ssr, loss = FALSE, nclone = 18, hist = NULL)
-title(main = expression(paste(italic("P. infestans"), " reference isolates (12 SSR loci)")))
-## Getting the threshold for average neighbor beyond which 18 MLGs would be
-## contracted. This is the number of multilocus genotypes minus 18.
-thresh18 <- fstats$average$thresholds[nmll(x) - nPop(x)] + .Machine$double.eps^0.5
-z <- mlg.filter(x, threshold = thresh18, distance = bruvo.dist, replen = ssr, loss = FALSE, stats = "MLGS", algorithm = "average")
-```
-
-
-\newpage
-
-
-```{r, Figure-3, message = FALSE, echo = FALSE, fig.cap = paste(figcap3), fig.scap = paste(figscap3)}
-knitr::include_graphics("figure/frontiers/Figure-3.png")
-
-cap <- "(**A-B**) Minimum spanning networks of the hemagglutinin (HA)
-segment of H3N2 viral DNA from the *adegenet* package representing flu epidemics
-from 2001 to 2006 without reticulation (**A**) and with reticulation (**B**)
-[@Jombart_2008; @jombart2010discriminant]. Each node represents a unique
-multilocus genotype, colors represent epidemic year, and edge color represents
-absolute genetic distance. (**C**) Shannon entropy values for population
-assignments compared with communities determined by the infoMAP algorithm on
-(**A**) and (**B**). (**D**) Graphic reproduced from @jombart2010discriminant
-showing that the 2006 epidemic does not cluster neatly with the other years.
-"
-
-figscap3 <- "Minimum Spanning Networks with Reticulation"
-figcap3  <- beaverdown::render_caption(caption = cap, figname = "fig3")
-
-cap <- "UPGMA dendrogram generated from Nei's genetic distance on 15 breeds
-of *Bos taurus* (BT) or *Bos indicus* (BI) from Africa (AF) or France (FR).
-These data are from @laloe2007consensus. Node labels represent bootstrap support
-$>50\\%$ out of 1,000 bootstrap replicates."
-
-figscap4 <- "UPGMA dendrogram generated from Nei's genetic distance"
-figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig4")
-
-cap <- "Genotype accumulation curve for 694 isolates of the peach brown rot
-pathogen, *Monilinia fructicola* genotyped over 13 loci from @everhart2014fine.
-The horizontal axis represents the number of loci randomly sampled without
-replacement up to *n - 1* loci, the vertical axis shows the number of multilocus
-genotypes observed, up to 262, the number of unique multilocus genotypes in the
-data set. The red dashed line represents 90% of the total observed multilocus
-genotypes. A trendline (blue) has been added using the *ggplot2* function
-`stat_smooth`."
-
-figscap5 <- "Genotype accumulation curve"
-figcap5  <- beaverdown::render_caption(caption = cap, figname = "fig5")
-
-```
-
-\newpage
-
-```{r, Figure-4, cache = FALSE, results = "hide", ref.label = "microboot", message = FALSE, echo = FALSE, fig.width = 5, fig.height = 5, fig.cap = paste(figcap4), fig.scap = paste(figscap4)}
-```
-
-
-\newpage
-
-```{r, Figure-5, cache = FALSE, results = "hide", ref.label = "monilinia_curve", echo = FALSE, fig.width = 5, fig.height = 5, fig.keep = "last", message = FALSE, fig.cap = paste(figcap5), fig.scap = paste(figscap5)}
-
-```
-
-
-\newpage
+sexual population for both methods (Fig. \@ref(fig:Figure-6)).
 
 
 ```{r, Figure-6, echo = FALSE, fig.width = 5, fig.height = 3.333, fig.keep = "last", fig.cap = paste(figcap6), fig.scap = paste(figscap6)}
@@ -754,20 +607,154 @@ figcap6  <- beaverdown::render_caption(cap, figname = "fig6", index = "index.Rmd
 
 ```
 
+### Data format updates: population strata and hierarchies
+
+Assessments of population structure through methods such as hierarchical
+$F_{st}$ [@goudet2005hierfstat] and AMOVA [@michalakis1996generic] require
+hierarchical sampling of populations across space or time [@linde2002population;
+@everhart2014fine; @grunwald2006hierarchical]. With clonal organisms, basic
+practice has been to clone-censor data to avoid downward bias in diversity due
+to duplicated genotypes that may or may not represent different samples
+[@milgroom1996recombination]. This correction should be performed with respect
+to a population hierarchy to accurately reflect the biology of the organism.
+Traditional data structures for population genetic data in most analysis tools
+allow for only one level of hierarchical definition. The investigator thus had
+to provide the data set for analysis at each hierarchical level.
+
+To facilitate handling hierarchical and mutlilocus genotypic metadata, *poppr*
+version 1.1 introduced a new S4 data object called "genclone", extending
+*adegenet*'s "genind" object (Kamvar and Grünwald, unpublished). The genclone
+object formalized the definitions of multilocus genotypes and population
+hierarchies by adding two slots called "mlg" and "hierarchy" that carried a
+numeric vector and a data frame, respectively. These new slots allow for
+increased efficiency and ease of use by allowing these metadata to travel with
+the genetic data. The hierarchy slot in particular contains a data frame where
+each column represents a separate hierarchical level. This is then used to set
+the population factor of the data by supplying a hierarchical formula containing
+one or more column names of the data frame in the hierarchy slot.
+
+The functionality represented by the hierarchy slot has now been migrated from
+the  *poppr* to the *adegenet* package version 2.0 to allow hierarchical
+analysis in *adegenet*, *poppr*, and other dependent packages. The prior *poppr*
+`hierarchy` slot and methods have now been renamed `strata` in *adegenet*. A
+short example of the utility of these methods can be seen in the code segment
+under **Bootstrapping**, above. This migration provides end users with a broader
+ability to analyze data hierarchically in R across packages.
+
+## Availability
+
+As of this writing, the *poppr* R package version 2.0 containing all of the
+features described here is located at
+https://github.com/grunwaldlab/poppr/tree/2.0-rc. It is necessary to install
+*adegenet* 2.0 before installing *poppr*. It can be found at
+https://github.com/thibautjombart/adegenet. Both of these can be installed via
+the R package *devtools* [@wickham2015devtools]. More information and example
+code can be found in the supplementary materials[^1].
+
+### Requirements
+
+ - R version 3.0 or better
+ - A C compiler. For windows, it can be obtained via Rtools
+   (http://cran.r-project.org/bin/windows/Rtools/). On OSX, it can be obtained
+   via Xcode. For parallel support, gcc version 4.6 or better is needed.
+
+### Installation
+
+From within R, *poppr* can be installed via:
+
+```{r, eval = FALSE}
+install.packages("devtools")
+library("devtools")
+install_github("thibautjombart/adegenet")
+install_github("grunwaldlab/poppr@2.0-rc")
+```
+
+Several population genetics packages in R are currently going through a major
+upgrade following the 2015 R hackathon on population genetics
+(https://github.com/NESCent/r-popgen-hackathon) and have not yet been updated
+in CRAN. We will upload *poppr* 2.0 to CRAN once all other reverse dependent
+packages have been updated.
+
+## Discussion
+
+Given low cost and high throughput of current sequencing technologies we are
+entering a new era of population genetics where large SNP data sets with
+thousands of markers are becoming available for large populations in a genome-
+wide context. This data provides new possibilities and challenges for population
+genetic analyses. We provide novel tools that enable analysis of this data in R
+with a particular emphasis on clonal organisms.
+
+Particularly useful is the implementation of $\bar{r}_d$ in a genomic context
+[@Agapow_2001]. Random sampling of loci across the genome can give an expected
+distribution of $\bar{r}_d$, which is expected to have a mean of zero for
+panmictic populations. This metric is not affected by the number of loci
+sampled, is model free, and has the ability to detect population structure.
+$\bar{r}_d$ is also implemented for sliding window analyses that are useful to
+detect candidate regions of linkage disequilibrium for further analysis.
+
+Clustering multilocus genotypes into multilocus lineages based on genetic
+distances is a non-trivial task given large SNP data sets. Moreover, this has
+not previously been implemented for genomic data for clonal populations. Clonal
+assignment has previously been available in the programs \textsc{GenClone} and
+\textsc{Genodive} for classical markers [@arnaud2007standardizing;
+@meirmans2004genotype]. Our method with `mlg.filter` builds upon this idea and
+allows the user to choose between three different approaches for clustering
+MLGs. The choice of clustering algorithm has an impact on the data (Fig.
+\@ref(fig:Figure1), \@ref(fig:Figure-2)), where for example a genetic distance
+cutoff of 0.1 would be the difference between 14 multilocus lineages (MLLs) and
+17 MLLs for nearest neighbor and UPGMA clustering, respectively (Fig.
+\@ref(fig:Figure-2)). The option to choose the clustering algorithm gives the
+user the ability to choose what is biologically relevant to their populations.
+While there is not one optimal procedure for defining boundaries in clonal
+lineages, our tool provides a means of exploring the potential MLG or MLL
+boundary space.
+
+Minimum spanning networks are a useful tool to analyze the relationships between
+individuals in a population, because it reduces the complexity of a distance
+matrix to the connections that are strongest. By default, these networks are
+drawn without reticulations, but for clonal organisms where many of the
+connections between samples are equivalent, the minimum spanning network appears
+as a chain and reduces the information that can be communicated. This is
+problematic because the ability to detect population structure with one instance
+of a minimum spanning network is limited. Adding reticulation into the minimum
+spanning network thus presents all equivalent connections and allows population
+structure to be more readily detectable. As shown in Fig. \@ref(fig:Figure-3),
+population structure is apparent both visually and by graph community detection
+algorithms such as the infoMAP algorithm [@rosvall2008maps]. Additionally, the
+current implementation in *poppr* has been successfully used in analyses such as
+reconstruction of the *P. ramorum* epidemic in Oregon forests
+[@kamvar2014sudden; @kamvar2015spatial].
+
+*Poppr* 2.0 is open source and available on GitHub. Members of the community are
+invited to contribute by raising issues or pull requests on our repository at
+https://github.com/grunwaldlab/poppr/issues.
+
+## Acknowledgements
+
+We thank Ignazio Carbone for discussions on the index of association; David
+Cooke, Sanmohan Baby, and Jens Hansen for beta testing; and Thibaut Jombart for
+allowing us to incorporate the `strata` slot and related methods in *adegenet*.
+We also thank all the members of the 2015 R hackathon on population genetics in
+Durham, NC for their advice and input 
+(https://github.com/NESCent/r-popgen-hackathon). This work was supported in part
+by US Department of Agriculture (USDA) Agricultural Research Service Grant
+5358-22000-039-00D, USDA National Institute of Food and Agriculture Grant
+2011-68004-30154, USDA APHIS, the USDA- ARS Floriculture Nursery Initiative, and
+the USDA-Forest Service Forest Health Monitoring Program (to NJG).
+
+## Conflict of Interest Statement
+
+The authors declare no observable conflict of interest. 
+
+## Author Contributions
+
+ZNK and JCB wrote and tested the code. ZNK maintains the code. ZNK and NJG
+conceived, discussed implications, and wrote the manuscript. NJG coordinated the
+collaborative effort.
+
+
 \newpage
 
 
-<!-- FIXME -->
 
-```{r pinf_table, echo = FALSE, message = FALSE, results='asis'}
-res <- table(pop(x), z, dnn = NULL)
-res[res == 0] <- "."
-cap <- "Contingency table comparing multilocus lineages assigned based on
-average neighbor clustering (columns) vs. multilocus lineages defined in
-@li2013efficient and @lees2006novel."
 
-tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd")
-
-knitr::kable(t(res), align = "c", format = "latex")
-
-```
