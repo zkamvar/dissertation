@@ -8,15 +8,27 @@ ZHIAN
 I put this as a comment since it's a guideline
  -->
 
- - Plant Pathogens 
+ - Plant Pathogens
  	- Evolution and Adaptation
- 	- Understanding clonal population dynamics (*Phytophthora* and *Zymoseptoria* examples)
+ 	- Understanding clonal population dynamics (*Phytophthora* and
+ 	  *Zymoseptoria* examples)
  - Tools for analysis
  	- Tools for clonal populations always come after sexual populations
  	- We wrote our own tools
  - Goals of my work
  	1. development of computational tools to characterize populations
  	2. application of these tools to address empirical and theoretical questions
+
+
+The majority of plant pathogenic species on earth are microbial. The majority of
+these microbes have the ability to reproduce both sexually and clonally, which
+allows them to adapt to their environment in different ways. Sexual reproduction
+can purge deleterious alleles and create potentially more fit combinations of
+genes, which could guard against future plant defenses and pesticides, but at
+the risk of losing currently advantageous gene combinations. Clonal reproduction
+allows them to hold on to their unique combination of virulence genes at the
+cost of genetic variation.
+
 
 
 ## Population genetics of clonal organisms
