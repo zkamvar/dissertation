@@ -1,9 +1,9 @@
 # Novel R Tools For Analysis of Genome-Wide Population Genetic Data With Emphasis on Clonality
 
 ```{r, setup, include = FALSE}
-library(knitr)
 # evaluate fig.cap after a chunk is evaluated
-opts_knit$set(eval.after = 'fig.cap')
+knitr::opts_knit$set(eval.after = c('fig.cap', 'fig.scap'))
+knitr::opts_chunk$set(message = FALSE)
 ```
 
 ## Abstract
@@ -495,15 +495,10 @@ ZNK and JCB wrote and tested the code. ZNK maintains the code. ZNK and NJG
 conceived, discussed implications, and wrote the manuscript. NJG coordinated the
 collaborative effort.
 
-## Figures and Tables
 
-### Figure 1
-
-```{r, Figure-1, out.width = "0.5\\linewidth", echo = FALSE, fig.cap = "Clustering Algorithms"}
+```{r, Figure1, echo = FALSE, fig.cap = paste(figcap1), fig.scap = paste(figscap1), out.width = "0.5\\linewidth"}
 knitr::include_graphics("figure/frontiers/Figure-1.png")
-```
-
-**Figure 1** Diagrammatic representation of the three clustering algorithms
+cap <- "Diagrammatic representation of the three clustering algorithms
 implemented in `mlg.filter`. (**A-C**) Represent different clustering algorithms
 on the same imaginary network with a threshold of 0.451. Edge weights are
 represented in arbitrary units noted by the line thickness and numerical values
@@ -514,37 +509,37 @@ C because nodes A and C are more than a distance of 0.451 apart. (**B**) UPGMA
 (average neighbor) clustering clusters nodes A, B, and C together because the
 average distance between them and  C is < 0.451. (**C**) Nearest neighbor
 clustering clusters all nodes together because the minimum distance between them
-is always < 0.451.
+is always < 0.451."
+
+scap <- "Diagrammatic representation of the three clustering algorithms
+implemented in `mlg.filter`."
+
+figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1")
+figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s")
+```
 
 \newpage
 
 
-```{r, Figure-2, echo = FALSE, message = FALSE, out.width = "0.5\\linewidth", fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = paste(capn)}
-if (knitr::opts_knit$get('rmarkdown.pandoc.to') == "latex"){
- capn <- '
-Graphical representation of three different clustering algorithms
-collapsing multilocus genotypes for 12 SSR loci from \\textit{Phytophthora infestans}
-representing 18 clonal lineages. The horizontal axis is Bruvo\'s genetic distance
-assuming the genome addition model. The vertical axis represents the number of
-multilocus lineages observed. Each point shows the threshold at which one would
-observe a given number of multilocus genotypes. The horizontal black line
-represents 18 multilocus genotypes and vertical dashed lines mark the thresholds
-used to collapse the multilocus genotypes into 18 multilocus lineages.
-'
-} else {
-  capn <- '
-Graphical representation of three different clustering algorithms
-collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
-representing 18 clonal lineages. The horizontal axis is Bruvo\'s genetic distance
-assuming the genome addition model. The vertical axis represents the number of
-multilocus lineages observed. Each point shows the threshold at which one would
-observe a given number of multilocus genotypes. The horizontal black line
-represents 18 multilocus genotypes and vertical dashed lines mark the thresholds
-used to collapse the multilocus genotypes into 18 multilocus lineages.
-'	
-}
+```{r, Figure-2, echo = FALSE, message = FALSE, fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = paste(figcap2), fig.scap = paste(figscap2)}
 
-print(knitr::opts_knit$get('rmarkdown.pandoc.to'))
+cap <- "Graphical representation of three different clustering algorithms
+collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
+representing 18 clonal lineages. The horizontal axis is Bruvo's genetic distance
+assuming the genome addition model. The vertical axis represents the number of
+multilocus lineages observed. Each point shows the threshold at which one would
+observe a given number of multilocus genotypes. The horizontal black line
+represents 18 multilocus genotypes and vertical dashed lines mark the thresholds
+used to collapse the multilocus genotypes into 18 multilocus lineages.
+"
+scap <- "Graphical representation of three different clustering algorithms
+collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
+representing 18 clonal lineages."
+
+figcap2 <- beaverdown::render_caption(caption = cap, figname = "fig2")
+figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig2s")
+
+# print(knitr::opts_knit$get('rmarkdown.pandoc.to'))
 library('poppr')
 library('ape')
 library('phangorn')
@@ -553,7 +548,7 @@ infdat <- read.table(infdat, header = TRUE)
 pinf   <- df2genind(infdat[-c(1,2)], sep = "/", ploidy = 3, ind.names = infdat[[1]], pop = infdat[[2]])
 ssr    <- c(3, 3, 2, 3, 3, 2, 2, 3, 3, 3, 3, 3)
 x      <- as.genclone(pinf)
-fstats <- filter_stats(x, bruvo.dist, plot = TRUE, replen = ssr, loss = FALSE, nclone = 18)
+fstats <- filter_stats(x, bruvo.dist, plot = TRUE, replen = ssr, loss = FALSE, nclone = 18, hist = NULL)
 title(main = expression(paste(italic("P. infestans"), " reference isolates (12 SSR loci)")))
 ## Getting the threshold for average neighbor beyond which 18 MLGs would be
 ## contracted. This is the number of multilocus genotypes minus 18.
@@ -564,28 +559,11 @@ z <- mlg.filter(x, threshold = thresh18, distance = bruvo.dist, replen = ssr, lo
 
 \newpage
 
-### Figure 3
 
-```{r, Figure-3, message = FALSE, out.width = "0.5\\linewidth", echo = FALSE, fig.cap = paste(f3capn)}
+```{r, Figure-3, message = FALSE, echo = FALSE, fig.cap = paste(figcap3), fig.scap = paste(figscap3)}
 knitr::include_graphics("figure/frontiers/Figure-3.png")
 
-tmpdir <- tempdir()
-bib <- paste0(knitr::opts_knit$get("output.dir"), "/bib/fronteirs_citations.bib")
-csl <- paste0(knitr::opts_knit$get("output.dir"), "/csl/molecular-ecology.csl")
-
-txt <- paste0("<!--pandoc
-t: latex
-s:
-mathjax:
-number-sections:
-bibliography: ", bib, "\n",
-"csl: ", csl, "\n",
-"o: ", paste0(tmpdir, "/fig3.tex"), "\n",
-"-->
-
-CUT=======
-
-(**A-B**) Minimum spanning networks of the hemagglutinin (HA)
+cap <- "(**A-B**) Minimum spanning networks of the hemagglutinin (HA)
 segment of H3N2 viral DNA from the *adegenet* package representing flu epidemics
 from 2001 to 2006 without reticulation (**A**) and with reticulation (**B**)
 [@Jombart_2008; @jombart2010discriminant]. Each node represents a unique
@@ -594,70 +572,50 @@ absolute genetic distance. (**C**) Shannon entropy values for population
 assignments compared with communities determined by the infoMAP algorithm on
 (**A**) and (**B**). (**D**) Graphic reproduced from @jombart2010discriminant
 showing that the 2006 epidemic does not cluster neatly with the other years.
+"
 
-CUT=======
-")
+figscap3 <- "Minimum Spanning Networks with Reticulation"
+figcap3  <- beaverdown::render_caption(caption = cap, figname = "fig3")
 
-intmp <- paste0(tmpdir, "/fig3.Rmd")
-cat(txt, file = intmp)
-
-
-outfile <- knitr::pandoc(intmp)
-tmptxt  <- readLines(outfile)
-outinds <- which(tmptxt == "CUT=======")
-inds    <- seq(from = outinds[1] + 2, to = outinds[2] - 2, by = 1)
-f3capn  <- paste(tmptxt[inds], collapse = "\n")
-
-```
-<!-- 
-
-**Figure 3** (**A-B**) Minimum spanning networks of the hemagglutinin (HA)
-segment of H3N2 viral DNA from the *adegenet* package representing flu epidemics
-from 2001 to 2006 without reticulation (**A**) and with reticulation (**B**)
-[@Jombart_2008; @jombart2010discriminant]. Each node represents a unique
-multilocus genotype, colors represent epidemic year, and edge color represents
-absolute genetic distance. (**C**) Shannon entropy values for population
-assignments compared with communities determined by the infoMAP algorithm on
-(**A**) and (**B**). (**D**) Graphic reproduced from @jombart2010discriminant
-showing that the 2006 epidemic does not cluster neatly with the other years. -->
-
-
-\newpage
-
-### Figure 4
-
-```{r, Figure-4, cache = FALSE, results = "hide", ref.label = "microboot", echo = FALSE, out.width = "0.5\\linewidth", fig.width = 5, fig.height = 5, fig.cap = "Bootstrapped Dendrogram"}
-
-```
-
-**Figure 4** UPGMA dendrogram generated from Nei's genetic distance on 15 breeds
+cap <- "UPGMA dendrogram generated from Nei's genetic distance on 15 breeds
 of *Bos taurus* (BT) or *Bos indicus* (BI) from Africa (AF) or France (FR).
 These data are from @laloe2007consensus. Node labels represent bootstrap support
-$>50\%$ out of 1,000 bootstrap replicates.
+$>50\\%$ out of 1,000 bootstrap replicates."
 
+figscap4 <- "UPGMA dendrogram generated from Nei's genetic distance"
+figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig4")
 
-\newpage
-
-### Figure 5
-
-```{r, Figure-5, cache = FALSE, results = "hide", ref.label = "monilinia_curve", echo = FALSE, out.width = "0.5\\linewidth", fig.width = 5, fig.height = 5, fig.keep = "last", message = FALSE, fig.cap = "Genotype Accumulation Curve"}
-
-```
-
-**Figure 5** Genotype accumulation curve for 694 isolates of the peach brown rot
+cap <- "Genotype accumulation curve for 694 isolates of the peach brown rot
 pathogen, *Monilinia fructicola* genotyped over 13 loci from @everhart2014fine.
 The horizontal axis represents the number of loci randomly sampled without
-replacement up to $n - 1$ loci, the vertical axis shows the number of multilocus
+replacement up to *n - 1* loci, the vertical axis shows the number of multilocus
 genotypes observed, up to 262, the number of unique multilocus genotypes in the
 data set. The red dashed line represents 90% of the total observed multilocus
 genotypes. A trendline (blue) has been added using the *ggplot2* function
-`stat_smooth`.
+`stat_smooth`."
+
+figscap5 <- "Genotype accumulation curve"
+figcap5  <- beaverdown::render_caption(caption = cap, figname = "fig5")
+
+```
 
 \newpage
 
-### Figure 6
+```{r, Figure-4, cache = FALSE, results = "hide", ref.label = "microboot", message = FALSE, echo = FALSE, fig.width = 5, fig.height = 5, fig.cap = paste(figcap4), fig.scap = paste(figscap4)}
+```
 
-```{r, Figure-6, echo = FALSE, out.width = "0.5\\linewidth", fig.width = 5, fig.height = 3.333, fig.keep = "last", fig.cap = "Sliding Window of the Index of Association"}
+
+\newpage
+
+```{r, Figure-5, cache = FALSE, results = "hide", ref.label = "monilinia_curve", echo = FALSE, fig.width = 5, fig.height = 5, fig.keep = "last", message = FALSE, fig.cap = paste(figcap5), fig.scap = paste(figscap5)}
+
+```
+
+
+\newpage
+
+
+```{r, Figure-6, echo = FALSE, fig.width = 5, fig.height = 3.333, fig.keep = "last", fig.cap = paste(figcap6), fig.scap = paste(figscap6)}
 clone.ia <- c(0.00657391971000822, 0.00475038591717665, 0.00590697833268689, 
 0.00177109538039166, 0.00784047946321868, 0.0054449176789628, 
 0.0034546641854964, 0.00201826415448331, 0.00813373673459406, 
@@ -777,37 +735,39 @@ boxplot(data.frame(clonal = clone.samp, sexual = sex.samp),
 legend("topright", legend = "", pch = "B", cex = 2, xjust = 2, yjust = 1, bty = "n")
 par(mar = c(5, 4, 4, 2) + 0.1)
 layout(matrix(1))
-```
 
-**Figure 6** **(A)** Sliding window analysis of the standardized index of
-association ($\bar{r}_d$) across a simulated $1.1 \times 10^4$ nt chromosome
+cap <- "**(A)** Sliding window analysis of the standardized index of
+association ($\\bar{r}_d$) across a simulated $1.1 \\times 10^4$ nt chromosome
 containing 1,100 variants among 100 individuals. Each window analyzed variants
 within 500nt chunks. The black line refers to the clonal and the blue line to
 the sexual populations. **(B)** boxplots showing 100 random samples of 50
-variants to calculate a distribution of $\bar{r}_d$ for the clonal (red) and
+variants to calculate a distribution of $\\bar{r}_d$ for the clonal (red) and
 sexual (blue) populations. Each box is centered around the mean, with whiskers
 extending out to 1.5 times the interquartile range. The median is indicated by
-the center line. **(A)** and **(B)** are plotted on the same y-axis.
+the center line. **(A)** and **(B)** are plotted on the same y-axis."
 
+scap <- "Sliding window analysis of the standardized index of
+association ($\\bar{r}_d$)"
+
+figscap6 <- beaverdown::render_caption(scap, figname = "fig6s", index = "index.Rmd")
+figcap6  <- beaverdown::render_caption(cap, figname = "fig6", index = "index.Rmd")
+
+```
 
 \newpage
 
-**Table 1** Contingency table comparing multilocus lineages assigned based on
-average neighbor clustering (columns) vs. multilocus lineages defined in
-@li2013efficient and @lees2006novel.
+
+<!-- FIXME -->
 
 ```{r pinf_table, echo = FALSE, message = FALSE, results='asis'}
 res <- table(pop(x), z, dnn = NULL)
 res[res == 0] <- "."
-knitr::kable(res, align = "c")
+cap <- "Contingency table comparing multilocus lineages assigned based on
+average neighbor clustering (columns) vs. multilocus lineages defined in
+@li2013efficient and @lees2006novel."
+
+tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd")
+
+knitr::kable(t(res), align = "c", format = "latex")
+
 ```
-
-## Figure Legends
-
-
-
-
-
-
-
-## References
