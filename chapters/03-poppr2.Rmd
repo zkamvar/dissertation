@@ -205,23 +205,37 @@ fstats <- filter_stats(x, bruvo.dist, plot = TRUE, replen = ssr, loss = FALSE, n
 title(main = expression(paste(italic("P. infestans"), " reference isolates (12 SSR loci)")))
 ## Getting the threshold for average neighbor beyond which 18 MLGs would be
 ## contracted. This is the number of multilocus genotypes minus 18.
-thresh18 <- fstats$average$thresholds[nmll(x) - nPop(x)] + .Machine$double.eps^0.5
+thresh18 <- fstats$average$THRESHOLDS[nmll(x) - nPop(x)] + .Machine$double.eps^0.5
 z <- mlg.filter(x, threshold = thresh18, distance = bruvo.dist, replen = ssr, loss = FALSE, stats = "MLGS", algorithm = "average")
 ```
 
 <!-- FIXME -->
 
 ```{r pinf_table, echo = FALSE, message = FALSE, results='asis'}
+library('xtable')
 res <- table(pop(x), z, dnn = NULL)
 res[res == 0] <- "."
-cap <- "Contingency table comparing multilocus lineages assigned based on
-average neighbor clustering (columns) vs. multilocus lineages defined in
-@li2013efficient and @lees2006novel."
+cap <- "Contingency table comparing multilocus lineages (MLL) defined in
+@li2013efficient and @lees2006novel (rows) to MLLs inferred from Bruvo's genetic
+distance (columns) at a threshold of 0.07 with the average
+neighbor algorithm [@bruvo2004simple; @sokal1958statistical]. Values in the
+table represent the number of times any given inferred MLL matches with a
+previously defined MLL. For example, in our original data set, there were three
+genotypes previously defined as the US-24 MLL. All three genotypes were also
+determined to cluster into a single MLL by filtering. In contrast, US-8 was
+determined to cluster into three different MLLs by filtering."
 
 tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd")
 
-knitr::kable(t(res), align = "c", format = "latex")
-
+bold.rows <- function(x) paste0("\\textbf{", x, "}")
+xtab      <- xtable(res, align = c("l|", rep("c", ncol(res))), caption = tabcap, 
+                    label = "tab:pinf_table")
+print.xtable(xtab, 
+             comment = FALSE, 
+             floating.environment = "sidewaystable",
+             hline.after = c(0, nrow(res)),
+             sanitize.rownames.function = bold.rows,
+             sanitize.colnames.function = bold.rows)
 ```
 
 We utilized simulated data to evaluate the effect of sequencing error and
@@ -309,7 +323,10 @@ multilocus genotype, colors represent epidemic year, and edge color represents
 absolute genetic distance. (**C**) Shannon entropy values for population
 assignments compared with communities determined by the infoMAP algorithm on
 (**A**) and (**B**). (**D**) Graphic reproduced from @jombart2010discriminant
-showing that the 2006 epidemic does not cluster neatly with the other years.
+showing that the 2006 epidemic does not cluster neatly with the other years via
+Discriminant Analysis of Principal Components. Horizontal axis represents the
+first discriminant component. Vertical axis represents the second discriminant
+component.
 "
 
 figscap3 <- "Minimum Spanning Networks with Reticulation"
