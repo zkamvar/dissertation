@@ -40,7 +40,7 @@ TBD...
  	1. Analyze mixtures of clonal populations to assess effect of sampling
  	   multiple clonal populations.
  	2. Re-analyze rates of sexual reproduction to confirm previous study
- 	   [@de2004clonal].
+ 	   with and without clone-correction [@de2004clonal].
  	3. Power analysis of $\bar{r}_d$.
  	4. Investigate dynamics of populations with significantly negative (p = 1)
  	   values of $\bar{r}_d$.
@@ -92,10 +92,11 @@ only clonal reproduction.
 
 ### Analysis of Microsatellite Data
 
-The standardized index of association ($\bar{r}_d$) was calculated using the
-*poppr* function `ia()`. Tests for significance were performed by randomly
-permuting the alleles at each locus independently and then assessing
-$\bar{r}_d$. This was done 999 times for each replicate population. The p-values
+The standardized index of association ($\bar{r}_d$) was calculated for full and
+clone-corrected data using the *poppr* function `ia()`. Tests for significance
+were performed by randomly permuting the alleles at each locus independently and
+then assessing $\bar{r}_d$. This was done 999 times for each replicate
+population. Re-sampling was not performed with clone-corrected data. The p-values
 reflect the proportion of observations greater than the observed statistic.
 Estimates of genotypic diversity were assessed with the *poppr* function
 `diversity_boot()` with 999 bootstrap replicates, recording the estimate and
