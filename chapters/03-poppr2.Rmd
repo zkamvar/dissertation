@@ -681,6 +681,8 @@ code can be found in the supplementary materials[^1].
    (http://cran.r-project.org/bin/windows/Rtools/). On OSX, it can be obtained
    via Xcode. For parallel support, gcc version 4.6 or better is needed.
 
+\newpage
+
 ### Installation
 
 From within R, *poppr* can be installed via:
@@ -752,6 +754,8 @@ reconstruction of the *P. ramorum* epidemic in Oregon forests
 invited to contribute by raising issues or pull requests on our repository at
 https://github.com/grunwaldlab/poppr/issues.
 
+\newpage
+
 ## Acknowledgements
 
 We thank Ignazio Carbone for discussions on the index of association; David
@@ -762,7 +766,7 @@ Durham, NC for their advice and input
 (https://github.com/NESCent/r-popgen-hackathon). This work was supported in part
 by US Department of Agriculture (USDA) Agricultural Research Service Grant
 5358-22000-039-00D, USDA National Institute of Food and Agriculture Grant
-2011-68004-30154, USDA APHIS, the USDA- ARS Floriculture Nursery Initiative, and
+2011-68004-30154, USDA APHIS, the USDA-ARS Floriculture Nursery Initiative, and
 the USDA-Forest Service Forest Health Monitoring Program (to NJG).
 
 
