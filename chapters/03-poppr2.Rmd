@@ -166,12 +166,6 @@ resolved. We used these thresholds to define multilocus lineages and create
 contingency tables and dendrograms to determine how well the multilocus lineages
 were detected.
 
-For the *P. infestans* population, the three algorithms were able to detect 18
-multilocus lineages at different distance thresholds (Fig. \@ref(fig:Figure-2)).
-Contingency tables between the described multilocus genotypes and the genotypes
-defined by distance show that most of the 18 lineages were resolved, except for
-US-8, which is polytomic (Table 1).
-
 
 
 ```{r, Figure-2, echo = FALSE, message = FALSE, fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = paste(figcap2), fig.scap = paste(figscap2)}
@@ -209,34 +203,48 @@ thresh18 <- fstats$average$THRESHOLDS[nmll(x) - nPop(x)] + .Machine$double.eps^0
 z <- mlg.filter(x, threshold = thresh18, distance = bruvo.dist, replen = ssr, loss = FALSE, stats = "MLGS", algorithm = "average")
 ```
 
-<!-- FIXME -->
-
-```{r pinf_table, echo = FALSE, message = FALSE, results='asis'}
+```{r pinftable, echo = FALSE, message = FALSE, results = "asis"}
 library('xtable')
 res <- table(pop(x), z, dnn = NULL)
 res[res == 0] <- "."
 cap <- "Contingency table comparing multilocus lineages (MLL) defined in
 @li2013efficient and @lees2006novel (rows) to MLLs inferred from Bruvo's genetic
-distance (columns) at a threshold of 0.07 with the average
-neighbor algorithm [@bruvo2004simple; @sokal1958statistical]. Values in the
-table represent the number of times any given inferred MLL matches with a
-previously defined MLL. For example, in our original data set, there were three
-genotypes previously defined as the US-24 MLL. All three genotypes were also
-determined to cluster into a single MLL by filtering. In contrast, US-8 was
-determined to cluster into three different MLLs by filtering."
+distance (columns) at a threshold of 0.07 with the average neighbor algorithm
+[@bruvo2004simple; @sokal1958statistical]. Values in the table represent the
+number of times any given inferred MLL matches with a previously defined MLL.
+For example, in our original data set, there were three genotypes previously
+defined as the US-24 MLL. All three genotypes were also determined to cluster
+into a single MLL by filtering. In contrast, US-8 was determined to cluster into
+three different MLLs by filtering."
 
 tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd")
 
 bold.rows <- function(x) paste0("\\textbf{", x, "}")
 xtab      <- xtable(res, align = c("l|", rep("c", ncol(res))), caption = tabcap, 
-                    label = "tab:pinf_table")
-print.xtable(xtab, 
+                    label = "pinftable")
+out <- print.xtable(xtab, 
              comment = FALSE, 
+             table.placement = "ph!", # http://tex.stackexchange.com/a/28091/77699
              floating.environment = "sidewaystable",
+             booktabs = TRUE,
+             print.results = FALSE,
              hline.after = c(0, nrow(res)),
              sanitize.rownames.function = bold.rows,
              sanitize.colnames.function = bold.rows)
+# This part is necessary to insert a short caption :/
+cat(gsub("caption\\{", 
+	     "caption[Contingency table comparing multilocus lineages (MLL)]{", 
+	     out))
+
 ```
+
+\newpage
+
+For the *P. infestans* population, the three algorithms were able to detect 18
+multilocus lineages at different distance thresholds (Fig. \@ref(fig:Figure-2)).
+Contingency tables between the described multilocus genotypes and the genotypes
+defined by distance show that most of the 18 lineages were resolved, except for
+US-8, which is polytomic (Table \@ref(pinftable)).
 
 We utilized simulated data to evaluate the effect of sequencing error and
 missing data on MLG calling. We constructed the data using the `glSim` function
