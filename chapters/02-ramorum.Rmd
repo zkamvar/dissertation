@@ -1,5 +1,16 @@
 # Spatial and Temporal Analysis of Populations of the Sudden Oak Death Pathogen in Oregon Forests
 
+**Authors:** Zhian N. Kamvar, Meredeth M. Larsen, Alan M. Kanaskie, Everett M.
+Hansen, and Niklaus J. Grünwald
+
+\vspace*{\fill}
+
+**Published in Phytopathology 2015-07**        
+
+DOI: [10.3389/10.1094/PHYTO-12-14-0350-FI](http://dx.doi.org/10.1094/PHYTO-12-14-0350-FI)
+
+\newpage
+
 ## Abstract
 
 Sudden oak death caused by the oomycete *Phytophthora ramorum* was first

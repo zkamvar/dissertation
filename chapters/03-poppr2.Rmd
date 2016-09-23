@@ -6,6 +6,17 @@ knitr::opts_knit$set(eval.after = c('fig.cap', 'fig.scap'))
 knitr::opts_chunk$set(message = FALSE)
 ```
 
+**Authors:** Zhian N. Kamvar, Jonah C. Brooks, and Niklaus J. Grünwald
+
+
+\vspace*{\fill}
+
+**Published in Frontiers in Genetics 2015-06-10**      
+
+DOI: [10.3389/fgene.2015.00208](http://dx.doi.org/10.3389/fgene.2015.00208)
+
+\newpage
+
 ## Abstract
 
 To gain a detailed understanding of how plant microbes evolve and adapt to
