@@ -124,8 +124,10 @@ manuscript.
 \subsubsection*{Chapter 4}\label{chapter-4}
 \addcontentsline{toc}{subsubsection}{Chapter 4}
 
-Jane R. Professor assisted in the design, analysis, and editing of the
-manuscript.}
+Zhian N. Kamvar and Jonah C. Brooks wrote and tested the code. Zhian N.
+Kamvar maintains the code. Zhian N. Kamvar and Niklaus J. Grünwald
+conceived, discussed implications, and wrote the manuscript. Niklaus J.
+Grünwald coordinated the collaborative effort.}
 
 
 	\dedication{This is for my mother who paved the way.}
@@ -523,18 +525,40 @@ manuscript.}
   particular applies to any level of ploidy (Bruvo \emph{et al.} 2004).
   All algorithms have been implemented in C and utilize the OpenMP
   framework for optional parallel processing (Dagum \& Menon 1998).
-  Default is the conservative farthest neighbor algorithm (Fig. 1A), which
-  will only cluster samples together if all samples in the cluster are at
-  a distance less than the given threshold. By contrast, the nearest
-  neighbor algorithm will have a chaining effect that will cluster samples
-  akin to adding links on a chain where a sample can be included in a
-  cluster if all of the samples have at least one connection below a given
-  threshold (Fig. 1C). The UPGMA, or average neighbor clustering algorithm
-  is the one most familiar to biologists as it is often used to generate
-  ultra-metric trees based on genetic distance (Fig. 1B). This algorithm
-  will cluster by creating a representative sample per cluster and joining
-  clusters if these representative samples are closer than the given
-  threshold.
+  Default is the conservative farthest neighbor algorithm (Fig.
+  \ref{fig:Figure1}A), which will only cluster samples together if all
+  samples in the cluster are at a distance less than the given threshold.
+  By contrast, the nearest neighbor algorithm will have a chaining effect
+  that will cluster samples akin to adding links on a chain where a sample
+  can be included in a cluster if all of the samples have at least one
+  connection below a given threshold (Fig. \ref{fig:Figure1}C). The UPGMA,
+  or average neighbor clustering algorithm is the one most familiar to
+  biologists as it is often used to generate ultra-metric trees based on
+  genetic distance (Fig. \ref{fig:Figure1}B). This algorithm will cluster
+  by creating a representative sample per cluster and joining clusters if
+  these representative samples are closer than the given threshold.
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.5\linewidth]{figure/frontiers/Figure-1} 
+  
+  }
+  
+  \caption[Diagrammatic representation of the three clustering algorithms
+  implemented in \texttt{mlg.filter}.]{Diagrammatic representation of the three clustering algorithms
+  implemented in \texttt{mlg.filter}. (\textbf{A-C}) Represent different
+  clustering algorithms on the same imaginary network with a threshold of
+  0.451. Edge weights are represented in arbitrary units noted by the line
+  thickness and numerical values next to the lines. All outer angles are
+  90 degrees, so the un-labeled edge weights can be obtained with simply
+  geometry. Colored circles represent clusters of genotypes. (\textbf{A})
+  Farthest neighbor clustering does not cluster nodes B and C because
+  nodes A and C are more than a distance of 0.451 apart. (\textbf{B})
+  UPGMA (average neighbor) clustering clusters nodes A, B, and C together
+  because the average distance between them and C is \textless{} 0.451.
+  (\textbf{C}) Nearest neighbor clustering clusters all nodes together
+  because the minimum distance between them is always \textless{} 0.451.}\label{fig:Figure1}
+  \end{figure}
   
   We utilize data from the microbe \emph{Phytophthora infestans} to show
   how the \texttt{mlg.filter} function collapses multilocus genotypes with
@@ -554,9 +578,69 @@ manuscript.}
   
   For the \emph{P. infestans} population, the three algorithms were able
   to detect 18 multilocus lineages at different distance thresholds (Fig.
-  2). Contingency tables between the described multilocus genotypes and
-  the genotypes defined by distance show that most of the 18 lineages were
-  resolved, except for US-8, which is polytomic (Table 1).
+  \ref{fig:Figure-2}). Contingency tables between the described multilocus
+  genotypes and the genotypes defined by distance show that most of the 18
+  lineages were resolved, except for US-8, which is polytomic (Table
+  \ref{pinftable}).
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.8\linewidth]{thesis_files/figure-latex/Figure-2-1} 
+  
+  }
+  
+  \caption[Graphical representation of three different clustering algorithms
+  collapsing multilocus genotypes for 12 SSR loci from \emph{Phytophthora
+  infestans} representing 18 clonal lineages.]{Graphical representation of three different clustering algorithms
+  collapsing multilocus genotypes for 12 SSR loci from \emph{Phytophthora
+  infestans} representing 18 clonal lineages. The horizontal axis is
+  Bruvo's genetic distance assuming the genome addition model. The
+  vertical axis represents the number of multilocus lineages observed.
+  Each point shows the threshold at which one would observe a given number
+  of multilocus genotypes. The horizontal black line represents 18
+  multilocus genotypes and vertical dashed lines mark the thresholds used
+  to collapse the multilocus genotypes into 18 multilocus lineages.}\label{fig:Figure-2}
+  \end{figure}
+  
+  \begin{sidewaystable}[ph!]
+  \centering
+  \begin{tabular}{l|cccccccccccccccccc}
+    & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{8} & \textbf{10} & \textbf{12} & \textbf{15} & \textbf{16} & \textbf{17} & \textbf{18} & \textbf{20} & \textbf{21} & \textbf{22} & \textbf{24} & \textbf{25} & \textbf{27} & \textbf{28} \\ 
+    \midrule
+  \textbf{B} & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . \\ 
+    \textbf{C} & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . \\ 
+    \textbf{D.1} & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . \\ 
+    \textbf{D.2} & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . \\ 
+    \textbf{EU-13} & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . \\ 
+    \textbf{EU-4} & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . \\ 
+    \textbf{EU-5} & . & . & . & . & . & . & . & . & . & . & 2 & . & . & . & . & . & . & . \\ 
+    \textbf{EU-8} & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & . \\ 
+    \textbf{US-11} & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 2 \\ 
+    \textbf{US-12} & . & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . \\ 
+    \textbf{US-14} & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & . & . \\ 
+    \textbf{US-17} & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . \\ 
+    \textbf{US-20} & 2 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . \\ 
+    \textbf{US-21} & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 2 & . \\ 
+    \textbf{US-22} & . & . & . & . & . & . & . & . & . & . & . & . & 2 & . & . & . & . & . \\ 
+    \textbf{US-23} & . & . & . & . & . & . & . & 3 & . & . & . & . & . & . & . & . & . & . \\ 
+    \textbf{US-24} & . & . & . & . & 3 & . & . & . & . & . & . & . & . & . & . & . & . & . \\ 
+    \textbf{US-8} & . & . & 1 & 1 & . & 2 & . & . & . & . & . & . & . & . & . & . & . & . \\ 
+     \bottomrule
+  \end{tabular}
+  \caption[Contingency table comparing multilocus lineages (MLL)]{Contingency table comparing multilocus lineages (MLL) defined in Li
+  \emph{et al.} (2013) and Lees \emph{et al.} (2006) (rows) to MLLs
+  inferred from Bruvo's genetic distance (columns) at a threshold of 0.07
+  with the average neighbor algorithm (Sokal 1958; Bruvo \emph{et al.}
+  2004). Values in the table represent the number of times any given
+  inferred MLL matches with a previously defined MLL. For example, in our
+  original data set, there were three genotypes previously defined as the
+  US-24 MLL. All three genotypes were also determined to cluster into a
+  single MLL by filtering. In contrast, US-8 was determined to cluster
+  into three different MLLs by filtering.} 
+  \label{pinftable}
+  \end{sidewaystable}
+  
+  \newpage
   
   We utilized simulated data to evaluate the effect of sequencing error
   and missing data on MLG calling. We constructed the data using the
@@ -638,10 +722,32 @@ manuscript.}
   and 117 communities with a maximum community size of 26 and \(H = 4.65\)
   for the minimum spanning tree. The entropy across years was greatly
   decreased for all populations with the reticulate network compared to
-  the minimum spanning tree (Fig. 3). Note that the reticulated network
-  (Fig. 3B) showed patterns corresponding with those resulting from a
-  discriminant analysis of principal components (Fig. 3D) (Jombart
-  \emph{et al.} 2010).
+  the minimum spanning tree (Fig. \ref{fig:Figure-3}). Note that the
+  reticulated network (Fig. \ref{fig:Figure-3}B) showed patterns
+  corresponding with those resulting from a discriminant analysis of
+  principal components (Fig. \ref{fig:Figure-3}D) (Jombart \emph{et al.}
+  2010).
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.8\linewidth]{figure/frontiers/Figure-3} 
+  
+  }
+  
+  \caption[Minimum Spanning Networks with Reticulation]{(\textbf{A-B}) Minimum spanning networks of the hemagglutinin (HA)
+  segment of H3N2 viral DNA from the \emph{adegenet} package representing
+  flu epidemics from 2001 to 2006 without reticulation (\textbf{A}) and
+  with reticulation (\textbf{B}) (Jombart 2008; Jombart \emph{et al.}
+  2010). Each node represents a unique multilocus genotype, colors
+  represent epidemic year, and edge color represents absolute genetic
+  distance. (\textbf{C}) Shannon entropy values for population assignments
+  compared with communities determined by the infoMAP algorithm on
+  (\textbf{A}) and (\textbf{B}). (\textbf{D}) Graphic reproduced from
+  Jombart \emph{et al.} (2010) showing that the 2006 epidemic does not
+  cluster neatly with the other years via Discriminant Analysis of
+  Principal Components. Horizontal axis represents the first discriminant
+  component. Vertical axis represents the second discriminant component.}\label{fig:Figure-3}
+  \end{figure}
   
   Graph walking of the reticulated minimum spanning network of \emph{P.
   ramorum} by the infoMAP algorithm revealed 16 communities with a maximum
@@ -688,20 +794,33 @@ manuscript.}
   frequencies derived from the data set \texttt{microbov} in the
   \emph{adegenet} package with 1000 bootstrap replicates (Laloë \emph{et
   al.} 2007; Jombart 2008). The resulting dendrogram shows bootstrap
-  support values \(>50\%\) (Fig. 4) and used the following code:
+  support values \(>50\%\) (Fig. \ref{fig:microboot}) and used the
+  following code:
   
   \begin{Shaded}
   \begin{Highlighting}[]
-  \KeywordTok{library}\NormalTok{(}\StringTok{"poppr"}\NormalTok{)}
-  \KeywordTok{data}\NormalTok{(}\StringTok{"microbov"}\NormalTok{, }\DataTypeTok{package =} \StringTok{"adegenet"}\NormalTok{) }
-  \KeywordTok{strata}\NormalTok{(microbov) <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{other}\NormalTok{(microbov)) }
-  \KeywordTok{setPop}\NormalTok{(microbov) <-}\StringTok{ }\ErrorTok{~}\NormalTok{coun/spe/breed }
-  \NormalTok{bov_pop <-}\StringTok{ }\KeywordTok{genind2genpop}\NormalTok{(microbov) }
+  \KeywordTok{library}\NormalTok{(}\StringTok{"poppr"}\NormalTok{);}
+  \KeywordTok{data}\NormalTok{(}\StringTok{"microbov"}\NormalTok{, }\DataTypeTok{package =} \StringTok{"adegenet"}\NormalTok{);}
+  \KeywordTok{strata}\NormalTok{(microbov) <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{other}\NormalTok{(microbov));}
+  \KeywordTok{setPop}\NormalTok{(microbov) <-}\StringTok{ }\ErrorTok{~}\NormalTok{coun/spe/breed;}
+  \NormalTok{bov_pop <-}\StringTok{ }\KeywordTok{genind2genpop}\NormalTok{(microbov);}
   
-  \KeywordTok{set.seed}\NormalTok{(}\DecValTok{20150428}\NormalTok{)}
-  \NormalTok{pop_tree <-}\StringTok{ }\KeywordTok{aboot}\NormalTok{(bov_pop, }\DataTypeTok{sample =} \DecValTok{1000}\NormalTok{, }\DataTypeTok{cutoff =} \DecValTok{50}\NormalTok{)}
+  \KeywordTok{set.seed}\NormalTok{(}\DecValTok{20150428}\NormalTok{);}
+  \NormalTok{pop_tree <-}\StringTok{ }\KeywordTok{aboot}\NormalTok{(bov_pop, }\DataTypeTok{sample =} \DecValTok{1000}\NormalTok{, }\DataTypeTok{cutoff =} \DecValTok{50}\NormalTok{);}
   \end{Highlighting}
   \end{Shaded}
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.8\linewidth]{thesis_files/figure-latex/microboot-1} 
+  
+  }
+  
+  \caption[UPGMA dendrogram generated from Nei's genetic distance]{UPGMA dendrogram generated from Nei's genetic distance on 15 breeds of
+  \emph{Bos taurus} (BT) or \emph{Bos indicus} (BI) from Africa (AF) or
+  France (FR). These data are from Laloë \emph{et al.} (2007). Node labels
+  represent bootstrap support \(>50\%\) out of 1,000 bootstrap replicates.}\label{fig:microboot}
+  \end{figure}
   
   \subsection{Genotype Accumulation
   Curve}\label{genotype-accumulation-curve}
@@ -723,20 +842,38 @@ manuscript.}
   for data from Everhart \& Scherm (2015) showing that these data reach a
   small plateau and have a greatly decreased variance with 12 markers,
   indicating that there are enough markers such that adding more markers
-  to the analysis will not create very many new genotypes (Fig. 5).
+  to the analysis will not create very many new genotypes (Fig.
+  \ref{fig:moniliniacurve}).
   
   \begin{Shaded}
   \begin{Highlighting}[]
-  \KeywordTok{library}\NormalTok{(}\StringTok{"poppr"}\NormalTok{)}
-  \KeywordTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
-  \KeywordTok{data}\NormalTok{(}\StringTok{"monpop"}\NormalTok{, }\DataTypeTok{package =} \StringTok{"poppr"}\NormalTok{)}
+  \KeywordTok{library}\NormalTok{(}\StringTok{"poppr"}\NormalTok{);}
+  \KeywordTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{);}
+  \KeywordTok{data}\NormalTok{(}\StringTok{"monpop"}\NormalTok{, }\DataTypeTok{package =} \StringTok{"poppr"}\NormalTok{);}
   
-  \KeywordTok{set.seed}\NormalTok{(}\DecValTok{20150428}\NormalTok{)}
-  \KeywordTok{genotype_curve}\NormalTok{(monpop, }\DataTypeTok{sample =} \DecValTok{1000}\NormalTok{)}
-  \NormalTok{p <-}\StringTok{ }\KeywordTok{last_plot}\NormalTok{() +}\StringTok{ }\KeywordTok{theme_bw}\NormalTok{()   }\CommentTok{# get the last plot}
-  \NormalTok{p +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{group =} \DecValTok{1}\NormalTok{)) }\CommentTok{# plot with a trendline}
+  \KeywordTok{set.seed}\NormalTok{(}\DecValTok{20150428}\NormalTok{);}
+  \KeywordTok{genotype_curve}\NormalTok{(monpop, }\DataTypeTok{sample =} \DecValTok{1000}\NormalTok{);}
+  \NormalTok{p <-}\StringTok{ }\KeywordTok{last_plot}\NormalTok{() +}\StringTok{ }\KeywordTok{theme_bw}\NormalTok{();   }\CommentTok{# get the last plot}
+  \NormalTok{p +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{group =} \DecValTok{1}\NormalTok{)); }\CommentTok{# plot with a trendline}
   \end{Highlighting}
   \end{Shaded}
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.8\linewidth]{thesis_files/figure-latex/moniliniacurve-1} 
+  
+  }
+  
+  \caption[Genotype accumulation curve]{Genotype accumulation curve for 694 isolates of the peach brown rot
+  pathogen, \emph{Monilinia fructicola} genotyped over 13 loci from
+  Everhart \& Scherm (2015). The horizontal axis represents the number of
+  loci randomly sampled without replacement up to \emph{n - 1} loci, the
+  vertical axis shows the number of multilocus genotypes observed, up to
+  262, the number of unique multilocus genotypes in the data set. The red
+  dashed line represents 90\% of the total observed multilocus genotypes.
+  A trendline (blue) has been added using the \emph{ggplot2} function
+  \texttt{stat\_smooth}.}\label{fig:moniliniacurve}
+  \end{figure}
   
   \subsection{Index of association}\label{index-of-association-1}
   
@@ -786,7 +923,27 @@ manuscript.}
   populations had 5\% random error and 1\% missing data independently
   propagated across all samples. On average, we obtained a higher value of
   \(\bar{r}_d\) for the clonal population compared to the sexual
-  population for both methods (Fig. 6).
+  population for both methods (Fig. \ref{fig:Figure-6}).
+  
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.8\linewidth]{thesis_files/figure-latex/Figure-6-1} 
+  
+  }
+  
+  \caption[Sliding window analysis of the standardized index of association
+  (\(\bar{r}_d\))]{\textbf{(A)} Sliding window analysis of the standardized index of
+  association (\(\bar{r}_d\)) across a simulated \(1.1 \times 10^4\) nt
+  chromosome containing 1,100 variants among 100 individuals. Each window
+  analyzed variants within 500nt chunks. The black line refers to the
+  clonal and the blue line to the sexual populations. \textbf{(B)}
+  boxplots showing 100 random samples of 50 variants to calculate a
+  distribution of \(\bar{r}_d\) for the clonal (red) and sexual (blue)
+  populations. Each box is centered around the mean, with whiskers
+  extending out to 1.5 times the interquartile range. The median is
+  indicated by the center line. \textbf{(A)} and \textbf{(B)} are plotted
+  on the same y-axis.}\label{fig:Figure-6}
+  \end{figure}
   
   \subsection{Data format updates: population strata and
   hierarchies}\label{data-format-updates-population-strata-and-hierarchies}
@@ -901,14 +1058,14 @@ manuscript.}
   2007). Our method with \texttt{mlg.filter} builds upon this idea and
   allows the user to choose between three different approaches for
   clustering MLGs. The choice of clustering algorithm has an impact on the
-  data (Fig 1, 2), where for example a genetic distance cutoff of 0.1
-  would be the difference between 14 multilocus lineages (MLLs) and 17
-  MLLs for nearest neighbor and UPGMA clustering, respectively (Fig. 2).
-  The option to choose the clustering algorithm gives the user the ability
-  to choose what is biologically relevant to their populations. While
-  there is not one optimal procedure for defining boundaries in clonal
-  lineages, our tool provides a means of exploring the potential MLG or
-  MLL boundary space.
+  data (Fig. \ref{fig:Figure1}, \ref{fig:Figure-2}), where for example a
+  genetic distance cutoff of 0.1 would be the difference between 14
+  multilocus lineages (MLLs) and 17 MLLs for nearest neighbor and UPGMA
+  clustering, respectively (Fig. \ref{fig:Figure-2}). The option to choose
+  the clustering algorithm gives the user the ability to choose what is
+  biologically relevant to their populations. While there is not one
+  optimal procedure for defining boundaries in clonal lineages, our tool
+  provides a means of exploring the potential MLG or MLL boundary space.
   
   Minimum spanning networks are a useful tool to analyze the relationships
   between individuals in a population, because it reduces the complexity
@@ -920,12 +1077,13 @@ manuscript.}
   detect population structure with one instance of a minimum spanning
   network is limited. Adding reticulation into the minimum spanning
   network thus presents all equivalent connections and allows population
-  structure to be more readily detectable. As shown in Fig. 3, population
-  structure is apparent both visually and by graph community detection
-  algorithms such as the infoMAP algorithm (Rosvall \& Bergstrom 2008).
-  Additionally, the current implementation in \emph{poppr} has been
-  successfully used in analyses such as reconstruction of the \emph{P.
-  ramorum} epidemic in Oregon forests (Kamvar \emph{et al.} 2014a, 2015).
+  structure to be more readily detectable. As shown in Fig.
+  \ref{fig:Figure-3}, population structure is apparent both visually and
+  by graph community detection algorithms such as the infoMAP algorithm
+  (Rosvall \& Bergstrom 2008). Additionally, the current implementation in
+  \emph{poppr} has been successfully used in analyses such as
+  reconstruction of the \emph{P. ramorum} epidemic in Oregon forests
+  (Kamvar \emph{et al.} 2014a, 2015).
   
   \emph{Poppr} 2.0 is open source and available on GitHub. Members of the
   community are invited to contribute by raising issues or pull requests
@@ -944,204 +1102,6 @@ manuscript.}
   Institute of Food and Agriculture Grant 2011-68004-30154, USDA APHIS,
   the USDA- ARS Floriculture Nursery Initiative, and the USDA-Forest
   Service Forest Health Monitoring Program (to NJG).
-  
-  \section{Conflict of Interest
-  Statement}\label{conflict-of-interest-statement}
-  
-  The authors declare no observable conflict of interest.
-  
-  \section{Author Contributions}\label{author-contributions}
-  
-  ZNK and JCB wrote and tested the code. ZNK maintains the code. ZNK and
-  NJG conceived, discussed implications, and wrote the manuscript. NJG
-  coordinated the collaborative effort.
-  
-  \begin{figure}
-  
-  {\centering \includegraphics[width=0.5\linewidth]{figure/frontiers/Figure-1} 
-  
-  }
-  
-  \caption[Diagrammatic representation of the three clustering algorithms
-  implemented in \texttt{mlg.filter}.]{Diagrammatic representation of the three clustering algorithms
-  implemented in \texttt{mlg.filter}. (\textbf{A-C}) Represent different
-  clustering algorithms on the same imaginary network with a threshold of
-  0.451. Edge weights are represented in arbitrary units noted by the line
-  thickness and numerical values next to the lines. All outer angles are
-  90 degrees, so the un-labeled edge weights can be obtained with simply
-  geometry. Colored circles represent clusters of genotypes. (\textbf{A})
-  Farthest neighbor clustering does not cluster nodes B and C because
-  nodes A and C are more than a distance of 0.451 apart. (\textbf{B})
-  UPGMA (average neighbor) clustering clusters nodes A, B, and C together
-  because the average distance between them and C is \textless{} 0.451.
-  (\textbf{C}) Nearest neighbor clustering clusters all nodes together
-  because the minimum distance between them is always \textless{} 0.451.}\label{fig:Figure1}
-  \end{figure}
-  
-  \newpage
-  
-  \begin{figure}
-  
-  {\centering \includegraphics[width=0.8\linewidth]{thesis_files/figure-latex/Figure-2-1} 
-  
-  }
-  
-  \caption[Graphical representation of three different clustering algorithms
-  collapsing multilocus genotypes for 12 SSR loci from \emph{Phytophthora
-  infestans} representing 18 clonal lineages.]{Graphical representation of three different clustering algorithms
-  collapsing multilocus genotypes for 12 SSR loci from \emph{Phytophthora
-  infestans} representing 18 clonal lineages. The horizontal axis is
-  Bruvo's genetic distance assuming the genome addition model. The
-  vertical axis represents the number of multilocus lineages observed.
-  Each point shows the threshold at which one would observe a given number
-  of multilocus genotypes. The horizontal black line represents 18
-  multilocus genotypes and vertical dashed lines mark the thresholds used
-  to collapse the multilocus genotypes into 18 multilocus lineages.}\label{fig:Figure-2}
-  \end{figure}
-  
-  \newpage
-  
-  \subsection{Figure 3}\label{figure-3}
-  
-  \begin{figure}
-  
-  {\centering \includegraphics[width=0.8\linewidth]{figure/frontiers/Figure-3} 
-  
-  }
-  
-  \caption[Minimum Spanning Networks with Reticulation]{(\textbf{A-B}) Minimum spanning networks of the hemagglutinin (HA)
-  segment of H3N2 viral DNA from the \emph{adegenet} package representing
-  flu epidemics from 2001 to 2006 without reticulation (\textbf{A}) and
-  with reticulation (\textbf{B}) (Jombart 2008; Jombart \emph{et al.}
-  2010). Each node represents a unique multilocus genotype, colors
-  represent epidemic year, and edge color represents absolute genetic
-  distance. (\textbf{C}) Shannon entropy values for population assignments
-  compared with communities determined by the infoMAP algorithm on
-  (\textbf{A}) and (\textbf{B}). (\textbf{D}) Graphic reproduced from
-  Jombart \emph{et al.} (2010) showing that the 2006 epidemic does not
-  cluster neatly with the other years.}\label{fig:Figure-3}
-  \end{figure}
-  
-  \newpage
-  
-  \begin{figure}
-  
-  {\centering \includegraphics[width=0.8\linewidth]{thesis_files/figure-latex/Figure-4-1} 
-  
-  }
-  
-  \caption[UPGMA dendrogram generated from Nei's genetic distance]{UPGMA dendrogram generated from Nei's genetic distance on 15 breeds of
-  \emph{Bos taurus} (BT) or \emph{Bos indicus} (BI) from Africa (AF) or
-  France (FR). These data are from Laloë \emph{et al.} (2007). Node labels
-  represent bootstrap support \(>50\%\) out of 1,000 bootstrap replicates.}\label{fig:Figure-4}
-  \end{figure}
-  
-  \newpage
-  
-  \begin{figure}
-  
-  {\centering \includegraphics[width=0.8\linewidth]{thesis_files/figure-latex/Figure-5-1} 
-  
-  }
-  
-  \caption[Genotype accumulation curve]{Genotype accumulation curve for 694 isolates of the peach brown rot
-  pathogen, \emph{Monilinia fructicola} genotyped over 13 loci from
-  Everhart \& Scherm (2015). The horizontal axis represents the number of
-  loci randomly sampled without replacement up to \emph{n - 1} loci, the
-  vertical axis shows the number of multilocus genotypes observed, up to
-  262, the number of unique multilocus genotypes in the data set. The red
-  dashed line represents 90\% of the total observed multilocus genotypes.
-  A trendline (blue) has been added using the \emph{ggplot2} function
-  \texttt{stat\_smooth}.}\label{fig:Figure-5}
-  \end{figure}
-  
-  \newpage
-  
-  \begin{figure}
-  
-  {\centering \includegraphics[width=0.8\linewidth]{thesis_files/figure-latex/Figure-6-1} 
-  
-  }
-  
-  \caption[Sliding window analysis of the standardized index of association
-  (\(\bar{r}_d\))]{\textbf{(A)} Sliding window analysis of the standardized index of
-  association (\(\bar{r}_d\)) across a simulated \(1.1 \times 10^4\) nt
-  chromosome containing 1,100 variants among 100 individuals. Each window
-  analyzed variants within 500nt chunks. The black line refers to the
-  clonal and the blue line to the sexual populations. \textbf{(B)}
-  boxplots showing 100 random samples of 50 variants to calculate a
-  distribution of \(\bar{r}_d\) for the clonal (red) and sexual (blue)
-  populations. Each box is centered around the mean, with whiskers
-  extending out to 1.5 times the interquartile range. The median is
-  indicated by the center line. \textbf{(A)} and \textbf{(B)} are plotted
-  on the same y-axis.}\label{fig:Figure-6}
-  \end{figure}
-  
-  \newpage
-  
-  \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
-  \hline
-  B & C & D.1 & D.2 & EU-13 & EU-4 & EU-5 & EU-8 & US-11 & US-12 & US-14 & US-17 & US-20 & US-21 & US-22 & US-23 & US-24 & US-8\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 2 & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1\\
-  \hline
-  . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & .\\
-  \hline
-  . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & .\\
-  \hline
-  . & . & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
-  \hline
-  . & . & . & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
-  \hline
-  . & 1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
-  \hline
-  1 & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & . & . & . & . & . & 1 & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & .\\
-  \hline
-  . & . & . & . & . & . & . & . & 1 & . & . & . & . & . & . & . & . & .\\
-  \hline
-  \end{tabular}
   
   \chapter{\texorpdfstring{{[}Tentative Title{]} Population Dynamics of
   the Plant Pathogen \emph{Phytophthora syringae} in Oregon
