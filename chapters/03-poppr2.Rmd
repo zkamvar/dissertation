@@ -9,13 +9,17 @@ knitr::opts_chunk$set(message = FALSE)
 Zhian N. Kamvar, Jonah C. Brooks, and Niklaus J. Grünwald
 
 
-\vspace*{\fill}
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\vspace*{\\fill}"))
+```
 
 **Published in Frontiers in Genetics 2015-06-10**      
 
 DOI: [10.3389/fgene.2015.00208](http://dx.doi.org/10.3389/fgene.2015.00208)
 
-\newpage
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\newpage"))
+```
 
 ## Abstract
 
@@ -253,7 +257,9 @@ cat(gsub("caption\\{",
 
 ```
 
-\newpage
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\newpage"))
+```
 
 We utilized simulated data to evaluate the effect of sequencing error and
 missing data on MLG calling. We constructed the data using the `glSim` function
@@ -692,7 +698,9 @@ code can be found in the supplementary materials[^1].
    (http://cran.r-project.org/bin/windows/Rtools/). On OSX, it can be obtained
    via Xcode. For parallel support, gcc version 4.6 or better is needed.
 
-\newpage
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\newpage"))
+```
 
 ### Installation
 
@@ -765,7 +773,9 @@ reconstruction of the *P. ramorum* epidemic in Oregon forests
 invited to contribute by raising issues or pull requests on our repository at
 https://github.com/grunwaldlab/poppr/issues.
 
-\newpage
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\newpage"))
+```
 
 ## Acknowledgements
 
