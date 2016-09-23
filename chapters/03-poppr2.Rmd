@@ -166,7 +166,11 @@ resolved. We used these thresholds to define multilocus lineages and create
 contingency tables and dendrograms to determine how well the multilocus lineages
 were detected.
 
-
+For the *P. infestans* population, the three algorithms were able to detect 18
+multilocus lineages at different distance thresholds (Fig. \@ref(fig:Figure-2)).
+Contingency tables between the described multilocus genotypes and the genotypes
+defined by distance show that most of the 18 lineages were resolved, except for
+US-8, which is polytomic (Table \@ref(pinftable)).
 
 ```{r, Figure-2, echo = FALSE, message = FALSE, fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = paste(figcap2), fig.scap = paste(figscap2)}
 
@@ -239,12 +243,6 @@ cat(gsub("caption\\{",
 ```
 
 \newpage
-
-For the *P. infestans* population, the three algorithms were able to detect 18
-multilocus lineages at different distance thresholds (Fig. \@ref(fig:Figure-2)).
-Contingency tables between the described multilocus genotypes and the genotypes
-defined by distance show that most of the 18 lineages were resolved, except for
-US-8, which is polytomic (Table \@ref(pinftable)).
 
 We utilized simulated data to evaluate the effect of sequencing error and
 missing data on MLG calling. We constructed the data using the `glSim` function
