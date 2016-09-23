@@ -6,7 +6,7 @@ knitr::opts_knit$set(eval.after = c('fig.cap', 'fig.scap'))
 knitr::opts_chunk$set(message = FALSE)
 ```
 
-**Authors:** Zhian N. Kamvar, Jonah C. Brooks, and Niklaus J. Grünwald
+Zhian N. Kamvar, Jonah C. Brooks, and Niklaus J. Grünwald
 
 
 \vspace*{\fill}

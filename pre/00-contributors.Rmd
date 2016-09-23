@@ -2,25 +2,23 @@ The following people contributed to this dissertation:
 <!-- Note: you MUST have a line at the beginning of all pretext pages -->
 
 
-#### Chapter 1 {-}
-
-  Jane R. Professor assisted in the design, analysis, and editing of the
-  manuscript.
 
 #### Chapter 2 {-}
 
-  Lisa Simpson developed the initial concept and experimental design for the
-   study. Ellen Ripley advised and assisted with statistical analysis. Jane R.
-   Professor assisted in the design, analysis, and editing of the manuscript.
+  Javier F. Tabima assisted in writing the code and design, Niklaus J. Grünwald
+  assisted in design, and editing of the manuscript.
 
 #### Chapter 3 {-}
 
-  Jane R. Professor assisted in the design, analysis, and editing of the
-   manuscript.
+  Zhian N. Kamvar, Meredeth M. Larsen, Alan M. Kanaskie, Everett M.
+  Hansen, and Niklaus J. Grünwald...
 
 #### Chapter 4 {-}
 
-Zhian N. Kamvar and Jonah C. Brooks wrote and tested the code. Zhian N. Kamvar
-maintains the code. Zhian N. Kamvar and Niklaus J. Grünwald conceived, discussed
-implications, and wrote the manuscript. Niklaus J. Grünwald coordinated the
-collaborative effort.
+  Jonah C. Brooks assisted in writing and testing the code. Niklaus J. Grünwald
+  assisted in the design, coördination of the collaborative effort, and editing
+  the manuscript.
+
+#### Chapter 5 {-}
+
+  Niklaus J. Grünwald assisted in the design, and editing of the manuscript.

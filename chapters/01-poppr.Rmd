@@ -1,5 +1,16 @@
 # *Poppr*: an R Package For Genetic Analysis of Populations With Clonal, Partially Clonal, and/or Sexual Reproduction
 
+Zhian N. Kamvar, Javier F. Tabima, and Niklaus J. Grünwald
+
+
+\vspace*{\fill}
+
+**Published in PeerJ 2014-03-04** 
+
+DOI: [10.7717/peerj.281](https://dx.doi.org/10.7717/peerj.281)
+
+\newpage
+
 ## Abstract
 
 
