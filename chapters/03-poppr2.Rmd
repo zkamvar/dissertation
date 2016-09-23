@@ -390,14 +390,14 @@ figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig4")
 ```
 
 ```{r, microboot, results = "hide", fig.width = 5, fig.height = 5, fig.cap = paste(figcap4), fig.scap = paste(figscap4)}
-library("poppr")
-data("microbov", package = "adegenet") 
-strata(microbov) <- data.frame(other(microbov)) 
-setPop(microbov) <- ~coun/spe/breed 
-bov_pop <- genind2genpop(microbov) 
+library("poppr");
+data("microbov", package = "adegenet");
+strata(microbov) <- data.frame(other(microbov));
+setPop(microbov) <- ~coun/spe/breed;
+bov_pop <- genind2genpop(microbov);
 
-set.seed(20150428)
-pop_tree <- aboot(bov_pop, sample = 1000, cutoff = 50)
+set.seed(20150428);
+pop_tree <- aboot(bov_pop, sample = 1000, cutoff = 50);
 ```
 
 ### Genotype Accumulation Curve
@@ -435,14 +435,14 @@ figcap5  <- beaverdown::render_caption(caption = cap, figname = "fig5")
 ```
 
 ```{r, moniliniacurve, results = "hide", fig.width = 5, fig.height = 5, fig.keep = "last", message = FALSE, fig.cap = paste(figcap5), fig.scap = paste(figscap5)}
-library("poppr")
-library("ggplot2")
-data("monpop", package = "poppr")
+library("poppr");
+library("ggplot2");
+data("monpop", package = "poppr");
 
-set.seed(20150428)
-genotype_curve(monpop, sample = 1000)
-p <- last_plot() + theme_bw()   # get the last plot
-p + geom_smooth(aes(group = 1)) # plot with a trendline
+set.seed(20150428);
+genotype_curve(monpop, sample = 1000);
+p <- last_plot() + theme_bw();   # get the last plot
+p + geom_smooth(aes(group = 1)); # plot with a trendline
 ```
 
 ### Index of association
@@ -764,19 +764,6 @@ by US Department of Agriculture (USDA) Agricultural Research Service Grant
 5358-22000-039-00D, USDA National Institute of Food and Agriculture Grant
 2011-68004-30154, USDA APHIS, the USDA- ARS Floriculture Nursery Initiative, and
 the USDA-Forest Service Forest Health Monitoring Program (to NJG).
-
-## Conflict of Interest Statement
-
-The authors declare no observable conflict of interest. 
-
-## Author Contributions
-
-ZNK and JCB wrote and tested the code. ZNK maintains the code. ZNK and NJG
-conceived, discussed implications, and wrote the manuscript. NJG coordinated the
-collaborative effort.
-
-
-\newpage
 
 
 

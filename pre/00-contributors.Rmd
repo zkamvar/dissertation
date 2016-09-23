@@ -20,5 +20,7 @@ The following people contributed to this dissertation:
 
 #### Chapter 4 {-}
 
-  Jane R. Professor assisted in the design, analysis, and editing of the
-   manuscript.
+Zhian N. Kamvar and Jonah C. Brooks wrote and tested the code. Zhian N. Kamvar
+maintains the code. Zhian N. Kamvar and Niklaus J. Grünwald conceived, discussed
+implications, and wrote the manuscript. Niklaus J. Grünwald coordinated the
+collaborative effort.
