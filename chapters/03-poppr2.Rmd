@@ -238,23 +238,26 @@ three different MLLs by filtering."
 
 tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd")
 
-bold.rows <- function(x) paste0("\\textbf{", x, "}")
-xtab      <- xtable(res, align = c("l|", rep("c", ncol(res))), caption = tabcap, 
-                    label = "pinftable")
-out <- print.xtable(xtab, 
-             comment = FALSE, 
-             table.placement = "ph!", # http://tex.stackexchange.com/a/28091/77699
-             floating.environment = "sidewaystable",
-             booktabs = TRUE,
-             print.results = FALSE,
-             hline.after = c(0, nrow(res)),
-             sanitize.rownames.function = bold.rows,
-             sanitize.colnames.function = bold.rows)
-# This part is necessary to insert a short caption :/
-cat(gsub("caption\\{", 
-	     "caption[Contingency table comparing multilocus lineages (MLL)]{", 
-	     out))
-
+if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "latex"){
+  bold.rows <- function(x) paste0("\\textbf{", x, "}")
+  xtab      <- xtable(res, align = c("l|", rep("c", ncol(res))), caption = tabcap, 
+                      label = "pinftable")
+  out <- print.xtable(xtab, 
+               comment = FALSE, 
+               table.placement = "ph!", # http://tex.stackexchange.com/a/28091/77699
+               floating.environment = "sidewaystable",
+               booktabs = TRUE,
+               print.results = FALSE,
+               hline.after = c(0, nrow(res)),
+               sanitize.rownames.function = bold.rows,
+               sanitize.colnames.function = bold.rows)
+  # This part is necessary to insert a short caption :/
+  cat(gsub("caption\\{", 
+  	     "caption[Contingency table comparing multilocus lineages (MLL)]{", 
+  	     out))
+} else {
+  knitr::kable(res, align = "c", caption = tabcap)
+}
 ```
 
 ```{r, results = "asis", echo = FALSE}
