@@ -145,7 +145,7 @@ trees based on genetic distance (Fig. \@ref(fig:Figure1)B). This algorithm will
 cluster by creating a representative sample per cluster and joining clusters if
 these representative samples are closer than the given threshold.
 
-```{r, Figure1, echo = FALSE, fig.cap = paste(figcap1), fig.scap = paste(figscap1), out.width = "0.5\\linewidth"}
+```{r, Figure1, echo = FALSE, fig.cap = paste(figcap1), fig.scap = paste(figscap1), out.width = "50%"}
 knitr::include_graphics("figure/frontiers/Figure-1.png")
 cap <- "Diagrammatic representation of the three clustering algorithms
 implemented in `mlg.filter`. (**A-C**) Represent different clustering algorithms
