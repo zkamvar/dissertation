@@ -124,6 +124,11 @@ figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1")
 figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s")
 ```
 
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\newpage"))
+```
+
+
 **Sampling.** Commencing in 2001, 2-4 aerial surveys per year were
 conducted over the tanoak range by the Oregon Department of Forestry and
 the USDA Forest Service in Curry County. The survey detects recently
@@ -149,7 +154,7 @@ characteristic chlamydospores and deciduous sporangia (Werres et al.
 Biomedicals, LLC; 116540600) (Goss et al. 2009) or the cetyltrimethyl
 ammonium bromide (CTAB)-chloroform-isopropanol method (Winton and Hansen
 2001). Table 1 provides an overview of strains collected by year and
-region following regions as shown in figure 1.
+region following regions as shown in figure \@ref(fig:ramorum1).
 
 **Genotyping, data validation, and harmonization.** Five microsatellite
 loci were utilized in this analysis: PrMS6, Pr9C3, PrMS39, PrMS45, and
@@ -261,7 +266,7 @@ Principal Components (DAPC) in the R packages *poppr*, *ade4*, and
 2014). The bootstrap analysis utilized 10,000 bootstrap replicates
 treating loci as independent units with the function aboot in *poppr*
 and was visualized as an unrooted neighbor-joining tree in figtree v.
-1.4.2 (Figure 3). AMOVA utilizes a distance matrix between genotypes for
+1.4.2 (Figure 5). AMOVA utilizes a distance matrix between genotypes for
 which hierarchical partitions are defined and attempts to analyze the
 variation within samples, between samples, between subpopulations within
 populations and finally between populations. In this case, we used both
@@ -298,17 +303,38 @@ and citable (DOI: 10.5281/zenodo.13007).
 over time from the initial focus in Joe Hall Creek NE of Brookings,
 Oregon mostly north (first to N Fork Chetco High) and northwest (Coast,
 Pistol River South Fork), but also east (Chetco Main and Winchuck) (Fig.
-1; Table 1). To date a total of 70 multilocus genotypes have been found
+\@ref(fig:ramorum1); Table 1). To date a total of 70 multilocus genotypes have been found
 in forest populations (Table 1). MLG 22 is most abundant and the only
 MLG detected across the whole period (although it was not sampled in
-every year) (Fig. 2). MLG 59, the second most abundant MLG, was only
+every year) (Fig. \@ref(fig:ramorum2)). MLG 59, the second most abundant MLG, was only
 detected in 2011 and has a high frequency due to the sampling design
 applied: all 2011 strains were sampled in one concentrated area in the
 northwestern sampling range geographically distant from any other
-location (Fig. 1). Given that sampling strategies for some years were
+location (Fig. \@ref(fig:ramorum2)). Given that sampling strategies for some years were
 not comprehensive, samples from some years have to be interpreted with
 caution (e.g., 2005-6, 2010-11). Samples from 2013 and 2014 are sampled
 from all regions and can be considered more representative.
+
+```{r, ramorum2, echo = FALSE, fig.cap = paste(figcap2), fig.scap = paste(figscap2), out.width = "40%"}
+knitr::include_graphics("figure/phytopathology/figure_2.png")
+cap <- "Rank distribution of multilocus genotypes (MLGs) of *P.
+ramorum* and recovery per year. The vertical axis denotes unique MLGs
+detected in the whole data set with decreasing abundance as indicated by
+the barplot on the right side. The horizontal axis indicates year of
+sampling. Each numbered circle represents the number of observations of
+each MLG with lines connecting genotypes found in multiple years."
+
+scap <- "Rank distribution of multilocus genotypes (MLGs) of *P.
+ramorum* and recovery per year."
+
+figcap2  <- beaverdown::render_caption(caption = cap, figname = "fig1")
+figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig1s")
+```
+
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\newpage"))
+```
+
 
 Allelic and genotype diversity within loci revealed that PrMS43 had, on
 average, the highest number of alleles (n = 18). All other loci had 5 or
