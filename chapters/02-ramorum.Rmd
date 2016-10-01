@@ -327,8 +327,8 @@ each MLG with lines connecting genotypes found in multiple years."
 scap <- "Rank distribution of multilocus genotypes (MLGs) of *P.
 ramorum* and recovery per year."
 
-figcap2  <- beaverdown::render_caption(caption = cap, figname = "fig1")
-figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig1s")
+figcap2  <- beaverdown::render_caption(caption = cap, figname = "fig2")
+figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig2s")
 ```
 
 ```{r, results = "asis", echo = FALSE}
@@ -348,10 +348,40 @@ over space and time (Table S3). A pattern of increasing diversity across
 years (with number of MLGs not fewer than 10) was also observed (Table
 S3). The minimum spanning network showed that MLGs 17, 22, and 28
 clustered in the center of the network and had the highest number of
-connections to other genotypes in the forest populations (Fig. 3). Most
+connections to other genotypes in the forest populations (Fig. \@ref(fig:ramorum3)). Most
 genotypes were connected to their immediate neighbors by a genetic
 distance of 0.05 or the equivalent of one mutational step across 5
 diploid loci.
+
+
+```{r, ramorum3, echo = FALSE, fig.cap = paste(figcap3), fig.scap = paste(figscap3)}
+knitr::include_graphics("figure/phytopathology/figure_3.png")
+cap <- "Minimum spanning network based on Bruvo's genetic distance
+for microsatellite markers for *P. ramorum* populations. Nodes (circles)
+represent individual multilocus genotypes. The 10 most abundant forest
+genotypes are labeled with their MLG designation. Node colors represent
+population membership proportional to the pie size. Node sizes are
+relatively scaled to *log~1.75~n,* where *n* is the number of samples in
+the nodes to avoid node overlap. Edges (lines) represent minimum genetic
+distance between individuals determined by Prim's algorithm. Nodes that
+are more closely related will have darker and thicker edges whereas
+nodes more distantly related will have lighter and thinner edges or no
+edge at all. Reticulation was introduced by finding exact ties in
+genetic distance after Prim's algorithm was run. Subgroups of >3 MLGs
+where all nodes are no more than one mutational step (d = 0.05) away
+from its neighbors, are highlighted in arbitrary colors."
+
+scap <- "Minimum spanning network based on Bruvo's genetic distance
+for microsatellite markers for *P. ramorum* populations."
+
+figcap3  <- beaverdown::render_caption(caption = cap, figname = "fig3")
+figscap3 <- beaverdown::render_caption(caption = scap, figname = "fig3s")
+```
+
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\newpage"))
+```
+
 
 **Spatial Correlation.** A Mantel test revealed significant correlations
 of genetic distance and geographic distance for most samples collected
@@ -374,7 +404,7 @@ regions on the uncorrected data set. Both patterns were observed without
 Hunter Creek and Pistol River South Fork isolates. DAPC clustering
 showed that the first discriminant component separated Hunter Creek from
 all other regions and the second discriminant component shows a gradient
-from Joe Hall Creek to the coast (Fig. 4). This distinction was
+from Joe Hall Creek to the coast (Fig. \@ref(fig:ramorum4)). This distinction was
 reflected in the percent of correct posterior assignment of isolates to
 their original populations. Over the whole data set there was an 81.5%
 assignment-success rate. Hunter Creek received 100% successful
@@ -392,6 +422,27 @@ Pistol River South Fork data, percent successful reassignment for all
 regions did not change significantly. Prediction of sources for the
 Hunter Creek data revealed that over 98% of the genotypes were assigned
 to the Coast with a 99% probability.
+
+```{r, ramorum4, echo = FALSE, fig.cap = paste(figcap4), fig.scap = paste(figscap4)}
+knitr::include_graphics("figure/phytopathology/figure_4.png")
+cap <- "Scatterplot from DAPC of the first two principal components
+discriminating *P. ramorum* populations by regions. Points represent
+individual observations. Colors and lines represent population
+membership. Inertia ellipses represent an analog of a 67% confidence
+interval based on a bivariate normal distribution."
+
+scap <- "Scatterplot from DAPC of the first two principal components
+discriminating *P. ramorum* populations by regions."
+
+figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig4")
+figscap4 <- beaverdown::render_caption(caption = scap, figname = "fig4s")
+```
+
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\newpage"))
+```
+
+
 
 **Clustering of forest with nursery populations.** We used previously
 published data to determine if nursery populations in California or
