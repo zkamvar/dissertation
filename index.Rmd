@@ -36,7 +36,7 @@ output:
 # or use code similar to the line below for the files.  If you are producing in 
 # a different format than PDF, you can delete or ignore the following lines in 
 # this YAML header.
-bibliography: ['bib/fronteirs_citations.bib', 'bib/main_bibliography.bib']
+bibliography: ['bib/main_bibliography.bib']
 # Download your specific bibliography database file and refer to it in the line above.
 csl: csl/molecular-ecology.csl
 # Download your specific csl file and refer to it in the line above.
