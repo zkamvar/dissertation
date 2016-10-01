@@ -9,7 +9,7 @@ cat(beaverdown::iflatex("\\vspace*{\\fill}"))
 ```
 
 
-### Published in Phytopathology 2015-0
+**Published in Phytopathology 2015-07**
 
        
 
@@ -118,8 +118,9 @@ genotypes of *Phytophthora ramorum* in Curry County, Oregon. The yellow
 crosses mark tanoak trees found positive for *P. ramorum* during aerial
 surveys. A total of 70 multilocus genotypes have been identified between
 2001-2014 and are marked by color as shown in the legend. The
-abbreviations for regions shown in the map are explained in \\@ref(tab:ramorum1). The
-inset shows the placement of Curry county (red dot) in SW Oregon."
+abbreviations for regions shown in the map are explained in Table 
+\\@ref(tab:ramorum1). The inset shows the placement of Curry county (red dot) 
+in SW Oregon."
 
 scap <- "Spatial distribution of the SOD epidemic and multilocus
 genotypes of *Phytophthora ramorum* in Curry County, Oregon."
