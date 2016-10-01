@@ -63,3 +63,8 @@ dedication: >
 ---
 
 
+```{r, setup, include = FALSE}
+# evaluate fig.cap after a chunk is evaluated
+knitr::opts_knit$set(eval.after = c('fig.cap', 'fig.scap'))
+knitr::opts_chunk$set(message = FALSE)
+```
