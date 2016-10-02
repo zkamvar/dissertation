@@ -589,7 +589,7 @@ respect to year using Nei's genetic distance showed no significant
 tend to cluster by region as opposed to year (Fig. S3). AMOVA analysis
 revealed significant population structure between regions on both
 clone-corrected (with respect to hierarchy) and uncorrected data sets
-(Table 4). Significant structure was only found between years within
+(Table \@ref(tab:ramorum4)). Significant structure was only found between years within
 regions on the uncorrected data set. Both patterns were observed without
 Hunter Creek and Pistol River South Fork isolates. DAPC clustering
 showed that the first discriminant component separated Hunter Creek from
@@ -612,6 +612,67 @@ Pistol River South Fork data, percent successful reassignment for all
 regions did not change significantly. Prediction of sources for the
 Hunter Creek data revealed that over 98% of the genotypes were assigned
 to the Coast with a 99% probability.
+
+```{r, ramtab4, echo = FALSE, results = "asis"}
+outlatex <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "latex"
+zby <- read.table("data/zone_by_year.csv", header = TRUE, 
+                  stringsAsFactors = FALSE, check.names = FALSE, sep = ",")
+ybz <- read.table("data/year_by_zone.csv", header = TRUE, 
+                  stringsAsFactors = FALSE, check.names = FALSE, sep = ",")
+res <- rbind(ybz[1, , drop = FALSE], ybz, zby[1, , drop = FALSE], zby)
+res[c(1, 5), ] <- ""
+res[1, 1] <- if (outlatex) "\\textbf{Region by year}" else "**Region by year**"
+res[2, 1] <- "Between region"
+res[3, 1] <- "Between year within region"
+res[4, 1] <- "Within year within region"
+
+res[5, 1] <- if (outlatex) "\\textbf{Year by region}" else "**Year by region**" 
+res[6, 1] <- "Between year"
+res[7, 1] <- "Between region within year"
+res[8, 1] <- "Within region within year"
+
+if (outlatex){
+  names(res) <- c("Heirarchy", "df", "Sum of squares", "Variation (\\%)", 
+                  "\\textit{P}", "$\\phi$ statistic")
+} else {
+  names(res) <- c("Heirarchy", "df", "Sum of squares", "Variation (%)", 
+                  "*P*", "$\\phi$ statistic")
+}
+
+cap <- "AMOVA table generated comparing *P. ramorum* isolates for
+two different hierarchies, year within region and region within year,
+respectively. Results are rounded to three significant figures. Clone
+corrected results are provided in parentheses. P values are based on
+9,999 permutations."
+
+tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd")
+
+if (outlatex){
+  library('xtable')
+  bold.cols <- function(x) paste0("\\textbf{", x, "}")
+  xtab      <- xtable(res, align = c("l", "l", rep("c", ncol(res) - 1)), caption = tabcap, 
+                      label = "tab:ramorum4")
+  out <- print.xtable(xtab, 
+               comment = FALSE, 
+               table.placement = "ph!", # http://tex.stackexchange.com/a/28091/77699
+               floating.environment = "sidewaystable",
+               booktabs = TRUE,
+               print.results = FALSE,
+               hline.after = c(0, nrow(res)),
+               include.rownames = FALSE, 
+               sanitize.text.function = function(x){x},
+               sanitize.colnames.function = bold.cols)
+  # This part is necessary to insert a short caption :/
+  cat(gsub("caption\\{", 
+  	     "caption[AMOVA table generated comparing \\\\textit{P. ramorum} isolates for
+two different hierarchies]{", 
+  	     out))
+} else {
+  knitr::kable(res, align = "c", caption = tabcap)
+}
+```
+
+
 
 ```{r, ramorum4, echo = FALSE, fig.cap = figcap4, fig.scap = figscap4}
 knitr::include_graphics("figure/phytopathology/figure_4.png")
@@ -730,7 +791,7 @@ north, but also west, towards the coast, and southeast. This clonal
 spread of the pathogen from the Joe Hall area is supported partially by
 Mantel tests showing significant levels of isolation by distance in
 years following 2002 (Table \@ref(tab:ramorum3)) along with significant AMOVA results
-across regions (Table 4). The populations sampled in 2011 in Hunter
+across regions (Table \@ref(tab:ramorum4)). The populations sampled in 2011 in Hunter
 Creek (Cape Sebastian) appear to have originated from a new source and
 cluster into a distinct group based on DAPC (Fig. \@ref(fig:ramorum4)). Based on the
 minimum spanning network, this population would appear isolated in the
