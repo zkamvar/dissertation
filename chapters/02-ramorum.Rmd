@@ -146,32 +146,53 @@ CA).
 
 ### Isolation, identification and DNA extraction
 
-\begin{sidewaystable}[ph!]
-\begin{tabular}{@{}lllll@{}}
-\toprule
-\textbf{Abbreviation} & \textbf{Region name} & \textbf{Year} &
-\textbf{Number of} & \textbf{MLGs detected}\tabularnewline
- & & & \textbf{isolates} & \textbf{(region specific)}\tabularnewline
-\midrule
+```{r, results = "asis", echo = FALSE}
+md <- '
+  **Abbreviation**   **Region name**                **Year**                                   **Number of isolates**   **MLGs detected (region specific)**
+  ------------------ ------------------------------ ------------------------------------------ ------------------------ -------------------------------------
+  JHallCr            Joe Hall Creek                 2001, 2002, 2003, 2004, 2005, 2013, 2014   244                      30 (19)
+  NFChetHigh         North Fork Chetco              2003, 2012, 2013, 2014                     114                      35 (19)
+  Coast              Coastal Region                 2006, 2010, 2011, 2012, 2013, 2014         34                       12 (7)
+  HunterCr           Hunter Creek; Cape Sebastian   2011                                       66                       4 (4)
+  Winchuck                                          2012, 2013                                 35                       9 (3)
+  ChetcoMain                                        2013, 2014                                 16                       7 (1)
+  PistolRSF          Pistol River South Fork        2013                                       4                        2 (0)
+  **Total**          **-**                          **2001-2014**                              **513**                  **70 (53)**
+
+  Table: (\\#tab:ramorum1) Summary of *P. ramorum* isolates sampled in Oregon 
+  forests and multilocus genotypes (MLG)observed across regions and years.
+'
+tex <- 
+'
+\\begin{sidewaystable}[ph!]
+\\begin{tabular}{@{}lllll@{}}
+\\toprule
+\\textbf{Abbreviation} & \\textbf{Region name} & \\textbf{Year} &
+\\textbf{Number of} & \\textbf{MLGs detected}\\tabularnewline
+ & & & \\textbf{isolates} & \\textbf{(region specific)}\\tabularnewline
+\\midrule
 JHallCr & Joe Hall Creek & 2001, 2002, 2003, 2004, 2005, 2013, 2014 &
-244 & 30 (19)\tabularnewline
+244 & 30 (19)\\tabularnewline
 NFChetHigh & North Fork Chetco & 2003, 2012, 2013, 2014 & 114 & 35
-(19)\tabularnewline
+(19)\\tabularnewline
 Coast & Coastal Region & 2006, 2010, 2011, 2012, 2013, 2014 & 34 & 12
-(7)\tabularnewline
+(7)\\tabularnewline
 HunterCr & Hunter Creek; Cape Sebastian & 2011 & 66 & 4
-(4)\tabularnewline
-Winchuck & & 2012, 2013 & 35 & 9 (3)\tabularnewline
-ChetcoMain & & 2013, 2014 & 16 & 7 (1)\tabularnewline
-PistolRSF & Pistol River South Fork & 2013 & 4 & 2 (0)\tabularnewline
-\textbf{Total} & \textbf{-} & \textbf{2001-2014} & \textbf{513} &
-\textbf{70 (53)}\tabularnewline
-\bottomrule
-\end{tabular}
-\caption{Summary of \emph{P. ramorum} isolates sampled in Oregon forests and multilocus genotypes (MLG)observed across regions and years.
+(4)\\tabularnewline
+Winchuck & & 2012, 2013 & 35 & 9 (3)\\tabularnewline
+ChetcoMain & & 2013, 2014 & 16 & 7 (1)\\tabularnewline
+PistolRSF & Pistol River South Fork & 2013 & 4 & 2 (0)\\tabularnewline
+\\textbf{Total} & \\textbf{-} & \\textbf{2001-2014} & \\textbf{513} &
+\\textbf{70 (53)}\\tabularnewline
+\\bottomrule
+\\end{tabular}
+\\caption{Summary of \\emph{P. ramorum} isolates sampled in Oregon forests and multilocus genotypes (MLG)observed across regions and years.
 }
-\label{tab:ramorum1}
-\end{sidewaystable}
+\\label{tab:ramorum1}
+\\end{sidewaystable}
+'
+if (LATEX) cat(tex) else cat(md)
+```
 
 Isolations were made from symptomatic plant tissue onto selective CARP agar
 (Difco corn meal agar, 10 ppm natamycin, 200pm NA-ampicillin, and 10 ppm
@@ -207,79 +228,139 @@ method including 14 loci (samples 2013-14) (Table \@ref(tab:ramorum2)). Details
 on both genotyping methods can be found in the supplementary text and figure S1.
 
 
+```{r, results = 'asis', echo = FALSE}
+md <- '
+  ----------------------------------------------------------------------------------------------------------------------------
+  **SSR Locus**       **Dye**   **Product (bp)^c^**   **Primer sequence^b^**             **Final conc. (µM)**   **Reaction**
+  ------------------- --------- --------------------- ---------------------------------- ---------------------- --------------
+  ILVOPrMS145abc^f^   6-FAM     167-257               Fwd6FAM-TGGCAGTGTTCTTCAACAGC\      0.04                   8-plex
+                                                      Rev-*GTTT*ATTCCCGTGAACAGCGTATC                            
+                     
+  PrMS39^d^           NED       130-258               FwdNED-GCACGGCCAGAGATTGATAG\       0.07                   8-plex
+                                                      Rev-*GTTT*ATCTGCCGACGTGAAGAAGT                            
+                     
+  PrMS9C3^d^          PET       210-226               FwdVIC-TCACACGAAGCAGCAACTCT\       0.04                   8-plex
+                                                      Rev-*GTTT*AGCGGCACTACGGAATACAT                            
+                     
+  ILVOPrMS79^af^      6-FAM     342-396               Fwd6FAM-AGGCGGAAAACGTCAGAAC\       0.15                   8-plex
+                                                      Rev-*GTTT*CTCGAGAGGCTGGAAGTACG                            
+                     
+  KI18^e^             VIC       217-279               FwdPET-TGCCATCACAACACAAATCC\       1.0                    8-plex
+                                                      Rev-*GTT*TGTGCTATCTTTCCTGAACGG                            
+                     
+  KI64^e^             NED       342-401               FwdNED-GCGCTAAGAAAGACACTCCG\       0.35                   8-plex
+                                                      Rev-*GTTT*CAACATGTAGCCATTGCAGG                            
+                     
+  PrMS45^d^           VIC       138-186               FwdVIC-CGTGCTGCATCTGGTGTAGT\       0.15                   8-plex
+                                                      Rev-GAAAGTCCGGATTTGCGTTA                                  
+                     
+  PrMS6^d^            PET       165-168               FwdPET-AATCGATCTCTCGGCTTTGA\       0.15                   8-plex
+                                                      Rev-TATAGCCCCAGCTGCAACA                                   
+                     
+  ILVOPrMS131^f^      VIC       146-414               FwdVIC-CGGCCGTTTTTGTAAGTTTG\       0.2                    2-plex
+                                                      Rev-*GTTT*CAGATCAAACCAAAATCTGCTC                          
+                     
+  KI82ab^e^           NED       95-243                FwdNED-CCACGTCATTGGGTGACTTC\       0.2                    2-plex
+                                                      Rev-*GTTT*CGTACAAGTCACGACTCCCC                            
+                     
+  PrMS43^d^           6-FAM     122-493               Fwd6FAM-AAATATGCAAAAAGGCAGGA\      0.3                    Simplex
+                                                      Rev-*GTTT*CCGCGTAACCTAGTCTGCTC                            
+  ----------------------------------------------------------------------------------------------------------------------------
 
-\begin{sidewaystable}[ph!]
-\begin{tabular}{@{}llllll@{}}
-\toprule
-\textbf{SSR Locus} & \textbf{Dye} & \textbf{Product
-(bp)\textsuperscript{c}} & \textbf{Primer sequence\textsuperscript{b}} &
-\textbf{Final conc. ($\mu$M)} & \textbf{Reaction}\tabularnewline
-\midrule
-ILVOPrMS145abc\textsuperscript{f} & 6-FAM & 167-257 &
-\vtop{\hbox{\strut Fwd6FAM-TGGCAGTGTTCTTCAACAGC}\hbox{\strut Rev-\emph{GTTT}ATTCCCGTGAACAGCGTATC}}
-& 0.04 & 8-plex\tabularnewline
-PrMS39\textsuperscript{d} & NED & 130-258 &
-\vtop{\hbox{\strut FwdNED-GCACGGCCAGAGATTGATAG}\hbox{\strut Rev-\emph{GTTT}ATCTGCCGACGTGAAGAAGT}}
-& 0.07 & 8-plex\tabularnewline
-PrMS9C3\textsuperscript{d} & PET & 210-226 &
-\vtop{\hbox{\strut FwdVIC-TCACACGAAGCAGCAACTCT}\hbox{\strut Rev-\emph{GTTT}AGCGGCACTACGGAATACAT}}
-& 0.04 & 8-plex\tabularnewline
-ILVOPrMS79\textsuperscript{af} & 6-FAM & 342-396 &
-\vtop{\hbox{\strut Fwd6FAM-AGGCGGAAAACGTCAGAAC}\hbox{\strut Rev-\emph{GTTT}CTCGAGAGGCTGGAAGTACG}}
-& 0.15 & 8-plex\tabularnewline
-KI18\textsuperscript{e} & VIC & 217-279 &
-\vtop{\hbox{\strut FwdPET-TGCCATCACAACACAAATCC}\hbox{\strut Rev-\emph{GTT}TGTGCTATCTTTCCTGAACGG}}
-& 1.0 & 8-plex\tabularnewline
-KI64\textsuperscript{e} & NED & 342-401 &
-\vtop{\hbox{\strut FwdNED-GCGCTAAGAAAGACACTCCG}\hbox{\strut Rev-\emph{GTTT}CAACATGTAGCCATTGCAGG}}
-& 0.35 & 8-plex\tabularnewline
-PrMS45\textsuperscript{d} & VIC & 138-186 &
-\vtop{\hbox{\strut FwdVIC-CGTGCTGCATCTGGTGTAGT}\hbox{\strut Rev-GAAAGTCCGGATTTGCGTTA}}
-& 0.15 & 8-plex\tabularnewline
-PrMS6\textsuperscript{d} & PET & 165-168 &
-\vtop{\hbox{\strut FwdPET-AATCGATCTCTCGGCTTTGA}\hbox{\strut Rev-TATAGCCCCAGCTGCAACA}}
-& 0.15 & 8-plex\tabularnewline
-ILVOPrMS131\textsuperscript{f} & VIC & 146-414 &
-\vtop{\hbox{\strut FwdVIC-CGGCCGTTTTTGTAAGTTTG}\hbox{\strut Rev-\emph{GTTT}CAGATCAAACCAAAATCTGCTC}}
-& 0.2 & 2-plex\tabularnewline
-KI82ab\textsuperscript{e} & NED & 95-243 &
-\vtop{\hbox{\strut FwdNED-CCACGTCATTGGGTGACTTC}\hbox{\strut Rev-\emph{GTTT}CGTACAAGTCACGACTCCCC}}
-& 0.2 & 2-plex\tabularnewline
-PrMS43\textsuperscript{d} & 6-FAM & 122-493 &
-\vtop{\hbox{\strut Fwd6FAM-AAATATGCAAAAAGGCAGGA}\hbox{\strut Rev-\emph{GTTT}CCGCGTAACCTAGTCTGCTC}}
-& 0.3 & Simplex\tabularnewline
-\bottomrule
-\end{tabular}
+Table: (\\#tab:ramorum2) Newly multiplexed protocol for *P. ramorum* primer
+sequences of simple sequence repeat (SSR) loci and final concentrations
+used to determine multilocus genotypes for four clonal lineages. PrMS6,
+Pr9C3, PrMS39, PrMS45, and PrMS43 were utilized in this study as they
+were commonly genotyped across all laboratories.
+
+  ^a^ ILVOPrMS79 amplifies three alleles in the NA1 lineage. The first two alleles are fixed and the third is polymorphic.
+
+  ^b^ Reverse (Rev) primer includes PIG tail addition except for PrMS45 and PrMS6. Indicated in italic.                                  
+
+  ^c^ Product size range is for four lineages (EU1, EU2, NA1, NA2). Only the NA1 lineage has been reported in Curry County,OR forests.
+
+  ^d^ Described by Prospero, Black, and Winton (2004) and/or Prospero et al. (2007).                                                               
+
+  ^e^ Described by Ivors et al. (2006).                                                                                                                                  
+
+  ^f^ Described by Vercauteren et al. (2010), and Vercauteren et al. (2011).
+'
+
+
+tex <- '\\begin{sidewaystable}[ph!]
+\\begin{tabular}{@{}llllll@{}}
+\\toprule
+\\textbf{SSR Locus} & \\textbf{Dye} & \\textbf{Product
+(bp)\\textsuperscript{c}} & \\textbf{Primer sequence\\textsuperscript{b}} &
+\\textbf{Final conc. ($\\mu$M)} & \\textbf{Reaction}\\tabularnewline
+\\midrule
+ILVOPrMS145abc\\textsuperscript{f} & 6-FAM & 167-257 &
+\\vtop{\\hbox{\\strut Fwd6FAM-TGGCAGTGTTCTTCAACAGC}\\hbox{\\strut Rev-\\emph{GTTT}ATTCCCGTGAACAGCGTATC}}
+& 0.04 & 8-plex\\tabularnewline
+PrMS39\\textsuperscript{d} & NED & 130-258 &
+\\vtop{\\hbox{\\strut FwdNED-GCACGGCCAGAGATTGATAG}\\hbox{\\strut Rev-\\emph{GTTT}ATCTGCCGACGTGAAGAAGT}}
+& 0.07 & 8-plex\\tabularnewline
+PrMS9C3\\textsuperscript{d} & PET & 210-226 &
+\\vtop{\\hbox{\\strut FwdVIC-TCACACGAAGCAGCAACTCT}\\hbox{\\strut Rev-\\emph{GTTT}AGCGGCACTACGGAATACAT}}
+& 0.04 & 8-plex\\tabularnewline
+ILVOPrMS79\\textsuperscript{af} & 6-FAM & 342-396 &
+\\vtop{\\hbox{\\strut Fwd6FAM-AGGCGGAAAACGTCAGAAC}\\hbox{\\strut Rev-\\emph{GTTT}CTCGAGAGGCTGGAAGTACG}}
+& 0.15 & 8-plex\\tabularnewline
+KI18\\textsuperscript{e} & VIC & 217-279 &
+\\vtop{\\hbox{\\strut FwdPET-TGCCATCACAACACAAATCC}\\hbox{\\strut Rev-\\emph{GTT}TGTGCTATCTTTCCTGAACGG}}
+& 1.0 & 8-plex\\tabularnewline
+KI64\\textsuperscript{e} & NED & 342-401 &
+\\vtop{\\hbox{\\strut FwdNED-GCGCTAAGAAAGACACTCCG}\\hbox{\\strut Rev-\\emph{GTTT}CAACATGTAGCCATTGCAGG}}
+& 0.35 & 8-plex\\tabularnewline
+PrMS45\\textsuperscript{d} & VIC & 138-186 &
+\\vtop{\\hbox{\\strut FwdVIC-CGTGCTGCATCTGGTGTAGT}\\hbox{\\strut Rev-GAAAGTCCGGATTTGCGTTA}}
+& 0.15 & 8-plex\\tabularnewline
+PrMS6\\textsuperscript{d} & PET & 165-168 &
+\\vtop{\\hbox{\\strut FwdPET-AATCGATCTCTCGGCTTTGA}\\hbox{\\strut Rev-TATAGCCCCAGCTGCAACA}}
+& 0.15 & 8-plex\\tabularnewline
+ILVOPrMS131\\textsuperscript{f} & VIC & 146-414 &
+\\vtop{\\hbox{\\strut FwdVIC-CGGCCGTTTTTGTAAGTTTG}\\hbox{\\strut Rev-\\emph{GTTT}CAGATCAAACCAAAATCTGCTC}}
+& 0.2 & 2-plex\\tabularnewline
+KI82ab\\textsuperscript{e} & NED & 95-243 &
+\\vtop{\\hbox{\\strut FwdNED-CCACGTCATTGGGTGACTTC}\\hbox{\\strut Rev-\\emph{GTTT}CGTACAAGTCACGACTCCCC}}
+& 0.2 & 2-plex\\tabularnewline
+PrMS43\\textsuperscript{d} & 6-FAM & 122-493 &
+\\vtop{\\hbox{\\strut Fwd6FAM-AAATATGCAAAAAGGCAGGA}\\hbox{\\strut Rev-\\emph{GTTT}CCGCGTAACCTAGTCTGCTC}}
+& 0.3 & Simplex\\tabularnewline
+\\bottomrule
+\\end{tabular}
 
 
 
-\begin{scriptsize}
-\raggedright{\textsuperscript{a} ILVOPrMS79 amplifies three alleles in the NA1
+\\begin{scriptsize}
+\\raggedright{\\textsuperscript{a} ILVOPrMS79 amplifies three alleles in the NA1
 lineage. The first two alleles are fixed and the third is
-polymorphic.}\\
-\raggedright{\textsuperscript{b} Reverse (Rev) primer includes PIG tail addition
-except for PrMS45 and PrMS6. Indicated in italic.}\\
-\raggedright{\textsuperscript{c} Product size range is for four lineages (EU1, EU2,
+polymorphic.}\\\\
+\\raggedright{\\textsuperscript{b} Reverse (Rev) primer includes PIG tail addition
+except for PrMS45 and PrMS6. Indicated in italic.}\\\\
+\\raggedright{\\textsuperscript{c} Product size range is for four lineages (EU1, EU2,
 NA1, NA2). Only the NA1 lineage has been reported in Curry County,OR
-forests.}\\
-\raggedright{\textsuperscript{d} Described by Prospero, Black, and Winton (2004)
-and/or Prospero et al. (2007).}\\
-\raggedright{\textsuperscript{e} Described by Ivors et al. (2006).}\\
-\raggedright{\textsuperscript{f} Described by Vercauteren et al. (2010), and
-Vercauteren et al. (2011).}\\
-\end{scriptsize}
+forests.}\\\\
+\\raggedright{\\textsuperscript{d} Described by Prospero, Black, and Winton (2004)
+and/or Prospero et al. (2007).}\\\\
+\\raggedright{\\textsuperscript{e} Described by Ivors et al. (2006).}\\\\
+\\raggedright{\\textsuperscript{f} Described by Vercauteren et al. (2010), and
+Vercauteren et al. (2011).}\\\\
+\\end{scriptsize}
 
-\caption[Newly multiplexed protocol for \emph{P. ramorum}
+\\caption[Newly multiplexed protocol for \\emph{P. ramorum}
 primer sequences of simple sequence repeat (SSR) loci and final
 concentrations used to determine multilocus genotypes for four clonal
-lineages.]{Newly multiplexed protocol for \emph{P. ramorum}
+lineages.]{Newly multiplexed protocol for \\emph{P. ramorum}
 primer sequences of simple sequence repeat (SSR) loci and final
 concentrations used to determine multilocus genotypes for four clonal
 lineages. PrMS6, Pr9C3, PrMS39, PrMS45, and PrMS43 were utilized in this
 study as they were commonly genotyped across all laboratories.}
-\label{tab:ramorum2}
-\end{sidewaystable}
-
+\\label{tab:ramorum2}
+\\end{sidewaystable}
+'
+if (LATEX) cat(tex) else cat(md)
+```
 
 ### Nursery populations
 
