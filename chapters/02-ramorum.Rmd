@@ -120,8 +120,8 @@ in SW Oregon."
 scap <- "Spatial distribution of the SOD epidemic and multilocus
 genotypes of *Phytophthora ramorum* in Curry County, Oregon."
 
-figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1")
-figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s")
+figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1", to = TO)
+figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s", to = TO)
 ```
 
 ```{r, results = "asis", echo = FALSE}
@@ -426,8 +426,8 @@ each MLG with lines connecting genotypes found in multiple years."
 scap <- "Rank distribution of multilocus genotypes (MLGs) of *P.
 ramorum* and recovery per year."
 
-figcap2  <- beaverdown::render_caption(caption = cap, figname = "fig2")
-figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig2s")
+figcap2  <- beaverdown::render_caption(caption = cap, figname = "fig2", to = TO)
+figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = TO)
 ```
 
 ```{r, results = "asis", echo = FALSE}
@@ -470,8 +470,8 @@ from its neighbors, are highlighted in arbitrary colors."
 scap <- "Minimum spanning network based on Bruvo's genetic distance
 for microsatellite markers for *P. ramorum* populations."
 
-figcap3  <- beaverdown::render_caption(caption = cap, figname = "fig3")
-figscap3 <- beaverdown::render_caption(caption = scap, figname = "fig3s")
+figcap3  <- beaverdown::render_caption(caption = cap, figname = "fig3", to = TO)
+figscap3 <- beaverdown::render_caption(caption = scap, figname = "fig3s", to = TO)
 ```
 
 ```{r, results = "asis", echo = FALSE}
@@ -491,7 +491,7 @@ overall mantel test was run without Hunter Creek, the correlation coefficient
 was reduced (0.175), but was still significant (*p* = 0.0001).
 
 ```{r, results = "asis", echo = FALSE}
-if (beaverdown::iflatex("works") != "works"){
+if (!LATEX){
   res <- '
                **2001**   **2002**   **2003**     **2004**     **2005**   **2006**   **2010**   **2011**     **2012**     **2013**     **2014**   **Pooled**
   ------------ ---------- ---------- ------------ ------------ ---------- ---------- ---------- ------------ ------------ ------------ ---------- ----------------
@@ -589,24 +589,24 @@ for the Hunter Creek data revealed that over 98% of the genotypes were assigned
 to the Coast with a 99% probability.
 
 ```{r, ramotab4, echo = FALSE, results = "asis"}
-outlatex <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "latex"
+
 zby <- read.table("data/zone_by_year.csv", header = TRUE, 
                   stringsAsFactors = FALSE, check.names = FALSE, sep = ",")
 ybz <- read.table("data/year_by_zone.csv", header = TRUE, 
                   stringsAsFactors = FALSE, check.names = FALSE, sep = ",")
 res <- rbind(ybz[1, , drop = FALSE], ybz, zby[1, , drop = FALSE], zby)
 res[c(1, 5), ] <- ""
-res[1, 1] <- if (outlatex) "\\textbf{Region by year}" else "**Region by year**"
+res[1, 1] <- if (LATEX) "\\textbf{Region by year}" else "**Region by year**"
 res[2, 1] <- "Between region"
 res[3, 1] <- "Between year within region"
 res[4, 1] <- "Within year within region"
 
-res[5, 1] <- if (outlatex) "\\textbf{Year by region}" else "**Year by region**" 
+res[5, 1] <- if (LATEX) "\\textbf{Year by region}" else "**Year by region**" 
 res[6, 1] <- "Between year"
 res[7, 1] <- "Between region within year"
 res[8, 1] <- "Within region within year"
 
-if (outlatex){
+if (LATEX){
   names(res) <- c("Heirarchy", "df", "Sum of squares", "Variation (\\%)", 
                   "\\textit{P}", "$\\phi$ statistic")
 } else {
@@ -620,9 +620,9 @@ respectively. Results are rounded to three significant figures. Clone
 corrected results are provided in parentheses. P values are based on
 9,999 permutations."
 
-tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd")
+tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd", to = TO)
 
-if (outlatex){
+if (LATEX){
   library('xtable')
   bold.cols <- function(x) paste0("\\textbf{", x, "}")
   xtab      <- xtable(res, align = c("l", "l", rep("c", ncol(res) - 1)), caption = tabcap, 
@@ -660,8 +660,8 @@ interval based on a bivariate normal distribution."
 scap <- "Scatterplot from DAPC of the first two principal components
 discriminating *P. ramorum* populations by regions."
 
-figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig4")
-figscap4 <- beaverdown::render_caption(caption = scap, figname = "fig4s")
+figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig4", to = TO)
+figscap4 <- beaverdown::render_caption(caption = scap, figname = "fig4s", to = TO)
 ```
 
 ```{r, results = "asis", echo = FALSE}
@@ -708,8 +708,8 @@ scap <- "Unrooted, neighbor-joining tree with 10,000 bootstrap
 replicates of Nei's genetic distance for *P. ramorum* populations
 defined by region."
 
-figcap5  <- beaverdown::render_caption(caption = cap, figname = "fig5")
-figscap5 <- beaverdown::render_caption(caption = scap, figname = "fig5s")
+figcap5  <- beaverdown::render_caption(caption = cap, figname = "fig5", to = TO)
+figscap5 <- beaverdown::render_caption(caption = scap, figname = "fig5s", to = TO)
 ```
 
 ```{r, results = "asis", echo = FALSE}
