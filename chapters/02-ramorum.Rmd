@@ -589,12 +589,12 @@ respect to year using Nei's genetic distance showed no significant
 tend to cluster by region as opposed to year (Fig. S3). AMOVA analysis
 revealed significant population structure between regions on both
 clone-corrected (with respect to hierarchy) and uncorrected data sets
-(Table \@ref(tab:ramorum4)). Significant structure was only found between years within
+(Table \@ref(tab:ramtab4)). Significant structure was only found between years within
 regions on the uncorrected data set. Both patterns were observed without
 Hunter Creek and Pistol River South Fork isolates. DAPC clustering
 showed that the first discriminant component separated Hunter Creek from
 all other regions and the second discriminant component shows a gradient
-from Joe Hall Creek to the coast (Fig. \@ref(fig:ramorum4)). This distinction was
+from Joe Hall Creek to the coast (Fig. \@ref(fig:ramfig4)). This distinction was
 reflected in the percent of correct posterior assignment of isolates to
 their original populations. Over the whole data set there was an 81.5%
 assignment-success rate. Hunter Creek received 100% successful
@@ -613,7 +613,7 @@ regions did not change significantly. Prediction of sources for the
 Hunter Creek data revealed that over 98% of the genotypes were assigned
 to the Coast with a 99% probability.
 
-```{r, ramtab4, echo = FALSE, results = "asis"}
+```{r, ramotab4, echo = FALSE, results = "asis"}
 outlatex <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "latex"
 zby <- read.table("data/zone_by_year.csv", header = TRUE, 
                   stringsAsFactors = FALSE, check.names = FALSE, sep = ",")
@@ -651,7 +651,7 @@ if (outlatex){
   library('xtable')
   bold.cols <- function(x) paste0("\\textbf{", x, "}")
   xtab      <- xtable(res, align = c("l", "l", rep("c", ncol(res) - 1)), caption = tabcap, 
-                      label = "tab:ramorum4")
+                      label = "tab:ramtab4")
   out <- print.xtable(xtab, 
                comment = FALSE, 
                table.placement = "ph!", # http://tex.stackexchange.com/a/28091/77699
@@ -674,7 +674,7 @@ two different hierarchies]{",
 
 
 
-```{r, ramorum4, echo = FALSE, fig.cap = figcap4, fig.scap = figscap4}
+```{r, ramfig4, echo = FALSE, fig.cap = figcap4, fig.scap = figscap4}
 knitr::include_graphics("figure/phytopathology/figure_4.png")
 cap <- "Scatterplot from DAPC of the first two principal components
 discriminating *P. ramorum* populations by regions. Points represent
@@ -783,7 +783,7 @@ into Curry County sometime before detection of the first infected
 tanoaks in 2001 from California (or less likely Oregon) nurseries
 followed by a second introduction into the Hunter Creek area again from
 nurseries. The relative position of the nursery populations in the
-minimum spanning network and DAPC scatter plot (Fig. \@ref(fig:ramorum3), \@ref(fig:ramorum4)) suggest that
+minimum spanning network and DAPC scatter plot (Fig. \@ref(fig:ramorum3), \@ref(fig:ramfig4)) suggest that
 the introductions from nurseries were rare, though more even sampling
 and migration models could disprove this hypothesis. Since 2001, the
 epidemic has spread clonally throughout Southwestern Curry County mostly
@@ -791,9 +791,9 @@ north, but also west, towards the coast, and southeast. This clonal
 spread of the pathogen from the Joe Hall area is supported partially by
 Mantel tests showing significant levels of isolation by distance in
 years following 2002 (Table \@ref(tab:ramorum3)) along with significant AMOVA results
-across regions (Table \@ref(tab:ramorum4)). The populations sampled in 2011 in Hunter
+across regions (Table \@ref(tab:ramtab4)). The populations sampled in 2011 in Hunter
 Creek (Cape Sebastian) appear to have originated from a new source and
-cluster into a distinct group based on DAPC (Fig. \@ref(fig:ramorum4)). Based on the
+cluster into a distinct group based on DAPC (Fig. \@ref(fig:ramfig4)). Based on the
 minimum spanning network, this population would appear isolated in the
 epidemic if it were not for MLG 32, which is connected with MLG 33
 (found on the coast in 2010) by one mutational step at locus PrMS43.
@@ -809,7 +809,7 @@ forest) are connected to Hunter Creek genotypes through nursery
 genotypes, indicates a possible contribution from nursery populations to
 the epidemic. This is supported by the observation that all population
 level clustering, with and without clone correction, places the Hunter
-Creek isolates adjacent to the nursery isolates from CA (Fig. \@ref(fig:ramorum4), \@ref(fig:ramorum5)).
+Creek isolates adjacent to the nursery isolates from CA (Fig. \@ref(fig:ramfig4), \@ref(fig:ramorum5)).
 This appears to be driven by the high frequency of allele 246 at locus
 PrMS39, which interestingly appears to segregate in an east to west
 fashion and is increasing in frequency over time (Fig. S9, S10). This,
