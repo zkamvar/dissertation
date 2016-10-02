@@ -233,37 +233,37 @@ md <- '
   ----------------------------------------------------------------------------------------------------------------------------
   **SSR Locus**       **Dye**   **Product (bp)^c^**   **Primer sequence^b^**             **Final conc. (µM)**   **Reaction**
   ------------------- --------- --------------------- ---------------------------------- ---------------------- --------------
-  ILVOPrMS145abc^f^   6-FAM     167-257               Fwd6FAM-TGGCAGTGTTCTTCAACAGC\      0.04                   8-plex
+  ILVOPrMS145abc^f^   6-FAM     167-257               Fwd6FAM-TGGCAGTGTTCTTCAACAGC\\      0.04                   8-plex
                                                       Rev-*GTTT*ATTCCCGTGAACAGCGTATC                            
                      
-  PrMS39^d^           NED       130-258               FwdNED-GCACGGCCAGAGATTGATAG\       0.07                   8-plex
+  PrMS39^d^           NED       130-258               FwdNED-GCACGGCCAGAGATTGATAG\\       0.07                   8-plex
                                                       Rev-*GTTT*ATCTGCCGACGTGAAGAAGT                            
                      
-  PrMS9C3^d^          PET       210-226               FwdVIC-TCACACGAAGCAGCAACTCT\       0.04                   8-plex
+  PrMS9C3^d^          PET       210-226               FwdVIC-TCACACGAAGCAGCAACTCT\\       0.04                   8-plex
                                                       Rev-*GTTT*AGCGGCACTACGGAATACAT                            
                      
-  ILVOPrMS79^af^      6-FAM     342-396               Fwd6FAM-AGGCGGAAAACGTCAGAAC\       0.15                   8-plex
+  ILVOPrMS79^af^      6-FAM     342-396               Fwd6FAM-AGGCGGAAAACGTCAGAAC\\       0.15                   8-plex
                                                       Rev-*GTTT*CTCGAGAGGCTGGAAGTACG                            
                      
-  KI18^e^             VIC       217-279               FwdPET-TGCCATCACAACACAAATCC\       1.0                    8-plex
+  KI18^e^             VIC       217-279               FwdPET-TGCCATCACAACACAAATCC\\       1.0                    8-plex
                                                       Rev-*GTT*TGTGCTATCTTTCCTGAACGG                            
                      
-  KI64^e^             NED       342-401               FwdNED-GCGCTAAGAAAGACACTCCG\       0.35                   8-plex
+  KI64^e^             NED       342-401               FwdNED-GCGCTAAGAAAGACACTCCG\\       0.35                   8-plex
                                                       Rev-*GTTT*CAACATGTAGCCATTGCAGG                            
                      
-  PrMS45^d^           VIC       138-186               FwdVIC-CGTGCTGCATCTGGTGTAGT\       0.15                   8-plex
+  PrMS45^d^           VIC       138-186               FwdVIC-CGTGCTGCATCTGGTGTAGT\\       0.15                   8-plex
                                                       Rev-GAAAGTCCGGATTTGCGTTA                                  
                      
-  PrMS6^d^            PET       165-168               FwdPET-AATCGATCTCTCGGCTTTGA\       0.15                   8-plex
+  PrMS6^d^            PET       165-168               FwdPET-AATCGATCTCTCGGCTTTGA\\       0.15                   8-plex
                                                       Rev-TATAGCCCCAGCTGCAACA                                   
                      
-  ILVOPrMS131^f^      VIC       146-414               FwdVIC-CGGCCGTTTTTGTAAGTTTG\       0.2                    2-plex
+  ILVOPrMS131^f^      VIC       146-414               FwdVIC-CGGCCGTTTTTGTAAGTTTG\\       0.2                    2-plex
                                                       Rev-*GTTT*CAGATCAAACCAAAATCTGCTC                          
                      
-  KI82ab^e^           NED       95-243                FwdNED-CCACGTCATTGGGTGACTTC\       0.2                    2-plex
+  KI82ab^e^           NED       95-243                FwdNED-CCACGTCATTGGGTGACTTC\\       0.2                    2-plex
                                                       Rev-*GTTT*CGTACAAGTCACGACTCCCC                            
                      
-  PrMS43^d^           6-FAM     122-493               Fwd6FAM-AAATATGCAAAAAGGCAGGA\      0.3                    Simplex
+  PrMS43^d^           6-FAM     122-493               Fwd6FAM-AAATATGCAAAAAGGCAGGA\\      0.3                    Simplex
                                                       Rev-*GTTT*CCGCGTAACCTAGTCTGCTC                            
   ----------------------------------------------------------------------------------------------------------------------------
 
@@ -271,18 +271,13 @@ Table: (\\#tab:ramorum2) Newly multiplexed protocol for *P. ramorum* primer
 sequences of simple sequence repeat (SSR) loci and final concentrations
 used to determine multilocus genotypes for four clonal lineages. PrMS6,
 Pr9C3, PrMS39, PrMS45, and PrMS43 were utilized in this study as they
-were commonly genotyped across all laboratories.
+were commonly genotyped across all laboratories.    
 
-  ^a^ ILVOPrMS79 amplifies three alleles in the NA1 lineage. The first two alleles are fixed and the third is polymorphic.
-
-  ^b^ Reverse (Rev) primer includes PIG tail addition except for PrMS45 and PrMS6. Indicated in italic.                                  
-
-  ^c^ Product size range is for four lineages (EU1, EU2, NA1, NA2). Only the NA1 lineage has been reported in Curry County,OR forests.
-
-  ^d^ Described by Prospero, Black, and Winton (2004) and/or Prospero et al. (2007).                                                               
-
-  ^e^ Described by Ivors et al. (2006).                                                                                                                                  
-
+  ^a^ ILVOPrMS79 amplifies three alleles in the NA1 lineage. The first two alleles are fixed and the third is polymorphic.    
+  ^b^ Reverse (Rev) primer includes PIG tail addition except for PrMS45 and PrMS6. Indicated in italic.                                      
+  ^c^ Product size range is for four lineages (EU1, EU2, NA1, NA2). Only the NA1 lineage has been reported in Curry County,OR forests.    
+  ^d^ Described by Prospero, Black, and Winton (2004) and/or Prospero et al. (2007).                                                                   
+  ^e^ Described by Ivors et al. (2006).    
   ^f^ Described by Vercauteren et al. (2010), and Vercauteren et al. (2011).
 '
 
