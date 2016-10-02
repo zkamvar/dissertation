@@ -209,8 +209,83 @@ laboratories. Data from PrMS45 and PrMS43 were therefore corrected to allow
 consistent comparisons of allele calls. Given the varied nature of the
 genotyping data described above genotyping of *P. ramorum* strains consists of
 two datasets including either 5 loci (2001-14) or a newly developed, multiplexed
-method including 14 loci (samples 2013-14) (Table 2). Details on both genotyping
+method including 14 loci (samples 2013-14) (Table \@ref(tab:ramorum2)). Details on both genotyping
 methods can be found in the supplementary text and figure S1.
+
+
+
+\begin{sidewaystable}[ph!]
+\begin{tabular}{@{}llllll@{}}
+\toprule
+\textbf{SSR Locus} & \textbf{Dye} & \textbf{Product
+(bp)\textsuperscript{c}} & \textbf{Primer sequence\textsuperscript{b}} &
+\textbf{Final conc. ($\mu$M)} & \textbf{Reaction}\tabularnewline
+\midrule
+ILVOPrMS145abc\textsuperscript{f} & 6-FAM & 167-257 &
+\vtop{\hbox{\strut Fwd6FAM-TGGCAGTGTTCTTCAACAGC}\hbox{\strut Rev-\emph{GTTT}ATTCCCGTGAACAGCGTATC}}
+& 0.04 & 8-plex\tabularnewline
+PrMS39\textsuperscript{d} & NED & 130-258 &
+\vtop{\hbox{\strut FwdNED-GCACGGCCAGAGATTGATAG}\hbox{\strut Rev-\emph{GTTT}ATCTGCCGACGTGAAGAAGT}}
+& 0.07 & 8-plex\tabularnewline
+PrMS9C3\textsuperscript{d} & PET & 210-226 &
+\vtop{\hbox{\strut FwdVIC-TCACACGAAGCAGCAACTCT}\hbox{\strut Rev-\emph{GTTT}AGCGGCACTACGGAATACAT}}
+& 0.04 & 8-plex\tabularnewline
+ILVOPrMS79\textsuperscript{af} & 6-FAM & 342-396 &
+\vtop{\hbox{\strut Fwd6FAM-AGGCGGAAAACGTCAGAAC}\hbox{\strut Rev-\emph{GTTT}CTCGAGAGGCTGGAAGTACG}}
+& 0.15 & 8-plex\tabularnewline
+KI18\textsuperscript{e} & VIC & 217-279 &
+\vtop{\hbox{\strut FwdPET-TGCCATCACAACACAAATCC}\hbox{\strut Rev-\emph{GTT}TGTGCTATCTTTCCTGAACGG}}
+& 1.0 & 8-plex\tabularnewline
+KI64\textsuperscript{e} & NED & 342-401 &
+\vtop{\hbox{\strut FwdNED-GCGCTAAGAAAGACACTCCG}\hbox{\strut Rev-\emph{GTTT}CAACATGTAGCCATTGCAGG}}
+& 0.35 & 8-plex\tabularnewline
+PrMS45\textsuperscript{d} & VIC & 138-186 &
+\vtop{\hbox{\strut FwdVIC-CGTGCTGCATCTGGTGTAGT}\hbox{\strut Rev-GAAAGTCCGGATTTGCGTTA}}
+& 0.15 & 8-plex\tabularnewline
+PrMS6\textsuperscript{d} & PET & 165-168 &
+\vtop{\hbox{\strut FwdPET-AATCGATCTCTCGGCTTTGA}\hbox{\strut Rev-TATAGCCCCAGCTGCAACA}}
+& 0.15 & 8-plex\tabularnewline
+ILVOPrMS131\textsuperscript{f} & VIC & 146-414 &
+\vtop{\hbox{\strut FwdVIC-CGGCCGTTTTTGTAAGTTTG}\hbox{\strut Rev-\emph{GTTT}CAGATCAAACCAAAATCTGCTC}}
+& 0.2 & 2-plex\tabularnewline
+KI82ab\textsuperscript{e} & NED & 95-243 &
+\vtop{\hbox{\strut FwdNED-CCACGTCATTGGGTGACTTC}\hbox{\strut Rev-\emph{GTTT}CGTACAAGTCACGACTCCCC}}
+& 0.2 & 2-plex\tabularnewline
+PrMS43\textsuperscript{d} & 6-FAM & 122-493 &
+\vtop{\hbox{\strut Fwd6FAM-AAATATGCAAAAAGGCAGGA}\hbox{\strut Rev-\emph{GTTT}CCGCGTAACCTAGTCTGCTC}}
+& 0.3 & Simplex\tabularnewline
+\bottomrule
+\end{tabular}
+
+
+
+\begin{scriptsize}
+\raggedright{\textsuperscript{a} ILVOPrMS79 amplifies three alleles in the NA1
+lineage. The first two alleles are fixed and the third is
+polymorphic.}\\
+\raggedright{\textsuperscript{b} Reverse (Rev) primer includes PIG tail addition
+except for PrMS45 and PrMS6. Indicated in italic.}\\
+\raggedright{\textsuperscript{c} Product size range is for four lineages (EU1, EU2,
+NA1, NA2). Only the NA1 lineage has been reported in Curry County,OR
+forests.}\\
+\raggedright{\textsuperscript{d} Described by Prospero, Black, and Winton (2004)
+and/or Prospero et al. (2007).}\\
+\raggedright{\textsuperscript{e} Described by Ivors et al. (2006).}\\
+\raggedright{\textsuperscript{f} Described by Vercauteren et al. (2010), and
+Vercauteren et al. (2011).}\\
+\end{scriptsize}
+
+\caption[Newly multiplexed protocol for \emph{P. ramorum}
+primer sequences of simple sequence repeat (SSR) loci and final
+concentrations used to determine multilocus genotypes for four clonal
+lineages.]{Newly multiplexed protocol for \emph{P. ramorum}
+primer sequences of simple sequence repeat (SSR) loci and final
+concentrations used to determine multilocus genotypes for four clonal
+lineages. PrMS6, Pr9C3, PrMS39, PrMS45, and PrMS43 were utilized in this
+study as they were commonly genotyped across all laboratories.}
+\label{tab:ramorum2}
+\end{sidewaystable}
+
 
 ### Nursery populations
 
@@ -426,13 +501,85 @@ cat(beaverdown::iflatex("\\newpage"))
 
 A Mantel test revealed significant correlations
 of genetic distance and geographic distance for most samples collected
-after 2003 (Table 3). When partitioned by year, this correlation appears
+after 2003 (Table \@ref(tab:ramorum3)). When partitioned by year, this correlation appears
 to increase and become more pronounced with the progression of the
 epidemic. When partitioned by region, those that are closer to the
 origin of the epidemic (Joe Hall Creek and N Fork Chetco River) show
 significant correlation. When the overall mantel test was run without
 Hunter Creek, the correlation coefficient was reduced (0.175), but was
 still significant (*p* = 0.0001).
+
+```{r, results = "asis", echo = FALSE}
+if (beaverdown::iflatex("works") != "works"){
+  res <- '
+               **2001**   **2002**   **2003**     **2004**     **2005**   **2006**   **2010**   **2011**     **2012**     **2013**     **2014**   **Pooled**
+  ------------ ---------- ---------- ------------ ------------ ---------- ---------- ---------- ------------ ------------ ------------ ---------- ----------------
+  JHallCr      0.06       0.24       0.14\\*\\*\\*   0.28\\*\\*\\*   NaN        -          -          -            -            0.18\\*\\*     NaN        0.14\\*\\*\\*
+  NFChetHigh   -          -          NaN          -            -          -          -          -            0.68         0.41\\*\\*\\*   -0.23      0.35\\*\\*\\*
+  Coast        -          -          -            -            -          NaN        NaN        NaN          NaN          0.55\\*       -0.25      0.13
+  HunterCr     -          -          -            -            -          -          -          0.06         -            -            -          0.06
+  Winchuck     -          -          -            -            -          -          -          -            0.41\\*\\*     0.03         -          0.11
+  ChetcoMain   -          -          -            -            -          -          -          -            -            0.53         NaN        0.63\\*
+  PistolRSF    -          -          -            -            -          -          -          -            -            0.94         -          0.94
+  Pooled       0.06       0.24       0.13\\*\\*\\*   0.28\\*\\*\\*   NaN        NaN        NaN        0.87\\*\\*\\*   0.59\\*\\*\\*   0.15\\*\\*\\*   0.14\\*     **0.52\\*\\*\\***
+
+
+Table: (\\#tab:ramorum3) Table of correlation coefficients generated across
+forest regions and years of *P. ramorum* isolates using the Mantel
+test. Euclidean distances were calculated from geographic coordinates
+while genetic distance was based on Bruvo\'s distance. Significance of
+values are based on 99,999 Monte-Carlo permutations and marked as
+follows: \\* &le; 0.05, \\*\\* &le; 0.01, \\*\\*\\* &le; 0.001, - = no data, NaN =
+insufficient data for analysis.
+
+'
+} else {
+res <- '
+\\begin{sidewaystable}[ph!]
+\\centering
+\\begin{tabular}{@{}lllllllllllll@{}}
+\\toprule
+& \\textbf{2001} & \\textbf{2002} & \\textbf{2003} & \\textbf{2004} &
+\\textbf{2005} & \\textbf{2006} & \\textbf{2010} & \\textbf{2011} &
+\\textbf{2012} & \\textbf{2013} & \\textbf{2014} &
+\\textbf{Pooled}\\tabularnewline
+\\midrule
+JHallCr & 0.06 & 0.24 & 0.14*** & 0.28*** & NaN & - & - & - & - & 0.18**
+& NaN & 0.14***\\tabularnewline
+NFChetHigh & - & - & NaN & - & - & - & - & - & 0.68 & 0.41*** & -0.23 &
+0.35***\\tabularnewline
+Coast & - & - & - & - & - & NaN & NaN & NaN & NaN & 0.55* & -0.25 &
+0.13\\tabularnewline
+HunterCr & - & - & - & - & - & - & - & 0.06 & - & - & - &
+0.06\\tabularnewline
+Winchuck & - & - & - & - & - & - & - & - & 0.41** & 0.03 & - &
+0.11\\tabularnewline
+ChetcoMain & - & - & - & - & - & - & - & - & - & 0.53 & NaN &
+0.63*\\tabularnewline
+PistolRSF & - & - & - & - & - & - & - & - & - & 0.94 & - &
+0.94\\tabularnewline
+Pooled & 0.06 & 0.24 & 0.13*** & 0.28*** & NaN & NaN & NaN & 0.87*** &
+0.59*** & 0.15*** & 0.14* & \\textbf{0.52***}\\tabularnewline
+\\bottomrule
+\\end{tabular}
+\\caption[Table of correlation coefficients generated across
+forest regions and years of \\emph{P. ramorum} isolates using the Mantel
+test.]{Table of correlation coefficients generated across
+forest regions and years of \\emph{P. ramorum} isolates using the Mantel
+test. Euclidean distances were calculated from geographic coordinates
+while genetic distance was based on Bruvo\'s distance. Significance of
+values are based on 99,999 Monte-Carlo permutations and marked as
+follows: * $\\leq$ 0.05, ** $\\leq$ 0.01, *** $\\leq$ 0.001, - = no data, NaN =
+insufficient data for analysis.}
+\\label{tab:ramorum3}
+\\end{sidewaystable}
+'
+}
+cat(res)
+```
+
+
+
 
 ### Population differentiation
 
@@ -582,7 +729,7 @@ epidemic has spread clonally throughout Southwestern Curry County mostly
 north, but also west, towards the coast, and southeast. This clonal
 spread of the pathogen from the Joe Hall area is supported partially by
 Mantel tests showing significant levels of isolation by distance in
-years following 2002 (Table 3) along with significant AMOVA results
+years following 2002 (Table \@ref(tab:ramorum3)) along with significant AMOVA results
 across regions (Table 4). The populations sampled in 2011 in Hunter
 Creek (Cape Sebastian) appear to have originated from a new source and
 cluster into a distinct group based on DAPC (Fig. \@ref(fig:ramorum4)). Based on the
