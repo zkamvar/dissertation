@@ -1164,7 +1164,7 @@ manuscript.}
   successfully used in analyses such as reconstruction of the \emph{P.
   ramorum} epidemic in Oregon forests (Kamvar \emph{et al.}
   \protect\hyperlink{ref-kamvar2014sudden}{2014}\protect\hyperlink{ref-kamvar2014sudden}{a},
-  \protect\hyperlink{ref-kamvar2015spatial}{2015}).
+  \protect\hyperlink{ref-kamvar2015spatial}{2015}\protect\hyperlink{ref-kamvar2015spatial}{c}).
   
   \emph{Poppr} 2.0 is open source and available on GitHub. Members of the
   community are invited to contribute by raising issues or pull requests
@@ -2170,6 +2170,23 @@ manuscript.}
       Meeûs \& Balloux \protect\hyperlink{ref-de2004clonal}{2004})
     \end{itemize}
   \item
+    Questions
+  
+    \begin{enumerate}
+    \def\labelenumi{\arabic{enumi}.}
+    \tightlist
+    \item
+      With the advent of GBS, does marker choice affect inference of
+      clonality?
+    \item
+      Does sample size significantly affect our ability to detect clonal
+      reproduction?
+    \item
+      Can a combination of genotypic diversity estimators and allelic
+      diversity estimator provide support for significantly negative
+      values of \(\bar{r}_d\)?
+    \end{enumerate}
+  \item
     Objectives
   
     \begin{enumerate}
@@ -2177,46 +2194,138 @@ manuscript.}
     \tightlist
     \item
       Analyze mixtures of clonal populations to assess effect of sampling
-      multiple clonal populations
+      multiple clonal populations.
+    \item
+      Assess the effect of a single hypervariable locus on \(\bar{r}_d\)
     \item
       Re-analyze rates of sexual reproduction to confirm previous study
+      with and without clone-correction (de Meeûs \& Balloux
+      \protect\hyperlink{ref-de2004clonal}{2004}).
     \item
-      Assess significance tests for \(\bar{r}_d\)
+      Power analysis of \(\bar{r}_d\).
+    \item
+      Investigate dynamics of populations with significantly negative (p =
+      1) values of \(\bar{r}_d\).
+    \item
+      Assess \(E_5\), \emph{H}, \(eMLG_{10}\), and unbiased Simpson's
+      diversity.
     \end{enumerate}
   \end{itemize}
   
   \section{Methods}\label{methods}
   
-  All simulations were performed with the python package simuPOP version
-  1.1.7 in python version 3.4. For each scenario, 100 simulations with 10
-  replicates were created with a census size of 10,000 individuals evolved
-  over 10,000 generations. From each replicate, 10, 25, 50, and 100
-  individuals were sampled without replacement for downstream analysis.
+  Initial sets of simulations were created for different levels of sexual
+  reproduction for each marker type. All simulations were performed with
+  the python package simuPOP version 1.1.7 in python version 3.4. For each
+  scenario, 100 simulations with 10 replicates were created with a census
+  size of 10,000 diploid individuals with equal mating type proportions
+  evolved over 10,000 generations. From each replicate, 10, 25, 50, and
+  100 individuals were sampled without replacement for downstream analysis
+  in R version 3.2 with the package \emph{poppr} version 2.2.1 on full and
+  clone-corrected data sets. All downstream analyses were run on the OSU
+  CGRB Core Computing Facility (supplementary information).
   
-  \subsection{Microsatellite Simulation}\label{microsatellite-simulation}
+  \subsection{Simulating Microsatellite
+  Loci}\label{simulating-microsatellite-loci}
   
-  Each population was simulated with 20 co-dominant loci containing 6 to
-  10 alleles with frequencies drawn from a uniform distribution and
-  normalized. Before mating, mutations occurred at each locus at a rate of
-  1e-5 mutations/generation.
-  
-  \subsection{Microsatellite Analysis}\label{microsatellite-analysis}
-  
-  The standardized index of association (\(\bar{r}_d\)) was calculated in
-  R version 3.2 with the package \emph{poppr} version 2.2.1 using the
-  function \texttt{ia()} within custom scripts (supplementary
-  information). Tests for significance were performed by randomly
-  permuting the alleles at each locus independently and then assessing
-  \(\bar{r}_d\). This was done 999 times for each replicate population.
-  The p-values reflect the proportion of observations greater than the
-  observed statistic.
+  Each population was simulated with 20 co-dominant, unlinked loci
+  containing 6 to 10 alleles per locus with frequencies drawn from a
+  uniform distribution and subsequently normalized. Before mating,
+  mutations occurred at each locus at a rate of 1e-5 mutations/generation
+  in a stepwise manner using the \texttt{StepwiseMutator()} operator.
   
   \subsection{GBS Simulations}\label{gbs-simulations}
   
-  Simulations of 10,000 binary loci at intervals of 1 Mbp over 100
-  chromosomal fragments were simulated with a mutation rate of 1e-5
-  mutations per generation and a recombination rate of 1e-5 for sexually
-  recombining populations.
+  Simulations of 10,000 binary loci at spread evenly over 10 chromosomal
+  fragments were simulated with a mutation rate of 1e-5 mutations per
+  generation for forward and backward mutations using the
+  \texttt{SNPMutator()} operator and and a recombination rate of 1e-5
+  between adjacent loci using the \texttt{Recombinator()} operator.
+  
+  \subsection{Sexual Reproduction}\label{sexual-reproduction}
+  
+  Simulations of sexual reproduction were analyzed at 10 rates of sexual
+  reproduction on a log scale (0.0, 1e-4, 5e-4, 1e-3, 5e-3, 1e-2, 5e-2,
+  0.1, 0.5, 1.0) reflecting the fraction of individuals in generation
+  \emph{t+1} produced via sexual reproduction. One to three offspring
+  could be produced at each mating event. For sexual events, two parents
+  were chosen randomly from the population with the
+  \texttt{RandomSelection()} operator and offspring genotypes were created
+  via the \texttt{MendelianGenoTransmitter()} operator. The clonal
+  fraction was created by randomly sampling individuals from the
+  population and duplicating their genotypes with the
+  \texttt{CloneGenoTransmitter()} operator. If one mating type was lost
+  before 10,000 generations, the simulation would continue to completion
+  with only clonal reproduction.
+  
+  \subsection{Analysis of Microsatellite
+  Data}\label{analysis-of-microsatellite-data}
+  
+  The standardized index of association (\(\bar{r}_d\)) was calculated for
+  full and clone-corrected data using the \emph{poppr} function
+  \texttt{ia()}. Tests for significance were performed by randomly
+  permuting the alleles at each locus independently and then assessing
+  \(\bar{r}_d\). This was done 999 times for each replicate population.
+  Re-sampling was not performed with clone-corrected data. The p-values
+  reflect the proportion of observations greater than the observed
+  statistic. Estimates of genotypic diversity were assessed with the
+  \emph{poppr} function \texttt{diversity\_boot()} with 999 bootstrap
+  replicates, recording the estimate and variance.
+  
+  \subsection{Analysis of SNP Data}\label{analysis-of-snp-data}
+  
+  Because GBS data are associated with high error rates, we additionally
+  wanted to assess the effect of error and missing data on analysis. To do
+  this, we used scripts written for Kamvar \emph{et al.}
+  (\protect\hyperlink{ref-kamvar2015novel}{2015}\protect\hyperlink{ref-kamvar2015novel}{b})
+  to randomly insert missing data (via the \texttt{pop\_NA()} function)
+  and genotyping errors (via the \texttt{pop\_mutator()}) (Kamvar \emph{et
+  al.}
+  \protect\hyperlink{ref-kamvar2015poppr2supp}{2015}\protect\hyperlink{ref-kamvar2015poppr2supp}{a})
+  at rates of 5\% and 10\% each. We then used the \emph{poppr} function
+  \texttt{mlg.filter()} to with the farthest neighbor algorithm to
+  collapse multilocus genotypes with 5\% and 10\% similarity and compared
+  the results with the known genotypes. Genotypic diversity was assessed
+  with the \emph{poppr} function \texttt{diversity\_boot()} with 999
+  bootstrap replicates on the filtered data sets, recording the variance.
+  
+  The overall value of \(\bar{r}_d\) was calculated for each simulation
+  with the \emph{poppr} function \texttt{bitwise.ia()}. To assess
+  within-chromosome dynamics, values of \(\bar{r}_d\) were calculated
+  along chromosomes using the \emph{poppr} function \texttt{win.ia()}
+  along windows of 50 and 100 SNPs. Cross-chromosome dynamics of
+  \(\bar{r}_d\) were assessed by utilizing random samples of 50, 100, and
+  1000 SNPs replicated 999 times for each population sample.
+  
+  \subsection{Power Analysis}\label{power-analysis}
+  
+  The Receiver Operating Characteristic (ROC) curve is a method of
+  assessing the explanatory power of a method by assessing the true
+  positive fraction of tests to a false positive fraction (Metz
+  \protect\hyperlink{ref-metz1978basic}{1978}). Briefly, if a method has
+  perfect explanatory power, the area under the ROC curve will be equal to
+  1. If a method has no explanatory power, the area under the ROC curve
+  will be equal to 0.5. ROC analysis was carried as described in Metz
+  (\protect\hyperlink{ref-metz1978basic}{1978}) as a comparison of the
+  false positive fraction to the true positive fraction as you increase
+  the level of rejection, (\(\alpha\)). The null hypothesis for the ROC
+  analysis was defined where the rate of sexual reproduction was 100\%.
+  All other rates were considered to be separate alternative hypotheses.
+  The curves were calculated by analyzing the data sets over increasing
+  values of \(\alpha\) from 0 to 1 in increments of 0.01. The area under
+  the ROC curves was calculated using the \texttt{trapz()} function in the
+  R package \emph{pracma} version 1.9.5 (Borchers
+  \protect\hyperlink{ref-borchers2016pracma}{2016}). ANOVA was run with
+  the following models:
+  
+  \begin{longtable}[c]{@{}c@{}}
+  \toprule
+  False Positive Rate \textasciitilde{} Sex Rate + Sample
+  Size\tabularnewline
+  Area Under ROC Curve \textasciitilde{} Sex Rate + Sample
+  Size\tabularnewline
+  \bottomrule
+  \end{longtable}
   
   \backmatter
   
@@ -2259,6 +2368,9 @@ manuscript.}
   \hypertarget{ref-bivand2014rgdal}{}
   Bivand R, Keitt T, Rowlingson B (2014) \emph{rgdal: Bindings for the
   Geospatial Data Abstraction Library}.
+  
+  \hypertarget{ref-borchers2016pracma}{}
+  Borchers HW (2016) \emph{Pracma: Practical numerical math functions}.
   
   \hypertarget{ref-brown1980multilocus}{}
   Brown A, Feldman M, Nevo E (1980) Multilocus structure of natural
@@ -2487,15 +2599,26 @@ manuscript.}
   pathogens in molecular plant pathology. \emph{Molecular Plant
   Pathology}, \textbf{16}, 413--434.
   
+  \hypertarget{ref-kamvar2015poppr2supp}{}
+  Kamvar ZN, Brooks JC, Grunwald NJ (2015a) Supplementary Material for
+  Frontiers Plant Genetics and Genomics 'Novel R tools for analysis of
+  genome-wide population genetic data with emphasis on clonality'.
+  
+  \hypertarget{ref-kamvar2015novel}{}
+  Kamvar ZN, Brooks JC, Grünwald NJ (2015b) Novel R tools for analysis of
+  genome-wide population genetic data with emphasis on clonality.
+  \emph{Frontiers in Genetics}, \textbf{6}.
+  
   \hypertarget{ref-kamvar2014sudden}{}
   Kamvar ZN, Larsen MM, Kanaskie AM, Hansen EM, Grünwald NJ (2014a)
   Sudden\_Oak\_Death\_in\_Oregon\_Forests: Spatial and temporal population
   dynamics of the sudden oak death epidemic in Oregon Forests.
   
   \hypertarget{ref-kamvar2015spatial}{}
-  Kamvar ZN, Larsen MM, Kanaskie AM, Hansen EM, Grünwald NJ (2015) Spatial
-  and temporal analysis of populations of the sudden oak death pathogen in
-  oregon forests. \emph{Phytopathology}, \textbf{105}, 982--989.
+  Kamvar ZN, Larsen MM, Kanaskie AM, Hansen EM, Grünwald NJ (2015c)
+  Spatial and temporal analysis of populations of the sudden oak death
+  pathogen in oregon forests. \emph{Phytopathology}, \textbf{105},
+  982--989.
   
   \hypertarget{ref-kamvar2014poppr}{}
   Kamvar ZN, Tabima JF, Grünwald NJ (2014b) Poppr : an R package for
@@ -2568,6 +2691,10 @@ manuscript.}
   Meirmans PG, Van Tienderen PH (2004) GENOTYPE and GENODIVE: Two programs
   for the analysis of genetic diversity of asexual organisms.
   \emph{Molecular Ecology Notes}, \textbf{4}, 792--794.
+  
+  \hypertarget{ref-metz1978basic}{}
+  Metz CE (1978) Basic principles of rOC analysis. In: \emph{Seminars in
+  nuclear medicine}, pp. 283--298. Elsevier.
   
   \hypertarget{ref-metzger2015horizontal}{}
   Metzger MJ, Reinisch C, Sherry J, Goff SP (2015) Horizontal transmission

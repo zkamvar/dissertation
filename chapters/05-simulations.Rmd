@@ -142,6 +142,6 @@ with the following models:
 
 |                                               |
 |:---------------------------------------------:|
-| False Positive Rate ∼ Sex Rate + Sample Size  |
-| Area Under ROC Curve ∼ Sex Rate + Sample Size |
+| False Positive Rate ~ Sex Rate + Sample Size  |
+| Area Under ROC Curve ~ Sex Rate + Sample Size |
 
