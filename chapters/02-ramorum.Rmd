@@ -75,7 +75,7 @@ the NA1 clonal lineage [@hansen2008epidemiology; @prospero2007population]. Given
 NA2 and/or EU1 clones have been found in California, Oregon, Washington, and/or
 British Columbia in association with nursery plant movements, introduction of
 NA2 or EU1 from nursery environments to Curry County forests is a plausible
-scenario [@goss2011phytophthora, 2009; @grunwald2012emergence; @prospero2009migration,
+scenario [@goss2011phytophthora; @goss2009population; @grunwald2012emergence; @prospero2009migration,
 2007]. Our present work thus monitors populations and potential emergence of
 novel lineages in Oregon forests.
 
@@ -158,22 +158,20 @@ md <- '
 tex <- 
 '
 \\begin{sidewaystable}[ph!]
-\\begin{tabular}{@{}lllll@{}}
+\\begin{tabular}{@{}lllrc@{}}
 \\toprule
 \\textbf{Abbreviation} & \\textbf{Region name} & \\textbf{Year} &
 \\textbf{Number of} & \\textbf{MLGs detected}\\tabularnewline
  & & & \\textbf{isolates} & \\textbf{(region specific)}\\tabularnewline
 \\midrule
-JHallCr & Joe Hall Creek & 2001, 2002, 2003, 2004, 2005, 2013, 2014 &
-244 & 30 (19)\\tabularnewline
-NFChetHigh & North Fork Chetco & 2003, 2012, 2013, 2014 & 114 & 35
-(19)\\tabularnewline
-Coast & Coastal Region & 2006, 2010, 2011, 2012, 2013, 2014 & 34 & 12
-(7)\\tabularnewline
-HunterCr & Hunter Creek; Cape Sebastian & 2011 & 66 & 4
-(4)\\tabularnewline
-Winchuck & & 2012, 2013 & 35 & 9 (3)\\tabularnewline
-ChetcoMain & & 2013, 2014 & 16 & 7 (1)\\tabularnewline
+JHallCr & Joe Hall Creek & 2001, 2002, 2003, 2004, & 244 & 30 (19)\\tabularnewline
+ &  & 2005, 2013, 2014 &  & \\tabularnewline
+NFChetHigh & North Fork Chetco & 2003, 2012, 2013, 2014 & 114 & 35 (19)\\tabularnewline
+Coast & Coastal Region & 2006, 2010, 2011, 2012, & 34 & 12 (7)\\tabularnewline
+ &  & 2013, 2014 &  & \\tabularnewline
+HunterCr & Hunter Creek; Cape Sebastian & 2011 & 66 & 4 (4)\\tabularnewline
+Winchuck &              ...             & 2012, 2013 & 35 & 9 (3)\\tabularnewline
+ChetcoMain &              ...             & 2013, 2014 & 16 & 7 (1)\\tabularnewline
 PistolRSF & Pistol River South Fork & 2013 & 4 & 2 (0)\\tabularnewline
 \\textbf{Total} & \\textbf{-} & \\textbf{2001-2014} & \\textbf{513} &
 \\textbf{70 (53)}\\tabularnewline
@@ -276,9 +274,10 @@ were commonly genotyped across all laboratories.
 tex <- '\\begin{sidewaystable}[ph!]
 \\begin{tabular}{@{}llllll@{}}
 \\toprule
-\\textbf{SSR Locus} & \\textbf{Dye} & \\textbf{Product
-(bp)\\textsuperscript{c}} & \\textbf{Primer sequence\\textsuperscript{b}} &
-\\textbf{Final conc. ($\\mu$M)} & \\textbf{Reaction}\\tabularnewline
+\\textbf{SSR Locus} & \\textbf{Dye} & \\textbf{Product} & \\textbf{Primer sequence\\textsuperscript{b}} &
+\\textbf{Final conc.} & \\textbf{Rxn}\\tabularnewline
+ &  & \\textbf{(bp)\\textsuperscript{c}} &  &
+\\textbf{($\\mu$M)} & \\tabularnewline
 \\midrule
 ILVOPrMS145abc\\textsuperscript{f} & 6-FAM & 167-257 &
 \\vtop{\\hbox{\\strut Fwd6FAM-TGGCAGTGTTCTTCAACAGC}\\hbox{\\strut Rev-\\emph{GTTT}ATTCCCGTGAACAGCGTATC}}
@@ -599,22 +598,22 @@ res <- '
 \\textbf{2012} & \\textbf{2013} & \\textbf{2014} &
 \\textbf{Pooled}\\tabularnewline
 \\midrule
-JHallCr & 0.06 & 0.24 & 0.14*** & 0.28*** & NaN & - & - & - & - & 0.18**
-& NaN & 0.14***\\tabularnewline
-NFChetHigh & - & - & NaN & - & - & - & - & - & 0.68 & 0.41*** & -0.23 &
-0.35***\\tabularnewline
-Coast & - & - & - & - & - & NaN & NaN & NaN & NaN & 0.55* & -0.25 &
+JHallCr & 0.06 & 0.24 & 0.14* & 0.28* & NaN & - & - & - & - & 0.18\\~{}
+& NaN & 0.14*\\tabularnewline
+NFChetHigh & - & - & NaN & - & - & - & - & - & 0.68 & 0.41* & -0.23 &
+0.35*\\tabularnewline
+Coast & - & - & - & - & - & NaN & NaN & NaN & NaN & 0.55\\^{} & -0.25 &
 0.13\\tabularnewline
 HunterCr & - & - & - & - & - & - & - & 0.06 & - & - & - &
 0.06\\tabularnewline
-Winchuck & - & - & - & - & - & - & - & - & 0.41** & 0.03 & - &
+Winchuck & - & - & - & - & - & - & - & - & 0.41\\~{} & 0.03 & - &
 0.11\\tabularnewline
 ChetcoMain & - & - & - & - & - & - & - & - & - & 0.53 & NaN &
 0.63*\\tabularnewline
 PistolRSF & - & - & - & - & - & - & - & - & - & 0.94 & - &
 0.94\\tabularnewline
-Pooled & 0.06 & 0.24 & 0.13*** & 0.28*** & NaN & NaN & NaN & 0.87*** &
-0.59*** & 0.15*** & 0.14* & \\textbf{0.52***}\\tabularnewline
+Pooled & 0.06 & 0.24 & 0.13* & 0.28* & NaN & NaN & NaN & 0.87* &
+0.59* & 0.15* & 0.14\\^{} & \\textbf{0.52*}\\tabularnewline
 \\bottomrule
 \\end{tabular}
 \\caption[Table of correlation coefficients generated across
@@ -624,7 +623,7 @@ forest regions and years of \\emph{P. ramorum} isolates using the Mantel
 test. Euclidean distances were calculated from geographic coordinates
 while genetic distance was based on Bruvo\'s distance. Significance of
 values are based on 99,999 Monte-Carlo permutations and marked as
-follows: * $\\leq$ 0.05, ** $\\leq$ 0.01, *** $\\leq$ 0.001, - = no data, NaN =
+follows: \\^{} $\\leq$ 0.05, \\~{} $\\leq$ 0.01, * $\\leq$ 0.001, - = no data, NaN =
 insufficient data for analysis.}
 \\label{tab:ramorum3}
 \\end{sidewaystable}
@@ -748,7 +747,7 @@ cat(beaverdown::iflatex("\\newpage"))
 
 We used previously published data to determine if nursery populations in
 California or Oregon could have been source populations for the Oregon forest
-epidemic [@goss2011phytophthora, 2009; @grunwald2009standardizing; @prospero2009migration,
+epidemic [@goss2011phytophthora; @goss2009population; @grunwald2009standardizing; @prospero2009migration,
 @prospero2007population]. Nursery data included 40 MLGs across 216 samples of NA1 clones. Of these
 40, 12 MLGs matched the forest sample and 28 MLGs were unique to the nurseries.
 The only region that did not contain genotypes that matched those found in
@@ -815,7 +814,7 @@ To date populations monitored from 2001-14 show presence of only the NA1 clonal
 lineage observed previously [@prospero2007population; @prospero2009migration]. The fact that
 individuals belonging to the EU1 and NA2 clonal lineages have not been found in
 Oregon forests, despite their presence on the west coast from British Columbia
-to California is welcome news [@goss2009population, @goss2011phytophthora; @grunwald2012emergence].
+to California is welcome news [@goss2009population; @goss2011phytophthora; @grunwald2012emergence].
 The lack of EU1 or NA2 isolates provides evidence that monitoring for *P.
 ramorum* in nurseries by federal and state agencies is helping avoid emergence
 of new clones in Oregon's Forests.
