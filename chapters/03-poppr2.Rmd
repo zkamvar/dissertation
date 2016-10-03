@@ -1,11 +1,5 @@
 # Novel R Tools For Analysis of Genome-Wide Population Genetic Data With Emphasis on Clonality
 
-```{r, setup, include = FALSE}
-# evaluate fig.cap after a chunk is evaluated
-knitr::opts_knit$set(eval.after = c('fig.cap', 'fig.scap'))
-knitr::opts_chunk$set(message = FALSE)
-```
-
 Zhian N. Kamvar, Jonah C. Brooks, and Niklaus J. Grünwald
 
 
@@ -145,7 +139,7 @@ trees based on genetic distance (Fig. \@ref(fig:Figure1)B). This algorithm will
 cluster by creating a representative sample per cluster and joining clusters if
 these representative samples are closer than the given threshold.
 
-```{r, Figure1, echo = FALSE, fig.cap = paste(figcap1), fig.scap = paste(figscap1), out.width = "50%"}
+```{r, Figure1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1, out.width = "50%"}
 knitr::include_graphics("figure/frontiers/Figure-1.png")
 cap <- "Diagrammatic representation of the three clustering algorithms
 implemented in `mlg.filter`. (**A-C**) Represent different clustering algorithms
@@ -163,8 +157,8 @@ is always < 0.451."
 scap <- "Diagrammatic representation of the three clustering algorithms
 implemented in `mlg.filter`."
 
-figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1")
-figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s")
+figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1", to = TO)
+figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s", to = TO)
 ```
 
 We utilize data from the microbe *Phytophthora infestans* to show how the
@@ -187,7 +181,7 @@ Contingency tables between the described multilocus genotypes and the genotypes
 defined by distance show that most of the 18 lineages were resolved, except for
 US-8, which is polytomic (Table \@ref(pinftable)).
 
-```{r, Figure-2, echo = FALSE, message = FALSE, fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = paste(figcap2), fig.scap = paste(figscap2)}
+```{r, Figure-2, echo = FALSE, message = FALSE, fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = figcap2, fig.scap = figscap2}
 
 cap <- "Graphical representation of three different clustering algorithms
 collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
@@ -202,8 +196,8 @@ scap <- "Graphical representation of three different clustering algorithms
 collapsing multilocus genotypes for 12 SSR loci from *Phytophthora infestans*
 representing 18 clonal lineages."
 
-figcap2 <- beaverdown::render_caption(caption = cap, figname = "fig2")
-figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig2s")
+figcap2 <- beaverdown::render_caption(caption = cap, figname = "fig2", to = TO)
+figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = TO)
 
 # print(knitr::opts_knit$get('rmarkdown.pandoc.to'))
 library('poppr')
@@ -236,9 +230,9 @@ defined as the US-24 MLL. All three genotypes were also determined to cluster
 into a single MLL by filtering. In contrast, US-8 was determined to cluster into
 three different MLLs by filtering."
 
-tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd")
+tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd", to = TO)
 
-if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "latex"){
+if (LATEX){
   bold.rows <- function(x) paste0("\\textbf{", x, "}")
   xtab      <- xtable(res, align = c("l|", rep("c", ncol(res))), caption = tabcap, 
                       label = "pinftable")
@@ -338,7 +332,7 @@ populations with the reticulate network compared to the minimum spanning tree
 discriminant analysis of principal components (Fig. \@ref(fig:Figure-3)D)
 [@jombart2010discriminant].
 
-```{r, Figure-3, message = FALSE, echo = FALSE, fig.cap = paste(figcap3), fig.scap = paste(figscap3)}
+```{r, Figure-3, message = FALSE, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3}
 knitr::include_graphics("figure/frontiers/Figure-3.png")
 
 cap <- "(**A-B**) Minimum spanning networks of the hemagglutinin (HA)
@@ -356,7 +350,7 @@ component.
 "
 
 figscap3 <- "Minimum Spanning Networks with Reticulation"
-figcap3  <- beaverdown::render_caption(caption = cap, figname = "fig3")
+figcap3  <- beaverdown::render_caption(caption = cap, figname = "fig3", to = TO)
 ```
 
 Graph walking of the reticulated minimum spanning network of *P. ramorum* by the
@@ -406,10 +400,10 @@ These data are from @laloe2007consensus. Node labels represent bootstrap support
 $>50\\%$ out of 1,000 bootstrap replicates."
 
 figscap4 <- "UPGMA dendrogram generated from Nei's genetic distance"
-figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig4")
+figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig4", to = TO)
 ```
 
-```{r, microboot, results = "hide", fig.width = 5, fig.height = 5, fig.cap = paste(figcap4), fig.scap = paste(figscap4)}
+```{r, microboot, results = "hide", fig.width = 5, fig.height = 5, fig.cap = figcap4, fig.scap = figscap4}
 library("poppr");
 data("microbov", package = "adegenet");
 strata(microbov) <- data.frame(other(microbov));
@@ -451,10 +445,10 @@ genotypes. A trendline (blue) has been added using the *ggplot2* function
 `stat_smooth`."
 
 figscap5 <- "Genotype accumulation curve"
-figcap5  <- beaverdown::render_caption(caption = cap, figname = "fig5")
+figcap5  <- beaverdown::render_caption(caption = cap, figname = "fig5", to = TO)
 ```
 
-```{r, moniliniacurve, results = "hide", fig.width = 5, fig.height = 5, fig.keep = "last", message = FALSE, fig.cap = paste(figcap5), fig.scap = paste(figscap5)}
+```{r, moniliniacurve, results = "hide", fig.width = 5, fig.height = 5, fig.keep = "last", message = FALSE, fig.cap = figcap5, fig.scap = figscap5}
 library("poppr");
 library("ggplot2");
 data("monpop", package = "poppr");
@@ -511,7 +505,7 @@ obtained a higher value of $\bar{r}_d$ for the clonal population compared to the
 sexual population for both methods (Fig. \@ref(fig:Figure-6)).
 
 
-```{r, Figure-6, echo = FALSE, fig.width = 5, fig.height = 3.333, fig.keep = "last", fig.cap = paste(figcap6), fig.scap = paste(figscap6)}
+```{r, Figure-6, echo = FALSE, fig.width = 5, fig.height = 3.333, fig.keep = "last", fig.cap = figcap6, fig.scap = figscap6}
 clone.ia <- c(0.00657391971000822, 0.00475038591717665, 0.00590697833268689, 
 0.00177109538039166, 0.00784047946321868, 0.0054449176789628, 
 0.0034546641854964, 0.00201826415448331, 0.00813373673459406, 
@@ -645,8 +639,8 @@ the center line. **(A)** and **(B)** are plotted on the same y-axis."
 scap <- "Sliding window analysis of the standardized index of
 association ($\\bar{r}_d$)"
 
-figscap6 <- beaverdown::render_caption(scap, figname = "fig6s", index = "index.Rmd")
-figcap6  <- beaverdown::render_caption(cap, figname = "fig6", index = "index.Rmd")
+figscap6 <- beaverdown::render_caption(scap, figname = "fig6s", index = "index.Rmd", to = TO)
+figcap6  <- beaverdown::render_caption(cap, figname = "fig6", index = "index.Rmd", to = TO)
 
 ```
 
