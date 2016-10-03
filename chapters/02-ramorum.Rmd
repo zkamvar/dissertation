@@ -44,45 +44,39 @@ potential introduction of other clonal lineages.
 Sudden oak death (SOD) emerged as a severe epidemic disease on coast live oak
 (*Quercus agrifolia*) and tanoak (*Notholithocarpus densiflorus*) in California
 in the mid 1990s and reemerged shortly thereafter on tanoak in Oregon in the
-early 2000s (Hansen et al. 2008; Rizzo et al. 2005; Grünwald et al. 2008a;
-Everhart et al. 2014). SOD is caused by *Phytophthora ramorum* Werres, De Cock &
+early 2000s [@hansen2008epidemiology; @rizzo2005phytophthora; @grunwald2008phytophthora;
+@everhart2014phytophthora]. SOD is caused by *Phytophthora ramorum* Werres, De Cock &
 Man in't Veld, and is considered to be one of the top two oomycete pathogens
-based on its scientific and economic importance
-
-(Kamoun et al. 2014; Werres et al. 2001). The Oregon epidemic was first detected
+based on its scientific and economic importance [@kamoun2014top; @werres2001phytophthora]. The Oregon epidemic was first detected
 during aerial surveys in 2001 on tanoak but likely derived from initial
 introductions in the late 1990s. The Oregon Department of Forestry has since
-monitored the epidemic and sampled symptomatic tanoaks since 2001 (Hansen et al.
-2008). Strains sampled from infected sites in forest or nursery environments
+monitored the epidemic and sampled symptomatic tanoaks since 2001 [@hansen2008epidemiology]. Strains sampled from infected sites in forest or nursery environments
 have been genotyped in several labs using a range of microsatellite loci
-(Grünwald et al. 2009; Ivors et al. 2006; Prospero et al. 2004, 2007, 2009).
+[@grunwald2009standardizing; @ivors2006microsatellite; @prospero2004isolation; @prospero2007population; @prospero2009migration].
 
 *P. ramorum* has emerged repeatedly around the world as 4 distinct clonal
 lineages found in North America (lineages NA1, NA2, and EU1) and Europe (EU1 and
-EU2) (Grünwald et al. 2012; Ivors et al. 2006; Van Poucke et al. 2012). The
+EU2) [@grunwald2012emergence; @ivors2006microsatellite; @vanpoucke2012discovery]. The
 lineages have been named by the continent on which they first appeared, i.e.
 North America (= NA) or Europe (= EU) and are numbered in order of discovery
-(Grünwald et al. 2009). The NA1 clonal lineage was first discovered in
+[@grunwald2009standardizing]. The NA1 clonal lineage was first discovered in
 California causing SOD on tanoak and coast live oak and is the one currently
-found in Curry County, Oregon, USA (Mascheretti et al. 2008). The EU1 and NA2
+found in Curry County, Oregon, USA [@mascheretti2008reconstruction]. The EU1 and NA2
 populations were discovered later in nursery environments and are currently only
 found in California, Oregon, Washington and British Columbia while the NA1 clone
 has been shipped with nursery plants from the West to the Southern and
-Southwestern US (Goss et al. 2011; Grünwald et al. 2012; Goss et al. 2009; Ivors
-et al. 2006; Prospero et al. 2009; Mascheretti et al. 2008). The EU1 clonal
+Southwestern US [@goss2011phytophthora; @grunwald2012emergence; @goss2009population; @ivors2006microsatellite; @prospero2009migration; @mascheretti2008reconstruction]. The EU1 clonal
 lineage is the one first discovered in Europe, but in 2007 the new EU2 lineage
-emerged in Northern Ireland and since migrated to Western Scotland (Werres et
-al. 2001; Van Poucke et al. 2012). EU1 was first introduced to Europe and
-eventually migrated to the Pacific Northwest of North America (Goss et al.
-2011).
+emerged in Northern Ireland and since migrated to Western Scotland [@werres2001phytophthora; @vanpoucke2012discovery]. EU1 was first introduced to Europe and
+eventually migrated to the Pacific Northwest of North America [@goss2011phytophthora].
 
 *P. ramorum* populations sampled in Oregon forests to date belong exclusively to
-the NA1 clonal lineage (Hansen et al. 2008; Prospero et al. 2007). Given that
+the NA1 clonal lineage [@hansen2008epidemiology; @prospero2007population]. Given that
 NA2 and/or EU1 clones have been found in California, Oregon, Washington, and/or
 British Columbia in association with nursery plant movements, introduction of
 NA2 or EU1 from nursery environments to Curry County forests is a plausible
-scenario (Goss et al. 2011, 2009; Grünwald et al. 2012; Prospero et al. 2009,
-2007). Our present work thus monitors populations and potential emergence of
+scenario [@goss2011phytophthora, 2009; @grunwald2012emergence; @prospero2009migration,
+2007]. Our present work thus monitors populations and potential emergence of
 novel lineages in Oregon forests.
 
 Our main objectives here are to describe the spatial and temporal pattern of the
@@ -99,8 +93,7 @@ characterized populations using microsatellite analysis.
 
 The SOD infested areas are located in the Siskiyou Mountains of Curry County in
 south western Oregon near the town of Brookings (42.0575$^{\circ}$ N,
-124.2864$^{\circ}$ W) on the coast (Figure \@ref(fig:ramorum1)) (Prospero et al.
-2007). The Siskiyou mountains form part of the Klamath Mountain range (Franklin
+124.2864$^{\circ}$ W) on the coast (Figure \@ref(fig:ramorum1)) [@prospero2007population]. The Siskiyou mountains form part of the Klamath Mountain range (Franklin
 and Dyrness 1988). The vegetation in SOD infested areas is a mosaic of different
 vegetation types including mixed-evergreen, redwood (*Sequoia sempervirens*) and
 Douglas-fir (*Pseudotsuga menziesii*) forests with tanoak as the dominant SOD
@@ -134,7 +127,7 @@ cat(beaverdown::iflatex("\\newpage"))
 Commencing in 2001, 2-4 aerial surveys per year were conducted over the tanoak
 range by the Oregon Department of Forestry and the USDA Forest Service in Curry
 County. The survey detects recently killed tanoaks based on the reddish-brown
-color of foliage (Hansen et al. 2008). All trees identified by aerial surveys
+color of foliage [@hansen2008epidemiology]. All trees identified by aerial surveys
 were ground checked and geographically referenced using a hand-held GPS
 instrument (Garmin GPS 12XL or 60CX, Garmin International, Olathe, KS). Bark or
 foliage samples were collected for determination of *P. ramorum* presence by
@@ -196,21 +189,20 @@ if (LATEX) cat(tex) else cat(md)
 
 Isolations were made from symptomatic plant tissue onto selective CARP agar
 (Difco corn meal agar, 10 ppm natamycin, 200pm NA-ampicillin, and 10 ppm
-rifampicin) (Prospero et al. 2007). Candidate *Phytophthora* cultures were
+rifampicin) [@prospero2007population]. Candidate *Phytophthora* cultures were
 transferred onto corn meal agar with 30 ppm $\beta$-sitosterol. *P. ramorum*
 identification was confirmed by microscopic inspection for presence of
-characteristic chlamydospores and deciduous sporangia (Werres et al. 2001).
+characteristic chlamydospores and deciduous sporangia [@werres2001phytophthora].
 Genomic DNA was extracted using either the FastDNA SPIN kit (MP Biomedicals,
-LLC; 116540600) (Goss et al. 2009) or the cetyltrimethyl ammonium bromide (CTAB
-)-chloroform-isopropanol method (Winton and Hansen 2001). Table
+LLC; 116540600) [@goss2009population] or the cetyltrimethyl ammonium bromide (CTAB
+)-chloroform-isopropanol method [@winton2001molecular]. Table
 \@ref(tab:ramorum1) provides an overview of strains collected by year and region
 following regions as shown in figure \@ref(fig:ramorum1).
 
 ### Genotyping, data validation, and harmonization
 
 Five microsatellite loci were utilized in this analysis: PrMS6, Pr9C3, PrMS39,
-PrMS45, and PrMS43 (Grünwald et al. 2009; Prospero et al. 2004, 2007; Grünwald
-et al. 2008b). Genotyping (see specific protocols in supplementary text) of *P.
+PrMS45, and PrMS43 [@grunwald2009standardizing; @prospero2004isolation; @prospero2007population; @grunwald2008susceptibility]. Genotyping (see specific protocols in supplementary text) of *P.
 ramorum* strains collected 2001-2012 occurred over several years and in several
 laboratories, with different protocols and sequencers. Consequently, a concerted
 effort was made to create a comprehensive dataset with identical allele calls.
@@ -276,11 +268,10 @@ were commonly genotyped across all laboratories.
   ^a^ ILVOPrMS79 amplifies three alleles in the NA1 lineage. The first two alleles are fixed and the third is polymorphic.    
   ^b^ Reverse (Rev) primer includes PIG tail addition except for PrMS45 and PrMS6. Indicated in italic.                                      
   ^c^ Product size range is for four lineages (EU1, EU2, NA1, NA2). Only the NA1 lineage has been reported in Curry County,OR forests.    
-  ^d^ Described by Prospero, Black, and Winton (2004) and/or Prospero et al. (2007).                                                                   
-  ^e^ Described by Ivors et al. (2006).    
-  ^f^ Described by Vercauteren et al. (2010), and Vercauteren et al. (2011).
+  ^d^ Described by @prospero2004isolation and/or @prospero2007population.                                                                   
+  ^e^ Described by @ivors2006microsatellite.    
+  ^f^ Described by @vercauteren2010clonal, and @vercauteren2011identification.
 '
-
 
 tex <- '\\begin{sidewaystable}[ph!]
 \\begin{tabular}{@{}llllll@{}}
@@ -336,11 +327,11 @@ except for PrMS45 and PrMS6. Indicated in italic.}\\\\
 \\raggedright{\\textsuperscript{c} Product size range is for four lineages (EU1, EU2,
 NA1, NA2). Only the NA1 lineage has been reported in Curry County,OR
 forests.}\\\\
-\\raggedright{\\textsuperscript{d} Described by Prospero, Black, and Winton (2004)
-and/or Prospero et al. (2007).}\\\\
-\\raggedright{\\textsuperscript{e} Described by Ivors et al. (2006).}\\\\
-\\raggedright{\\textsuperscript{f} Described by Vercauteren et al. (2010), and
-Vercauteren et al. (2011).}\\\\
+\\raggedright{\\textsuperscript{d} Described by @prospero2004isolation
+and/or @prospero2007population.}\\\\
+\\raggedright{\\textsuperscript{e} Described by @ivors2006microsatellite.}\\\\
+\\raggedright{\\textsuperscript{f} Described by @vercauteren2010clonal, and
+@vercauteren2011identification.}\\\\
 \\end{scriptsize}
 
 \\caption[Newly multiplexed protocol for \\emph{P. ramorum}
@@ -354,58 +345,67 @@ study as they were commonly genotyped across all laboratories.}
 \\label{tab:ramorum2}
 \\end{sidewaystable}
 '
-if (LATEX) cat(tex) else cat(md)
+if (LATEX){
+  cites <- c("@prospero2004isolation",
+  "@prospero2007population",
+  "@ivors2006microsatellite",
+  "@vercauteren2010clonal",
+  "@vercauteren2011identification")
+
+  out <- vapply(cites, beaverdown::render_caption, character(1), figname = "cites", to = TO)
+  names(out) <- cites
+  out <- gsub("\\\\", "\\\\\\\\", out)
+  for (i in cites){
+    tex <- gsub(i, out[i], tex)
+  }
+  cat(tex)
+} else {
+  cat(md)
+}
 ```
 
 ### Nursery populations
 
 To determine if forest populations cluster with different nursery populations
 from Oregon or California, we used previously published data from our work to
-determine relationships among nursery and Curry County forest populations (Goss
-et al. 2011, 2009; Grünwald et al. 2009; Prospero et al. 2009, 2007).
+determine relationships among nursery and Curry County forest populations [@goss2011phytophthora; @goss2009population; @grunwald2009standardizing; @prospero2009migration; @prospero2007population].
 
 ### Data analysis
 
 All individuals genotyped for this effort belonged to the NA1 clonal lineage
-(Grünwald et al. 2009). Thus, all analyses presented here focused on describing
+[@grunwald2009standardizing]. Thus, all analyses presented here focused on describing
 the clonal dynamic using model-free approaches that avoid violation of
 population genetic theory. Samples were grouped into different multilocus
 genotypes (MLGs) defined by the unique combination of alleles across all
 observed loci from the consensus five SSR loci genotyped across all years. For
 identification purposes, unique MLGs were then assigned an arbitrary number from
 1 to the total number of observed MLGs. Population genetic analysis was
-conducted using the computer and statistical language R (R Core team
-2014) using various packages as well as R functions written specifically for
+conducted using the computer and statistical language R [@R2014] using various packages as well as R functions written specifically for
 this project (see github link below). Graphs and figures were created using the
-R packages *ggplot2, ape, igraph, ggmap,* and *poppr* (Wickham 2009; Csardi and
-Nepusz 2006; Paradis et al. 2004; Kahle and Wickham 2013; Kamvar et al. 2014).
+R packages *ggplot2, ape, igraph, ggmap,* and *poppr* [@wickham2009ggplot2; @csardi2006igraph; @paradis2004ape; @khale2013ggmap; @kamvar2014poppr].
 Within-locus allelic diversity was analyzed across and within years and regions
-using the function `locus_table()` from the R package *poppr* (Table S1)(Kamvar
-et al. 2014). To address the temporal and spatial aspects of the data,
+using the function `locus_table()` from the R package *poppr* (Table S1) [@kamvar2014poppr]. To address the temporal and spatial aspects of the data,
 populations were analyzed both by year isolated and watershed region (Table
 \@ref(tab:ramorum1); Fig. \@ref(fig:ramorum1)). Watershed regions were drawn
 with ArcMap version 10.2 (Environmental Systems Research Institute, Redlands,
 CA). The regions represent drainages or portions of drainages in which infected
 trees were discovered as the disease progressed over time. In most cases,
 ridgelines dividing drainages formed the boundary of a region. These regions
-were saved as shapefiles and imported into R with *rgdal* (Bivand et al. 2014).
+were saved as shapefiles and imported into R with *rgdal* [@bivand2014rgdal].
 
 Genotypic diversity was analyzed within and across years and populations, with
 the Shannon-Wiener index (*H*) and the Stoddard and Taylor's index (*G*),
-(Shannon and Weaver 1949; Stoddart and Taylor 1988). Both *G* and *H* measure
+[@shannon2001mathematical; @stoddart1988genotypic]. Both *G* and *H* measure
 genotypic diversity, combining richness and evenness. If all genotypes are
 equally abundant, then the value of *G* will be the number of MLGs and the value
 of *H* will be the natural log of the number of MLGs. Both *G* and *H* are used
-as they weigh more or less abundant MLGs more heavily, respectively (Grünwald et
-al. 2003). Evenness was calculated as *E~5~*, which is an estimator of evenness
+as they weigh more or less abundant MLGs more heavily, respectively [@grunwald2003analysis]. Evenness was calculated as *E~5~*, which is an estimator of evenness
 that utilizes both *H* and *G* that gives a ratio of the number of abundant
-genotypes to rare genotypes (Grünwald et al. 2003; Pielou 1975; Ludwig 1988).
-These were calculated with the R packages *poppr* and *vegan* (Oksanen et al.
-2013; Kamvar et al. 2014). Confidence intervals were calculated using the R
-package *boot* with 9,999 bootstrap resamplings (Canty and Ripley 2014).
+genotypes to rare genotypes [@grunwald2003analysis; @pielou1975ecological; @ludwig1988statistical].
+These were calculated with the R packages *poppr* and *vegan* [@oksanen2013vegan; @kamvar2014poppr]. Confidence intervals were calculated using the R
+package *boot* with 9,999 bootstrap resamplings [@canty2015boot].
 Richness, or the expected number of MLGs (*eMLG*), was calculated using
-rarefaction from the R packages *poppr* and *vegan* (Hurlbert 1971; Heck et al.
-1975). Some statistics (AMOVA, genotypic diversity, index of association,
+rarefaction from the R packages *poppr* and *vegan* [@hurlbert1971nonconcept; @heck1975explicit]. Some statistics (AMOVA, genotypic diversity, index of association,
 allelic diversity, and Nei's distance) were also performed on clone-censored
 data where each MLG was represented once per population hierarchy.
 
@@ -413,11 +413,11 @@ Because the analysis of genotypic diversity, richness and evenness is agnostic
 to specific alleles within MLGs, assessment of genetic relatedness between MLGs
 was performed using the function `bruvo.dist()` using *poppr*, which calculates
 Bruvo's genetic distance, utilizing a stepwise mutation model for microsatellite
-loci (Bruvo et al. 2004; Kamvar et al. 2014). This distance thus gives a more
+loci [bruvo2004simple; @kamvar2014poppr]. This distance thus gives a more
 fine-scale picture of relationships between individuals than band-sharing
 models. These relationships were visualized with minimum spanning networks
-generated using the R packages *igraph* and *poppr* (Csardi and Nepusz 2006;
-Kamvar et al. 2014).
+generated using the R packages *igraph* and *poppr* [@csardi2006igraph;
+@kamvar2014poppr].
 
 If the epidemic had a single origin, a correlation between genetic and
 geographic distance would be expected as populations acquire mutations over time
@@ -427,18 +427,16 @@ mutation would lead to less divergence and thus lower correlations between
 genetic and geographic distances. This was tested by performing Mantel tests
 across all hierarchical levels in the data set utilizing the function
 `mantel.randtest()` in the R package *ade4* between Bruvo's distance as
-described above and Euclidean distances between geographic coordinates (Mantel
-1967; Dray and Dufour 2007). *P*-values were calculated using 99,999 bootstrap
+described above and Euclidean distances between geographic coordinates [@mantel1967detection; @dray2007ade4]. *P*-values were calculated using 99,999 bootstrap
 replicates.
 
 As the eradication efforts destroy the immediate habitat in an infected area,
 one question that we wanted to address was whether or not genotypes were
 clustering to specific regions or if they were evenly spread throughout Curry
-County (Prospero et al. 2007). This was tested using three methods: bootstrap
+County [@prospero2007population]. This was tested using three methods: bootstrap
 analysis of Nei's genetic distance, Analysis of MOlecular VAriance (AMOVA), and
 Discriminant Analysis of Principal Components (DAPC) in the R packages *poppr*,
-*ade4*, and *adegenet* (Jombart et al. 2010; Excoffier et al. 1992; Kamvar et
-al. 2014). The bootstrap analysis utilized 10,000 bootstrap replicates treating
+*ade4*, and *adegenet* [@jombart2010discriminant; @excoffier1992analysis; @kamvar2014poppr]. The bootstrap analysis utilized 10,000 bootstrap replicates treating
 loci as independent units with the function `aboot()` in *poppr* and was
 visualized as an unrooted neighbor-joining tree in figtree v. 1.4.2 (Figure
 \@ref(fig:ramorum5)). AMOVA utilizes a distance matrix between genotypes for
@@ -447,23 +445,23 @@ within samples, between samples, between subpopulations within populations and
 finally between populations. In this case, we used both the hierarchies of
 samples within years within regions and samples within regions within years.
 DAPC is a multivariate, model-free approach to clustering based on prior
-population information (Jombart et al. 2010). This allows us to analyze the
+population information [@jombart2010discriminant]. This allows us to analyze the
 population structure by assessing how well samples can be reassigned into
 previously defined populations. Both DAPC and AMOVA were run with and without
 Hunter Creek and Pistol River South Fork due to isolated genotypes and small
 sample size, respectively. For the DAPC analysis, these removed populations had
 their origins predicted from the DAPC object using the function predict.dapc in
-the R package *adegenet* (Jombart et al. 2010).
+the R package *adegenet* [@jombart2010discriminant].
 
 Since DAPC is sensitive to the number of principal components used in analysis,
 the function `xvalDapc()` from the R package *adegenet* was used to select the
 correct number of principal components with 1,000 replicates using a training
 set of 90% of the data. The number of principal components was chosen based on
 the criteria that it had to produce the highest average percent of successful
-reassignment and lowest root mean squared error (Jombart et al. 2010).
+reassignment and lowest root mean squared error [@jombart2010discriminant].
 Significant deviations from random population structure was tested in AMOVA
 utilizing the function `randtest()` from the R package *ade4* with 9,999
-bootstrap replicates (Dray and Dufour 2007).
+bootstrap replicates [@dray2007ade4].
 
 All data and R scripts to reproduce the analyses shown here are deposited
 publicly on github
@@ -750,8 +748,8 @@ cat(beaverdown::iflatex("\\newpage"))
 
 We used previously published data to determine if nursery populations in
 California or Oregon could have been source populations for the Oregon forest
-epidemic (Goss et al. 2011, 2009; Grünwald et al. 2009; Prospero et al. 2009,
-2007). Nursery data included 40 MLGs across 216 samples of NA1 clones. Of these
+epidemic [@goss2011phytophthora, 2009; @grunwald2009standardizing; @prospero2009migration,
+@prospero2007population]. Nursery data included 40 MLGs across 216 samples of NA1 clones. Of these
 40, 12 MLGs matched the forest sample and 28 MLGs were unique to the nurseries.
 The only region that did not contain genotypes that matched those found in
 nurseries was Pistol River South Fork. When considering those 12 genotypes that
@@ -814,10 +812,10 @@ with a forest population at &gt;0.45% membership probability.
 ## Discussion
 
 To date populations monitored from 2001-14 show presence of only the NA1 clonal
-lineage observed previously (Prospero et al. 2007, 2009). The fact that
+lineage observed previously [@prospero2007population; @prospero2009migration]. The fact that
 individuals belonging to the EU1 and NA2 clonal lineages have not been found in
 Oregon forests, despite their presence on the west coast from British Columbia
-to California is welcome news (Goss et al. 2009, 2011; Grünwald et al. 2012).
+to California is welcome news [@goss2009population, @goss2011phytophthora; @grunwald2012emergence].
 The lack of EU1 or NA2 isolates provides evidence that monitoring for *P.
 ramorum* in nurseries by federal and state agencies is helping avoid emergence
 of new clones in Oregon's Forests.
@@ -876,30 +874,27 @@ fit than lineages dominating now.
 The Curry County epidemic is in many ways different from the epidemic in
 California. When introduced into California in the mid 1990's, the causal agent
 of sudden oak death was unknown and thus gave it time to clonally expand and
-diversify as management strategies in natural forest systems were limited (Rizzo
-et al. 2002). With the foresight of the epidemic in central California, the ODF
+diversify as management strategies in natural forest systems were limited [@rizzo2002phytophthora]. With the foresight of the epidemic in central California, the ODF
 was able to implement a quarantine effort against the import of hosts as soon as
 the causal agent was known (A Kanaskie, pers. comm.). This quarantine along with
 aggressive eradication efforts have affected the spread of *P. ramorum*
-(Mascheretti et al. 2008). Drawing conclusions from previous population studies
+[@mascheretti2008reconstruction]. Drawing conclusions from previous population studies
 in California and applying them to the Oregon epidemic should be undertaken with
-great care given the drastically differing management scenarios (Mascheretti et
-al. 2008, 2009).
+great care given the drastically differing management scenarios [@mascheretti2008reconstruction; @mascheretti2009genetic].
 
 Our work has some inherent drawbacks. Given the cost of aerial surveys and
 subsequent ground crew work, and the fact that trees are eradicated once found,
 populations are not hierarchically sampled across all years. The destructive
 nature of the management approach means that it was not possible to conduct
 controlled ecological experiments focusing on effects of climate and rainfall on
-the spread of disease as was possible in California trials (Eyre et al. 2012).
+the spread of disease as was possible in California trials [@eyre2013poulation].
 In addition, most of our work only used 5 microsatellite loci for genotyping.
-Ideally, more loci should have been used as was done in other studies (Croucher
-et al. 2013). Although only 5 loci were used, clear patterns of population
+Ideally, more loci should have been used as was done in other studies [@croucher2013combining]. Although only 5 loci were used, clear patterns of population
 dynamics in space and time emerged and the MLG accumulation curve supported the
 fact that loci are informative. Finally, the populations genotyped here are
 clonal and belong to the NA1 clonal lineage. Thus, much of the analytical power
 provided by population genetic theory does not apply given that basic
-assumptions would be violated (Grünwald and Goss 2011). Our work uses
+assumptions would be violated [@grunwald2011evolution]. Our work uses
 appropriate methods to infer patterns that are model free, yet informative such
 as spatial clustering. Thus, we believe that this work provides novel and
 important insights into the *P. ramorum* population biology in the Siskiyou
@@ -908,7 +903,7 @@ into Oregon forests from nurseries. The nature of the data does not allow
 inference of directional migrations given the uneven sampling strategy and
 moderate number of loci used across all years. We are currently exploring
 genotyping-by-sequencing (GBS) as a method that could provide further detail on
-how these populations evolved over space and time (Elshire et al. 2011). GBS can
+how these populations evolved over space and time [@elshire2011robust]. GBS can
 provide richer detail by providing codominant SNP data across several thousand
 loci sampling the whole genome.
 
