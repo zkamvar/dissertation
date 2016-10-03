@@ -39,6 +39,7 @@ TBD...
  - Objectives
  	1. Analyze mixtures of clonal populations to assess effect of sampling
  	   multiple clonal populations.
+ 	1. Assess the effect of a single hypervariable locus on $\bar{r}_d$
  	2. Re-analyze rates of sexual reproduction to confirm previous study
  	   with and without clone-correction [@de2004clonal].
  	3. Power analysis of $\bar{r}_d$.
@@ -124,17 +125,20 @@ replicated 999 times for each population sample.
 
 ### Power Analysis
 
+The Receiver Operating Characteristic (ROC) curve is a method of assessing the
+explanatory power of a method by assessing the true positive fraction of tests
+to a false positive fraction [@metz1978basic]. Briefly, if a method has perfect
+explanatory power, the area under the ROC curve will be equal to 1. If a method
+has no explanatory power, the area under the ROC curve will be equal to 0.5.
 ROC analysis was carried as described in @metz1978basic as a comparison of the
 false positive fraction to the true positive fraction as you increase the level
-of rejection, ($\alpha$). Briefly, if a method has perfect explanatory power,
-the area under the ROC curve will be equal to 1. If a method has no explanatory
-power, the area under the ROC curve will be equal to 0.5. The null hypothesis
-for the ROC analysis was defined where the rate of sexual reproduction was 100%.
-All other rates were considered to be separate alternative hypotheses. The
-curves were calculated by analyzing the data sets over increasing values of
-$\alpha$ from 0 to 1 in increments of 0.01. The area under the ROC curves was
-calculated using the `trapz()` function in the R package *pracma* version
-1.9.5 [@borchers2016pracma]. ANOVA was run with the following models:
+of rejection, ($\alpha$). The null hypothesis for the ROC analysis was defined
+where the rate of sexual reproduction was 100%. All other rates were considered
+to be separate alternative hypotheses. The curves were calculated by analyzing
+the data sets over increasing values of $\alpha$ from 0 to 1 in increments of
+0.01. The area under the ROC curves was calculated using the `trapz()` function
+in the R package *pracma* version 1.9.5 [@borchers2016pracma]. ANOVA was run
+with the following models:
 
 |                                               |
 |:---------------------------------------------:|
