@@ -414,7 +414,7 @@ Because the analysis of genotypic diversity, richness and evenness is agnostic
 to specific alleles within MLGs, assessment of genetic relatedness between MLGs
 was performed using the function `bruvo.dist()` using *poppr*, which calculates
 Bruvo's genetic distance, utilizing a stepwise mutation model for microsatellite
-loci [bruvo2004simple; @kamvar2014poppr]. This distance thus gives a more
+loci [@bruvo2004simple; @kamvar2014poppr]. This distance thus gives a more
 fine-scale picture of relationships between individuals than band-sharing
 models. These relationships were visualized with minimum spanning networks
 generated using the R packages *igraph* and *poppr* [@csardi2006igraph;
@@ -749,7 +749,7 @@ cat(beaverdown::iflatex("\\newpage"))
 
 We used previously published data to determine if nursery populations in
 California or Oregon could have been source populations for the Oregon forest
-epidemic [@goss2011phytophthora; @goss2009population; @grunwald2009standardizing; @prospero2009migration,
+epidemic [@goss2011phytophthora; @goss2009population; @grunwald2009standardizing; @prospero2009migration;
 @prospero2007population]. Nursery data included 40 MLGs across 216 samples of NA1 clones. Of these
 40, 12 MLGs matched the forest sample and 28 MLGs were unique to the nurseries.
 The only region that did not contain genotypes that matched those found in
