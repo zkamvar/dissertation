@@ -315,34 +315,36 @@ PrMS43\\textsuperscript{d} & 6-FAM & 122-493 &
 \\bottomrule
 \\end{tabular}
 
-
-
-\\begin{scriptsize}
-\\raggedright{\\textsuperscript{a} ILVOPrMS79 amplifies three alleles in the NA1
-lineage. The first two alleles are fixed and the third is
-polymorphic.}\\\\
-\\raggedright{\\textsuperscript{b} Reverse (Rev) primer includes PIG tail addition
-except for PrMS45 and PrMS6. Indicated in italic.}\\\\
-\\raggedright{\\textsuperscript{c} Product size range is for four lineages (EU1, EU2,
-NA1, NA2). Only the NA1 lineage has been reported in Curry County,OR
-forests.}\\\\
-\\raggedright{\\textsuperscript{d} Described by @prospero2004isolation
-and/or @prospero2007population.}\\\\
-\\raggedright{\\textsuperscript{e} Described by @ivors2006microsatellite.}\\\\
-\\raggedright{\\textsuperscript{f} Described by @vercauteren2010clonal, and
-@vercauteren2011identification.}\\\\
-\\end{scriptsize}
-
 \\caption[Newly multiplexed protocol for \\emph{P. ramorum}
 primer sequences of simple sequence repeat (SSR) loci and final
 concentrations used to determine multilocus genotypes for four clonal
-lineages.]{Newly multiplexed protocol for \\emph{P. ramorum}
+lineages.]{(Caption on Next Page)}
+\\label{tab:ramorum2}
+\\end{sidewaystable}
+
+
+\\newpage
+
+\\vspace*{\\fill}
+
+\\begin{table}[ph!]
+\\caption[Caption for Table \\ref{tab:ramorum2}]{(Caption for Table 
+\\ref{tab:ramorum2}) Newly multiplexed protocol for \\emph{P. ramorum}
 primer sequences of simple sequence repeat (SSR) loci and final
 concentrations used to determine multilocus genotypes for four clonal
 lineages. PrMS6, Pr9C3, PrMS39, PrMS45, and PrMS43 were utilized in this
-study as they were commonly genotyped across all laboratories.}
-\\label{tab:ramorum2}
-\\end{sidewaystable}
+study as they were commonly genotyped across all laboratories.
+\\textsuperscript{a} ILVOPrMS79 amplifies three alleles in the NA1 lineage. The first two alleles are fixed and the third is polymorphic.
+\\textsuperscript{b} Reverse (Rev) primer includes PIG tail addition except for PrMS45 and PrMS6. Indicated in italic.
+\\textsuperscript{c} Product size range is for four lineages (EU1, EU2, NA1, NA2). Only the NA1 lineage has been reported in Curry County,OR forests.
+\\textsuperscript{d} Described by @prospero2004isolation and/or @prospero2007population.
+\\textsuperscript{e} Described by @ivors2006microsatellite.
+\\textsuperscript{f} Described by @vercauteren2010clonal, and @vercauteren2011identification.}
+\\label{cap:ramorum2}
+\\end{table}
+\\vspace*{\\fill}
+
+\\newpage
 '
 if (LATEX){
   cites <- c("@prospero2004isolation",
