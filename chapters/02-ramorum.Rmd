@@ -227,7 +227,7 @@ calls. Given the varied nature of the genotyping data described above genotyping
 of *P. ramorum* strains consists of two datasets including either 5 loci
 (2001-14) or a newly developed, multiplexed method including 14 loci (samples
 2013-14) (Table \@ref(tab:ramorum2)). Details on both genotyping methods can be
-found in the supplementary text and figure S1.
+found in the supplementary text \@ref(text:S1) and figure S\@ref(fig:ramS1).
 
 
 ```{r, results = 'asis', echo = FALSE}
@@ -536,7 +536,7 @@ Allelic and genotype diversity within loci revealed that PrMS43 had, on average,
 the highest number of alleles (n = 18). All other loci had 5 or fewer alleles
 with a moderate to high amount of diversity (Table S2). Nevertheless, the
 genotype accumulation curve showed a slight plateau, indicating that we have
-enough power in our data to describe a significant number of MLGs (Fig. S2).
+enough power in our data to describe a significant number of MLGs (Fig. S\@ref(fig:ramS2)).
 Genotypic diversity (*H* = 2.98, *G* = 8.64), evenness (*E~5~* = 0.41), and
 richness (*eMLG* = 7) were low as expected for a clonal population slowly
 accumulating mutations over space and time (Table S3). A pattern of increasing
@@ -661,7 +661,7 @@ cat(res)
 
 Cluster analysis of populations with respect to year using Nei's genetic
 distance showed no significant (&gt;70%) bootstrap support for any clades, but
-does show that these tend to cluster by region as opposed to year (Fig. S3).
+does show that these tend to cluster by region as opposed to year (Fig. S\@ref(fig:ramS3)).
 AMOVA analysis revealed significant population structure between regions on both
 clone-corrected (with respect to hierarchy) and uncorrected data sets (Table
 \@ref(tab:ramtab4)). Significant structure was only found between years within
@@ -675,8 +675,8 @@ the whole data set there was an 81.5% assignment-success rate. Hunter Creek
 received 100% successful reassignment. Joe Hall Creek, Winchuck, and Coast all
 had &gt;85% successful reassignment whereas Chetco Main, North Fork of the
 Chetco, and Pistol River South Fork all had &lt;69% successful reassignment
-(Fig. S4). The isolation of the Hunter Creek isolates in the DAPC analysis was
-found to be mainly driven by allele 493 at locus PrMS43 (Fig. S5). The only
+(Fig. S\@ref(fig:ramS4)). The isolation of the Hunter Creek isolates in the DAPC analysis was
+found to be mainly driven by allele 493 at locus PrMS43 (Fig. S\@ref(fig:ramS5)). The only
 other population to share this allele was Joe Hall Creek where it was present in
 a total of 4 isolates, and only isolates found in the coastal region or North
 Fork Chetco contained the allele 489, which is one mutational step away in a
@@ -818,10 +818,10 @@ cat(beaverdown::iflatex("\\newpage"))
 
 The assignment successes for the regions before or after inclusion of nursery
 data changed less than 5% for all regions except for the coast, which saw a
-decrease of 17.6% when nursery populations were included (Fig. S4). Prediction
+decrease of 17.6% when nursery populations were included (Fig. S\@ref(fig:ramS4)). Prediction
 of sources for nursery genotypes against the forest data revealed that 48% of
 these nursery isolates were predicted to share membership with the coast at
-$\geq$ 95% probability (Fig. S6, S7). A total of 3.2% of the isolates were
+$\geq$ 95% probability (Fig. S\@ref(fig:ramS6), S\@ref(fig:ramS7)). A total of 3.2% of the isolates were
 predicted to share membership with Hunter Creek at $\geq$ 99.9% membership
 probability. Furthermore, 21.75% of the nursery data could not be assigned to
 any of the forest populations at &gt;60% probability.
@@ -831,7 +831,7 @@ predicted sources for Hunter Creek isolates when considering nursery isolates.
 This approach determines if Hunter Creek isolates cluster more readily with
 nursery or coast populations. Indeed, 92% of the Hunter Creek isolates were
 predicted to share membership with California nurseries at $\geq$ 99% membership
-probability (Fig. S8). No Hunter Creek isolate was predicted to share membership
+probability (Fig. S\@ref(fig:ramS8)). No Hunter Creek isolate was predicted to share membership
 with a forest population at &gt;0.45% membership probability.
 
 ## Discussion
@@ -870,7 +870,7 @@ via Bruvo's distance in combination with data from nursery populations, however,
 these genotypes from Hunter Creek appear to be more similar to California
 nursery populations (Fig. \@ref(fig:ramorum3)) than Oregon forest populations.
 Predictions based on DAPC place samples from Hunter Creek as coming from
-California nurseries (Fig. S8). This, in combination with the observation that
+California nurseries (Fig. S\@ref(fig:ramS8)). This, in combination with the observation that
 purely forest genotypes (i.e. those only found in the forest) are connected to
 Hunter Creek genotypes through nursery genotypes, indicates a possible
 contribution from nursery populations to the epidemic. This is supported by the
@@ -879,8 +879,8 @@ correction, places the Hunter Creek isolates adjacent to the nursery isolates
 from CA (Fig. \@ref(fig:ramfig4), \@ref(fig:ramorum5)). This appears to be
 driven by the high frequency of allele 246 at locus PrMS39, which interestingly
 appears to segregate in an east to west fashion and is increasing in frequency
-over time (Fig. S9, S10). This, along with the results from the DAPC clustering
-and subsequent prediction (Fig. S6, S7) provide weak support for a potential
+over time (Fig. S\@ref(fig:ramS9), S\@ref(fig:ramS10)). This, along with the results from the DAPC clustering
+and subsequent prediction (Fig. S\@ref(fig:ramS6), S\@ref(fig:ramS7)) provide weak support for a potential
 third introduction into the coastal region from nurseries sometime after the
 Hunter Creek introduction event.
 
@@ -1009,3 +1009,160 @@ GeneScan\textsuperscript{TM} 500 LIZ\textsuperscript{TM} size standard at a
 ratio of 6 $\mu$l size standard to 1 ml Hi-Di\textsuperscript{TM} Formamide.
 Allele sizing was determined using GeneMapper\textregistered{} v3.7 and v5.0
 software (Applied Biosystems).
+
+### Supplementary Figures
+
+
+```{r, ramS1, fig.cap = S1cap, fig.scap = S1scap, echo = FALSE, out.width = "100%"}
+knitr::include_graphics("figure/phytopathology/figureS1.png")
+
+S1cap <- "Diagram of DNA extraction, genotyping, and sequencing protocols 
+utilized by two labs from 2001 to 2014. See supplementary text for details."
+S1scap <- "Diagram of DNA extraction, genotyping, and sequencing protocols 
+utilized by two labs from 2001 to 2014."
+
+```
+
+```{r, ramS2, fig.cap = S2cap, fig.scap = S2scap, echo = FALSE}
+knitr::include_graphics("figure/phytopathology/figureS2.png")
+
+cap <- "Genotype accumulation curve for OR forest *P. ramorum*
+isolates. The vertical axis denotes the number of observed MLGs, from 0
+to the observed number of MLG in the forest populations, for a number of
+loci, indicated on the horizontal axis, randomly sampled without
+replacement. Each boxplot contains 1,000 random samples representing
+different possible combinations of *n* loci. The horizontal red dashed
+line represents 90% of MLG resolution."
+scap <- "Genotype accumulation curve for OR forest *P. ramorum* isolates."
+
+S2cap <- beaverdown::render_caption(caption = cap, figname = "figS2", to = TO)
+S2scap <- beaverdown::render_caption(caption = scap, figname = "figS2", to = TO)
+
+
+```
+
+```{r, ramS3, fig.cap = S3cap, fig.scap = S3scap, echo = FALSE}
+knitr::include_graphics("figure/phytopathology/figureS3.png")
+
+cap <- "Neighbor joining tree based on Nei's distance of the forest
+*P. ramorum* isolates by region with respect to year. Bootstrap values
+&gt; 50% of 10,000 replicates are shown in blue."
+scap <- "Neighbor joining tree based on Nei's distance of the forest
+*P. ramorum* isolates by region with respect to year."
+
+S3cap <- beaverdown::render_caption(caption = cap, figname = "figS3", to = TO)
+S3scap <- beaverdown::render_caption(caption = scap, figname = "figS3", to = TO)
+
+
+```
+
+```{r, ramS4, fig.cap = S4cap, fig.scap = S4scap, echo = FALSE}
+knitr::include_graphics("figure/phytopathology/figureS4.png")
+
+cap <- "Fractions of posterior population assignments from DAPC
+clustering of *P. ramorum* isolates from forest populations. The
+horizontal axis represents the fraction of samples whose posterior group
+membership matched their prior group membership on the vertical axis.
+Shape indicates presence or absence of nursery populations in the DAPC."
+scap <- "Fractions of posterior population assignments from DAPC
+clustering of *P. ramorum* isolates from forest populations."
+
+S4cap <- beaverdown::render_caption(caption = cap, figname = "figS4", to = TO)
+S4scap <- beaverdown::render_caption(caption = scap, figname = "figS4", to = TO)
+
+
+```
+
+```{r, ramS5, fig.cap = S5cap, fig.scap = S5scap, echo = FALSE}
+knitr::include_graphics("figure/phytopathology/figureS5.png")
+
+cap <- "Loading plot from DAPC of *P. ramorum from* forest
+populations showing the contribution of alleles to the first DAPC
+eigenvalue separating Hunter Creek isolates from all other regions."
+
+S5cap <- beaverdown::render_caption(caption = cap, figname = "figS5", to = TO)
+S5scap <- S5cap
+
+```
+
+```{r, ramS6, fig.cap = S6cap, fig.scap = S6scap, echo = FALSE}
+knitr::include_graphics("figure/phytopathology/figureS6.png")
+
+cap <- "Prediction of nursery genotypes of *P. ramorum* into forest
+watershed regions. The horizontal axis indicates the fraction of nursery
+genotypes to be predicted to be similar to the populations on the
+vertical axis with a 95, 99, and 99.9% probability as indicated by the
+size of the points."
+scap <- "Prediction of nursery genotypes of *P. ramorum* into forest
+watershed regions."
+
+S6cap <- beaverdown::render_caption(caption = cap, figname = "figS6", to = TO)
+S6scap <- beaverdown::render_caption(caption = scap, figname = "figS6", to = TO)
+
+
+```
+
+```{r, ramS7, fig.cap = S7cap, fig.scap = S7scap, echo = FALSE}
+knitr::include_graphics("figure/phytopathology/figureS7.png")
+
+cap <- "Graphical representation of prediction of nursery isolates
+of *P. ramorum* into forest watershed regions. Each column represents a
+different isolate. Colors within the columns represent membership
+probabilities from forest populations."
+scap <- "Graphical representation of prediction of nursery isolates
+of *P. ramorum* into forest watershed regions."
+
+S7cap <- beaverdown::render_caption(caption = cap, figname = "figS7", to = TO)
+S7scap <- beaverdown::render_caption(caption = scap, figname = "figS7", to = TO)
+
+
+```
+
+```{r, ramS8, fig.cap = S8cap, fig.scap = S8scap, echo = FALSE}
+knitr::include_graphics("figure/phytopathology/figureS8.png")
+
+cap <- "Graphical representation of predicted membership of *P.
+ramorum* isolates from Hunter Creek and Pistol River South Fork in
+forest and nursery populations. Each column represents a different
+isolate. Colors within the columns represent membership probabilities
+from the populations indicated in the legend."
+scap <- "Graphical representation of predicted membership of *P.
+ramorum* isolates from Hunter Creek and Pistol River South Fork in
+forest and nursery populations."
+
+S8cap <- beaverdown::render_caption(caption = cap, figname = "figS8", to = TO)
+S8scap <- beaverdown::render_caption(caption = scap, figname = "figS8", to = TO)
+
+
+```
+
+```{r, ramS9, fig.cap = S9cap, fig.scap = S9scap, echo = FALSE}
+knitr::include_graphics("figure/phytopathology/figureS9.png")
+
+cap <- "Allele frequencies of locus PrMS39 of *P. ramorum* across
+years of the forest populations. Years 2005 through 2011 have been
+omitted due to small sample sizes and outlier genotypes."
+scap <- "Allele frequencies of locus PrMS39 of *P. ramorum* across
+years of the forest populations."
+
+S9cap <- beaverdown::render_caption(caption = cap, figname = "figS9", to = TO)
+S9scap <- beaverdown::render_caption(caption = scap, figname = "figS9", to = TO)
+
+
+```
+
+```{r, ramS10, fig.cap = S10cap, fig.scap = S10scap, echo = FALSE}
+knitr::include_graphics("figure/phytopathology/figureS10.png")
+
+cap <- "Map of the infected area in Curry county showing the *P.
+ramorum* genotypes at locus PrMS39. Each colored circle represents a
+different forest isolate while each yellow cross represents a sampled
+tree. Yellow borders denote different regions."
+scap <- "Map of the infected area in Curry county showing the *P.
+ramorum* genotypes at locus PrMS39."
+
+S10cap <- beaverdown::render_caption(caption = cap, figname = "figS10", to = TO)
+S10scap <- beaverdown::render_caption(caption = scap, figname = "figS10", to = TO)
+
+
+```
