@@ -18,10 +18,19 @@ infinitely large, with no migration, no mutation, and randomly mating, where
 alleles across loci are I.I.D. This neutral model works well to describe
 populations that reproduce exclusively via sexual reproduction, but it becomes
 less useful when considering populations that undergo some form of clonal
-reproduction since the alleles for different samples are no longer I.I.D. The
-theory of population genetics for clonal organisms has been deeply investigated
-over time [@smith1993how; @balloux2003population; @de2004clonal; 
-@orive1993effective; @halkett2005tackling].
+reproduction since the alleles for different samples are no longer I.I.D. This
+confounds the ability to accurately assess population demographics including
+effective population size [@orive1993effective]. Many clonal organisms are also
+pathogenic, and knowing basic population dynamics of these pathogens is 
+important for management strategies [@smith1993how; @milgroom1996recombination;
+@milgroom1997contributions; @nieuwenhuis2016frequency]. 
+
+The theory of population genetics for clonal organisms has been deeply
+investigated over time [@orive1993effective; @halkett2005tackling;
+@arnaud2007standardizing]. In particular, there has been a re-occurring question
+of how much sex can be detected in a population of organisms with (partially)
+clonal reproduction [@smith1993how; @balloux2003population; @de2004clonal; 
+@nieuwenhuis2016frequency]. 
 
  - Population Genetics of partially clonal organisms
  	- This has been studied in the past [@smith1993how; @balloux2003population;
