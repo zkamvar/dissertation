@@ -12,6 +12,17 @@ TBD...
 
  -->
 
+Population genetics largely is based off of the neutral assumption that
+populations exist in Hardy-Weinberg Equilibrium (HWE) in that they are
+infinitely large, with no migration, no mutation, and randomly mating, where
+alleles across loci are I.I.D. This neutral model works well to describe
+populations that reproduce exclusively via sexual reproduction, but it becomes
+less useful when considering populations that undergo some form of clonal
+reproduction since the alleles for different samples are no longer I.I.D. The
+theory of population genetics for clonal organisms has been deeply investigated
+over time [@smith1993how; @balloux2003population; @de2004clonal; 
+@orive1993effective; @halkett2005tackling].
+
  - Population Genetics of partially clonal organisms
  	- This has been studied in the past [@smith1993how; @balloux2003population;
  	  @de2004clonal; @orive1993effective]
