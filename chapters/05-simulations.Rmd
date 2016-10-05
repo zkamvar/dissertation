@@ -69,13 +69,14 @@ linkage).
 (\#eq:rd)
 \end{align}
 
-@smith1993 demonstrated that $I_A$ has the ability to detect non-random mating
-due to population structure, strict clonal reproduction, or a recent epidemic,
-but at that time, no one had quantified how much clonal reproduction had to
-occur to produce a significant value of $I_A$. This was of significant concern,
-considering that, as with any summary statistic, a lot of information is lost
-when evaluating a population based on $I_A$ [@brown1980multilocus]. One way to
-assess the effect of different population genetic scenarios was via simulations.
+@smith1993how demonstrated that $I_A$ has the ability to detect non-random
+mating due to population structure, strict clonal reproduction, or a recent
+epidemic, but at that time, no one had quantified how much clonal reproduction
+had to occur to produce a significant value of $I_A$. This was of significant
+concern, considering that, as with any summary statistic, a lot of information
+is lost when evaluating a population based on $I_A$ [@brown1980multilocus]. One
+way to assess the effect of different population genetic scenarios was via
+simulations.
 
 The effect of increasing levels of sexual reproduction on $\bar{r}_d$ was
 investigated by @de2004clonal (noted in their publication as $\bar{r}_D$). It
