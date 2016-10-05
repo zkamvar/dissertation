@@ -31,12 +31,12 @@ investigated over time [@orive1993effective; @halkett2005tackling;
 of how much sex can be detected in a population of organisms with (partially)
 clonal reproduction [@smith1993how; @balloux2003population; @de2004clonal;
 @ali2016cloncase; @nieuwenhuis2016frequency]. For populations with well-defined
-sexual and clonal phases occurring at separate times, methods like CloNcaSe are
-effective for estimating the rate of sexual reproduction and effective
+sexual and clonal phases occurring at separate times, methods like *CloNcaSe*
+are effective for estimating the rate of sexual reproduction and effective
 population size [@ali2016cloncase]. However, when sexual reproduction is not a
 cyclical phenomena, this estimator is useless. Currently, a method commonly used
-to assess clonal reproduction is the index of assocation ($I_A$), and its 
-standardized version, $\bar{r}_d$, which measure multilocus linkage 
+to assess clonal reproduction is the index of assocation ($I_A$), and its
+standardized version, $\bar{r}_d$, which measure multilocus linkage
 disequilibrium [@brown1980multilocus; @smith1993how; @haubold1998detecting;
 @Agapow_2001; @de2004clonal; @kamvar2014poppr]. The value of $I_A$ is measured
 as the ratio of observed variance in genetic distance between samples ($V_O$)
@@ -60,8 +60,8 @@ developed $\bar{r}_d$ (equation \@ref(eq:rd)), which has a similar structure to
 a correlation coefficient and ranges from 0 (no linkage) to 1 (complete
 linkage).
 
-\begin{align}
-\begin{split}
+\begin{align} % This mode aligns the equations to the '&=' signs
+\begin{split} % This mode groups the equations into one.
 \bar{r}_d &= \frac{\sum\sum{cov_{j,k}}}{
                    \sum\sum{\sqrt{var_{j} \cdot var_{k}}}} \\
           &= \frac{V_O - V_E}{2\sum\sum{\sqrt{var_{j} \cdot var_{k}}}}
@@ -69,10 +69,41 @@ linkage).
 (\#eq:rd)
 \end{align}
 
-Given the promise of being able to detect linkage in populations, @de2004clonal
-investigated the effect of increasing levels of sexual reproduction on
-$\bar{r}_d$ (noted in their publication as $\bar{r}_D$), finding that it
-increased in variance with decreasing rates of sexual reproduction.
+@smith1993 demonstrated that $I_A$ has the ability to detect non-random mating
+due to population structure, strict clonal reproduction, or a recent epidemic,
+but at that time, no one had quantified how much clonal reproduction had to
+occur to produce a significant value of $I_A$. This was of significant concern,
+considering that, as with any summary statistic, a lot of information is lost
+when evaluating a population based on $I_A$ [@brown1980multilocus]. One way to
+assess the effect of different population genetic scenarios was via simulations.
+
+The effect of increasing levels of sexual reproduction on $\bar{r}_d$ was
+investigated by @de2004clonal (noted in their publication as $\bar{r}_D$). It
+was found that the mean value of $\bar{r}_d$ decreased rapidly with relatively
+low levels of sexual reproduction, with large variances at low levels of sexual
+reproduction. Later, the effect of sampling design was on $\bar{r}_d$ was
+tested by @prugnolle2010apparent, finding that clones sampled from different
+populations can give the appearance of recombination. These studies laid the
+groundwork for understanding the behavior of $\bar{r}_d$ under different
+scenarios of non-random mating, but there were some limitations to their
+studies. For both studies, the only software available to analyze $\bar{r}_d$ 
+was <span style="font-variant:small-caps;">Multilocus</span>, which could only
+take one data set at a time [@Agapow_2001; @de2004clonal; 
+@prugnolle2010apparent; @kamvar2014poppr], meaning that the researchers could
+only analyze a minimal set of populations (20) per scenario. Furthermore, while
+a permutation test of significance existed in 
+<span style="font-variant:small-caps;">Multilocus</span>, it was computationally
+expensive and significance testing was not performed.
+
+Our current study aims to fill in the gaps left by the limitations of the
+naughties. In 2014, we developed the R package *poppr* for analysis of clonal
+populations, removing the limitations of data input and computational expense
+[@R2016; @kamvar2014poppr]. These analyses can thus be performed with an
+increased number of samples and, utilizing significance testing, assess the
+power of $\bar{r}_d$ to detect clonal reproduction [@de2004clonal]. Furthermore,
+with the advent of high-throughput sequencing methods such as 
+Genotyping-By-Sequencing (GBS), we had previously extended the index of 
+association to genome-scale SNP data [@kamvar2015novel]. 
 
  - Population Genetics of partially clonal organisms
  	- This has been studied in the past [@smith1993how; @balloux2003population;
