@@ -37,17 +37,42 @@ population size [@ali2016cloncase]. However, when sexual reproduction is not a
 cyclical phenomena, this estimator is useless. Currently, a method commonly used
 to assess clonal reproduction is the index of assocation ($I_A$), and its 
 standardized version, $\bar{r}_d$, which measure multilocus linkage 
-disequilibrium [@brown1980multilocus; @smith1993how; @haubold1998detecting; @Agapow_2001; 
-@de2004clonal; @kamvar2014poppr]. The value of $I_A$ is measured as a ratio of
-the observed and expected variance of differences between samples across loci 
-(equation \@ref(eq:ia)) [@smith1993how; @Agapow_2001]:
+disequilibrium [@brown1980multilocus; @smith1993how; @haubold1998detecting;
+@Agapow_2001; @de2004clonal; @kamvar2014poppr]. The value of $I_A$ is measured
+as the ratio of observed variance in genetic distance between samples ($V_O$)
+and expected variance ($V_E$) (equation \@ref(eq:ia)) [@smith1993how;
+@Agapow_2001].
 
 \begin{equation}
 I_A = \frac{V_O}{V_E} - 1 (\#eq:ia)
 \end{equation}
 
+The expected variance is practically modeled as the sum of the variances over 
+*m* loci: $V_E = \sum^m{var_j}$ [@Agapow_2001; @haubold1998detecting]. If the 
+differences between samples are randomly distributed, we can expect the value of
+$I_A$ to be zero [@smith1993how; @Agapow_2001]. Under scenarios of non-random
+mating (e.g. population structure or clonal reproduction), the observed variance
+would be greater than the expected due to a bimodal distribution of distances,
+and $I_A$ would be greater than zero [@smith1993how; @Agapow_2001;
+@milgroom2015population]. @Agapow_2001 noted that this metric does not have an
+upper limit and increases with the number of loci. To correct this, they 
+developed $\bar{r}_d$ (equation \@ref(eq:rd)), which has a similar structure to
+a correlation coefficient and ranges from 0 (no linkage) to 1 (complete
+linkage).
 
-The values of $\bar{r}_d$ range from 0 for completely unlinked loci to 1 for complete linkage across all loci. @de2004clonal investigated the effect of increasing levels of sexual reproduction on $\bar{r}_d$ (noted in their publication as $\bar{r}_D$), finding that it increased in variance with decreasing rates of sexual reproduction. 
+\begin{align}
+\begin{split}
+\bar{r}_d &= \frac{\sum\sum{cov_{j,k}}}{
+                   \sum\sum{\sqrt{var_{j} \cdot var_{k}}}} \\
+          &= \frac{V_O - V_E}{2\sum\sum{\sqrt{var_{j} \cdot var_{k}}}}
+\end{split}
+(\#eq:rd)
+\end{align}
+
+Given the promise of being able to detect linkage in populations, @de2004clonal
+investigated the effect of increasing levels of sexual reproduction on
+$\bar{r}_d$ (noted in their publication as $\bar{r}_D$), finding that it
+increased in variance with decreasing rates of sexual reproduction.
 
  - Population Genetics of partially clonal organisms
  	- This has been studied in the past [@smith1993how; @balloux2003population;
