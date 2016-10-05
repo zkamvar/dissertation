@@ -40,11 +40,11 @@ standardized version, $\bar{r}_d$, which measure multilocus linkage
 disequilibrium [@brown1980multilocus; @smith1993how; @haubold1998detecting; @Agapow_2001; 
 @de2004clonal; @kamvar2014poppr]. The value of $I_A$ is measured as a ratio of
 the observed and expected variance of differences between samples across loci 
-[@smith1993how; @Agapow_2001]:
+(equation \@ref(eq:ia)) [@smith1993how; @Agapow_2001]:
 
-$$
+\begin{equation}
 I_A = \frac{V_O}{V_E} - 1 (\#eq:ia)
-$$
+\end{equation}
 
 
 The values of $\bar{r}_d$ range from 0 for completely unlinked loci to 1 for complete linkage across all loci. @de2004clonal investigated the effect of increasing levels of sexual reproduction on $\bar{r}_d$ (noted in their publication as $\bar{r}_D$), finding that it increased in variance with decreasing rates of sexual reproduction. 
