@@ -1,18 +1,36 @@
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\singlespacing"))
+```
+
 # Novel R Tools For Analysis of Genome-Wide Population Genetic Data With Emphasis on Clonality
+
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\begin{center}"))
+```
 
 Zhian N. Kamvar, Jonah C. Brooks, and Niklaus J. Grünwald
 
 
 ```{r, results = "asis", echo = FALSE}
-cat(beaverdown::iflatex("\\vspace*{\\fill}"))
+out <- "
+\\end{center}
+\\vspace*{\\fill}"
+cat(beaverdown::iflatex(out))
 ```
 
-**Published in Frontiers in Genetics 2015-06-10**      
+Journal: **Frontiers in Genetics**
 
+EPFL Innovation Park, Building I, CH -- 1015 Lausanne Switzerland    
+
+Published 2015-06-10. Issue: **6**, 
 DOI: [10.3389/fgene.2015.00208](http://dx.doi.org/10.3389/fgene.2015.00208)
 
 ```{r, results = "asis", echo = FALSE}
-cat(beaverdown::iflatex("\\newpage"))
+out <- "
+\\doublespacing
+\\newpage
+"
+cat(beaverdown::iflatex(out))
 ```
 
 ## Abstract
