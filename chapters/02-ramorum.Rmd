@@ -1,22 +1,37 @@
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\singlespacing"))
+```
+
 # Spatial and Temporal Analysis of Populations of the Sudden Oak Death Pathogen in Oregon Forests
+
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\begin{center}"))
+```
 
 Zhian N. Kamvar, Meredeth M. Larsen, Alan M. Kanaskie, Everett M.
 Hansen, and Niklaus J. Grünwald
 
 
 ```{r, results = "asis", echo = FALSE}
-cat(beaverdown::iflatex("\\vspace*{\\fill}"))
+out <- "
+\\end{center}
+\\vspace*{\\fill}
+"
+cat(beaverdown::iflatex(out))
 ```
+Journal: **Phytopathology**
 
+3340 Pilot Knob Rd, St Paul, MN 55121, USA    
 
-**Published in Phytopathology 2015-07**
-
-       
-
+Published 2015-07, Volume 105, Issue: **7**, 
 DOI: [10.1094/PHYTO-12-14-0350-FI](http://dx.doi.org/10.1094/PHYTO-12-14-0350-FI)
 
 ```{r, results = "asis", echo = FALSE}
-cat(beaverdown::iflatex("\\newpage"))
+out <- "
+\\doublespacing
+\\newpage
+"
+cat(beaverdown::iflatex(out))
 ```
 
 
