@@ -1,5 +1,18 @@
 # [Tentative Title] The Effect of Population Dynamics, Sample Size, and Marker Choice on the Index of Association
 
+Zhian N. Kamvar and Niklaus J. Grünwald
+
+
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\vspace*{\\fill}"))
+```
+
+**Target Journal: Molecular Ecology**
+
+```{r, results = "asis", echo = FALSE}
+cat(beaverdown::iflatex("\\newpage"))
+```
+
 ## Abstract
 
 TBD...
@@ -83,33 +96,64 @@ investigated by @de2004clonal (noted in their publication as $\bar{r}_D$). It
 was found that the mean value of $\bar{r}_d$ decreased rapidly with relatively
 low levels of sexual reproduction, with large variances at low levels of sexual
 reproduction. This indicates that $\bar{r}_d$ alone might not be well suited as 
-a measure of clonal reproduction. The effect of sampling design was on
-$\bar{r}_d$ was tested by @prugnolle2010apparent, finding that the value of
-$\bar{r}_d$ is drastically reduced when clones from multiple populations are
-sampled, which can lead to an over-estimation of the level of recombination.
+a measure of clonal reproduction. The effect of sampling design on $\bar{r}_d$ 
+was tested by @prugnolle2010apparent, finding that the value of $\bar{r}_d$ 
+is drastically reduced when clones from multiple populations are sampled, which 
+can lead to an over-estimation of the level of recombination.
 
 These studies laid the groundwork for understanding the behavior of $\bar{r}_d$
-under different scenarios of non-random mating, but there were some limitations
-to their studies. For both studies, the only software available to analyze
-$\bar{r}_d$ was <span style="font-variant:small-caps;">Multilocus</span>, which
-could only take one data set at a time [@Agapow_2001; @de2004clonal;
-@prugnolle2010apparent; @kamvar2014poppr], meaning that the researchers could
-only analyze a minimal set of populations (20) per scenario. Furthermore, while
-a permutation test of significance existed in
-<span style="font-variant:small-caps;">Multilocus</span>, it was computationally
-expensive and significance testing was not performed.
+under different scenarios of non-random mating in diploid organisms, but there
+were some limitations in available technology that prevented deep analysis from
+being performed. For both studies, the only software available to analyze
+$\bar{r}_d$ for diploid organisms was 
+<span style="font-variant:small-caps;">Multilocus</span>, which could only take
+one data set at a time [@Agapow_2001; @de2004clonal; @prugnolle2010apparent;
+@kamvar2014poppr]. This constrained the researchers to only analyze a minimal
+set of populations (20) per scenario. 
 
-Our current study aims to fill in the gaps left by the limitations of the
-naughties. In 2014, we developed the R package *poppr* for analysis of clonal
-populations, removing the limitations of data input and computational expense
-[@R2016; @kamvar2014poppr]. These analyses can thus be performed with an
-increased number of samples and, utilizing significance testing, assess the
-power of $\bar{r}_d$ to detect clonal reproduction [@de2004clonal]. Furthermore,
-with the advent of high-throughput sequencing methods such as 
-Genotyping-By-Sequencing (GBS), we had previously extended the index of 
-association to genome-scale SNP data [@kamvar2015novel]. 
+Since the distribution of $I_A$ and $\bar{r}_d$ are not known, the safest way to
+test for significance were random permutation tests that effectively created 
+unlinked populations by shuffling individuals at each locus, independently and
+re-calculating $I_A$ and $\bar{r}_d$ [@smith1993how; @Agapow_2001; 
+@haubold1998detecting]. A one-sided *t*-test of significance was then used to
+see if the observed statistic was greater than the observed distribution. 
 
- - Population Genetics of partially clonal organisms
+While significance testing was available in 
+<span style="font-variant:small-caps;">Multilocus</span> in the form of
+random permutations, it was computationally expensive, and the analytical
+approach was only available in a software for haploid organisms [@Agapow_2001;
+@haubold1998detecting; @haubold2000lian; @kamvar2014poppr]. As a result, power
+analysis of $\bar{r}_d$ to detect clonal reproduction is still yet to be
+performed [@de2004clonal]. 
+
+Since these studies came out, reduced-representation, high-throughput sequencing
+methods such as Genotyping-By-Sequencing (GBS) and RAD-seq have rapidly become
+popular tools for population genetic analysis [@davey2010rad; @davey2011genome; 
+@elshire2011robust]. These methods have the capability to generate thousands of
+unlinked markers at a fraction of the cost and time necessary to develop high
+quality microsatellite markers. These marker systems are also prone to high 
+error rates [@mastretta2015restriction]. The index of association was developed
+for multiple loci in a time when obtaining even 100 unlinked markers posed a
+significant challenge. With the advent of these current technologies, how does
+marker choice and genotyping error affect the index of association?
+
+Our current study aims to fill in the gaps left by the technical limitations of 
+previous studies. In 2014, we developed the R package *poppr* for analysis of
+clonal populations, removing the limitations of data input and computational
+expense of analyzing the index of association [@R2016; @kamvar2014poppr]. With
+these tools we set expand on previous studies by asking how sample size, marker 
+choice, and clone-correction affect our ability to detect clonal reproduction in
+diploid populations. Our objectives to answer these questions are to 1. 
+Re-analyze $\bar{r}_d$ against increasing rates of sexual reproduction and 
+different levels of population mixture in both microsatellite and SNP data sets. 
+2. Perform a power analysis of $\bar{r}_d$. 3. Assess how genotypic and allelic
+evenness and diversity affects $\bar{r}_d$. Because studies have observed 
+significantly negative values of the $I_A$ and $\bar{r}_d$ (p $\geq$ 0.95), we
+additionally seek to characterize these populations to find common patterns that
+would indicate clonal or sexual reproduction.
+
+
+<!--  - Population Genetics of partially clonal organisms
  	- This has been studied in the past [@smith1993how; @balloux2003population;
  	  @de2004clonal; @orive1993effective]
  	- The index of association [@brown1980multilocus; @smith1993how;
@@ -128,6 +172,7 @@ association to genome-scale SNP data [@kamvar2015novel].
  	  @de2004clonal]
  - Questions
  	1. With the advent of GBS, does marker choice affect inference of clonality?
+ 	
  	2. Does sample size significantly affect our ability to detect clonal
  	   reproduction?
  	3. Can a combination of genotypic diversity estimators and allelic diversity
@@ -144,7 +189,7 @@ association to genome-scale SNP data [@kamvar2015novel].
  	   values of $\bar{r}_d$.
 	5. Assess $E_5$, *H*, $eMLG_{10}$, and unbiased Simpson's diversity.
 
-
+ -->
 
 ## Methods
 
