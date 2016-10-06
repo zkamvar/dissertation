@@ -8,7 +8,7 @@ author: 'Zhian N. Kamvar'
 date: 'December 6, 2016'            # date of submission
 commencement: '2017'               # year of commencement
 degree: 'Doctor of Philosophy'     # Masters of Science, Art, etc. 
-major: 'Plant Pathology'
+major: 'Botany and Plant Pathology'
 depttype: 'Department'                 # Department, College, etc.
 depthead: 'Head'                   # Chair, Chancellor, Interim Head, etc.
 department: 'Botany and Plant Pathology'
