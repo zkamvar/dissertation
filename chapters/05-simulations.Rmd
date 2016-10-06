@@ -1,17 +1,34 @@
 # [Tentative Title] The Effect of Population Dynamics, Sample Size, and Marker Choice on the Index of Association
 
+```{r, results = "asis", echo = FALSE}
+out <- "
+\\singlespacing
+\\begin{center}
+"
+cat(beaverdown::iflatex(out))
+```
+
+
 Zhian N. Kamvar and Niklaus J. Grünwald
 
 
 ```{r, results = "asis", echo = FALSE}
-cat(beaverdown::iflatex("\\vspace*{\\fill}"))
+out <- "
+\\end{center}
+\\vspace*{\\fill}"
+cat(beaverdown::iflatex(out))
 ```
 
-**Target Journal: Molecular Ecology**
+Target Journal: **Molecular Ecology**
 
 ```{r, results = "asis", echo = FALSE}
-cat(beaverdown::iflatex("\\newpage"))
+out <- "
+\\doublespacing
+\\newpage
+"
+cat(beaverdown::iflatex(out))
 ```
+
 
 ## Abstract
 
