@@ -654,12 +654,14 @@
   \vspace*{10\p@}%
   {
     \begin{center}
+    \begin{singlespace}
       \normalfont\heading
       \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter\heading\@chapapp\ \thechapter:\ \fi
       \fi
       \heading #1\par\nobreak
       \vskip 20\p@
+    \end{singlespace}
     \end{center}
   }
 }
@@ -669,9 +671,11 @@
   \vspace*{10\p@}%
   {
     \begin{center}
+    \begin{singlespace}
       \normalfont\heading
       \heading #1\par\nobreak
       \vskip 20\p@
+    \end{singlespace}
     \end{center}
   }
 }
