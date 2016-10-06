@@ -59,8 +59,7 @@ acknowledgements: >
 contributors: > 
   `r if(knitr:::is_latex_output()) beaverdown::inc("pre/00-contributors.Rmd")`
 dedication: >
-  This is for my mother 
-  who paved the way.
+  This dissertation is for my grandfather, Franklin Hepner.
 # preface: >  
 #  Uncomment the above to include a preface. Again, this can be rendered much
 #  like the files above.
