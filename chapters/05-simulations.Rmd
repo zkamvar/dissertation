@@ -50,7 +50,14 @@ populations that reproduce exclusively via sexual reproduction, but it becomes
 less useful when considering populations that undergo some form of clonal
 reproduction since the alleles for different samples are no longer I.I.D. This
 confounds the ability to accurately assess population demographics including
-effective population size [@orive1993effective]. Many clonal organisms are also
+effective population size [@orive1993effective]. 
+<!-- ZHIAN
+
+Expand on this point here... yes, many populations are pathogenic,
+but why do we care? How is this fact important for management strategies? It
+will be useful to go further into the biology here.
+-->
+Many clonal organisms are also
 pathogenic, and knowing basic population dynamics of these pathogens is 
 important for management strategies [@smith1993how; @milgroom1996recombination;
 @milgroom1997contributions; @de2006molecular; @nieuwenhuis2016frequency]. 
@@ -108,6 +115,12 @@ is lost when evaluating a population based on $I_A$ [@brown1980multilocus]. One
 way to assess the effect of different population genetic scenarios was via
 simulations.
 
+<!-- ZHIAN
+
+This would be a good place to set up the need for simulation analyses and what
+questions needed to be addressed.
+ -->
+
 The effect of increasing levels of sexual reproduction on $\bar{r}_d$ was
 investigated by @de2004clonal (noted in their publication as $\bar{r}_D$). It
 was found that the mean value of $\bar{r}_d$ decreased rapidly with relatively
@@ -157,17 +170,18 @@ marker choice and genotyping error affect the index of association?
 Our current study aims to fill in the gaps left by the technical limitations of 
 previous studies. In 2014, we developed the R package *poppr* for analysis of
 clonal populations, removing the limitations of data input and computational
-expense of analyzing the index of association [@R2016; @kamvar2014poppr]. With
-these tools we set expand on previous studies by asking how sample size, marker 
-choice, and clone-correction affect our ability to detect clonal reproduction in
-diploid populations. Our objectives to answer these questions are to 1. 
-Re-analyze $\bar{r}_d$ against increasing rates of sexual reproduction and 
-different levels of population mixture in both microsatellite and SNP data sets. 
-2. Perform a power analysis of $\bar{r}_d$. 3. Assess how genotypic and allelic
-evenness and diversity affects $\bar{r}_d$. Because studies have observed 
-significantly negative values of the $I_A$ and $\bar{r}_d$ (p $\geq$ 0.95), we
-additionally seek to characterize these populations to find common patterns that
-would indicate clonal or sexual reproduction.
+expense of analyzing the index of association, and in 2015, we expanded this to
+analysis of genome-wide SNP data [@R2016; @kamvar2014poppr; @kamvar2015novel].
+With these tools we set expand on previous studies by asking how sample size,
+marker choice, and clone-correction affect our ability to detect clonal
+reproduction in diploid populations. Our objectives to answer these questions
+are to (1) Re-analyze $\bar{r}_d$ against increasing rates of sexual
+reproduction and different levels of population mixture in both microsatellite
+and SNP data sets. (2) Perform a power analysis of $\bar{r}_d$. (3) Assess how
+genotypic and allelic evenness and diversity affects $\bar{r}_d$. Because
+studies have observed significantly negative values of the $I_A$ and $\bar{r}_d$
+(p $\geq$ 0.95), we additionally seek to characterize these populations to find
+common patterns that would indicate clonal or sexual reproduction.
 
 
 <!--  - Population Genetics of partially clonal organisms
