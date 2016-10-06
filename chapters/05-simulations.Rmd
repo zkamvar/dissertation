@@ -82,17 +82,20 @@ The effect of increasing levels of sexual reproduction on $\bar{r}_d$ was
 investigated by @de2004clonal (noted in their publication as $\bar{r}_D$). It
 was found that the mean value of $\bar{r}_d$ decreased rapidly with relatively
 low levels of sexual reproduction, with large variances at low levels of sexual
-reproduction. Later, the effect of sampling design was on $\bar{r}_d$ was
-tested by @prugnolle2010apparent, finding that clones sampled from different
-populations can give the appearance of recombination. These studies laid the
-groundwork for understanding the behavior of $\bar{r}_d$ under different
-scenarios of non-random mating, but there were some limitations to their
-studies. For both studies, the only software available to analyze $\bar{r}_d$ 
-was <span style="font-variant:small-caps;">Multilocus</span>, which could only
-take one data set at a time [@Agapow_2001; @de2004clonal; 
+reproduction. This indicates that $\bar{r}_d$ alone might not be well suited as 
+a measure of clonal reproduction. The effect of sampling design was on
+$\bar{r}_d$ was tested by @prugnolle2010apparent, finding that the value of
+$\bar{r}_d$ is drastically reduced when clones from multiple populations are
+sampled, which can lead to an over-estimation of the level of recombination.
+
+These studies laid the groundwork for understanding the behavior of $\bar{r}_d$
+under different scenarios of non-random mating, but there were some limitations
+to their studies. For both studies, the only software available to analyze
+$\bar{r}_d$ was <span style="font-variant:small-caps;">Multilocus</span>, which
+could only take one data set at a time [@Agapow_2001; @de2004clonal;
 @prugnolle2010apparent; @kamvar2014poppr], meaning that the researchers could
 only analyze a minimal set of populations (20) per scenario. Furthermore, while
-a permutation test of significance existed in 
+a permutation test of significance existed in
 <span style="font-variant:small-caps;">Multilocus</span>, it was computationally
 expensive and significance testing was not performed.
 
