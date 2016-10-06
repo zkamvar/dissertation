@@ -1,12 +1,11 @@
-
-```{r, results = "asis", echo = FALSE}
-cat(beaverdown::iflatex("\\singlespacing"))
-```
-
 # *Poppr*: an R Package For Genetic Analysis of Populations With Clonal, Partially Clonal, and/or Sexual Reproduction
 
 ```{r, results = "asis", echo = FALSE}
-cat(beaverdown::iflatex("\\begin{center}"))
+out <- "
+\\singlespacing
+\\begin{center}
+"
+cat(beaverdown::iflatex(out))
 ```
 
 Zhian N. Kamvar, Javier F. Tabima, and Niklaus J. Grünwald
