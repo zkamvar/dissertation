@@ -56,3 +56,413 @@ documentation and examples is provided. Poppr is open source and major releases
 are available on CRAN: http://cran.r-project.org/package=poppr. More supporting
 documentation and tutorials can be found under 'resources' at:
 http://grunwaldlab.cgrb.oregonstate.edu/.
+
+## Introduction 
+
+
+The Wright-Fisher model of populations is one of the oldest models
+utilized in population genetic theory. Populations in this model are
+characterized as having non-overlapping generations with a constant size
+free from any selective pressures [@Weir_1997; @Charlesworth_1998;
+@nielsen2013introduction]. Conceptually, these
+populations are represented as pools of alleles that are independently
+assorting where random mating is approximated by randomly sampling
+alleles with replacement from one generation to the next. Assumptions of
+this model, or related models, are implicitly assumed for common
+population genetic analysis tools. In clonal populations, however,
+alleles are not independently passed on from one generation to the next,
+and these assumptions are violated. Classical textbooks on population
+genetics do not provide much guidance on how to analyze clonal or mixed
+clonal and sexual populations. In reality, many populations are not
+strictly clonal or sexual, but can range from completely sexual to
+completely clonal and this is commonly observed for fungal, oomycete, or
+microbial populations [@anderson1995clonality; @milgroom1996recombination]. Currently, analysis of these populations
+is not straightforward as we lack the sophisticated tools and methods
+developed for model populations that are typically either haploid or
+diploid [@grunwald2011evolution].
+
+Inferring population structure with many commonly used model-based
+clustering approaches such as the program 
+<span style="font-variant:small-caps;">Structure</span>
+[@pritchard2000inference] is inherently problematic for clonal
+populations. These approaches cannot be used as clonal populations
+violate basic assumptions of panmixia and Hardy-Weinberg equilibrium.
+Thus, model free methods such as those relying on k-means clustering,
+dendrograms including bootstrap support for clades, or minimum spanning
+networks are more appropriate [@goss2009population; @cooke2012genome; @mascheretti2008reconstruction]. Furthermore,
+analysis of mixed or clonal populations traditionally relies on
+calculation of diversity of genotypes observed and analysis of
+clone-censored versus non-censored populations [@mcdonald1997population;
+@milgroom1996recombination; @Grunwald:2006]. Clone censoring involves
+reduction of any population sample to a single observation for each
+multilocus genotype (MLG) in a population thereby approximating
+panmictic populations and removing the effect of genetic linkage
+[@milgroom1996recombination]. Analysis of diversity, in turn, involves
+calculation of the number of genotypes observed (richness), diversity,
+and evenness [@Grunwald:2003]. Typical measures of genotypic diversity are
+borrowed from ecology and use either the Shannon-Wiener or Stoddart and
+Taylor index [@stoddart1988genotypic; @shannon2001mathematical; @Grunwald:2003].
+
+A critical aspect of analyzing clonal or mixed populations is testing a
+null hypothesis of panmixia [@milgroom1996recombination]. Testing of this
+hypothesis for potentially clonal populations typically relies on
+assessment of linkage disequilibrium among loci
+[@milgroom1996recombination]. This is achieved via calculation of the
+index of association or related indices in combination with resampling
+of the data to obtain a null distribution for the expectation of random
+mating [@burt1996molecular; @Brown:1980; @Smith:1993; @milgroom1996recombination]. These approaches
+have, for example, been applied to *Pyrenophora teres*
+[@peever1994genetic] and *Aphanomyces euteiches* [@Grunwald:2006] and are
+routinely used in the analyses of clonal populations although they are
+not easily calculated given available software including <span
+style="font-variant:small-caps;">multilocus</span>, which is no longer
+supported, and <span style="font-variant:small-caps;">LIAN</span>, which
+only works for haploids [@Agapow:2001; @Haubold:2000].
+
+Hierarchical sampling adds another layer of complexity to analysis of
+clonal populations. With microbial populations, the geographic structure
+of each population is not entirely clear, and it is often important to
+sample temporally to see if clones persist over time [@Grunwald:2006]. A
+common approach when faced with multiple levels of sampling is to create
+a separate data set for each level or combination of levels and to
+analyze them separately. However, the number of data sets undergo a
+factorial increase with each hierarchical level, therefore increasing
+the chances of human error in data reformatting or analysis. Thus, tools
+are needed for analysis of population data across hierarchies or subsets
+of data.
+
+Here, we introduce the R package *poppr* that is specifically designed
+for analysis of populations that are clonal, admixed and/or sexual.
+*Poppr* complements and builds on previously existing R packages
+including *adegenet* and *vegan* [@Jombart:2008; @Jombart:2011; @vegan]
+while implementing tools novel to R significantly facilitating data
+import, population genetic analyses, and graphing of clonal or partially
+clonal populations. These tools include among others: analysis across
+hierarchies of populations, subsetting of populations, clone-censoring,
+Bruvo's genetic distance @Bruvo:2004, the index of association and
+related statistics [@Brown:1980; @Smith:1993], and bootstrap support for
+trees based on Bruvo's distance. By providing a centralized suite of
+tools appropriate for many data types, this package represents a novel
+and useful resource specifically tailored for analysis of clonal
+populations.
+
+## Materials and Methods
+
+
+### Data import
+
+
+*Poppr* allows import of data in several formats for
+dominant/codominant, haploid/diploid and geographic data. The R package
+*adegenet*, that defines the `genind` data structure that *poppr*
+utilizes, allows support for importing data natively from <span
+style="font-variant:small-caps;">Structure, Genetix, Genepop</span>, and
+<span style="font-variant:small-caps;">Fstat</span>. While these formats
+are very common and widely supported, these do not allow for import of
+geographic and/or regional data. Furthermore, *adegenet* will only
+handle diploids with this format, though manual import is possible. To
+aid in importing data, *poppr* has newly added the function
+`read.genalex()`, to read data from *GenAlEx* formatted text files into
+the `genind` data object of the package *adegenet* [@Jombart:2008;
+@Jombart:2011; @Peakall:2006]. *GenAlEx* is a popular add-in for <span
+style="font-variant:small-caps;">Microsoft Excel</span> that can handle
+data including codominant/dominant and haploid/diploid markers as well
+as geographic and regional data. This function further facilitates the
+import of haploid, geographic, and regional data.
+
+Transferring data to new formats and manipulating data by hand, such as
+collapsing data into clones or subsetting data into different
+hierarchical levels, is tedious, creates redundancy, and can result in
+lost or misrepresented data. *Poppr* includes tools to automate such
+repetitive tasks. Many currently available data formats and software
+implementations allow analysis of only one or two levels of a population
+hierarchy. With *poppr* the user can import a single data set with an
+unlimited number of hierarchical levels. This is achieved by having the
+user combine the levels using a common delimiter (e.g.
+"Year\_Country\_City"). These combined levels are then used as the
+defining population factor in the input file and can easily be
+manipulated within R.
+
+### Data analysis
+
+
+Once data is imported into R, the user can dynamically access and
+manipulate the population hierarchy with the function `splitcombine()`,
+subset the data set by population with `popsub()`, and check for cloned
+multilocus genotypes using `mlg()`. For data sets that include clones,
+the *poppr* function `clonecorrect()` will censor exact clones with
+respect to any level of a population hierarchy by creating a new data
+set that includes only unique multilocus genotypes (MLGs) per
+population. A full list of functions available in *poppr* is provided in
+table \@ref(tab:poppr1).
+
+
+```{r, poptab1, results = 'asis', echo = FALSE}
+tab <- if (LATEX) "data/poppr-table1.tex" else "data/poppr-table1.md"
+out <- readLines(tab)
+cat(out, sep = "\n")
+```
+
+Typical analyses in *poppr* start with summary statistics for diversity,
+rarefaction, evenness, MLG counts, and calculation of distance measures
+such as Bruvo's distance, providing a suitable stepwise mutation model
+appropriate for microsatellite markers [@Bruvo:2004]. *Poppr* will define
+MLGs in your data set, show where they cross populations, and can
+produce graphs and tables of MLGs by population that can be used for
+further analysis with the R package *vegan* @vegan. Many of the
+diversity indices calculated by the *vegan* function `diversity()` are
+useful in analyzing the diversity of partially clonal populations. For
+this reason, *poppr* features a quick summary table (Table \[table2\])
+that incorporates these indices along with the index of association,
+$I_A$ [@Brown:1980; @Smith:1993], and its standardized form, $\bar{r}_d$,
+which accounts for the number of loci sampled [@Agapow:2001]. Both
+measures of association can detect signatures of multilocus linkage and
+values significantly departing from the null model of no linkage among
+markers are detected via permutation analysis utilizing one of four
+algorithms described in table \[table3\] [@Agapow:2001]. The user can
+specify the number of samples taken from the observed data set to obtain
+the null distribution expected for a randomly mating population.
+Detailed examples of these analyses can be found in the *poppr* manual.
+
+
+```{r, poptab2, results = 'asis', echo = FALSE}
+tab <- if (LATEX) "data/poppr-table2.tex" else "data/poppr-table2.md"
+out <- readLines(tab)
+if (LATEX){
+	cap <- paste(readLines("data/poppr-table2caption.md"), collapse = "\n")
+  cap <- beaverdown::render_caption(cap, figname = "popprtable2", to = TO)
+  subcap <- "Summary table shown as it would appear in the R console produced by the \\texttt{poppr()} function with 999 permutations to calculate \\(I_A\\) and \\(\\bar{r}_d\\) p-values from the \\texttt{Aeut} data set in \\textit{poppr} from (Grünwald et al., \\protect\\hyperlink{ref-Grunwald:2003}{2003})."
+  out[grep("caption", out)] <- paste0("\\caption[", subcap, "]{", cap, "}")
+}
+cat(out, collapse = "\n")
+```
+
+```{r, poptab3, results = 'asis', echo = FALSE}
+tab <- if (LATEX) "data/poppr-table3.tex" else "data/poppr-table3.md"
+out <- readLines(tab)
+cat(out, sep = "\n")
+```
+
+
+### Visualizations
+
+
+*Poppr* generates bar charts of MLG counts found within each population
+of your data set (Fig. \[fig:FIGURE\_1\]). Histograms with rug plots for
+$I_A$ and $\bar{r}_d$ allow visual assessment of the quality of the
+distribution derived from resampling to see if a higher number of
+replications are necessary (Fig. \[fig:FIGURE\_2\]). *Poppr*
+automatically produces custom minimum spanning networks for Bruvo's or
+other distances using Prim's algorithm, as implemented in the package
+*igraph* @igraph, with the functions `bruvo.msn()` for Bruvo's distance
+(Fig. \[fig:FIGURE\_3\]) and `poppr.msn()` for any distance matrix. The
+combination of data structures from *adegenet* and *igraph* allow
+graphing that is color coded by population with vertices grouped by MLG
+[@Jombart:2008; @Jombart:2011; @igraph]. *Poppr* also includes
+visualization of dendrograms using UPGMA @phangorn and Neighbor-Joining
+@ape algorithms with bootstrap support for Bruvo's distance using the
+function `bruvo.boot()` (Fig. \[fig:FIGURE\_4\]). Neither graphing of
+minimum spanning networks or dendrograms with bootstrap support are
+currently possible for populations in any other R packages.
+
+### Performance
+
+
+Most of the functions in *Poppr* were written and optimized for
+performance in R and are available for inspection and/or download at
+<https://github.com/grunwaldlab/poppr>. Algorithms of $\geq O(n^2)$
+complexity were written in the byte-compiled C language to optimize
+runtime performance.
+
+For comparisons of $I_A$ and Bruvo's distance, we utilized the data set
+'nancycats' (237 diploid individuals genotyped at nine microsatellite
+loci) from the *adegenet* package. Calculations were run independently
+10 times and then averaged. Bruvo's distance was calculated on a machine
+with OSX 10.8.4 and a 2.9 GHz intel processor. The $I_A$ and $\bar{r}_d$
+calculations were performed on a machine with OSX 10.5.8 and a 2.4 GHz
+intel processor due to the inability of the software <span
+style="font-variant:small-caps;">multilocus</span> to work on any later
+version of OSX.
+
+Citation of methods implemented in *poppr*.
+-------------------------------------------
+
+Several of the methods implemented in *poppr* are described elsewhere.
+Users should refer to the original publications for interpretations and
+citation. See table \[table4\] for a full list of citations. As with any
+R package, users should always cite the R Core Team [@R]. 
+Results and Discussion {#results-and-discussion .unnumbered}
+======================
+
+*Poppr* provides significant, convenient tools for analysis of clonal
+and partially clonal populations available in one environment on all
+major operating systems. The ability to analyze data for multiple
+populations across a user-defined hierarchy and clone-censoring provide
+novel functionality in R. Combined with R's graphing abilities,
+publication-ready figures are thus obtained conveniently.
+
+### New functionalities
+
+
+*Poppr* implements several new functionalities. As of this writing,
+aside from *poppr*, there exist two programs that calculate $I_A$: <span
+style="font-variant:small-caps;">LIAN</span> [@Haubold:2000] and <span
+style="font-variant:small-caps;">multilocus</span> [@Agapow:2001]. <span
+style="font-variant:small-caps;">LIAN</span> can calculate $I_A$ for
+haploid data and is only available online or for \*nix systems with a C
+compiler such as OSX and Linux [@Haubold:2000]. <span
+style="font-variant:small-caps;">Multilocus</span> implemented
+$\bar{r}_d$, a novel correction for $I_A$, but is no longer supported
+[@Agapow:2001]. <span style="font-variant:small-caps;">Multilocus</span>
+will only calculate index values for one data set at a time and <span
+style="font-variant:small-caps;">LIAN</span> requires the user to
+structure the data set with populations in contiguous blocks to analyze
+multiple populations within a single file. Thus *poppr* provides
+significant improvements for calculation of linkage disequilibrium, and
+handles both haploid and diploid data, works on all major operating
+systems, and is capable of batch analysis of multiple files and multiple
+populations defined within a file including the possibility of clone
+correction and sub-setting. A comparison of the capabilities of these
+programs are summarized in Table \[table5\].
+
+To test significance for $I_A$ and $\bar{r}_d$, *poppr* offers four
+permutation algorithms. Each one will randomly shuffle data at each
+locus, effectively unlinking the loci. The algorithm previously utilized
+by <span style="font-variant:small-caps;">mutlilocus</span> is included.
+The <span style="font-variant:small-caps;">multilocus</span>-style
+algorithm shuffles genotypes, maintaining the associations between
+alleles at each locus [@Agapow:2001]. More appropriately, alleles are
+expected to assort independently in panmictic populations. *Poppr* thus
+provides three new algorithms for permutation that allow for independent
+allele assortment at each locus. The default algorithm permutes the
+alleles at each locus and the remaining two will randomly sample alleles
+from a multinomial distribution parametrically and non-parametrically
+[@Weir_1997]. Details of these algorithms are presented in table
+\[table3\]. Because the index of association is calculated using a
+binary measure of dissimilarity, we have also made this available as a
+distance measure called `diss.dist()`. This pairwise distance is based
+on the percent allelic differences.
+
+*Poppr* also newly implements Bruvo's genetic distance that utilizes a
+stepwise mutation model appropriate for microsatellite data [@Bruvo:2004]. While this distance is implemented in the program <span
+style="font-variant:small-caps;">GenoDive</span> @genodive and the R
+package *polysat* @polysat, there are a few caveats with these two
+implementations. <span style="font-variant:small-caps;">GenoDive</span>
+is closed-source, and only implemented in OSX. Both *poppr* and
+*polysat* are open-source and available on all platforms, but *polysat*,
+being optimized for polyploid individuals with ambiguous allelic dosage,
+is inappropriate for analyzing diploids. *Polysat* will collapse
+homozygous individuals into a single allele and attempt to infer the
+second allelic state in comparison with heterozygous individuals. Since
+haploid and diploid individuals show clear allelic dosage, this
+procedure creates a bias misrepresenting the true distance. Not only is
+*poppr* not subject to this bias, but it also newly introduces bootstrap
+support for this distance as shown in Figure \[fig:FIGURE\_4\].
+
+### Performance
+
+
+*Poppr* reduces the amount of intermediate files and repetitive tasks
+needed for basic population genetic analyses and implements
+computationally intensive functions, such as Bruvo's distance and the
+index of association in C to improve performance. The *polysat* package
+calculation of Bruvo's distance took 58.3 seconds on average whereas
+*poppr*'s calculation was over 190 times faster, averaging 0.3 seconds
+(Table \[table6\]). For calculation of $I_A$ and $\bar{r}_d$ with 100
+permutations and Nei's genotypic diversity [@Nei:1978], <span
+style="font-variant:small-caps;">multilocus</span> required around 9.12
+minutes on average, as compared to 13.4 seconds with *poppr*.
+
+## Conclusions
+
+
+The R package *poppr* provides new functions and tools specifically
+tailored for analysis of data from clonal or partially clonal
+populations. No software currently available provides this set of tools.
+Novel capabilities include analysis across multiple populations at
+multiple levels of hierarchies, clone-censoring, and subsetting. These
+in combination with R's command line interface and scripting
+capabilities makes analyses of these populations more streamlined and
+tractable. By implementing computationally expensive algorithms such as
+Bruvo's distance and $I_A$ in C, analyses of multiple populations that
+would normally take hours to complete can now be finished in a matter of
+minutes. This allowed us to expand the utility of these measures to
+convenient new graphing abilities such as automatically creating
+dendrograms with bootstrap support for Bruvo's distance and minimum
+spanning networks. While major releases of *poppr* are available on
+CRAN, we are continuing to develop this package to be able to
+efficiently handle genome-sized SNP data. Development versions are
+available on github at <https://github.com/grunwaldlab/poppr>.
+
+## Acknowledgements
+
+
+The authors would like to thank Sydney Everhart and Corine Schoebel for
+invaluable alpha testing and Paul-Michael Agapow for providing the
+*multilocus* C++ source code for reference. We thank Sydney Everhart and
+Brian Knaus for comments that significantly improved this manuscript.
+Mention of trade names or commercial products in this manuscript are
+solely for the purpose of providing specific information and do not
+imply recommendation or endorsement.
+
+
+  **Method/Index**                                       **Citation**                             **Function(s) in *poppr***
+  ---------------------------- ---------------------------------------------------------------- ----------------------------
+  Expected MLG (rarefaction)      [@hurlbert1971nonconcept; @heck1975explicit] (for std. err.)                       `poppr()`
+  $H$                                              @shannon2001mathematical                                        `poppr()`
+  $G$                                               @stoddart1988genotypic                                         `poppr()`
+  $H_{exp}$                                               @Nei:1978                                                `poppr()`
+  $E_{5}$                       [@Grunwald:2006; @pielou1975ecological; @ludwig1988statistical]                     `poppr()`
+  $I_A$/$\bar{r}_d$             [@Brown:1980; @Smith:1993] ($I_A$), @Agapow:2001 ($\bar{r}_d$)                         `ia()`
+                                                                                                                   `poppr()`
+  Clone correction               [@milgroom1996recombination; @Grunwald:2003; @Grunwald:2006]                `clonecorrect()`
+                                                                                                                   `poppr()`
+  Minimum Spanning Networks                                @igraph                                             `poppr.msn()`
+                                                                                                               `bruvo.msn()`
+  Bruvo's Distance                                       @Bruvo:2004                                          `bruvo.dist()`
+                                                                                                               `bruvo.msn()`
+                                                                                                              `bruvo.boot()`
+  Bootstrapping                                              @ape                                             `bruvo.boot()`
+  Neighbor Joining                                           @ape                                             `bruvo.boot()`
+  UPGMA                                                   @phangorn                                           `bruvo.boot()`
+
+
+
+                  **Haploids**   **Diploids**   $\bar{r}_d$   **All Platforms**   **Batch Analysis**
+  -------------- -------------- -------------- ------------- ------------------- --------------------
+  *poppr*             Yes            Yes            Yes              Yes                 Yes
+  *LIAN*              Yes             No            No               Yes                 Yes
+  *multilocus*        Yes            Yes            Yes              No                   No
+
+
+
+                  **$I_A$ (seconds)**   **Bruvo's distance (seconds)**
+  -------------- --------------------- --------------------------------
+  *poppr*                13.4                        0.3
+  *polysat*                -                         58.3
+  *multilocus*           547.2                        -
+
+![\[fig:FIGURE\_1\] Distribution of 12 multilocus genotypes from the
+`Finland` population of the `H3N2` SNP data set
+[@Jombart:2008].](figures/Finland/Finland.png){width="0.7\columnwidth"}
+
+![\[fig:FIGURE\_2\] Visualizations of tests for linkage disequilibrium,
+where observed values (blue dashed lines) of $I_A$ and $\bar{r}_d$ are
+compared to histograms showing results of 999 permutations using method
+1 in table \[table1\]. Results are shown for the sexual population `5`
+of the `nancycats` data set \[@Jombart:2008\] (a) and for the clonal
+`Athena` population of the `Aeut` data set \[@Grunwald:2003\] (b)
+.](figures/nancy_5/nancy_5.png){width="0.7\columnwidth"}
+
+![\[fig:FIGURE\_3\] Example minimum spanning network using Bruvo's
+distance on a simulated partially clonal data set with 50 individuals
+genotyped over 10 microsatellite loci. Each node represents a unique
+multilocus genotype. Node shading (colors) represent population
+membership, while edge widths and shading represent relatedness. Edge
+length is
+arbitrary.](figures/bruvo_color/bruvo_color.png){width="0.7\columnwidth"}
+
+![\[fig:FIGURE\_4\] UPGMA tree produced from Bruvo's distance with 1000
+bootstrap replicates (node values greater than 50% are shown). Data from
+population `9` of the `nancycats` data set
+[@Jombart:2008].](figures/nancy9_tree/nancy9-boot-redo.png){width="0.7\columnwidth"}
