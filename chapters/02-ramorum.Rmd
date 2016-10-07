@@ -1024,6 +1024,19 @@ ratio of 6 $\mu$l size standard to 1 ml Hi-Di\textsuperscript{TM} Formamide.
 Allele sizing was determined using GeneMapper\textregistered{} v3.7 and v5.0
 software (Applied Biosystems).
 
+
+```{r, results = "asis", echo = FALSE}
+out <- "
+% \\setcounter{figure}{0}
+\\renewcommand{\\figurename}{Supplementary Figure}
+\\renewcommand{\\tablename}{Supplementary Table}
+% \\renewcommand{\\thefigure}{s\\arabic{chapter}.\\arabic{figure}}
+% \\renewcommand{\\thetable}{s\\arabic{chapter}.\\arabic{table}}
+"
+cat(beaverdown::iflatex(out))
+```
+
+
 ### Supplementary Figures
 
 
@@ -1178,5 +1191,21 @@ ramorum* genotypes at locus PrMS39."
 S10cap <- beaverdown::render_caption(caption = cap, figname = "figS10", to = TO)
 S10scap <- beaverdown::render_caption(caption = scap, figname = "figS10", to = TO)
 
+```
 
+
+
+```{r, results = "asis", echo = FALSE}
+out <- "
+\\renewcommand{\\figurename}{Figure}
+\\renewcommand{\\tablename}{Table}
+% \\renewcommand{\\thefigure}{\\arabic{chapter}.\\arabic{figure}}
+% \\renewcommand{\\thetable}{\\arabic{chapter}.\\arabic{table}}
+"
+cat(beaverdown::iflatex(out))
+```
+
+
+```{r, avolcano, fig.cap = "HOT LAVA"}
+image(volcano, col = viridis::viridis_pal(option = "A")(100))
 ```
