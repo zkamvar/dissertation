@@ -2,26 +2,17 @@
 #
 # Required Information --------------------------------------------------------
 #
-doctype: 'Dissertation'            # or Thesis
-title: 'Development and Application of Tools for Analysis of Clonal Population Genetics'
+doctype: 'Dissertation' 
+title: 'Development of Tools for Genetic Analysis of Clonal Populations and Applications'
 author: 'Zhian N. Kamvar'
-date: 'December 6, 2016'            # date of submission
-commencement: '2017'               # year of commencement
-degree: 'Doctor of Philosophy'     # Masters of Science, Art, etc. 
+date: 'December 6, 2016'
+commencement: '2017'    
+degree: 'Doctor of Philosophy'
 major: 'Botany and Plant Pathology'
-depttype: 'Department'                 # Department, College, etc.
-depthead: 'Head'                   # Chair, Chancellor, Interim Head, etc.
+depttype: 'Department'
+depthead: 'Head'
 department: 'Botany and Plant Pathology'
 advisor: 'Niklaus J. Grünwald'
-#
-# Optional Information --------------------------------------------------------
-#
-# un-comment the following lines if you have a second major in a different dept.
-# twomajor: 'Creative Writing'
-# depttype: 'School'
-# department: 'Writing Literature and Film'
-# depthead: 'Chair'
-# coadvisor: 'Sir Writes A. Lot'
 #
 # Rendering Options -----------------------------------------------------------
 #
