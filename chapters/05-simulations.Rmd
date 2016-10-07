@@ -1,4 +1,4 @@
-# [Tentative Title] The Effect of Population Dynamics, Sample Size, and Marker Choice on the Index of Association
+# Factors Influencing Recombination Inference in Diploid Populations
 
 ```{r, results = "asis", echo = FALSE}
 out <- "
