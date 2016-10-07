@@ -408,7 +408,7 @@ imply recommendation or endorsement.
 
   **Method/Index**                                       **Citation**                             **Function(s) in *poppr***
   ---------------------------- ---------------------------------------------------------------- ----------------------------
-  Expected MLG (rarefaction)      [@hurlbert1971nonconcept; @heck1975explicit] (for std. err.)                       `poppr()`
+  Expected MLG (rarefaction)      @hurlbert1971nonconcept, @heck1975explicit (for std. err.)                       `poppr()`
   $H$                                              @shannon2001mathematical                                        `poppr()`
   $G$                                               @stoddart1988genotypic                                         `poppr()`
   $H_{exp}$                                               @Nei:1978                                                `poppr()`
