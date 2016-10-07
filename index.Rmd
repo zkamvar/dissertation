@@ -50,7 +50,7 @@ acknowledgements: >
 contributors: > 
   `r if(knitr:::is_latex_output()) beaverdown::inc("pre/00-contributors.Rmd")`
 dedication: >
-  This dissertation is for my grandfather, Franklin Hepner.
+  This dissertation is for my grandfather, Franklin R. Hepner and for my mother, Jane H. Kamvar.
 # preface: >  
 #  Uncomment the above to include a preface. Again, this can be rendered much
 #  like the files above.
