@@ -1,0 +1,16 @@
+\begin{sidewaystable}[ph!]
+
+\begin{tabular}{clccc}
+\hline
+\textbf{Method} & \textbf{Name} & \textbf{Units Sampled} & \textbf{With Replacement} & \textbf{Weight} \\
+\hline
+1 & \texttt{permutation} & alleles & No & - \\
+2 & \texttt{parametric bootstrap} & alleles & Yes & allele frequencies \\
+3 & \texttt{non-parametric bootstrap} & alleles & Yes & equal \\
+4 & \texttt{multilocus} & genotypes & No & - \\
+\hline
+\end{tabular}
+\caption{Permutation algorithms in \textit{poppr} implemented in the calculation of $I_A$ and $\bar{r}_d$ p-values, iterated over all loci independently.}
+\label{tab:poppr3}
+
+\end{sidewaystable}
