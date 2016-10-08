@@ -212,14 +212,14 @@ produce graphs and tables of MLGs by population that can be used for
 further analysis with the R package *vegan* @vegan. Many of the
 diversity indices calculated by the *vegan* function `diversity()` are
 useful in analyzing the diversity of partially clonal populations. For
-this reason, *poppr* features a quick summary table (Table \[table2\])
+this reason, *poppr* features a quick summary table (Table \@ref(tab:poppr2))
 that incorporates these indices along with the index of association,
 $I_A$ [@Brown:1980; @Smith:1993], and its standardized form, $\bar{r}_d$,
 which accounts for the number of loci sampled [@Agapow:2001]. Both
 measures of association can detect signatures of multilocus linkage and
 values significantly departing from the null model of no linkage among
 markers are detected via permutation analysis utilizing one of four
-algorithms described in table \[table3\] [@Agapow:2001]. The user can
+algorithms described in table \@ref(tab:poppr3) [@Agapow:2001]. The user can
 specify the number of samples taken from the observed data set to obtain
 the null distribution expected for a randomly mating population.
 Detailed examples of these analyses can be found in the *poppr* manual.
@@ -248,22 +248,75 @@ cat(out, sep = "\n")
 
 
 *Poppr* generates bar charts of MLG counts found within each population
-of your data set (Fig. \[fig:FIGURE\_1\]). Histograms with rug plots for
+of your data set (Fig. \@ref(fig:1)). Histograms with rug plots for
 $I_A$ and $\bar{r}_d$ allow visual assessment of the quality of the
 distribution derived from resampling to see if a higher number of
-replications are necessary (Fig. \[fig:FIGURE\_2\]). *Poppr*
+replications are necessary (Fig. \@ref(fig:2)). *Poppr*
 automatically produces custom minimum spanning networks for Bruvo's or
 other distances using Prim's algorithm, as implemented in the package
 *igraph* @igraph, with the functions `bruvo.msn()` for Bruvo's distance
-(Fig. \[fig:FIGURE\_3\]) and `poppr.msn()` for any distance matrix. The
+(Fig. \@ref(fig:3)) and `poppr.msn()` for any distance matrix. The
 combination of data structures from *adegenet* and *igraph* allow
 graphing that is color coded by population with vertices grouped by MLG
 [@Jombart:2008; @Jombart:2011; @igraph]. *Poppr* also includes
 visualization of dendrograms using UPGMA @phangorn and Neighbor-Joining
 @ape algorithms with bootstrap support for Bruvo's distance using the
-function `bruvo.boot()` (Fig. \[fig:FIGURE\_4\]). Neither graphing of
+function `bruvo.boot()` (Fig. \@ref(fig:4)). Neither graphing of
 minimum spanning networks or dendrograms with bootstrap support are
 currently possible for populations in any other R packages.
+
+```{r, poppr1, results = 'asis', echo = FALSE, fig.cap = cap1, fig.scap = scap1}
+knitr::include_graphics("figures/Finland.png")
+
+cap1 <- "Distribution of 12 multilocus genotypes from the `Finland` population 
+of the `H3N2` SNP data set [@Jombart:2008]"
+
+cap1 <- beaverdown::render_caption(cap1, figname = "popprfig1", to = TO)
+scap1 <- cap1
+```
+
+```{r, poppr2, results = 'asis', echo = FALSE, fig.cap = cap2, fig.scap = scap2}
+knitr::include_graphics("figures/nancy_5.png")
+
+
+cap2 <- "Visualizations of tests for linkage disequilibrium, where observed
+values (blue dashed lines) of $I_A$ and $\\bar{r}_d$ are compared to histograms
+showing results of 999 permutations using method 1 in table \\@ref(tab:poppr1).
+Results are shown for the sexual population `5` of the `nancycats` data set
+[@Jombart:2008] (a) and for the clonal `Athena` population of the `Aeut` data
+set [@Grunwald:2003] (b)."
+
+cap2 <- beaverdown::render_caption(cap2, figname = "popprfig2", to = TO)
+scap2 <- "Visualizations of tests for linkage disequilibrium."
+```
+
+```{r, poppr3, results = 'asis', echo = FALSE, fig.cap = cap3, fig.scap = scap3}
+knitr::include_graphics("figures/bruvo_color.png")
+
+
+cap3 <- "Example minimum spanning network using Bruvo's distance on a simulated
+partially clonal data set with 50 individuals genotyped over 10 microsatellite
+loci. Each node represents a unique multilocus genotype. Node shading (colors)
+represent population membership, while edge widths and shading represent
+relatedness. Edge length is arbitrary."
+
+scap3 <- "Example minimum spanning network using Bruvo's distance on a simulated
+partially clonal data set with 50 individuals genotyped over 10 microsatellite
+loci."
+```
+
+```{r, poppr4, results = 'asis', echo = FALSE, fig.cap = cap4, fig.scap = scap4}
+knitr::include_graphics("figures/nancy9-boot-redo.png")
+
+
+cap4 <- "UPGMA tree produced from Bruvo's distance with 1000 bootstrap
+replicates (node values greater than 50% are shown). Data from population `9` of
+the `nancycats` data set [@Jombart:2008]"
+
+cap4  <- beaverdown::render_caption(cap4, figname = "popprfig4", to = TO)
+scap4 <- "UPGMA tree produced from Bruvo's distance with 1000 bootstrap
+replicates (node values greater than 50% are shown)."
+```
 
 ### Performance
 
@@ -284,15 +337,16 @@ intel processor due to the inability of the software <span
 style="font-variant:small-caps;">multilocus</span> to work on any later
 version of OSX.
 
-Citation of methods implemented in *poppr*.
--------------------------------------------
+## Citation of methods implemented in *poppr*
+
 
 Several of the methods implemented in *poppr* are described elsewhere.
 Users should refer to the original publications for interpretations and
-citation. See table \[table4\] for a full list of citations. As with any
+citation. See table \@ref(tab:poppr4) for a full list of citations. As with any
 R package, users should always cite the R Core Team [@R]. 
-Results and Discussion {#results-and-discussion .unnumbered}
-======================
+
+## Results and Discussion 
+
 
 *Poppr* provides significant, convenient tools for analysis of clonal
 and partially clonal populations available in one environment on all
@@ -323,7 +377,7 @@ handles both haploid and diploid data, works on all major operating
 systems, and is capable of batch analysis of multiple files and multiple
 populations defined within a file including the possibility of clone
 correction and sub-setting. A comparison of the capabilities of these
-programs are summarized in Table \[table5\].
+programs are summarized in Table \@ref(tab:poppr5).
 
 To test significance for $I_A$ and $\bar{r}_d$, *poppr* offers four
 permutation algorithms. Each one will randomly shuffle data at each
@@ -338,26 +392,26 @@ allele assortment at each locus. The default algorithm permutes the
 alleles at each locus and the remaining two will randomly sample alleles
 from a multinomial distribution parametrically and non-parametrically
 [@Weir_1997]. Details of these algorithms are presented in table
-\[table3\]. Because the index of association is calculated using a
+\@ref(tab:poppr3). Because the index of association is calculated using a
 binary measure of dissimilarity, we have also made this available as a
 distance measure called `diss.dist()`. This pairwise distance is based
 on the percent allelic differences.
 
-*Poppr* also newly implements Bruvo's genetic distance that utilizes a
-stepwise mutation model appropriate for microsatellite data [@Bruvo:2004]. While this distance is implemented in the program <span
-style="font-variant:small-caps;">GenoDive</span> @genodive and the R
-package *polysat* @polysat, there are a few caveats with these two
-implementations. <span style="font-variant:small-caps;">GenoDive</span>
-is closed-source, and only implemented in OSX. Both *poppr* and
-*polysat* are open-source and available on all platforms, but *polysat*,
-being optimized for polyploid individuals with ambiguous allelic dosage,
-is inappropriate for analyzing diploids. *Polysat* will collapse
-homozygous individuals into a single allele and attempt to infer the
-second allelic state in comparison with heterozygous individuals. Since
-haploid and diploid individuals show clear allelic dosage, this
-procedure creates a bias misrepresenting the true distance. Not only is
-*poppr* not subject to this bias, but it also newly introduces bootstrap
-support for this distance as shown in Figure \[fig:FIGURE\_4\].
+*Poppr* also newly implements Bruvo's genetic distance that utilizes a stepwise
+mutation model appropriate for microsatellite data [@Bruvo:2004]. While this
+distance is implemented in the program <span style="font-variant:small-caps;">
+GenoDive</span> @genodive and the R package *polysat* @polysat, there are
+a few caveats with these two implementations. 
+<span style="font-variant:small-caps;">GenoDive</span> is closed-source, and 
+only implemented in OSX. Both *poppr* and *polysat* are open-source and
+available on all platforms, but *polysat*, being optimized for polyploid
+individuals with ambiguous allelic dosage, is inappropriate for analyzing
+diploids. *Polysat* will collapse homozygous individuals into a single allele
+and attempt to infer the second allelic state in comparison with heterozygous
+individuals. Since haploid and diploid individuals show clear allelic dosage,
+this procedure creates a bias misrepresenting the true distance. Not only is
+*poppr* not subject to this bias, but it also newly introduces bootstrap support
+for this distance as shown in Figure \@ref(fig:4).
 
 ### Performance
 
@@ -368,7 +422,7 @@ computationally intensive functions, such as Bruvo's distance and the
 index of association in C to improve performance. The *polysat* package
 calculation of Bruvo's distance took 58.3 seconds on average whereas
 *poppr*'s calculation was over 190 times faster, averaging 0.3 seconds
-(Table \[table6\]). For calculation of $I_A$ and $\bar{r}_d$ with 100
+(Table \@ref(tab:poppr6)). For calculation of $I_A$ and $\bar{r}_d$ with 100
 permutations and Nei's genotypic diversity [@Nei:1978], <span
 style="font-variant:small-caps;">multilocus</span> required around 9.12
 minutes on average, as compared to 13.4 seconds with *poppr*.
@@ -442,27 +496,8 @@ imply recommendation or endorsement.
   *polysat*                -                         58.3
   *multilocus*           547.2                        -
 
-![\[fig:FIGURE\_1\] Distribution of 12 multilocus genotypes from the
-`Finland` population of the `H3N2` SNP data set
-[@Jombart:2008].](figures/Finland/Finland.png){width="0.7\columnwidth"}
 
-![\[fig:FIGURE\_2\] Visualizations of tests for linkage disequilibrium,
-where observed values (blue dashed lines) of $I_A$ and $\bar{r}_d$ are
-compared to histograms showing results of 999 permutations using method
-1 in table \[table1\]. Results are shown for the sexual population `5`
-of the `nancycats` data set \[@Jombart:2008\] (a) and for the clonal
-`Athena` population of the `Aeut` data set \[@Grunwald:2003\] (b)
-.](figures/nancy_5/nancy_5.png){width="0.7\columnwidth"}
 
-![\[fig:FIGURE\_3\] Example minimum spanning network using Bruvo's
-distance on a simulated partially clonal data set with 50 individuals
-genotyped over 10 microsatellite loci. Each node represents a unique
-multilocus genotype. Node shading (colors) represent population
-membership, while edge widths and shading represent relatedness. Edge
-length is
-arbitrary.](figures/bruvo_color/bruvo_color.png){width="0.7\columnwidth"}
 
-![\[fig:FIGURE\_4\] UPGMA tree produced from Bruvo's distance with 1000
-bootstrap replicates (node values greater than 50% are shown). Data from
-population `9` of the `nancycats` data set
-[@Jombart:2008].](figures/nancy9_tree/nancy9-boot-redo.png){width="0.7\columnwidth"}
+
+
