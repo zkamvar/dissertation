@@ -1,0 +1,38 @@
+\begin{sidewaystable}[ph!]
+\begin{tabular}{lcr}
+\hline
+Method/Index & Citation & Function(s) in \textit{poppr} \\  
+\hline
+Expected MLG (rarefaction) & [@hurlbert1971nonconcept], [@heck1975explicit] (for std. err.) & \texttt{poppr()} \\ 
+\hline
+$H$ & [@shannon2001mathematical] & \texttt{poppr()} \\
+\hline
+$G$ & [@stoddart1988genotypic] & \texttt{poppr()} \\
+\hline
+$H_{exp}$ & [@Nei:1978] & \texttt{poppr()} \\
+\hline
+$E_{5}$ & [@Grunwald:2006; @pielou1975ecological; @ludwig1988statistical] & \texttt{poppr()} \\
+\hline
+$I_A$/$\bar{r}_d$ & [@Brown:1980; @Smith:1993] ($I_A$), [@Agapow:2001] ($\bar{r}_d$) & \texttt{ia()} \\
+ & & \texttt{poppr()} \\
+\hline
+Clone correction & [@milgroom1996recombination; @Grunwald:2003; @Grunwald:2006] & \texttt{clonecorrect()} \\
+ & & \texttt{poppr()}\\
+\hline
+\hline
+Minimum Spanning Networks & [igraph] & \texttt{poppr.msn()} \\
+ & & \texttt{bruvo.msn()} \\
+Bruvo's Distance & [@Bruvo:2004] & \texttt{bruvo.dist()} \\
+ & & \texttt{bruvo.msn()} \\
+ & & \texttt{bruvo.boot()} \\
+\hline
+Bootstrapping & [ape] & \texttt{bruvo.boot()} \\
+\hline
+Neighbor Joining & [ape] & \texttt{bruvo.boot()} \\
+\hline
+UPGMA & [phangorn] & \texttt{bruvo.boot()} \\
+\hline
+\end{tabular}
+\caption{Citation of methods and indices implemented in \textit{poppr}}
+\label{tab:poppr4}
+\end{sidewaystable}
