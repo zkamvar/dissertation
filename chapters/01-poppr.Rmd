@@ -198,7 +198,7 @@ table \@ref(tab:poppr1).
 
 
 ```{r, poptab1, results = 'asis', echo = FALSE}
-tab <- if (LATEX) "data/poppr-table1.tex" else "data/poppr-table1.md"
+tab <- if (LATEX) "data/tables/poppr-table1.tex" else "data/tables/poppr-table1.md"
 out <- readLines(tab)
 cat(out, sep = "\n")
 ```
@@ -226,19 +226,51 @@ Detailed examples of these analyses can be found in the *poppr* manual.
 
 
 ```{r, poptab2, results = 'asis', echo = FALSE}
-tab <- if (LATEX) "data/poppr-table2.tex" else "data/poppr-table2.md"
-out <- readLines(tab)
+tab <- "data/tables/poppr-table2.md"
+res <- read.table(text = readLines(tab)[2:5], header = TRUE, check.names = FALSE)
+cap <- paste(readLines("data/tables/poppr-table2caption.md"), collapse = "\n")
+tabcap <- beaverdown::render_caption(cap, figname = "popprtable2", to = TO)
+
 if (LATEX){
-	cap <- paste(readLines("data/poppr-table2caption.md"), collapse = "\n")
-  cap <- beaverdown::render_caption(cap, figname = "popprtable2", to = TO)
-  subcap <- "Summary table shown as it would appear in the R console produced by the \\texttt{poppr()} function with 999 permutations to calculate \\(I_A\\) and \\(\\bar{r}_d\\) p-values from the \\texttt{Aeut} data set in \\textit{poppr} from (Grünwald et al., \\protect\\hyperlink{ref-Grunwald:2003}{2003})."
-  out[grep("caption", out)] <- paste0("\\caption[", subcap, "]{", cap, "}")
+  library("xtable") 
+  subcap    <- "Summary table shown as it would appear in the R console
+  produced by the `poppr()` function with 999 permutations to calculate $I_A$ and
+  $\\bar{r}_d$ p-values from the `Aeut` data set in \\textit{poppr} from
+  [@Grunwald:2003]."
+  subcap    <- beaverdown::render_caption(subcap, figname = "popprtabsub2", to = TO)
+  subcap    <- gsub("\\\\", "\\\\\\\\", subcap)
+  texttt    <- function(x) paste0("\\texttt{", x, "}")
+  xtab      <- xtable(res, align = c("l|", rep("r", ncol(res))), caption = tabcap, 
+                      label = "tab:poppr2")
+  out <- print.xtable(xtab, 
+               comment = FALSE, 
+               table.placement = "ph!", # http://tex.stackexchange.com/a/28091/77699
+               floating.environment = "sidewaystable",
+               booktabs = TRUE,
+               print.results = FALSE,
+               hline.after = c(-1, nrow(res)),
+               include.rownames = FALSE,
+               sanitize.text.function = texttt)
+  # This part is necessary to insert a short caption :/
+  # cat(gsub("caption\\{", 
+  #        paste0("caption[", subcap, "]{\n"), 
+  #        out))
+  cat(out)
+} else {
+  knitr::kable(res, align = "r", caption = tabcap)
 }
-cat(out, collapse = "\n")
+
+
 ```
 
 ```{r, poptab3, results = 'asis', echo = FALSE}
-tab <- if (LATEX) "data/poppr-table3.tex" else "data/poppr-table3.md"
+tab <- if (LATEX) "data/tables/poppr-table3.tex" else "data/tables/poppr-table3.md"
+out <- readLines(tab)
+cat(out, sep = "\n")
+```
+
+```{r, poptab4, results = 'asis', echo = FALSE}
+tab <- if (LATEX) "data/tables/poppr-table4.tex" else "data/tables/poppr-table4.md"
 out <- readLines(tab)
 cat(out, sep = "\n")
 ```
@@ -248,25 +280,25 @@ cat(out, sep = "\n")
 
 
 *Poppr* generates bar charts of MLG counts found within each population
-of your data set (Fig. \@ref(fig:1)). Histograms with rug plots for
+of your data set (Fig. \@ref(fig:poppr1)). Histograms with rug plots for
 $I_A$ and $\bar{r}_d$ allow visual assessment of the quality of the
 distribution derived from resampling to see if a higher number of
-replications are necessary (Fig. \@ref(fig:2)). *Poppr*
+replications are necessary (Fig. \@ref(fig:poppr2)). *Poppr*
 automatically produces custom minimum spanning networks for Bruvo's or
 other distances using Prim's algorithm, as implemented in the package
 *igraph* @igraph, with the functions `bruvo.msn()` for Bruvo's distance
-(Fig. \@ref(fig:3)) and `poppr.msn()` for any distance matrix. The
+(Fig. \@ref(fig:poppr3)) and `poppr.msn()` for any distance matrix. The
 combination of data structures from *adegenet* and *igraph* allow
 graphing that is color coded by population with vertices grouped by MLG
 [@Jombart:2008; @Jombart:2011; @igraph]. *Poppr* also includes
 visualization of dendrograms using UPGMA @phangorn and Neighbor-Joining
 @ape algorithms with bootstrap support for Bruvo's distance using the
-function `bruvo.boot()` (Fig. \@ref(fig:4)). Neither graphing of
+function `bruvo.boot()` (Fig. \@ref(fig:poppr4)). Neither graphing of
 minimum spanning networks or dendrograms with bootstrap support are
 currently possible for populations in any other R packages.
 
-```{r, poppr1, results = 'asis', echo = FALSE, fig.cap = cap1, fig.scap = scap1}
-knitr::include_graphics("figures/Finland.png")
+```{r, poppr1, echo = FALSE, fig.cap = cap1, fig.scap = scap1}
+knitr::include_graphics("figure/poppr/Finland.png")
 
 cap1 <- "Distribution of 12 multilocus genotypes from the `Finland` population 
 of the `H3N2` SNP data set [@Jombart:2008]"
@@ -275,8 +307,8 @@ cap1 <- beaverdown::render_caption(cap1, figname = "popprfig1", to = TO)
 scap1 <- cap1
 ```
 
-```{r, poppr2, results = 'asis', echo = FALSE, fig.cap = cap2, fig.scap = scap2}
-knitr::include_graphics("figures/nancy_5.png")
+```{r, poppr2, echo = FALSE, fig.cap = cap2, fig.scap = scap2}
+knitr::include_graphics("figure/poppr/nancy_5.png")
 
 
 cap2 <- "Visualizations of tests for linkage disequilibrium, where observed
@@ -290,8 +322,8 @@ cap2 <- beaverdown::render_caption(cap2, figname = "popprfig2", to = TO)
 scap2 <- "Visualizations of tests for linkage disequilibrium."
 ```
 
-```{r, poppr3, results = 'asis', echo = FALSE, fig.cap = cap3, fig.scap = scap3}
-knitr::include_graphics("figures/bruvo_color.png")
+```{r, poppr3, echo = FALSE, fig.cap = cap3, fig.scap = scap3}
+knitr::include_graphics("figure/poppr/bruvo_color.png")
 
 
 cap3 <- "Example minimum spanning network using Bruvo's distance on a simulated
@@ -305,8 +337,8 @@ partially clonal data set with 50 individuals genotyped over 10 microsatellite
 loci."
 ```
 
-```{r, poppr4, results = 'asis', echo = FALSE, fig.cap = cap4, fig.scap = scap4}
-knitr::include_graphics("figures/nancy9-boot-redo.png")
+```{r, poppr4, echo = FALSE, fig.cap = cap4, fig.scap = scap4}
+knitr::include_graphics("figure/poppr/nancy9-boot-redo.png")
 
 
 cap4 <- "UPGMA tree produced from Bruvo's distance with 1000 bootstrap
@@ -379,6 +411,15 @@ populations defined within a file including the possibility of clone
 correction and sub-setting. A comparison of the capabilities of these
 programs are summarized in Table \@ref(tab:poppr5).
 
+
+                **Haploids**   **Diploids**   $\bar{r}_d$   **All Platforms**   **Batch Analysis**
+-------------- -------------- -------------- ------------- ------------------- --------------------
+*poppr*             Yes            Yes            Yes              Yes                 Yes
+*LIAN*              Yes             No            No               Yes                 Yes
+*multilocus*        Yes            Yes            Yes              No                   No
+
+Table: (\#tab:poppr5) Comparison of programs that calculate $I_A$
+
 To test significance for $I_A$ and $\bar{r}_d$, *poppr* offers four
 permutation algorithms. Each one will randomly shuffle data at each
 locus, effectively unlinking the loci. The algorithm previously utilized
@@ -411,7 +452,7 @@ and attempt to infer the second allelic state in comparison with heterozygous
 individuals. Since haploid and diploid individuals show clear allelic dosage,
 this procedure creates a bias misrepresenting the true distance. Not only is
 *poppr* not subject to this bias, but it also newly introduces bootstrap support
-for this distance as shown in Figure \@ref(fig:4).
+for this distance as shown in Figure \@ref(fig:poppr4).
 
 ### Performance
 
@@ -427,77 +468,43 @@ permutations and Nei's genotypic diversity [@Nei:1978], <span
 style="font-variant:small-caps;">multilocus</span> required around 9.12
 minutes on average, as compared to 13.4 seconds with *poppr*.
 
+                **$I_A$ (seconds)**   **Bruvo's distance (seconds)**
+-------------- --------------------- --------------------------------
+*poppr*                13.4                        0.3
+*polysat*                -                         58.3
+*multilocus*           547.2                        -
+
+Table: (\#tab:poppr6) Comparison of performance on one data set of 237
+individuals over nine loci. Each time point represents an average of 10
+independent runs. Calculations of $I_A$ are based on 100 permutations.
+
 ## Conclusions
 
 
-The R package *poppr* provides new functions and tools specifically
-tailored for analysis of data from clonal or partially clonal
-populations. No software currently available provides this set of tools.
-Novel capabilities include analysis across multiple populations at
-multiple levels of hierarchies, clone-censoring, and subsetting. These
-in combination with R's command line interface and scripting
-capabilities makes analyses of these populations more streamlined and
-tractable. By implementing computationally expensive algorithms such as
-Bruvo's distance and $I_A$ in C, analyses of multiple populations that
+The R package *poppr* provides new functions and tools specifically tailored for
+analysis of data from clonal or partially clonal populations. No software
+currently available provides this set of tools. Novel capabilities include
+analysis across multiple populations at multiple levels of hierarchies, 
+clone-censoring, and subsetting. These in combination with R's command line
+interface and scripting capabilities makes analyses of these populations more
+streamlined and tractable. By implementing computationally expensive algorithms
+such as Bruvo's distance and $I_A$ in C, analyses of multiple populations that
 would normally take hours to complete can now be finished in a matter of
-minutes. This allowed us to expand the utility of these measures to
-convenient new graphing abilities such as automatically creating
-dendrograms with bootstrap support for Bruvo's distance and minimum
-spanning networks. While major releases of *poppr* are available on
-CRAN, we are continuing to develop this package to be able to
-efficiently handle genome-sized SNP data. Development versions are
+minutes. This allowed us to expand the utility of these measures to convenient
+new graphing abilities such as automatically creating dendrograms with bootstrap
+support for Bruvo's distance and minimum spanning networks. While major releases
+of *poppr* are available on CRAN, we are continuing to develop this package to
+be able to efficiently handle genome-sized SNP data. Development versions are
 available on github at <https://github.com/grunwaldlab/poppr>.
 
 ## Acknowledgements
 
 
 The authors would like to thank Sydney Everhart and Corine Schoebel for
-invaluable alpha testing and Paul-Michael Agapow for providing the
-*multilocus* C++ source code for reference. We thank Sydney Everhart and
-Brian Knaus for comments that significantly improved this manuscript.
-Mention of trade names or commercial products in this manuscript are
-solely for the purpose of providing specific information and do not
-imply recommendation or endorsement.
-
-
-  **Method/Index**                                       **Citation**                             **Function(s) in *poppr***
-  ---------------------------- ---------------------------------------------------------------- ----------------------------
-  Expected MLG (rarefaction)      @hurlbert1971nonconcept, @heck1975explicit (for std. err.)                       `poppr()`
-  $H$                                              @shannon2001mathematical                                        `poppr()`
-  $G$                                               @stoddart1988genotypic                                         `poppr()`
-  $H_{exp}$                                               @Nei:1978                                                `poppr()`
-  $E_{5}$                       [@Grunwald:2006; @pielou1975ecological; @ludwig1988statistical]                     `poppr()`
-  $I_A$/$\bar{r}_d$             [@Brown:1980; @Smith:1993] ($I_A$), @Agapow:2001 ($\bar{r}_d$)                         `ia()`
-                                                                                                                   `poppr()`
-  Clone correction               [@milgroom1996recombination; @Grunwald:2003; @Grunwald:2006]                `clonecorrect()`
-                                                                                                                   `poppr()`
-  Minimum Spanning Networks                                @igraph                                             `poppr.msn()`
-                                                                                                               `bruvo.msn()`
-  Bruvo's Distance                                       @Bruvo:2004                                          `bruvo.dist()`
-                                                                                                               `bruvo.msn()`
-                                                                                                              `bruvo.boot()`
-  Bootstrapping                                              @ape                                             `bruvo.boot()`
-  Neighbor Joining                                           @ape                                             `bruvo.boot()`
-  UPGMA                                                   @phangorn                                           `bruvo.boot()`
-
-
-
-                  **Haploids**   **Diploids**   $\bar{r}_d$   **All Platforms**   **Batch Analysis**
-  -------------- -------------- -------------- ------------- ------------------- --------------------
-  *poppr*             Yes            Yes            Yes              Yes                 Yes
-  *LIAN*              Yes             No            No               Yes                 Yes
-  *multilocus*        Yes            Yes            Yes              No                   No
-
-
-
-                  **$I_A$ (seconds)**   **Bruvo's distance (seconds)**
-  -------------- --------------------- --------------------------------
-  *poppr*                13.4                        0.3
-  *polysat*                -                         58.3
-  *multilocus*           547.2                        -
-
-
-
-
+invaluable alpha testing and Paul-Michael Agapow for providing the *multilocus*
+C++ source code for reference. We thank Sydney Everhart and Brian Knaus for
+comments that significantly improved this manuscript. Mention of trade names or
+commercial products in this manuscript are solely for the purpose of providing
+specific information and do not imply recommendation or endorsement.
 
 
