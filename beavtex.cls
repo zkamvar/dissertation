@@ -654,14 +654,14 @@
   \vspace*{10\p@}%
   {
     \begin{center}
-    \begin{singlespace}
+    \begin{singlespace} % ZNK add
       \normalfont\heading
       \ifnum \c@secnumdepth >\m@ne
       \if@mainmatter\heading\@chapapp\ \thechapter:\ \fi
       \fi
       \heading #1\par\nobreak
       \vskip 20\p@
-    \end{singlespace}
+    \end{singlespace} % ZNK add
     \end{center}
   }
 }
@@ -671,11 +671,11 @@
   \vspace*{10\p@}%
   {
     \begin{center}
-    \begin{singlespace}
+    \begin{singlespace} % ZNK add
       \normalfont\heading
       \heading #1\par\nobreak
       \vskip 20\p@
-    \end{singlespace}
+    \end{singlespace} % ZNK add
     \end{center}
   }
 }
@@ -781,7 +781,7 @@
 \def\l@subsubsection#1#2{{\baselineskip 14.5pt%
     \@dottedtocline{3}{7pc}{3.4em}{#1}{#2}}}
 \def\l@figure#1#2{\vskip 9.5pt {\baselineskip 14.5pt%
-    \@dottedtocline{1}{1.5em}{2.3em}{#1}{#2}}}
+    \@dottedtocline{1}{1.5em}{2.8em}{#1}{#2}}}
 \let\l@table\l@figure
 
 % We want to ignore footnotes in any listing. If this is not what you want,
