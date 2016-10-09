@@ -182,6 +182,9 @@ md <- '
 tex <- 
 '
 \\begin{sidewaystable}[ph!]
+\\caption{Summary of \\emph{P. ramorum} isolates sampled in Oregon forests and multilocus genotypes (MLG)observed across regions and years.
+}
+\\label{tab:ramorum1}
 \\begin{tabular}{@{}lllrc@{}}
 \\toprule
 \\textbf{Abbreviation} & \\textbf{Region name} & \\textbf{Year} &
@@ -201,9 +204,6 @@ PistolRSF & Pistol River South Fork & 2013 & 4 & 2 (0)\\tabularnewline
 \\textbf{70 (53)}\\tabularnewline
 \\bottomrule
 \\end{tabular}
-\\caption{Summary of \\emph{P. ramorum} isolates sampled in Oregon forests and multilocus genotypes (MLG)observed across regions and years.
-}
-\\label{tab:ramorum1}
 \\end{sidewaystable}
 '
 if (LATEX) cat(tex) else cat(md)
@@ -298,6 +298,13 @@ were commonly genotyped across all laboratories.
 '
 
 tex <- '\\begin{sidewaystable}[ph!]
+
+\\caption[Newly multiplexed protocol for \\emph{P. ramorum}
+primer sequences of simple sequence repeat (SSR) loci and final
+concentrations used to determine multilocus genotypes for four clonal
+lineages.]{(Caption on Next Page)}
+
+\\label{tab:ramorum2}
 \\begin{tabular}{@{}llllll@{}}
 \\toprule
 \\textbf{SSR Locus} & \\textbf{Dye} & \\textbf{Product} & \\textbf{Primer sequence\\textsuperscript{b}} &
@@ -340,12 +347,6 @@ PrMS43\\textsuperscript{d} & 6-FAM & 122-493 &
 & 0.3 & Simplex\\tabularnewline
 \\bottomrule
 \\end{tabular}
-
-\\caption[Newly multiplexed protocol for \\emph{P. ramorum}
-primer sequences of simple sequence repeat (SSR) loci and final
-concentrations used to determine multilocus genotypes for four clonal
-lineages.]{(Caption on Next Page)}
-\\label{tab:ramorum2}
 \\end{sidewaystable}
 
 
@@ -630,6 +631,16 @@ insufficient data for analysis.
 res <- '
 \\begin{sidewaystable}[ph!]
 \\centering
+\\caption[Table of correlation coefficients generated across
+forest regions and years of \\emph{P. ramorum} isolates using the Mantel
+test.]{Table of correlation coefficients generated across
+forest regions and years of \\emph{P. ramorum} isolates using the Mantel
+test. Euclidean distances were calculated from geographic coordinates
+while genetic distance was based on Bruvo\'s distance. Significance of
+values are based on 99,999 Monte-Carlo permutations and marked as
+follows: \\^{} $\\leq$ 0.05, \\~{} $\\leq$ 0.01, * $\\leq$ 0.001, - = no data, NaN =
+insufficient data for analysis.}
+\\label{tab:ramorum3}
 \\begin{tabular}{@{}lllllllllllll@{}}
 \\toprule
 & \\textbf{2001} & \\textbf{2002} & \\textbf{2003} & \\textbf{2004} &
@@ -655,16 +666,6 @@ Pooled & 0.06 & 0.24 & 0.13* & 0.28* & NaN & NaN & NaN & 0.87* &
 0.59* & 0.15* & 0.14\\^{} & \\textbf{0.52*}\\tabularnewline
 \\bottomrule
 \\end{tabular}
-\\caption[Table of correlation coefficients generated across
-forest regions and years of \\emph{P. ramorum} isolates using the Mantel
-test.]{Table of correlation coefficients generated across
-forest regions and years of \\emph{P. ramorum} isolates using the Mantel
-test. Euclidean distances were calculated from geographic coordinates
-while genetic distance was based on Bruvo\'s distance. Significance of
-values are based on 99,999 Monte-Carlo permutations and marked as
-follows: \\^{} $\\leq$ 0.05, \\~{} $\\leq$ 0.01, * $\\leq$ 0.001, - = no data, NaN =
-insufficient data for analysis.}
-\\label{tab:ramorum3}
 \\end{sidewaystable}
 '
 }
@@ -742,6 +743,7 @@ if (LATEX){
   out <- print.xtable(xtab, 
                comment = FALSE, 
                table.placement = "ph!", # http://tex.stackexchange.com/a/28091/77699
+               caption.placement = "top",
                floating.environment = "sidewaystable",
                booktabs = TRUE,
                print.results = FALSE,
@@ -1203,9 +1205,4 @@ out <- "
 % \\renewcommand{\\thetable}{\\arabic{chapter}.\\arabic{table}}
 "
 cat(beaverdown::iflatex(out))
-```
-
-
-```{r, avolcano, fig.cap = "HOT LAVA"}
-image(volcano, col = viridis::viridis_pal(option = "A")(100))
 ```
