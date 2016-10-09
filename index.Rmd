@@ -60,7 +60,7 @@ dedication: >
 ```{r, setup, include = FALSE}
 # evaluate fig.cap after a chunk is evaluated
 knitr::opts_knit$set(eval.after = c('fig.cap', 'fig.scap'))
-knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 LATEX <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "latex"
 TO <- if (LATEX) "latex" else "markdown"
 ```
