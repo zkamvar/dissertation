@@ -241,6 +241,7 @@ if (LATEX){
   out <- print.xtable(xtab, 
                comment = FALSE, 
                table.placement = "ph!", # http://tex.stackexchange.com/a/28091/77699
+               caption.placement = "top",
                floating.environment = "sidewaystable",
                booktabs = TRUE,
                print.results = FALSE,
@@ -295,7 +296,7 @@ cap1 <- beaverdown::render_caption(cap1, figname = "popprfig1", to = TO)
 scap1 <- cap1
 ```
 
-```{r, poppr2, echo = FALSE, fig.cap = cap2, fig.scap = scap2, results = "asis"}
+```{r, poppr2, echo = FALSE, fig.cap = cap2, fig.scap = scap2, results = "asis", out.width = "70%"}
 cat(beaverdown::iflatex("\\newpage"))
 knitr::include_graphics("figure/poppr/nancy_5.png")
 
@@ -466,6 +467,15 @@ for this distance as shown in Figure \@ref(fig:poppr4).
 
 ### Performance
 
+                **$I_A$ (seconds)**   **Bruvo's distance (seconds)**
+-------------- --------------------- --------------------------------
+*poppr*                13.4                        0.3
+*polysat*                -                         58.3
+*multilocus*           547.2                        -
+
+Table: (\#tab:poppr6) Comparison of performance on one data set of 237
+individuals over nine loci. Each time point represents an average of 10
+independent runs. Calculations of $I_A$ are based on 100 permutations.
 
 *Poppr* reduces the amount of intermediate files and repetitive tasks
 needed for basic population genetic analyses and implements
@@ -477,16 +487,6 @@ calculation of Bruvo's distance took 58.3 seconds on average whereas
 permutations and Nei's genotypic diversity [@Nei:1978], <span
 style="font-variant:small-caps;">multilocus</span> required around 9.12
 minutes on average, as compared to 13.4 seconds with *poppr*.
-
-                **$I_A$ (seconds)**   **Bruvo's distance (seconds)**
--------------- --------------------- --------------------------------
-*poppr*                13.4                        0.3
-*polysat*                -                         58.3
-*multilocus*           547.2                        -
-
-Table: (\#tab:poppr6) Comparison of performance on one data set of 237
-individuals over nine loci. Each time point represents an average of 10
-independent runs. Calculations of $I_A$ are based on 100 permutations.
 
 ## Conclusions
 

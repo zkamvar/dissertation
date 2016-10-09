@@ -1,4 +1,6 @@
 \begin{sidewaystable}[ph!]
+\caption{Summary table shown as it would appear in the R console produced by the \texttt{poppr()} function with 999 permutations to calculate $I_A$ and $\bar{r}_d$ p-values from the \texttt{Aeut} data set in \textit{poppr} from [@Grunwald:2003]. \texttt{N}: census size, \texttt{MLG}: multilocus genotypes, \texttt{eMLG}: expected MLG based on rarefaction, \texttt{SE}: standard error from rarefaction, \texttt{H}: Shannon-Wiener Index, \texttt{G}: Stoddart and Taylor's Index, \texttt{Hexp}: Nei 1978 Expected Heterozygosity, \texttt{E.5}: Evenness ($E_5$), \texttt{Ia}: $I_A$, \texttt{p.Ia}: p-value for $I_A$, \texttt{rbarD}: $\bar{r}_d$, \texttt{p.rD}: p-value for $\bar{r}_d$. Table was obtained with the following code: \texttt{library(poppr); data(Aeut); poppr(Aeut, sample = 999)}.}
+\label{tab:poppr2}
 \begin{tabular}{rrrrrrrrrrrrr}
 \hline
 %Pop & N & MLG & eMLG & SE & H & G & Hexp & E.5 & Ia & p.Ia & rbarD & p.rD \\
@@ -12,6 +14,4 @@
 \texttt{Total} & \texttt{187} & \texttt{119} & \texttt{68.453} & \texttt{2.989} & \texttt{4.558} & \texttt{68.972} & \texttt{0.991} & \texttt{0.720} & \texttt{14.371} & \texttt{0.001} & \texttt{0.271} & \texttt{0.001} \\  
 \hline
 \end{tabular}
-\caption{Summary table shown as it would appear in the R console produced by the \texttt{poppr()} function with 999 permutations to calculate $I_A$ and $\bar{r}_d$ p-values from the \texttt{Aeut} data set in \textit{poppr} from [@Grunwald:2003]. \texttt{N}: census size, \texttt{MLG}: multilocus genotypes, \texttt{eMLG}: expected MLG based on rarefaction, \texttt{SE}: standard error from rarefaction, \texttt{H}: Shannon-Wiener Index, \texttt{G}: Stoddart and Taylor's Index, \texttt{Hexp}: Nei 1978 Expected Heterozygosity, \texttt{E.5}: Evenness ($E_5$), \texttt{Ia}: $I_A$, \texttt{p.Ia}: p-value for $I_A$, \texttt{rbarD}: $\bar{r}_d$, \texttt{p.rD}: p-value for $\bar{r}_d$. Table was obtained with the following code: \texttt{library(poppr); data(Aeut); poppr(Aeut, sample = 999)}.}
-\label{tab:poppr2}
 \end{sidewaystable}
