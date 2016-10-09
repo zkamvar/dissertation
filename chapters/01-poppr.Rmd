@@ -232,13 +232,9 @@ cap <- paste(readLines("data/tables/poppr-table2caption.md"), collapse = "\n")
 tabcap <- beaverdown::render_caption(cap, figname = "popprtable2", to = TO)
 
 if (LATEX){
+  # cat("\\newpage")
   library("xtable") 
-  subcap    <- "Summary table shown as it would appear in the R console
-  produced by the `poppr()` function with 999 permutations to calculate $I_A$ and
-  $\\bar{r}_d$ p-values from the `Aeut` data set in \\textit{poppr} from
-  [@Grunwald:2003]."
-  subcap    <- beaverdown::render_caption(subcap, figname = "popprtabsub2", to = TO)
-  subcap    <- gsub("\\\\", "\\\\\\\\", subcap)
+  subcap    <- "Summary table shown as it would appear in the R console produced by the poppr() function."
   texttt    <- function(x) paste0("\\texttt{", x, "}")
   xtab      <- xtable(res, align = c("l|", rep("r", ncol(res))), caption = tabcap, 
                       label = "tab:poppr2")
@@ -252,10 +248,9 @@ if (LATEX){
                include.rownames = FALSE,
                sanitize.text.function = texttt)
   # This part is necessary to insert a short caption :/
-  # cat(gsub("caption\\{", 
-  #        paste0("caption[", subcap, "]{\n"), 
-  #        out))
-  cat(out)
+  cat(gsub("caption\\{", 
+         paste0("caption[", subcap, "]{\n"), 
+         out))
 } else {
   knitr::kable(res, align = "r", caption = tabcap)
 }
@@ -269,15 +264,7 @@ out <- readLines(tab)
 cat(out, sep = "\n")
 ```
 
-```{r, poptab4, results = 'asis', echo = FALSE}
-tab <- if (LATEX) "data/tables/poppr-table4.tex" else "data/tables/poppr-table4.md"
-out <- readLines(tab)
-cat(out, sep = "\n")
-```
-
-
 ### Visualizations
-
 
 *Poppr* generates bar charts of MLG counts found within each population
 of your data set (Fig. \@ref(fig:poppr1)). Histograms with rug plots for
@@ -297,7 +284,8 @@ function `bruvo.boot()` (Fig. \@ref(fig:poppr4)). Neither graphing of
 minimum spanning networks or dendrograms with bootstrap support are
 currently possible for populations in any other R packages.
 
-```{r, poppr1, echo = FALSE, fig.cap = cap1, fig.scap = scap1}
+```{r, poppr1, echo = FALSE, fig.cap = cap1, fig.scap = scap1, results = "asis"}
+# cat(beaverdown::iflatex("\\newpage"))
 knitr::include_graphics("figure/poppr/Finland.png")
 
 cap1 <- "Distribution of 12 multilocus genotypes from the `Finland` population 
@@ -307,7 +295,8 @@ cap1 <- beaverdown::render_caption(cap1, figname = "popprfig1", to = TO)
 scap1 <- cap1
 ```
 
-```{r, poppr2, echo = FALSE, fig.cap = cap2, fig.scap = scap2}
+```{r, poppr2, echo = FALSE, fig.cap = cap2, fig.scap = scap2, results = "asis"}
+cat(beaverdown::iflatex("\\newpage"))
 knitr::include_graphics("figure/poppr/nancy_5.png")
 
 
@@ -322,7 +311,8 @@ cap2 <- beaverdown::render_caption(cap2, figname = "popprfig2", to = TO)
 scap2 <- "Visualizations of tests for linkage disequilibrium."
 ```
 
-```{r, poppr3, echo = FALSE, fig.cap = cap3, fig.scap = scap3}
+```{r, poppr3, echo = FALSE, fig.cap = cap3, fig.scap = scap3, results = "asis"}
+cat(beaverdown::iflatex("\\newpage"))
 knitr::include_graphics("figure/poppr/bruvo_color.png")
 
 
@@ -337,7 +327,8 @@ partially clonal data set with 50 individuals genotyped over 10 microsatellite
 loci."
 ```
 
-```{r, poppr4, echo = FALSE, fig.cap = cap4, fig.scap = scap4}
+```{r, poppr4, echo = FALSE, fig.cap = cap4, fig.scap = scap4, results = "asis"}
+cat(beaverdown::iflatex("\\newpage"))
 knitr::include_graphics("figure/poppr/nancy9-boot-redo.png")
 
 
@@ -347,7 +338,7 @@ the `nancycats` data set [@Jombart:2008]"
 
 cap4  <- beaverdown::render_caption(cap4, figname = "popprfig4", to = TO)
 scap4 <- "UPGMA tree produced from Bruvo's distance with 1000 bootstrap
-replicates (node values greater than 50% are shown)."
+replicates."
 ```
 
 ### Performance
@@ -377,6 +368,25 @@ Users should refer to the original publications for interpretations and
 citation. See table \@ref(tab:poppr4) for a full list of citations. As with any
 R package, users should always cite the R Core Team [@R]. 
 
+```{r, poptab4, results = 'asis', echo = FALSE}
+# cat(beaverdown::iflatex("\\newpage"))
+tab <- if (LATEX) "data/tables/poppr-table4.tex" else "data/tables/poppr-table4.md"
+out <- readLines(tab)
+if (LATEX){
+  # Filter out everything but the citations.
+  cites  <- gsub("^.+?(\\[@[A-Za-z0-9:_]+?\\]).+?$", "\\1", out)
+  cites  <- cites[grep("@[A-Za-z0-9:]", cites)]
+  cites  <- vapply(cites, beaverdown::render_caption, character(1), to = TO)
+  # R is weird. Escapes are weird.
+  ocites <- gsub("([^A-Za-z0-9:@_])", "\\\\\\1" , names(cites))
+  cites  <- gsub("\\\\", "\\\\\\\\", cites)
+  for (i in seq(cites)){
+    out <- gsub(ocites[i], cites[i], out)
+  }
+}
+cat(out, sep = "\n")
+```
+
 ## Results and Discussion 
 
 
@@ -388,6 +398,15 @@ novel functionality in R. Combined with R's graphing abilities,
 publication-ready figures are thus obtained conveniently.
 
 ### New functionalities
+
+
+                **Haploids**   **Diploids**   $\bar{r}_d$   **All Platforms**   **Batch Analysis**
+-------------- -------------- -------------- ------------- ------------------- --------------------
+*poppr*             Yes            Yes            Yes              Yes                 Yes
+*LIAN*              Yes             No            No               Yes                 Yes
+*multilocus*        Yes            Yes            Yes              No                   No
+
+Table: (\#tab:poppr5) Comparison of programs that calculate $I_A$
 
 
 *Poppr* implements several new functionalities. As of this writing,
@@ -410,15 +429,6 @@ systems, and is capable of batch analysis of multiple files and multiple
 populations defined within a file including the possibility of clone
 correction and sub-setting. A comparison of the capabilities of these
 programs are summarized in Table \@ref(tab:poppr5).
-
-
-                **Haploids**   **Diploids**   $\bar{r}_d$   **All Platforms**   **Batch Analysis**
--------------- -------------- -------------- ------------- ------------------- --------------------
-*poppr*             Yes            Yes            Yes              Yes                 Yes
-*LIAN*              Yes             No            No               Yes                 Yes
-*multilocus*        Yes            Yes            Yes              No                   No
-
-Table: (\#tab:poppr5) Comparison of programs that calculate $I_A$
 
 To test significance for $I_A$ and $\bar{r}_d$, *poppr* offers four
 permutation algorithms. Each one will randomly shuffle data at each
