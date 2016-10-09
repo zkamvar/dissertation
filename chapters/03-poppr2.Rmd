@@ -197,7 +197,7 @@ For the *P. infestans* population, the three algorithms were able to detect 18
 multilocus lineages at different distance thresholds (Fig. \@ref(fig:Figure-2)).
 Contingency tables between the described multilocus genotypes and the genotypes
 defined by distance show that most of the 18 lineages were resolved, except for
-US-8, which is polytomic (Table \@ref(pinftable)).
+US-8, which is polytomic (Table \@ref(tab:pinftable)).
 
 ```{r, Figure-2, echo = FALSE, message = FALSE, fig.width = 4*1.25, fig.height = 4*1.25, fig.cap = figcap2, fig.scap = figscap2}
 
@@ -253,10 +253,11 @@ tabcap <- beaverdown::render_caption(cap, figname = "tab1", index = "index.Rmd",
 if (LATEX){
   bold.rows <- function(x) paste0("\\textbf{", x, "}")
   xtab      <- xtable(res, align = c("l|", rep("c", ncol(res))), caption = tabcap, 
-                      label = "pinftable")
+                      label = "tab:pinftable")
   out <- print.xtable(xtab, 
                comment = FALSE, 
                table.placement = "ph!", # http://tex.stackexchange.com/a/28091/77699
+               caption.placement = "top",
                floating.environment = "sidewaystable",
                booktabs = TRUE,
                print.results = FALSE,
@@ -267,13 +268,10 @@ if (LATEX){
   cat(gsub("caption\\{", 
   	     "caption[Contingency table comparing multilocus lineages (MLL)]{", 
   	     out))
+  cat("\\newpage")
 } else {
   knitr::kable(res, align = "c", caption = tabcap)
 }
-```
-
-```{r, results = "asis", echo = FALSE}
-cat(beaverdown::iflatex("\\newpage"))
 ```
 
 We utilized simulated data to evaluate the effect of sequencing error and

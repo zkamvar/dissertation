@@ -1,0 +1,54 @@
+\begin{longtable}[h!]{@{}lcr@{}}
+
+\caption{(\#tab:poppr4) Citation of methods and indices implemented in \emph{poppr}}\tabularnewline
+
+\textbf{Method/Index} & \textbf{Citation} & \textbf{Function(s) in \emph{poppr}}\tabularnewline
+\midrule
+\endfirsthead
+\multicolumn{3}{c}%
+{{\tablename\ \thetable{} -- continued from previous page}} \\
+\textbf{Method/Index} & \textbf{Citation} & \textbf{Function(s) in \emph{poppr}}\tabularnewline
+\endhead
+
+\multicolumn{3}{r}{\textbf{Continued on next page...}} \\
+\endfoot
+
+\endlastfoot
+
+Expected MLG  & [@hurlbert1971nonconcept], & \texttt{poppr()}\tabularnewline
+(rarefaction) & [@heck1975explicit] (for std. err.) & \tabularnewline
+\hline
+\(H\) & [@shannon2001mathematical] & \texttt{poppr()}\tabularnewline
+\hline
+\(G\) & [@stoddart1988genotypic] & \texttt{poppr()}\tabularnewline
+\hline
+\(H_{exp}\) & [@Nei:1978] & \texttt{poppr()}\tabularnewline
+\hline
+\(E_{5}\) & [@Grunwald:2006], & \texttt{poppr()}\tabularnewline
+ & [@ludwig1988statistical], & \tabularnewline
+ & [@pielou1975ecological] & \tabularnewline
+\hline
+\(I_A\) & [@Brown:1980], & \texttt{ia()}\tabularnewline 
+ & [@Smith:1993] & \texttt{poppr()}\tabularnewline
+\hline
+\(\bar{r}_d\) &  [@Agapow:2001] & \texttt{ia()}\tabularnewline 
+& & \texttt{poppr()}\tabularnewline
+\hline
+Clone correction & [@Grunwald:2006], & \texttt{clonecorrect()}\tabularnewline 
+ & [@Grunwald:2003], & \texttt{poppr()}\tabularnewline
+ & [@milgroom1996recombination] & \tabularnewline
+\hline
+Minimum Spanning & [@igraph] & \texttt{poppr.msn()}\tabularnewline 
+Networks & & \texttt{bruvo.msn()}\tabularnewline
+\hline
+Bruvo's Distance & [@Bruvo:2004] & \texttt{bruvo.dist()}\tabularnewline 
+& & \texttt{bruvo.msn()}\tabularnewline 
+& & \texttt{bruvo.boot()}\tabularnewline
+\hline
+Bootstrapping & [@ape] & \texttt{bruvo.boot()}\tabularnewline 
+\hline
+Neighbor Joining & [@ape] & \texttt{bruvo.boot()}\tabularnewline
+\hline
+UPGMA & [@phangorn] & \texttt{bruvo.boot()}\tabularnewline 
+\bottomrule
+\end{longtable}
