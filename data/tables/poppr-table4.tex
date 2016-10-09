@@ -1,38 +1,54 @@
-\begin{sidewaystable}[ph!]
-\begin{tabular}{lcr}
+\begin{longtable}[h!]{@{}lcr@{}}
+
+
+\textbf{Method/Index} & \textbf{Citation} & \textbf{Function(s) in \emph{poppr}}\tabularnewline
+\midrule
+\endfirsthead
+\multicolumn{3}{l}%
+{{\bfseries continued from previous page}} \\
+\textbf{Method/Index} & \textbf{Citation} & \textbf{Function(s) in \emph{poppr}}\tabularnewline
+\endhead
+
+\multicolumn{3}{r}{\textbf{Continued on next page...}} \\
+\endfoot
+
+\endlastfoot
+
+Expected MLG  & [@hurlbert1971nonconcept], & \texttt{poppr()}\tabularnewline
+(rarefaction) & [@heck1975explicit] (for std. err.) & \tabularnewline
 \hline
-Method/Index & Citation & Function(s) in \textit{poppr} \\  
+\(H\) & [@shannon2001mathematical] & \texttt{poppr()}\tabularnewline
 \hline
-Expected MLG (rarefaction) & [@hurlbert1971nonconcept], [@heck1975explicit] (for std. err.) & \texttt{poppr()} \\ 
+\(G\) & [@stoddart1988genotypic] & \texttt{poppr()}\tabularnewline
 \hline
-$H$ & [@shannon2001mathematical] & \texttt{poppr()} \\
+\(H_{exp}\) & [@Nei:1978] & \texttt{poppr()}\tabularnewline
 \hline
-$G$ & [@stoddart1988genotypic] & \texttt{poppr()} \\
+\(E_{5}\) & [@Grunwald:2006], & \texttt{poppr()}\tabularnewline
+ & [@ludwig1988statistical], & \tabularnewline
+ & [@pielou1975ecological] & \tabularnewline
 \hline
-$H_{exp}$ & [@Nei:1978] & \texttt{poppr()} \\
+\(I_A\) & [@Brown:1980], & \texttt{ia()}\tabularnewline 
+ & [@Smith:1993] & \texttt{poppr()}\tabularnewline
 \hline
-$E_{5}$ & [@Grunwald:2006; @pielou1975ecological; @ludwig1988statistical] & \texttt{poppr()} \\
+\(\bar{r}_d\) &  [@Agapow:2001] & \texttt{ia()}\tabularnewline 
+& & \texttt{poppr()}\tabularnewline
 \hline
-$I_A$/$\bar{r}_d$ & [@Brown:1980; @Smith:1993] ($I_A$), [@Agapow:2001] ($\bar{r}_d$) & \texttt{ia()} \\
- & & \texttt{poppr()} \\
+Clone correction & [@Grunwald:2006], & \texttt{clonecorrect()}\tabularnewline 
+ & [@Grunwald:2003], & \texttt{poppr()}\tabularnewline
+ & [@milgroom1996recombination] & \tabularnewline
 \hline
-Clone correction & [@milgroom1996recombination; @Grunwald:2003; @Grunwald:2006] & \texttt{clonecorrect()} \\
- & & \texttt{poppr()}\\
+Minimum Spanning & [@igraph] & \texttt{poppr.msn()}\tabularnewline 
+Networks & & \texttt{bruvo.msn()}\tabularnewline
 \hline
+Bruvo's Distance & [@Bruvo:2004] & \texttt{bruvo.dist()}\tabularnewline 
+& & \texttt{bruvo.msn()}\tabularnewline 
+& & \texttt{bruvo.boot()}\tabularnewline
 \hline
-Minimum Spanning Networks & [igraph] & \texttt{poppr.msn()} \\
- & & \texttt{bruvo.msn()} \\
-Bruvo's Distance & [@Bruvo:2004] & \texttt{bruvo.dist()} \\
- & & \texttt{bruvo.msn()} \\
- & & \texttt{bruvo.boot()} \\
+Bootstrapping & [@ape] & \texttt{bruvo.boot()}\tabularnewline 
 \hline
-Bootstrapping & [ape] & \texttt{bruvo.boot()} \\
+Neighbor Joining & [@ape] & \texttt{bruvo.boot()}\tabularnewline
 \hline
-Neighbor Joining & [ape] & \texttt{bruvo.boot()} \\
-\hline
-UPGMA & [phangorn] & \texttt{bruvo.boot()} \\
-\hline
-\end{tabular}
-\caption{Citation of methods and indices implemented in \textit{poppr}}
-\label{tab:poppr4}
-\end{sidewaystable}
+UPGMA & [@phangorn] & \texttt{bruvo.boot()}\tabularnewline 
+\bottomrule
+\caption{(\#tab:poppr4) Citation of methods and indices implemented in \emph{poppr}}\tabularnewline
+\end{longtable}
