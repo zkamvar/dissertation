@@ -352,6 +352,10 @@ PrMS43\\textsuperscript{d} & 6-FAM & 122-493 &
 
 \\newpage
 
+\\renewcommand{\\tablename}{Table Caption}
+\\renewcommand{\\thetable}{\\arabic{chapter}.C\\arabic{table}}
+\\addtocounter{table}{-1}
+
 \\vspace*{\\fill}
 
 \\begin{table}[ph!]
@@ -370,6 +374,9 @@ study as they were commonly genotyped across all laboratories.
 \\label{cap:ramorum2}
 \\end{table}
 \\vspace*{\\fill}
+
+\\renewcommand{\\tablename}{Table}
+\\renewcommand{\\thetable}{\\arabic{chapter}.\\arabic{table}}
 
 \\newpage
 '
