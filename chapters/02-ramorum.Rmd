@@ -241,7 +241,7 @@ calls. Given the varied nature of the genotyping data described above genotyping
 of *P. ramorum* strains consists of two datasets including either 5 loci
 (2001-14) or a newly developed, multiplexed method including 14 loci (samples
 2013-14) (Table \@ref(tab:ramorum2)). Details on both genotyping methods can be
-found in the supplementary text \@ref(text:S1) and figure S\@ref(fig:ramS1).
+found in the supplementary text \@ref(text:S1) and figure \@ref(fig:ramS1).
 
 
 ```{r, results = 'asis', echo = FALSE}
@@ -352,6 +352,10 @@ PrMS43\\textsuperscript{d} & 6-FAM & 122-493 &
 
 \\newpage
 
+\\renewcommand{\\tablename}{Table Caption}
+\\renewcommand{\\thetable}{\\arabic{chapter}.C\\arabic{table}}
+\\addtocounter{table}{-1}
+
 \\vspace*{\\fill}
 
 \\begin{table}[ph!]
@@ -370,6 +374,9 @@ study as they were commonly genotyped across all laboratories.
 \\label{cap:ramorum2}
 \\end{table}
 \\vspace*{\\fill}
+
+\\renewcommand{\\tablename}{Table}
+\\renewcommand{\\thetable}{\\arabic{chapter}.\\arabic{table}}
 
 \\newpage
 '
@@ -416,7 +423,7 @@ github link below). Graphs and figures were created using the R packages
 *ggplot2, ape, igraph, ggmap,* and *poppr* [@wickham2009ggplot2;
 @csardi2006igraph; @paradis2004ape; @khale2013ggmap; @kamvar2014poppr]. 
 Within-locus allelic diversity was analyzed across and within years and regions
-using the function `locus_table()` from the R package *poppr* (Table S1)
+using the function `locus_table()` from the R package *poppr* (Table \@ref(ramtabS1))
 [@kamvar2014poppr]. To address the temporal and spatial aspects of the data,
 populations were analyzed both by year isolated and watershed region (Table
 \@ref(tab:ramorum1); Fig. \@ref(fig:ramorum1)). Watershed regions were drawn
@@ -549,14 +556,14 @@ cat(beaverdown::iflatex("\\newpage"))
 
 Allelic and genotype diversity within loci revealed that PrMS43 had, on average,
 the highest number of alleles (n = 18). All other loci had 5 or fewer alleles
-with a moderate to high amount of diversity (Table S2). Nevertheless, the
+with a moderate to high amount of diversity (Table \@ref(tab:ramtabS2)). Nevertheless, the
 genotype accumulation curve showed a slight plateau, indicating that we have
-enough power in our data to describe a significant number of MLGs (Fig. S\@ref(fig:ramS2)).
+enough power in our data to describe a significant number of MLGs (Fig. \@ref(fig:ramS2)).
 Genotypic diversity (*H* = 2.98, *G* = 8.64), evenness (*E~5~* = 0.41), and
 richness (*eMLG* = 7) were low as expected for a clonal population slowly
-accumulating mutations over space and time (Table S3). A pattern of increasing
+accumulating mutations over space and time (Table \@ref(tab:ramtabS3)). A pattern of increasing
 diversity across years (with number of MLGs not fewer than 10) was also observed
-(Table S3). The minimum spanning network showed that MLGs 17, 22, and 28
+(Table \@ref(tab:ramtabS3)). The minimum spanning network showed that MLGs 17, 22, and 28
 clustered in the center of the network and had the highest number of connections
 to other genotypes in the forest populations (Fig. \@ref(fig:ramorum3)). Most
 genotypes were connected to their immediate neighbors by a genetic distance of
@@ -676,7 +683,7 @@ cat(res)
 
 Cluster analysis of populations with respect to year using Nei's genetic
 distance showed no significant (&gt;70%) bootstrap support for any clades, but
-does show that these tend to cluster by region as opposed to year (Fig. S\@ref(fig:ramS3)).
+does show that these tend to cluster by region as opposed to year (Fig. \@ref(fig:ramS3)).
 AMOVA analysis revealed significant population structure between regions on both
 clone-corrected (with respect to hierarchy) and uncorrected data sets (Table
 \@ref(tab:ramtab4)). Significant structure was only found between years within
@@ -690,8 +697,8 @@ the whole data set there was an 81.5% assignment-success rate. Hunter Creek
 received 100% successful reassignment. Joe Hall Creek, Winchuck, and Coast all
 had &gt;85% successful reassignment whereas Chetco Main, North Fork of the
 Chetco, and Pistol River South Fork all had &lt;69% successful reassignment
-(Fig. S\@ref(fig:ramS4)). The isolation of the Hunter Creek isolates in the DAPC analysis was
-found to be mainly driven by allele 493 at locus PrMS43 (Fig. S\@ref(fig:ramS5)). The only
+(Fig. \@ref(fig:ramS4)). The isolation of the Hunter Creek isolates in the DAPC analysis was
+found to be mainly driven by allele 493 at locus PrMS43 (Fig. \@ref(fig:ramS5)). The only
 other population to share this allele was Joe Hall Creek where it was present in
 a total of 4 isolates, and only isolates found in the coastal region or North
 Fork Chetco contained the allele 489, which is one mutational step away in a
@@ -834,10 +841,10 @@ cat(beaverdown::iflatex("\\newpage"))
 
 The assignment successes for the regions before or after inclusion of nursery
 data changed less than 5% for all regions except for the coast, which saw a
-decrease of 17.6% when nursery populations were included (Fig. S\@ref(fig:ramS4)). Prediction
+decrease of 17.6% when nursery populations were included (Fig. \@ref(fig:ramS4)). Prediction
 of sources for nursery genotypes against the forest data revealed that 48% of
 these nursery isolates were predicted to share membership with the coast at
-$\geq$ 95% probability (Fig. S\@ref(fig:ramS6), S\@ref(fig:ramS7)). A total of 3.2% of the isolates were
+$\geq$ 95% probability (Fig. \@ref(fig:ramS6), \@ref(fig:ramS7)). A total of 3.2% of the isolates were
 predicted to share membership with Hunter Creek at $\geq$ 99.9% membership
 probability. Furthermore, 21.75% of the nursery data could not be assigned to
 any of the forest populations at &gt;60% probability.
@@ -847,7 +854,7 @@ predicted sources for Hunter Creek isolates when considering nursery isolates.
 This approach determines if Hunter Creek isolates cluster more readily with
 nursery or coast populations. Indeed, 92% of the Hunter Creek isolates were
 predicted to share membership with California nurseries at $\geq$ 99% membership
-probability (Fig. S\@ref(fig:ramS8)). No Hunter Creek isolate was predicted to share membership
+probability (Fig. \@ref(fig:ramS8)). No Hunter Creek isolate was predicted to share membership
 with a forest population at &gt;0.45% membership probability.
 
 ## Discussion
@@ -886,7 +893,7 @@ via Bruvo's distance in combination with data from nursery populations, however,
 these genotypes from Hunter Creek appear to be more similar to California
 nursery populations (Fig. \@ref(fig:ramorum3)) than Oregon forest populations.
 Predictions based on DAPC place samples from Hunter Creek as coming from
-California nurseries (Fig. S\@ref(fig:ramS8)). This, in combination with the observation that
+California nurseries (Fig. \@ref(fig:ramS8)). This, in combination with the observation that
 purely forest genotypes (i.e. those only found in the forest) are connected to
 Hunter Creek genotypes through nursery genotypes, indicates a possible
 contribution from nursery populations to the epidemic. This is supported by the
@@ -895,8 +902,8 @@ correction, places the Hunter Creek isolates adjacent to the nursery isolates
 from CA (Fig. \@ref(fig:ramfig4), \@ref(fig:ramorum5)). This appears to be
 driven by the high frequency of allele 246 at locus PrMS39, which interestingly
 appears to segregate in an east to west fashion and is increasing in frequency
-over time (Fig. S\@ref(fig:ramS9), S\@ref(fig:ramS10)). This, along with the results from the DAPC clustering
-and subsequent prediction (Fig. S\@ref(fig:ramS6), S\@ref(fig:ramS7)) provide weak support for a potential
+over time (Fig. \@ref(fig:ramS9), \@ref(fig:ramS10)). This, along with the results from the DAPC clustering
+and subsequent prediction (Fig. \@ref(fig:ramS6), \@ref(fig:ramS7)) provide weak support for a potential
 third introduction into the coastal region from nurseries sometime after the
 Hunter Creek introduction event.
 
@@ -1029,11 +1036,12 @@ software (Applied Biosystems).
 
 ```{r, results = "asis", echo = FALSE}
 out <- "
-% \\setcounter{figure}{0}
+\\setcounter{figure}{0}
+\\setcounter{table}{0}
 \\renewcommand{\\figurename}{Supplementary Figure}
 \\renewcommand{\\tablename}{Supplementary Table}
-% \\renewcommand{\\thefigure}{s\\arabic{chapter}.\\arabic{figure}}
-% \\renewcommand{\\thetable}{s\\arabic{chapter}.\\arabic{table}}
+\\renewcommand{\\thefigure}{\\arabic{chapter}.S\\arabic{figure}}
+\\renewcommand{\\thetable}{\\arabic{chapter}.S\\arabic{table}}
 "
 cat(beaverdown::iflatex(out))
 ```
@@ -1195,14 +1203,145 @@ S10scap <- beaverdown::render_caption(caption = scap, figname = "figS10", to = T
 
 ```
 
+### Supplementary Tables
 
+```{r, ramtabS1, results = 'asis', echo = FALSE}
+tab <- if (LATEX) "data/tables/ramorum-tableS1.tex" else "data/tables/ramorum-tableS1.md"
+out <- readLines(tab)
+cat(out, sep = "\n")
+```
+
+locus     alleles    1-D   Hexp    E.5
+-------  --------  -----  -----  -----
+PrMS6           2   0.50   0.99   0.99
+Pr9C3           2   0.50   0.99   0.99
+PrMS39          5   0.62   0.78   0.78
+PrMS45          3   0.51   0.76   0.95
+PrMS43         18   0.89   0.95   0.78
+mean            6   0.60   0.89   0.90
+
+Table: (\#tab:ramtabS2) Allelic diversity metrics for each locus of 
+clone-corrected *Phytophthora ramorum* data in Curry County, Oregon between 
+2001-14 causing sudden oak death. alleles = number of observed alleles; 1-D =
+Simpson's Index; Hexp = Nei's 1978 expected heterozygosity; E.5 = Evenness
+
+
+
+```{r, ramtabS3, results = "asis", echo = FALSE}
+tab <- '
+     Population     N  MLG   eMLG      SE                     H                  G                   E.5      rbarD    p.rD
+1        "2001"    39   10   3.65   1.160   "1.19 (0.614-1.48)"  "1.9 (1.38-2.81)" "0.395 (0.397-0.567)"   -0.06770   0.999
+2        "2002"    36    9   4.20   1.130   "1.37 (0.794-1.64)" "2.34 (1.52-3.52)" "0.454 (0.426-0.647)"    0.19300   0.001
+3        "2003"   102   20   4.75   1.300       "1.81 (1.39-2)" "2.92 (2.19-3.96)" "0.376 (0.364-0.492)"    0.14300   0.001
+4        "2004"    35    8   4.56   1.010    "1.57 (1.12-1.76)"  "3.53 (2.3-4.77)" "0.661 (0.556-0.845)"    0.18400   0.001
+5        "2005"     2    2   2.00   0.000     "0.693 (0-0.693)"          "2 (1-2)"             "1 (1-1)"         NA      NA
+6        "2006"     1    1   1.00   0.000             "0 (0-0)"          "1 (1-1)"             "NaN (-)"         NA      NA
+7        "2010"     1    1   1.00   0.000             "0 (0-0)"          "1 (1-1)"             "NaN (-)"         NA      NA
+8        "2011"    68    6   2.15   0.827 "0.563 (0.257-0.792)" "1.32 (1.13-1.59)"  "0.42 (0.384-0.555)"    0.18100   0.001
+9        "2012"    20    7   5.01   0.916    "1.62 (1.03-1.78)"     "4 (2.2-5.26)" "0.737 (0.591-0.919)"   -0.17500   1.000
+10       "2013"   179   47   7.74   1.200    "3.15 (2.83-3.17)" "13.8 (10.2-16.3)"   "0.573 (0.542-0.7)"    0.02920   0.001
+11       "2014"    30   17   8.09   1.030    "2.67 (2.08-2.61)" "12.2 (6.16-12.2)"  "0.83 (0.692-0.926)"   -0.00617   0.555
+12    "JHallCr"   244   30   4.89   1.330    "1.97 (1.69-2.12)" "3.13 (2.57-3.83)" "0.345 (0.334-0.414)"    0.10300   0.001
+13 "NFChetHigh"   114   35   6.81   1.340     "2.74 (2.3-2.82)"  "7.07 (4.8-9.88)" "0.421 (0.398-0.592)"    0.06600   0.001
+14      "Coast"    34   12   5.91   1.170    "2.05 (1.49-2.16)" "5.56 (3.36-7.22)" "0.675 (0.609-0.849)"    0.28300   0.001
+15   "HunterCr"    66    4   1.88   0.690 "0.423 (0.185-0.623)"  "1.24 (1.1-1.46)"  "0.46 (0.388-0.604)"   -0.04710   1.000
+16   "Winchuck"    35    9   4.29   1.070    "1.47 (0.947-1.7)" "2.88 (1.89-4.15)" "0.559 (0.492-0.772)"   -0.01380   0.756
+17 "ChetcoMain"    16    7   5.00   0.926   "1.45 (0.689-1.69)" "2.84 (1.49-4.74)" "0.565 (0.493-0.879)"    0.39600   0.001
+18  "PistolRSF"     4    2   2.00   0.000     "0.562 (0-0.693)"        "1.6 (1-2)"     "0.795 (0.795-1)"         NA      NA
+19      "Total"   513   70   6.95   1.330    "2.98 (2.78-3.04)" "8.64 (7.19-10.1)" "0.408 (0.393-0.482)"    0.08160   0.001'
+
+caption <- "Genotypic diversity metrics or populations of
+*Phytophthora ramorum* sampled in Curry County, Oregon between 2001-14
+causing sudden oak death. Pop = Population name (Total == Pooled)
+N = Census population size
+MLG = Number of unique multilocus genotypes (MLG) observed
+eMLG = Number of expected MLG based on rarefaction at smallest N >= 10
+SE = Standard error of rarefaction analysis
+H = Shannon-Wiener Index of MLG diversity (95% CI in parentheses)
+G = Stoddart and Taylor's Index of MLG diversity (95% CI in parentheses)
+E.5 = Evenness (95% CI in parentheses)
+rbarD = Standardized index of association
+p.rbarD = p-value for the standardized index of association based on 999 permutations
+NaN = Insufficient data for analysis"
+
+subcap <- 'Genotypic diversity metrics or populations of
+\\textit{Phytophthora ramorum} sampled in Curry County, Oregon between 2001-14
+causing sudden oak death.
+'
+
+textail <- '
+\\newpage
+
+\\renewcommand{\\tablename}{Supplementary Table Caption}
+\\renewcommand{\\thetable}{\\arabic{chapter}.C\\arabic{table}}
+\\addtocounter{table}{-1}
+
+\\vspace*{\\fill}
+
+\\begin{table}[ph!]
+\\caption[Caption for Table \\ref{tab:ramtabS3}]{(Caption for Table 
+\\ref{tab:ramtabS3}) Genotypic diversity metrics or populations of
+\\textit{Phytophthora ramorum} sampled in Curry County, Oregon between 2001-14
+causing sudden oak death. Pop = Population name (Total == Pooled)
+N = Census population size
+MLG = Number of unique multilocus genotypes (MLG) observed
+eMLG = Number of expected MLG based on rarefaction at smallest N >= 10
+SE = Standard error of rarefaction analysis
+H = Shannon-Wiener Index of MLG diversity (95\\% CI in parentheses)
+G = Stoddart and Taylor\'s Index of MLG diversity (95\\% CI in parentheses)
+E.5 = Evenness (95\\% CI in parentheses)
+rbarD = Standardized index of association
+p.rbarD = p-value for the standardized index of association based on 999 permutations
+NaN = Insufficient data for analysis}
+\\label{cap:ramcapS3}
+\\end{table}
+\\vspace*{\\fill}
+
+\\renewcommand{\\tablename}{Supplementary Table}
+\\renewcommand{\\thetable}{\\arabic{chapter}.S\\arabic{table}}
+
+
+\\newpage
+'
+
+tab <- read.table(text = tab, stringsAsFactors = FALSE)
+round_error <- function(x, r = 2){
+  x   <- gsub("[)()]", "", x)
+  num <- round(as.numeric(strsplit(x, "(\\s|[-])")[[1]]), r)
+  return(paste0(num[1], " (", paste(num[-1], collapse = "-"), ")"))
+}
+vround  <- Vectorize(round_error, vectorize.args = "x", USE.NAMES = FALSE)
+tab$H   <- vround(tab$H)
+tab$E.5 <- vround(tab$E.5)
+tab$G   <- vround(tab$G)
+if (LATEX){
+  library('xtable')
+  xtab <- xtable(tab, 
+                 align = c("l", "l", "r", "r", "r", "r", "l", "l", "l", "r", "r"), 
+                 caption = "(Caption on Next Page)", label = "tab:ramtabS3", digits = 2)
+  out <- print.xtable(xtab, 
+               comment = FALSE, 
+               table.placement = "ph!", # http://tex.stackexchange.com/a/28091/77699
+               caption.placement = "top",
+               floating.environment = "sidewaystable",
+               booktabs = TRUE,
+               print.results = FALSE,
+               include.rownames = FALSE)
+  # This part is necessary to insert a short caption :/
+  cat(gsub("caption\\{", paste0("caption[", subcap, "]{"), out))
+  cat(textail)
+
+} else {
+  knitr::kable(tab, format = "pandoc", digits = 3, caption = caption)
+}
+```
 
 ```{r, results = "asis", echo = FALSE}
 out <- "
 \\renewcommand{\\figurename}{Figure}
 \\renewcommand{\\tablename}{Table}
-% \\renewcommand{\\thefigure}{\\arabic{chapter}.\\arabic{figure}}
-% \\renewcommand{\\thetable}{\\arabic{chapter}.\\arabic{table}}
+\\renewcommand{\\thefigure}{\\arabic{chapter}.\\arabic{figure}}
+\\renewcommand{\\thetable}{\\arabic{chapter}.\\arabic{table}}
 "
 cat(beaverdown::iflatex(out))
 ```
