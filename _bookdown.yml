@@ -5,7 +5,6 @@ rmd_files: ["index.Rmd",
   "chapters/01-poppr.Rmd",
   "chapters/03-poppr2.Rmd",
   "chapters/02-ramorum.Rmd",
-  "chapters/04-syringae.Rmd",
   "chapters/05-simulations.Rmd",
   "chapters/99-references.Rmd"
   ]
