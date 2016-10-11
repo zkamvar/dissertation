@@ -298,7 +298,7 @@ scap1 <- cap1
 
 ```{r, poppr2, echo = FALSE, fig.cap = cap2, fig.scap = scap2, results = "asis", out.width = "70%"}
 cat(beaverdown::iflatex("\\newpage"))
-knitr::include_graphics("figure/poppr/nancy_5.png")
+
 
 
 cap2 <- "Visualizations of tests for linkage disequilibrium, where observed
@@ -308,8 +308,11 @@ Results are shown for the sexual population `5` of the `nancycats` data set
 [@Jombart:2008] (a) and for the clonal `Athena` population of the `Aeut` data
 set [@Grunwald:2003] (b)."
 
-cap2 <- beaverdown::render_caption(cap2, figname = "popprfig2", to = TO)
+cap2  <- beaverdown::render_caption(cap2, figname = "popprfig2", to = TO)
+if (!LATEX) cap2 <- gsub("@ref", "\\\\@ref", cap2)
 scap2 <- "Visualizations of tests for linkage disequilibrium."
+
+knitr::include_graphics("figure/poppr/nancy_5.png")
 ```
 
 ```{r, poppr3, echo = FALSE, fig.cap = cap3, fig.scap = scap3, results = "asis"}

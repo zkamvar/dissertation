@@ -1,11 +1,10 @@
-book_filename: "thesis"
+book_filename: "dissertation"
 chapter_name: "Chapter "
 rmd_files: ["index.Rmd",
   "chapters/00-introduction.Rmd",
   "chapters/01-poppr.Rmd",
   "chapters/03-poppr2.Rmd",
   "chapters/02-ramorum.Rmd",
-  "chapters/04-syringae.Rmd",
   "chapters/05-simulations.Rmd",
   "chapters/99-references.Rmd"
   ]
