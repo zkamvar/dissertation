@@ -138,6 +138,7 @@ scap <- "Spatial distribution of the SOD epidemic and multilocus
 genotypes of *Phytophthora ramorum* in Curry County, Oregon."
 
 figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1", to = TO)
+if (!LATEX) figcap1 <- gsub("@ref", "\\\\@ref", figcap1)
 figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s", to = TO)
 ```
 
