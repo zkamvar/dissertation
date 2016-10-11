@@ -22,12 +22,12 @@ I put this as a comment since it's a guideline
 
 The majority of plant pathogenic species on earth are microbial. The majority of
 these microbes have the ability to reproduce both sexually and clonally, which
-allows them to adapt to their environment in different ways. Sexual reproduction
-can purge deleterious alleles and create potentially more fit combinations of
-genes, which could guard against future plant defenses and pesticides, but at
-the risk of losing currently advantageous gene combinations. Clonal reproduction
-allows them to hold on to their unique combination of virulence genes at the
-cost of genetic variation.
+allows them to adapt to their environment in different ways. In times of extreme
+stress, such as increased pesticide pressure, they can switch to sexual
+reproduction, which purges deleterious allele combinations and has the potential
+to give rise to beneficial gene combinations. Clonal reproduction on the other
+hand, allows them to hold on to their stacked deck of virulence genes, but at
+the cost of genetic variation.
 
 
 
