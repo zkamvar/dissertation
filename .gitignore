@@ -1,13 +1,17 @@
+# R Stuff ---------------------------------------------------------------------
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+# LaTeX TOC Stuff -------------------------------------------------------------
 *.loaf
 *.loap
 *.loat
+# HTML and Bookdown Derivatives -----------------------------------------------
 _bookdown_files/*
 *_book/*html
 *_book/libs/*
 *_book/*json
 _book/figure/*
-_book/thesis_files/*
+_book/dissertation_files/*
+
