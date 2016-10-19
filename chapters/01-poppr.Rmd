@@ -322,10 +322,11 @@ knitr::include_graphics("figure/poppr/bruvo_color.png")
 
 cap3 <- "Example minimum spanning network using Bruvo's distance on a simulated
 partially clonal data set with 50 individuals genotyped over 10 microsatellite
-loci. Each node represents a unique multilocus genotype. Node shading (colors)
-represent population membership, while edge widths and shading represent
-relatedness. Edge length is arbitrary."
-
+loci produced with the software SimuPOP v.1.0.8 [@peng2008forward]. Each node
+represents a unique multilocus genotype. Node shading (colors) represent
+population membership, while edge widths and shading represent relatedness. Edge
+length is arbitrary."
+cap3  <- beaverdown::render_caption(cap3, figname = "popprfig3", to = TO)
 scap3 <- "Example minimum spanning network using Bruvo's distance on a simulated
 partially clonal data set with 50 individuals genotyped over 10 microsatellite
 loci."
