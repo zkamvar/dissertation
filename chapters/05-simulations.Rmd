@@ -51,6 +51,8 @@ less useful when considering populations that undergo some form of clonal
 reproduction since the alleles for different samples are no longer I.I.D. This
 confounds the ability to accurately assess population demographics including
 effective population size [@orive1993effective]. 
+
+
 <!-- ZHIAN
 
 Expand on this point here... yes, many populations are pathogenic,
@@ -226,12 +228,12 @@ common patterns that would indicate clonal or sexual reproduction.
 
 Initial sets of simulations were created for different levels of sexual
 reproduction for each marker type. All simulations were performed with the
-python package simuPOP version 1.1.7 in python version 3.4. For each scenario,
+python package simuPOP version 1.1.7 in python version 3.4 [@peng2008forward]. For each scenario,
 100 simulations with 10 replicates were created with a census size of 10,000
 diploid individuals with equal mating type proportions evolved over 10,000
 generations. From each replicate, 10, 25, 50, and 100 individuals were sampled
 without replacement for downstream analysis in R version 3.2 with the package
-*poppr* version 2.2.1 on full and clone-corrected data sets. All downstream
+*poppr* version 2.2.1 on full and clone-corrected data sets [@R2016; @kamvar2014poppr; @kamvar2015novel]. All downstream
 analyses were run on the OSU CGRB Core Computing Facility (supplementary
 information).
 
@@ -241,18 +243,18 @@ Each population was simulated with 20 co-dominant, unlinked loci containing 6 to
 10 alleles per locus with frequencies drawn from a uniform distribution and
 subsequently normalized. Before mating, mutations occurred at each locus at a
 rate of 1e-5 mutations/generation in a stepwise manner using the
-`StepwiseMutator()` operator.
+`StepwiseMutator()` operator in simuPOP.
 
 ### GBS Simulations
 
-Simulations of 10,000 binary loci at spread evenly over 10 chromosomal fragments
+Simulations of 10,000 binary loci spread evenly over 10 chromosomal fragments
 were simulated with a mutation rate of 1e-5 mutations per generation for forward
 and backward mutations using the `SNPMutator()` operator and and a recombination
-rate of 1e-5 between adjacent loci using the `Recombinator()` operator.
+rate of 1e-5 between adjacent loci using the `Recombinator()` operator in simuPOP.
 
 ### Sexual Reproduction
 
-Simulations of sexual reproduction were analyzed at 10 rates of sexual
+Simulations of sexual reproduction were conducted at 10 rates of sexual
 reproduction on a log scale (0.0, 1e-4, 5e-4, 1e-3, 5e-3, 1e-2, 5e-2, 0.1, 0.5,
 1.0) reflecting the fraction of individuals in generation *t+1* produced via
 sexual reproduction. One to three offspring could be produced at each mating
@@ -309,12 +311,5 @@ of rejection, ($\alpha$). The null hypothesis for the ROC analysis was defined
 where the rate of sexual reproduction was 100%. All other rates were considered
 to be separate alternative hypotheses. The curves were calculated by analyzing
 the data sets over increasing values of $\alpha$ from 0 to 1 in increments of
-0.01. The area under the ROC curves was calculated using the `trapz()` function
-in the R package *pracma* version 1.9.5 [@borchers2016pracma]. ANOVA was run
-with the following models:
-
-|                                               |
-|:---------------------------------------------:|
-| False Positive Rate ~ Sex Rate + Sample Size  |
-| Area Under ROC Curve ~ Sex Rate + Sample Size |
-
+0.01. The area under the ROC curves was calculated using the `auc()` function
+in the R package *flux* version 0.3-0 [@jurasinski2014flux]. 
