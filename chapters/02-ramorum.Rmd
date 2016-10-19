@@ -571,7 +571,7 @@ genotypes were connected to their immediate neighbors by a genetic distance of
 0.05 or the equivalent of one mutational step across 5 diploid loci.
 
 
-```{r, ramorum3, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3}
+```{r, ramorum3, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "75%"}
 knitr::include_graphics("figure/phytopathology/figure_3.png")
 cap <- "Minimum spanning network based on Bruvo's genetic distance
 for microsatellite markers for *P. ramorum* populations. Nodes (circles)
