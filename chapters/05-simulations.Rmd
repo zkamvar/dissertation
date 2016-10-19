@@ -252,7 +252,7 @@ were simulated with a mutation rate of 1e-5 mutations per generation for forward
 and backward mutations using the `SNPMutator()` operator and and a recombination
 rate of 1e-5 between adjacent loci using the `Recombinator()` operator in simuPOP.
 
-### Sexual Reproduction
+### Mating
 
 Simulations of sexual reproduction were conducted at 10 rates of sexual
 reproduction on a log scale (0.0, 1e-4, 5e-4, 1e-3, 5e-3, 1e-2, 5e-2, 0.1, 0.5,
@@ -272,7 +272,7 @@ The standardized index of association ($\bar{r}_d$) was calculated for full and
 clone-corrected data using the *poppr* function `ia()`. Tests for significance
 were performed by randomly permuting the alleles at each locus independently and
 then assessing $\bar{r}_d$. This was done 999 times for each replicate
-population. Re-sampling was not performed with clone-corrected data. The p-values
+population. This was done for both full and clone-corrected data. The p-values
 reflect the proportion of observations greater than the observed statistic.
 Estimates of genotypic diversity were assessed with the *poppr* function
 `diversity_boot()` with 999 bootstrap replicates, recording the estimate and
@@ -281,35 +281,50 @@ variance.
 ### Analysis of SNP Data
 
 Because GBS data are associated with high error rates, we additionally wanted to
-assess the effect of error and missing data on analysis. To do this, we used
-scripts written for @kamvar2015novel to randomly insert missing data (via the
-`pop_NA()` function) and genotyping errors (via the `pop_mutator()`)
-[@kamvar2015poppr2supp] at rates of 5% and 10% each. We then used the *poppr*
-function `mlg.filter()` to with the farthest neighbor algorithm to collapse
-multilocus genotypes with 5% and 10% similarity and compared the results with
-the known genotypes. Genotypic diversity was assessed with the *poppr* function
-`diversity_boot()` with 999 bootstrap replicates on the filtered data sets,
-recording the variance.
+assess the effect of missing data on analysis. To do this, we used
+scripts written for @kamvar2015novel to randomly insert missing data via the
+`pop_NA()` function [@kamvar2015poppr2supp] at rates of 1%, 5%, and 10% each. 
 
 The overall value of $\bar{r}_d$ was calculated for each simulation with the
-*poppr* function `bitwise.ia()`. To assess within-chromosome dynamics, values of
-$\bar{r}_d$ were calculated along chromosomes using the *poppr* function
-`win.ia()` along windows of 50 and 100 SNPs. Cross-chromosome dynamics of
-$\bar{r}_d$ were assessed by utilizing random samples of 50, 100, and 1000 SNPs
-replicated 999 times for each population sample. 
+*poppr* function `bitwise.ia()`. Significance was first assessed by randomly
+shuffling genotypes at each locus independently and then, to preserve existing 
+background linkage structure, at each chromosome independently. This was done
+999 times for each replicate population. P-values represent the proportion of 
+random samples greater than or equal to the observed statistic.
 
 ### Power Analysis
 
 The Receiver Operating Characteristic (ROC) curve is a method of assessing the
-explanatory power of a method by assessing the true positive fraction of tests
-to a false positive fraction [@metz1978basic]. Briefly, if a method has perfect
+explanatory power of a method by simultaneously assessing the true positive fraction of tests
+to a false positive fraction along a gradient of thresholds of increasing leniency [@metz1978basic]. 
+Briefly, if a method has perfect
 explanatory power, the area under the ROC curve will be equal to 1. If a method
-has no explanatory power, the area under the ROC curve will be equal to 0.5.
-ROC analysis was carried as described in @metz1978basic as a comparison of the
-false positive fraction to the true positive fraction as you increase the level
-of rejection, ($\alpha$). The null hypothesis for the ROC analysis was defined
-where the rate of sexual reproduction was 100%. All other rates were considered
-to be separate alternative hypotheses. The curves were calculated by analyzing
-the data sets over increasing values of $\alpha$ from 0 to 1 in increments of
-0.01. The area under the ROC curves was calculated using the `auc()` function
-in the R package *flux* version 0.3-0 [@jurasinski2014flux]. 
+has no explanatory power, the area under the ROC curve will be equal to 0.5. We used this method to assess the efficacy of $\bar{r}_d$ to detect non-random mating. 
+
+To calculate the ROC curve, we first have to define defined what a positive
+value is. We define it as a significant value of $\bar{r}_d$ based on a
+threshold, $\alpha$, where $\alpha$ is a value in [0, 1].
+Therefore, any randomly mating population (sexual reproduction is equal to one)
+with a significant value of $\bar{r}_d$ is considered a false positive, and
+subsequently, any non-randomly mating population with a significant value of
+$\bar{r}_d$ is considered a true positive (Table \@ref(tab:simtab1)).
+ 
+ Reproductive Mode   $p \leq \alpha$   $p > \alpha$
+------------------- ----------------- ---------------
+  Random Mating      False Positive     True Negative
+ Non-Random Mating    True Positive    False Negative
+
+Table: (\#tab:simtab1) Definitions of false positive and true positive values
+for ROC analysis of simulations. *p* is the p-value for $\bar{r}_d$, $\alpha$ is
+a threshold value in [0, 1] Random Mating populations are simulated with a sex
+rate of 1. Non-Random Mating populations are simulated with a sex rate less than
+one.
+
+Each curve was constructed by assessing the ROC over values of $\alpha$ in
+increments of 0.01 from 0 to 1 and plotting the true positive fraction on the y
+axis and false positive fraction on the x axis. The area under the ROC curves
+was calculated using the `auc()` function in the R package *flux* version 0.3-0
+[@jurasinski2014flux]. These curves were calculated for the data separately for
+sample size, mutation rate, and clone correction. In addition to the full data
+set, we calculated separate curve for each rate of sexual reproduction less than
+one and each seed. 
