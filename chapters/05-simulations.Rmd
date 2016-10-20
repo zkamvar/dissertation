@@ -311,8 +311,8 @@ $\bar{r}_d$ is considered a true positive (Table \@ref(tab:simtab1)).
  
  Reproductive Mode   $p \leq \alpha$   $p > \alpha$
 ------------------- ----------------- ---------------
-  Random Mating      False Positive     True Negative
  Non-Random Mating    True Positive    False Negative
+   Random Mating     False Positive     True Negative
 
 Table: (\#tab:simtab1) Definitions of false positive and true positive values
 for ROC analysis of simulations. *p* is the p-value for $\bar{r}_d$, $\alpha$ is
