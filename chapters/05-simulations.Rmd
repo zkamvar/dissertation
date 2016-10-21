@@ -250,7 +250,8 @@ rate of 1e-5 mutations/generation with the exception of the first locus, at whic
 Simulations of 10,000 binary loci spread evenly over 10 chromosomal fragments
 were simulated with a mutation rate of 1e-5 mutations per generation for forward
 and backward mutations using the `SNPMutator()` operator and and a recombination
-rate of 1e-5 between adjacent loci using the `Recombinator()` operator in simuPOP.
+rate of 1e-5 between adjacent loci using the `Recombinator()` operator in
+simuPOP. 
 
 ### Mating
 
@@ -294,9 +295,17 @@ random samples greater than or equal to the observed statistic.
 
 ### Power Analysis
 
+Permutation analysis of the index of association is commonly used as a
+diagnostic for detecting non-random mating. If the observed value of $\bar{r}_d$
+is greater than 95% of the results from the permutations, then the population is
+declared to be clonal. Because knowing a pathogen's mode of reproduction can
+affect management strategies, it's important to know how sample size, rate of
+sexual reproduction, mutation rate homogeneity, and clone-correction affect this
+method's sensitivity and specificity.
+
 The Receiver Operating Characteristic (ROC) curve is a method of assessing the
-explanatory power of a method by simultaneously assessing the true positive fraction of tests
-to a false positive fraction along a gradient of thresholds of increasing leniency [@metz1978basic]. 
+the balance between sensitivity and specificity of a diagnostic method [@metz1978basic]. This is done by simultaneously assessing the true positive fraction of tests
+to a false positive fraction along a gradient of thresholds of increasing leniency. 
 Briefly, if a method has perfect
 explanatory power, the area under the ROC curve will be equal to 1. If a method
 has no explanatory power, the area under the ROC curve will be equal to 0.5. We used this method to assess the efficacy of $\bar{r}_d$ to detect non-random mating. 
@@ -320,7 +329,7 @@ a threshold value in [0, 1] Random Mating populations are simulated with a sex
 rate of 1. Non-Random Mating populations are simulated with a sex rate less than
 one.
 
-Each curve was constructed by assessing the ROC over values of $\alpha$ in
+We constructed each curve by assessing the ROC over values of $\alpha$ in
 increments of 0.01 from 0 to 1 and plotting the true positive fraction on the y
 axis and false positive fraction on the x axis. The area under the ROC curves
 was calculated using the `auc()` function in the R package *flux* version 0.3-0
@@ -328,3 +337,16 @@ was calculated using the `auc()` function in the R package *flux* version 0.3-0
 sample size, mutation rate, and clone correction. In addition to the full data
 set, we calculated separate curve for each rate of sexual reproduction less than
 one and each seed. 
+
+## Results
+
+
+### Microsatellite Data
+
+### SNP Data
+
+Because of the computational intensity of the simulations we were only
+able to run 24 unique seeds over all rates of sexual reproduction with 10
+replicates per seed. Because some replicates failed to save, we randomly sampled
+five replicates per seed per rate of sexual reproduction, giving us a total of 
+1200 total populations for analysis.
