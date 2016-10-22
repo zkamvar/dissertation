@@ -277,7 +277,16 @@ population. This was done for both full and clone-corrected data. The p-values
 reflect the proportion of observations greater than the observed statistic.
 Estimates of genotypic diversity were assessed with the *poppr* function
 `diversity_boot()` with 999 bootstrap replicates, recording the estimate and
-variance.
+variance. The genotypic diversity statistics we calculated were Shannon's Index,
+$H = -\sum p_i ln p_i$ [@shannon2001mathematical], Stoddart and Taylor's Index,
+$G = 1/\sum p_i^2$ [@stoddart1988genotypic], and Evenness, 
+$E_5 = (G - 1)/(e^H - 1)$ [@pielou1975ecological] where $p_i$ is the frequency 
+of the *i*th genotype.
+
+In addition to genotypic evenness, we additionally calculated mean allelic 
+evenness $E_{5A} = (1/m) \sum E_{5l}$ where *m* is the number of loci and
+$E_{5l}$ is the evenness of the alleles at locus *l*.
+
 
 ### Analysis of SNP Data
 
