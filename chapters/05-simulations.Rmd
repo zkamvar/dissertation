@@ -283,9 +283,10 @@ $G = 1/\sum p_i^2$ [@stoddart1988genotypic], and Evenness,
 $E_5 = (G - 1)/(e^H - 1)$ [@pielou1975ecological] where $p_i$ is the frequency 
 of the *i*th genotype.
 
-In addition to genotypic evenness, we additionally calculated mean allelic 
-evenness $E_{5A} = (1/m) \sum E_{5l}$ where *m* is the number of loci and
-$E_{5l}$ is the evenness of the alleles at locus *l*.
+We additionally Nei's 1978 expected heterozygosity, also known as gene diversity
+[@Nei:1978], calculated mean allelic evenness $E_{5A} = (1/m) \sum E_{5l}$ 
+where *m* is the number of loci and $E_{5l}$ is the evenness of the alleles at 
+locus *l*.
 
 
 ### Analysis of SNP Data
@@ -348,7 +349,6 @@ set, we calculated separate curve for each rate of sexual reproduction less than
 one and each seed. 
 
 ## Results
-
 
 ### Microsatellite Data
 
