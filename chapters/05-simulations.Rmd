@@ -308,10 +308,16 @@ random samples greater than or equal to the observed statistic.
 Permutation analysis of the index of association is commonly used as a
 diagnostic for detecting non-random mating. If the observed value of $\bar{r}_d$
 is greater than 95% of the results from the permutations, then the population is
-declared to be clonal. Because knowing a pathogen's mode of reproduction can
-affect management strategies, it's important to know how sample size, rate of
-sexual reproduction, mutation rate homogeneity, and clone-correction affect this
-method's sensitivity and specificity.
+declared to be clonal. Standard practice for analyzing microbial populations is to
+perform this test on both the whole data set (wd) and clone-corrected data (cc),
+where each multilocus genotype is represented only once per population to avoid
+signatures of linkage that arise from re-sampling the same individual. 
+[@goss2014irish; @milgroom1996recombination; @mcdonald1997population]. If the 
+p-value for $\bar{r}_d$ is significant after clone-correction, then the 
+population is considered clonal. Because knowing a pathogen's mode of 
+reproduction can affect management strategies, it's important to know how sample
+size, rate of sexual reproduction, mutation rate homogeneity, and 
+clone-correction affect this method's sensitivity and specificity.
 
 The Receiver Operating Characteristic (ROC) curve is a method of assessing the
 the balance between sensitivity and specificity of a diagnostic method [@metz1978basic]. This is done by simultaneously assessing the true positive fraction of tests
@@ -341,12 +347,13 @@ one.
 
 We constructed each curve by assessing the ROC over values of $\alpha$ in
 increments of 0.01 from 0 to 1 and plotting the true positive fraction on the y
-axis and false positive fraction on the x axis. The area under the ROC curves
-was calculated using the `auc()` function in the R package *flux* version 0.3-0
-[@jurasinski2014flux]. These curves were calculated for the data separately for
-sample size, mutation rate, and clone correction. In addition to the full data
-set, we calculated separate curve for each rate of sexual reproduction less than
-one and each seed. 
+axis and false positive fraction on the x axis. Curves were calculated
+hierarchically by rate of sexual reproduction (< 1) and unique seed used to
+generate the populations. For each hierarchical level, separate curves were
+calculated for sample size, mutation rate, and clone-correction. The area under
+the ROC curves was calculated using the `auc()` function in the R package *flux*
+version 0.3-0 [@jurasinski2014flux].
+
 
 ## Results
 
