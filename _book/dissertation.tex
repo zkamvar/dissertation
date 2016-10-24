@@ -481,7 +481,7 @@ mother, Jane H. Kamvar.}
   \textsc{multilocus}, which is no longer supported, and \textsc{LIAN},
   which only works for haploids (Agapow and Burt,
   \protect\hyperlink{ref-Agapow_2001}{2001}; Haubold and Hudson,
-  \protect\hyperlink{ref-Haubold:2000}{2000}\protect\hyperlink{ref-Haubold:2000}{b}).
+  \protect\hyperlink{ref-Haubold:2000}{2000}).
   
   Hierarchical sampling adds another layer of complexity to analysis of
   clonal populations. With microbial populations, the geographic structure
@@ -744,9 +744,11 @@ mother, Jane H. Kamvar.}
   \caption[Example minimum spanning network using Bruvo's distance on a simulated
   partially clonal data set with 50 individuals genotyped over 10 microsatellite
   loci.]{Example minimum spanning network using Bruvo's distance on a simulated
-  partially clonal data set with 50 individuals genotyped over 10 microsatellite
-  loci. Each node represents a unique multilocus genotype. Node shading (colors)
-  represent population membership, while edge widths and shading represent
+  partially clonal data set with 50 individuals genotyped over 10
+  microsatellite loci produced with the software SimuPOP v.1.0.8 (Peng and
+  Amos, \protect\hyperlink{ref-peng2008forward}{2008}). Each node
+  represents a unique multilocus genotype. Node shading (colors) represent
+  population membership, while edge widths and shading represent
   relatedness. Edge length is arbitrary.}\label{fig:poppr3}
   \end{figure}
   
@@ -883,12 +885,11 @@ mother, Jane H. Kamvar.}
   \emph{Poppr} implements several new functionalities. As of this writing,
   aside from \emph{poppr}, there exist two programs that calculate
   \(I_A\): \textsc{LIAN} (Haubold and Hudson,
-  \protect\hyperlink{ref-Haubold:2000}{2000}\protect\hyperlink{ref-Haubold:2000}{b})
-  and \textsc{multilocus} (Agapow and Burt,
-  \protect\hyperlink{ref-Agapow_2001}{2001}). \textsc{LIAN} can calculate
-  \(I_A\) for haploid data and is only available online or for *nix
-  systems with a C compiler such as OSX and Linux (Haubold and Hudson,
-  \protect\hyperlink{ref-Haubold:2000}{2000}\protect\hyperlink{ref-Haubold:2000}{b}).
+  \protect\hyperlink{ref-Haubold:2000}{2000}) and \textsc{multilocus}
+  (Agapow and Burt, \protect\hyperlink{ref-Agapow_2001}{2001}).
+  \textsc{LIAN} can calculate \(I_A\) for haploid data and is only
+  available online or for *nix systems with a C compiler such as OSX and
+  Linux (Haubold and Hudson, \protect\hyperlink{ref-Haubold:2000}{2000}).
   \textsc{Multilocus} implemented \(\bar{r}_d\), a novel correction for
   \(I_A\), but is no longer supported (Agapow and Burt,
   \protect\hyperlink{ref-Agapow_2001}{2001}). \textsc{Multilocus} will
@@ -2367,7 +2368,7 @@ mother, Jane H. Kamvar.}
   
   \begin{figure}
   
-  {\centering \includegraphics[width=0.8\linewidth]{figure/phytopathology/figure_3} 
+  {\centering \includegraphics[width=0.75\linewidth]{figure/phytopathology/figure_3} 
   
   }
   
@@ -3134,54 +3135,65 @@ mother, Jane H. Kamvar.}
   
   \section{Introduction}\label{introduction-4}
   
-  Population genetics largely is based off of the neutral assumption that
-  populations exist in Hardy-Weinberg Equilibrium (HWE) in that they are
-  infinitely large, with no migration, no mutation, and randomly mating,
-  where alleles across loci are I.I.D. This neutral model works well to
-  describe populations that reproduce exclusively via sexual reproduction,
-  but it becomes less useful when considering populations that undergo
-  some form of clonal reproduction since the alleles for different samples
-  are no longer I.I.D. This confounds the ability to accurately assess
-  population demographics including effective population size (Orive,
-  \protect\hyperlink{ref-orive1993effective}{1993}). Many clonal organisms
-  are also pathogenic, and knowing basic population dynamics of these
-  pathogens is important for management strategies (de Meeûs et al.,
-  \protect\hyperlink{ref-de2006molecular}{2006}; Milgroom,
-  \protect\hyperlink{ref-milgroom1996recombination}{1996}; Milgroom and
-  Fry, \protect\hyperlink{ref-milgroom1997contributions}{1997};
-  Nieuwenhuis and James,
-  \protect\hyperlink{ref-nieuwenhuis2016frequency}{2016}; Smith et al.,
-  \protect\hyperlink{ref-smith1993how}{1993}).
+  Population genetic theory is largely based on the neutral Wright-Fisher
+  model in which populations are infinitely large, with discrete
+  generations, randomly assorting alleles, no migration, and no mutation
+  (Hartl and Clark, \protect\hyperlink{ref-hartl1997principles}{2007};
+  Nielsen and Slatkin,
+  \protect\hyperlink{ref-nielsen2013introduction}{2013}). By using this
+  model, population geneticists are able to ask fundamental questions and
+  test hypotheses about evolutionary processes that could lead to
+  structured populations.
   
-  The theory of population genetics for clonal organisms has been deeply
-  investigated over time (Arnaud-Hanod et al.,
-  \protect\hyperlink{ref-arnaud2007standardizing}{2007}; Halkett et al.,
-  \protect\hyperlink{ref-halkett2005tackling}{2005}; Orive,
-  \protect\hyperlink{ref-orive1993effective}{1993}). In particular, there
-  has been a re-occurring question of how much sex can be detected in a
-  population of organisms with (partially) clonal reproduction (Ali et
-  al., \protect\hyperlink{ref-ali2016cloncase}{2016}; Balloux et al.,
+  This neutral model, however, cannot be applied to populations whose life
+  history violates the fundamental assumption of random assortment of
+  alleles, such as populations that undergo clonal reproduction (Milgroom,
+  \protect\hyperlink{ref-milgroom1996recombination}{1996}; Orive,
+  \protect\hyperlink{ref-orive1993effective}{1993}). For many clonal
+  populations, the contribution of genetic variation from mutation is
+  greater than that of recombination. While this increases the risk of the
+  accumulation of deleterious mutations, the two-fold cost of sex is
+  drastically reduced, meaning that selectively advantageous combinations
+  of alleles are maintained (Heitman et al.,
+  \protect\hyperlink{ref-heitman2012evolution}{2012}). Detecting
+  recombination in populations of pathogenic microorganisms is therefore
+  important for management strategies as a prevalence of sexual
+  reproduction could create resistant genotypes (de Meeûs et al.,
+  \protect\hyperlink{ref-de2006molecular}{2006}; Goss et al.,
+  \protect\hyperlink{ref-goss2014irish}{2014}; Milgroom,
+  \protect\hyperlink{ref-milgroom1996recombination}{1996}; Nieuwenhuis and
+  James, \protect\hyperlink{ref-nieuwenhuis2016frequency}{2016}; Smith et
+  al., \protect\hyperlink{ref-smith1993how}{1993}).
+  
+  Several studies have been conducted in an attempt to quantify the amount
+  of sex in populations that undergo clonal reproduction (Ali et al.,
+  \protect\hyperlink{ref-ali2016cloncase}{2016}; Balloux et al.,
   \protect\hyperlink{ref-balloux2003population}{2003}; de Meeûs and
   Balloux, \protect\hyperlink{ref-de2004clonal}{2004}; Nieuwenhuis and
   James, \protect\hyperlink{ref-nieuwenhuis2016frequency}{2016}; Smith et
   al., \protect\hyperlink{ref-smith1993how}{1993}). For populations with
-  well-defined sexual and clonal phases occurring at separate times,
-  methods like \emph{CloNcaSe} are effective for estimating the rate of
-  sexual reproduction and effective population size (Ali et al.,
-  \protect\hyperlink{ref-ali2016cloncase}{2016}). However, when sexual
-  reproduction is not a cyclical phenomena, this estimator is useless.
-  Currently, a method commonly used to assess clonal reproduction is the
-  index of assocation (\(I_A\)), and its standardized version,
-  \(\bar{r}_d\), which measure multilocus linkage disequilibrium (Agapow
-  and Burt, \protect\hyperlink{ref-Agapow_2001}{2001}; Brown et al.,
+  well-defined sexual and clonal phases occurring at separate times, such
+  as rust type fungi, methods like \emph{CloNcaSe} are effective for
+  estimating the rate of sexual reproduction and effective population size
+  (Ali et al., \protect\hyperlink{ref-ali2016cloncase}{2016}). However,
+  this method cannot be applied to populations where the reproductive
+  cycle is not partitioned into discrete generations.
+  
+  Simply detecting the presence of clonal reproduction, however can be
+  useful in and of itself (Milgroom,
+  \protect\hyperlink{ref-milgroom1996recombination}{1996}). A method
+  commonly used to assess this is the index of association (\(I_A\)), and
+  its standardized version, \(\bar{r}_d\), which measure multilocus
+  linkage disequilibrium (Agapow and Burt,
+  \protect\hyperlink{ref-Agapow_2001}{2001}; Brown et al.,
   \protect\hyperlink{ref-brown1980multilocus}{1980}; de Meeûs and Balloux,
   \protect\hyperlink{ref-de2004clonal}{2004}; Haubold et al.,
   \protect\hyperlink{ref-haubold1998detecting}{1998}; Kamvar et al.,
   \protect\hyperlink{ref-kamvar2014poppr}{2014}\protect\hyperlink{ref-kamvar2014poppr}{b};
   Smith et al., \protect\hyperlink{ref-smith1993how}{1993}). The value of
-  \(I_A\) is measured as the ratio of observed variance in genetic
-  distance between samples (\(V_O\)) and expected variance (\(V_E\))
-  (equation \eqref{eq:ia}) (Agapow and Burt,
+  \(I_A\), as shown in equation \eqref{eq:ia}, is measured as the ratio of
+  observed variance (\(V_O\)) and expected variance (\(V_E\)) in genetic
+  distance between samples (Agapow and Burt,
   \protect\hyperlink{ref-Agapow_2001}{2001}; Smith et al.,
   \protect\hyperlink{ref-smith1993how}{1993}).
   
@@ -3193,13 +3205,13 @@ mother, Jane H. Kamvar.}
   over \emph{m} loci: \(V_E = \sum^m{var_j}\) (Agapow and Burt,
   \protect\hyperlink{ref-Agapow_2001}{2001}; Haubold et al.,
   \protect\hyperlink{ref-haubold1998detecting}{1998}). If the differences
-  between samples are randomly distributed, we can expect the value of
-  \(I_A\) to be zero (Agapow and Burt,
+  between samples are randomly distributed (linkage equilibrium), we can
+  expect the value of \(I_A\) to be zero (Agapow and Burt,
   \protect\hyperlink{ref-Agapow_2001}{2001}; Smith et al.,
   \protect\hyperlink{ref-smith1993how}{1993}). Under scenarios of
   non-random mating (e.g.~population structure or clonal reproduction),
   the observed variance would be greater than the expected due to a
-  bimodal distribution of distances, and \(I_A\) would be greater than
+  multi-modal distribution of distances, and \(I_A\) would be greater than
   zero (Agapow and Burt, \protect\hyperlink{ref-Agapow_2001}{2001};
   Milgroom, \protect\hyperlink{ref-milgroom2015population}{2015}; Smith et
   al., \protect\hyperlink{ref-smith1993how}{1993}). Agapow and Burt
@@ -3218,39 +3230,27 @@ mother, Jane H. Kamvar.}
   \label{eq:rd}
   \end{align}
   
-  Smith et al. (\protect\hyperlink{ref-smith1993how}{1993}) demonstrated
-  that \(I_A\) has the ability to detect non-random mating due to
-  population structure, strict clonal reproduction, or a recent epidemic,
-  but at that time, no one had quantified how much clonal reproduction had
-  to occur to produce a significant value of \(I_A\). This was of
-  significant concern, considering that, as with any summary statistic, a
-  lot of information is lost when evaluating a population based on \(I_A\)
-  (Brown et al., \protect\hyperlink{ref-brown1980multilocus}{1980}). One
-  way to assess the effect of different population genetic scenarios was
-  via simulations.
-  
-  The effect of increasing levels of sexual reproduction on \(\bar{r}_d\)
-  was investigated by de Meeûs and Balloux
-  (\protect\hyperlink{ref-de2004clonal}{2004}) (noted in their publication
-  as \(\bar{r}_D\)). It was found that the mean value of \(\bar{r}_d\)
-  decreased rapidly with relatively low levels of sexual reproduction,
-  with large variances at low levels of sexual reproduction. This
-  indicates that \(\bar{r}_d\) alone might not be well suited as a measure
-  of clonal reproduction. The effect of sampling design on \(\bar{r}_d\)
-  was tested by Prugnolle and de Meeûs
-  (\protect\hyperlink{ref-prugnolle2010apparent}{2010}), finding that the
-  value of \(\bar{r}_d\) is drastically reduced when clones from multiple
-  populations are sampled, which can lead to an over-estimation of the
-  level of recombination.
+  de Meeûs and Balloux (\protect\hyperlink{ref-de2004clonal}{2004})
+  investigated the effect of increasing levels of sexual reproduction on
+  \(\bar{r}_d\) (noted in their publication as \(\bar{r}_D\)). They found
+  that very little (1\%) sexual reproduction is required to produce a
+  value of \(\bar{r}_d\) close to zero. This indicates that \(\bar{r}_d\)
+  alone might not be well suited as a measure of clonal reproduction.
+  Prugnolle and de Meeûs
+  (\protect\hyperlink{ref-prugnolle2010apparent}{2010}) tested the effect
+  of sampling design on \(\bar{r}_d\), finding that the its value is
+  drastically reduced when clones from multiple populations are sampled,
+  leading to an over-estimation of the level of recombination.
   
   These studies laid the groundwork for understanding the behavior of
   \(\bar{r}_d\) under different scenarios of non-random mating in diploid
   organisms, but there were some limitations in available technology that
   prevented deep analysis from being performed. For both studies, the only
-  software available to analyze \(\bar{r}_d\) for diploid organisms was
-  \textsc{Multilocus}, which could only take one data set at a time
-  (Agapow and Burt, \protect\hyperlink{ref-Agapow_2001}{2001}; de Meeûs
-  and Balloux, \protect\hyperlink{ref-de2004clonal}{2004}; Kamvar et al.,
+  software available for calculation of \(\bar{r}_d\) for diploid
+  organisms was \textsc{Multilocus}, which could only take one data set at
+  a time (Agapow and Burt, \protect\hyperlink{ref-Agapow_2001}{2001}; de
+  Meeûs and Balloux, \protect\hyperlink{ref-de2004clonal}{2004}; Kamvar et
+  al.,
   \protect\hyperlink{ref-kamvar2014poppr}{2014}\protect\hyperlink{ref-kamvar2014poppr}{b};
   Prugnolle and de Meeûs,
   \protect\hyperlink{ref-prugnolle2010apparent}{2010}). This constrained
@@ -3258,98 +3258,112 @@ mother, Jane H. Kamvar.}
   scenario.
   
   Since the distribution of \(I_A\) and \(\bar{r}_d\) are not known, the
-  safest way to test for significance were random permutation tests that
-  effectively created unlinked populations by shuffling individuals at
-  each locus, independently and re-calculating \(I_A\) and \(\bar{r}_d\)
-  (Agapow and Burt, \protect\hyperlink{ref-Agapow_2001}{2001}; Haubold et
-  al., \protect\hyperlink{ref-haubold1998detecting}{1998}; Smith et al.,
+  safest way to test for significance are random permutation tests. These
+  tests effectively create unlinked populations by shuffling individuals
+  at each locus, independently and re-calculating \(I_A\) and
+  \(\bar{r}_d\) (Agapow and Burt,
+  \protect\hyperlink{ref-Agapow_2001}{2001}; Haubold et al.,
+  \protect\hyperlink{ref-haubold1998detecting}{1998}; Smith et al.,
   \protect\hyperlink{ref-smith1993how}{1993}). A one-sided \emph{t}-test
   of significance was then used to see if the observed statistic was
   greater than the observed distribution.
   
-  While significance testing was available in \textsc{Multilocus} in the
-  form of random permutations, it was computationally expensive, and the
-  analytical approach was only available in a software for haploid
-  organisms (Agapow and Burt, \protect\hyperlink{ref-Agapow_2001}{2001};
-  Haubold and Hudson,
-  \protect\hyperlink{ref-haubold2000lian}{2000}\protect\hyperlink{ref-haubold2000lian}{a};
-  Haubold et al., \protect\hyperlink{ref-haubold1998detecting}{1998};
-  Kamvar et al.,
+  While significance testing is available in \textsc{Multilocus} in the
+  form of random permutations, it's computationally expensive, and can
+  only take one data set at a time (Agapow and Burt,
+  \protect\hyperlink{ref-Agapow_2001}{2001}; Kamvar et al.,
   \protect\hyperlink{ref-kamvar2014poppr}{2014}\protect\hyperlink{ref-kamvar2014poppr}{b}).
   As a result, power analysis of \(\bar{r}_d\) to detect clonal
-  reproduction is still yet to be performed (de Meeûs and Balloux,
-  \protect\hyperlink{ref-de2004clonal}{2004}).
+  reproduction has not yet been performed (de Meeûs and Balloux,
+  \protect\hyperlink{ref-de2004clonal}{2004}). Our current study aims to
+  evaluate the power and specificity of assessing \(\bar{r}_d\) via
+  permutation analysis to detect non-random mating.
   
-  Since these studies came out, reduced-representation, high-throughput
-  sequencing methods such as Genotyping-By-Sequencing (GBS) and RAD-seq
-  have rapidly become popular tools for population genetic analysis (Davey
-  and Blaxter, \protect\hyperlink{ref-davey2010rad}{2010}; Davey et al.,
+  In the years since the studies conducted by de Meeûs and Balloux
+  (\protect\hyperlink{ref-de2004clonal}{2004}) and Prugnolle and de Meeûs
+  (\protect\hyperlink{ref-prugnolle2010apparent}{2010}),
+  reduced-representation, high-throughput sequencing methods such as
+  Genotyping-By-Sequencing (GBS) and RAD-seq have rapidly become popular
+  tools for population genetic analysis (Davey and Blaxter,
+  \protect\hyperlink{ref-davey2010rad}{2010}; Davey et al.,
   \protect\hyperlink{ref-davey2011genome}{2011}; Elshire et al.,
   \protect\hyperlink{ref-elshire2011robust}{2011}). These methods have the
   capability to generate thousands of unlinked markers at a fraction of
   the cost and time necessary to develop high quality microsatellite
-  markers. These marker systems are also prone to high error rates
-  (Mastretta-Yanes et al.,
+  markers. These marker systems are also prone to missing data and high
+  error rates (Mastretta-Yanes et al.,
   \protect\hyperlink{ref-mastretta2015restriction}{2014}). The index of
   association was developed for multiple loci in a time when obtaining
   even 100 unlinked markers posed a significant challenge. With the advent
   of these current technologies, how does marker choice and genotyping
   error affect the index of association?
   
-  Our current study aims to fill in the gaps left by the technical
-  limitations of previous studies. In 2014, we developed the R package
-  \emph{poppr} for analysis of clonal populations, removing the
-  limitations of data input and computational expense of analyzing the
-  index of association, and in 2015, we expanded this to analysis of
-  genome-wide SNP data (Kamvar et al.,
+  In 2014, we developed the R package \emph{poppr} for analysis of clonal
+  populations, removing the limitations of data input and computational
+  expense of analyzing the index of association, and in 2015, we expanded
+  this to analysis of genome- wide SNP data (Kamvar et al.,
   \protect\hyperlink{ref-kamvar2015novel}{2015}\protect\hyperlink{ref-kamvar2015novel}{b},
   \protect\hyperlink{ref-kamvar2014poppr}{2014}\protect\hyperlink{ref-kamvar2014poppr}{b};
   R Core Team, \protect\hyperlink{ref-R2016}{2016}). With these tools we
-  set expand on previous studies by asking how sample size, marker choice,
-  and clone-correction affect our ability to detect clonal reproduction in
-  diploid populations. Our objectives to answer these questions are to (1)
-  Re-analyze \(\bar{r}_d\) against increasing rates of sexual reproduction
-  and different levels of population mixture in both microsatellite and
-  SNP data sets. (2) Perform a power analysis of \(\bar{r}_d\). (3) Assess
-  how genotypic and allelic evenness and diversity affects \(\bar{r}_d\).
-  Because studies have observed significantly negative values of the
-  \(I_A\) and \(\bar{r}_d\) (p \(\geq\) 0.95), we additionally seek to
-  characterize these populations to find common patterns that would
-  indicate clonal or sexual reproduction.
+  expand on previous studies by asking how sample size, marker choice,
+  clone-correction, and the assumption of homogeneous mutation rates
+  affect our ability to detect clonal reproduction in diploid populations.
+  Our objectives to answer these questions are to (1) re-analyze
+  \(\bar{r}_d\) against increasing rates of sexual reproduction and
+  different levels of population mixture in both microsatellite and SNP
+  data sets, (2) perform a power analysis of \(\bar{r}_d\) to assess
+  sensitivity and specificity, (3) assess how genotypic and allelic
+  evenness and diversity affects \(\bar{r}_d\). Because studies have
+  observed significantly negative values of the \(I_A\) and \(\bar{r}_d\)
+  (p \(\geq\) 0.95), we additionally seek to determine what factors result
+  in negative \(\bar{r}_d\) values.
   
   \section{Methods}\label{methods}
   
   Initial sets of simulations were created for different levels of sexual
   reproduction for each marker type. All simulations were performed with
-  the python package simuPOP version 1.1.7 in python version 3.4. For each
-  scenario, 100 simulations with 10 replicates were created with a census
-  size of 10,000 diploid individuals with equal mating type proportions
-  evolved over 10,000 generations. From each replicate, 10, 25, 50, and
-  100 individuals were sampled without replacement for downstream analysis
-  in R version 3.2 with the package \emph{poppr} version 2.2.1 on full and
-  clone-corrected data sets. All downstream analyses were run on the OSU
-  CGRB Core Computing Facility (supplementary information).
+  the python package simuPOP version 1.1.7 in python version 3.4(Peng and
+  Amos, \protect\hyperlink{ref-peng2008forward}{2008}). For each scenario,
+  100 simulations with 10 replicates were created with a census size of
+  10,000 diploid individuals with equal mating type proportions evolved
+  over 10,000 generations. The simulated populations were first stored in
+  the native simuPOP format and then transferred to feather format using
+  the python and R packages \emph{feather} version 0.3.0 for downstream
+  analyses. Microsatellite simulations were performed on Ubuntu Linux
+  version 14.04; SNP simulations were performed on CentOS Linux version
+  6.8. During downstream analysis, 10, 25, 50, and 100 individuals were
+  sampled without replacement for each replicate in R version 3.2 with the
+  package \emph{poppr} version 2.2.1 (Kamvar et al.,
+  \protect\hyperlink{ref-kamvar2015novel}{2015}\protect\hyperlink{ref-kamvar2015novel}{b},
+  \protect\hyperlink{ref-kamvar2014poppr}{2014}\protect\hyperlink{ref-kamvar2014poppr}{b};
+  R Core Team, \protect\hyperlink{ref-R2016}{2016}). Analyses (described
+  below) were performed on both full and clone-corrected data sets. All
+  downstream analyses were run on the OSU CGRB Core Computing Facility
+  (supplementary information).
   
   \subsection{Simulating Microsatellite
   Loci}\label{simulating-microsatellite-loci}
   
-  Each population was simulated with 20 co-dominant, unlinked loci
+  Each population was simulated with 21 co-dominant, unlinked loci
   containing 6 to 10 alleles per locus with frequencies drawn from a
   uniform distribution and subsequently normalized. Before mating,
   mutations occurred at each locus at a rate of 1e-5 mutations/generation
-  in a stepwise manner using the \texttt{StepwiseMutator()} operator.
+  with the exception of the first locus, at which the mutation rate was
+  set to 1e-3. All mutations were applied in a stepwise manner using the
+  \texttt{StepwiseMutator()} operator in simuPOP.
   
   \subsection{GBS Simulations}\label{gbs-simulations}
   
-  Simulations of 10,000 binary loci at spread evenly over 10 chromosomal
+  Simulations of 10,000 binary loci spread evenly over 10 chromosomal
   fragments were simulated with a mutation rate of 1e-5 mutations per
   generation for forward and backward mutations using the
   \texttt{SNPMutator()} operator and and a recombination rate of 1e-5
-  between adjacent loci using the \texttt{Recombinator()} operator.
+  between adjacent loci using the \texttt{Recombinator()} operator in
+  simuPOP.
   
-  \subsection{Sexual Reproduction}\label{sexual-reproduction}
+  \subsection{Mating}\label{mating}
   
-  Simulations of sexual reproduction were analyzed at 10 rates of sexual
+  Simulations of sexual reproduction were conducted at 10 rates of sexual
   reproduction on a log scale (0.0, 1e-4, 5e-4, 1e-3, 5e-3, 1e-2, 5e-2,
   0.1, 0.5, 1.0) reflecting the fraction of individuals in generation
   \emph{t+1} produced via sexual reproduction. One to three offspring
@@ -3371,65 +3385,124 @@ mother, Jane H. Kamvar.}
   \texttt{ia()}. Tests for significance were performed by randomly
   permuting the alleles at each locus independently and then assessing
   \(\bar{r}_d\). This was done 999 times for each replicate population.
-  Re-sampling was not performed with clone-corrected data. The p-values
+  This was done for both full and clone-corrected data. The p-values
   reflect the proportion of observations greater than the observed
   statistic. Estimates of genotypic diversity were assessed with the
   \emph{poppr} function \texttt{diversity\_boot()} with 999 bootstrap
-  replicates, recording the estimate and variance.
+  replicates, recording the estimate and variance. The genotypic diversity
+  statistics we calculated were Shannon's Index, \(H = -\sum p_i ln p_i\)
+  (Shannon, \protect\hyperlink{ref-shannon2001mathematical}{2001}),
+  Stoddart and Taylor's Index, \(G = 1/\sum p_i^2\) (Stoddart and Taylor,
+  \protect\hyperlink{ref-stoddart1988genotypic}{1988}), and Evenness,
+  \(E_5 = (G - 1)/(e^H - 1)\) (Pielou,
+  \protect\hyperlink{ref-pielou1975ecological}{1975}) where \(p_i\) is the
+  frequency of the \emph{i}th genotype.
+  
+  We additionally Nei's 1978 expected heterozygosity, also known as gene
+  diversity (Nei, \protect\hyperlink{ref-Nei:1978}{1978}), calculated mean
+  allelic evenness \(E_{5A} = (1/m) \sum E_{5l}\) where \emph{m} is the
+  number of loci and \(E_{5l}\) is the evenness of the alleles at locus
+  \emph{l}.
   
   \subsection{Analysis of SNP Data}\label{analysis-of-snp-data}
   
   Because GBS data are associated with high error rates, we additionally
-  wanted to assess the effect of error and missing data on analysis. To do
-  this, we used scripts written for Kamvar et al.
+  wanted to assess the effect of missing data on analysis. To do this, we
+  used scripts written for Kamvar et al.
   (\protect\hyperlink{ref-kamvar2015novel}{2015}\protect\hyperlink{ref-kamvar2015novel}{b})
-  to randomly insert missing data (via the \texttt{pop\_NA()} function)
-  and genotyping errors (via the \texttt{pop\_mutator()}) (Kamvar et al.,
+  to randomly insert missing data via the \texttt{pop\_NA()} function
+  (Kamvar et al.,
   \protect\hyperlink{ref-kamvar2015poppr2supp}{2015}\protect\hyperlink{ref-kamvar2015poppr2supp}{a})
-  at rates of 5\% and 10\% each. We then used the \emph{poppr} function
-  \texttt{mlg.filter()} to with the farthest neighbor algorithm to
-  collapse multilocus genotypes with 5\% and 10\% similarity and compared
-  the results with the known genotypes. Genotypic diversity was assessed
-  with the \emph{poppr} function \texttt{diversity\_boot()} with 999
-  bootstrap replicates on the filtered data sets, recording the variance.
+  at rates of 1\%, 5\%, and 10\% each.
   
   The overall value of \(\bar{r}_d\) was calculated for each simulation
-  with the \emph{poppr} function \texttt{bitwise.ia()}. To assess
-  within-chromosome dynamics, values of \(\bar{r}_d\) were calculated
-  along chromosomes using the \emph{poppr} function \texttt{win.ia()}
-  along windows of 50 and 100 SNPs. Cross-chromosome dynamics of
-  \(\bar{r}_d\) were assessed by utilizing random samples of 50, 100, and
-  1000 SNPs replicated 999 times for each population sample.
+  with the \emph{poppr} function \texttt{bitwise.ia()}. Significance was
+  first assessed by randomly shuffling genotypes at each locus
+  independently and then, to preserve existing background linkage
+  structure, at each chromosome independently. This was done 999 times for
+  each replicate population. P-values represent the proportion of random
+  samples greater than or equal to the observed statistic.
   
   \subsection{Power Analysis}\label{power-analysis}
   
-  The Receiver Operating Characteristic (ROC) curve is a method of
-  assessing the explanatory power of a method by assessing the true
-  positive fraction of tests to a false positive fraction (Metz,
-  \protect\hyperlink{ref-metz1978basic}{1978}). Briefly, if a method has
-  perfect explanatory power, the area under the ROC curve will be equal to
-  1. If a method has no explanatory power, the area under the ROC curve
-  will be equal to 0.5. ROC analysis was carried as described in Metz
-  (\protect\hyperlink{ref-metz1978basic}{1978}) as a comparison of the
-  false positive fraction to the true positive fraction as you increase
-  the level of rejection, (\(\alpha\)). The null hypothesis for the ROC
-  analysis was defined where the rate of sexual reproduction was 100\%.
-  All other rates were considered to be separate alternative hypotheses.
-  The curves were calculated by analyzing the data sets over increasing
-  values of \(\alpha\) from 0 to 1 in increments of 0.01. The area under
-  the ROC curves was calculated using the \texttt{trapz()} function in the
-  R package \emph{pracma} version 1.9.5 (Borchers,
-  \protect\hyperlink{ref-borchers2016pracma}{2016}). ANOVA was run with
-  the following models:
+  Permutation analysis of the index of association is commonly used as a
+  diagnostic for detecting non-random mating. If the observed value of
+  \(\bar{r}_d\) is greater than 95\% of the results from the permutations,
+  then the population is declared to be clonal. Standard practice for
+  analyzing microbial populations is to perform this test on both the
+  whole data set (wd) and clone-corrected data (cc), where each multilocus
+  genotype is represented only once per population to avoid signatures of
+  linkage that arise from re-sampling the same individual. (Goss et al.,
+  \protect\hyperlink{ref-goss2014irish}{2014}; McDonald,
+  \protect\hyperlink{ref-mcdonald1997population}{1997}; Milgroom,
+  \protect\hyperlink{ref-milgroom1996recombination}{1996}). If the p-value
+  for \(\bar{r}_d\) is significant after clone-correction, then the
+  population is considered clonal. Because knowing a pathogen's mode of
+  reproduction can affect management strategies, it's important to know
+  how sample size, rate of sexual reproduction, mutation rate homogeneity,
+  and clone-correction affect this method's sensitivity and specificity.
   
-  \begin{longtable}[]{@{}c@{}}
+  The Receiver Operating Characteristic (ROC) curve is a method of
+  assessing the the balance between sensitivity and specificity of a
+  diagnostic method (Metz, \protect\hyperlink{ref-metz1978basic}{1978}).
+  This is done by simultaneously assessing the true positive fraction of
+  tests to a false positive fraction along a gradient of thresholds of
+  increasing leniency. Briefly, if a method has perfect explanatory power,
+  the area under the ROC curve will be equal to 1. If a method has no
+  explanatory power, the area under the ROC curve will be equal to 0.5. We
+  used this method to assess the efficacy of \(\bar{r}_d\) to detect
+  non-random mating.
+  
+  To calculate the ROC curve, we first have to define defined what a
+  positive value is. We define it as a significant value of \(\bar{r}_d\)
+  based on a threshold, \(\alpha\), where \(\alpha\) is a value in {[}0,
+  1{]}. Therefore, any randomly mating population (sexual reproduction is
+  equal to one) with a significant value of \(\bar{r}_d\) is considered a
+  false positive, and subsequently, any non-randomly mating population
+  with a significant value of \(\bar{r}_d\) is considered a true positive
+  (Table \ref{tab:simtab1}).
+  
+  \begin{longtable}[]{@{}ccc@{}}
+  \caption{\label{tab:simtab1} Definitions of false positive and true positive
+  values for ROC analysis of simulations. \emph{p} is the p-value for
+  \(\bar{r}_d\), \(\alpha\) is a threshold value in {[}0, 1{]} Random
+  Mating populations are simulated with a sex rate of 1. Non-Random Mating
+  populations are simulated with a sex rate less than one.}\tabularnewline
   \toprule
-  False Positive Rate \textasciitilde{} Sex Rate + Sample
-  Size\tabularnewline
-  Area Under ROC Curve \textasciitilde{} Sex Rate + Sample
-  Size\tabularnewline
+  Reproductive Mode & \(p \leq \alpha\) & \(p > \alpha\)\tabularnewline
+  \midrule
+  \endfirsthead
+  \toprule
+  Reproductive Mode & \(p \leq \alpha\) & \(p > \alpha\)\tabularnewline
+  \midrule
+  \endhead
+  Non-Random Mating & True Positive & False Negative\tabularnewline
+  Random Mating & False Positive & True Negative\tabularnewline
   \bottomrule
   \end{longtable}
+  
+  We constructed each curve by assessing the ROC over values of \(\alpha\)
+  in increments of 0.01 from 0 to 1 and plotting the true positive
+  fraction on the y axis and false positive fraction on the x axis. Curves
+  were calculated hierarchically by rate of sexual reproduction
+  (\textless{} 1) and unique seed used to generate the populations. For
+  each hierarchical level, separate curves were calculated for sample
+  size, mutation rate, and clone-correction. The area under the ROC curves
+  was calculated using the \texttt{auc()} function in the R package
+  \emph{flux} version 0.3-0 (Jurasinski et al.,
+  \protect\hyperlink{ref-jurasinski2014flux}{2014}).
+  
+  \section{Results}\label{results-1}
+  
+  \subsection{Microsatellite Data}\label{microsatellite-data}
+  
+  \subsection{SNP Data}\label{snp-data}
+  
+  Because of the computational intensity of the simulations we were only
+  able to run 24 unique seeds over all rates of sexual reproduction with
+  10 replicates per seed. Because some replicates failed to save, we
+  randomly sampled five replicates per seed per rate of sexual
+  reproduction, giving us a total of 1200 total populations for analysis.
   
   \backmatter
   
@@ -3478,11 +3551,6 @@ mother, Jane H. Kamvar.}
   Bivand, R., Keitt, T., and Rowlingson, B. (2014). \emph{rgdal: Bindings
   for the Geospatial Data Abstraction Library}. Available at:
   \url{https://CRAN.R-project.org/package=rgdal}.
-  
-  \hypertarget{ref-borchers2016pracma}{}
-  Borchers, H. W. (2016). \emph{Pracma: Practical numerical math
-  functions}. Available at:
-  \url{https://CRAN.R-project.org/package=pracma}.
   
   \hypertarget{ref-brown1980multilocus}{}
   Brown, A., Feldman, M., and Nevo, E. (1980). Multilocus structure of
@@ -3712,12 +3780,6 @@ mother, Jane H. Kamvar.}
   393--398.
   doi:\href{https://doi.org/10.1038/nature08358}{10.1038/nature08358}.
   
-  \hypertarget{ref-halkett2005tackling}{}
-  Halkett, F., Simon, J., and Balloux, F. (2005). Tackling the population
-  genetics of clonal and partially clonal organisms. \emph{Trends in
-  Ecology \& Evolution} 20, 194--201.
-  doi:\href{https://doi.org/10.1016/j.tree.2005.01.001}{10.1016/j.tree.2005.01.001}.
-  
   \hypertarget{ref-hansen2008epidemiology}{}
   Hansen, E. M., Kanaskie, A., Prospero, S., McWilliams, M., Goheen, E.
   M., Osterbauer, N., et al. (2008). Epidemiology of \emph{Phytophthora
@@ -3729,13 +3791,8 @@ mother, Jane H. Kamvar.}
   Hartl, D. L., and Clark, A. G. (2007). \emph{Principles of population
   genetics}. Sunderland, MA, USA: Sinauer Assoc.
   
-  \hypertarget{ref-haubold2000lian}{}
-  Haubold, B., and Hudson, R. R. (2000a). LIAN 3.0: Detecting linkage
-  disequilibrium in multilocus data. \emph{Bioinformatics} 16, 847--849.
-  doi:\href{https://doi.org/10.1093/bioinformatics/16.9.847}{10.1093/bioinformatics/16.9.847}.
-  
   \hypertarget{ref-Haubold:2000}{}
-  Haubold, B., and Hudson, R. R. (2000b). LIAN 3.0: detecting linkage
+  Haubold, B., and Hudson, R. R. (2000). LIAN 3.0: detecting linkage
   disequilibrium in multilocus data. \emph{Bioinformatics} 16, 847--849.
   doi:\href{https://doi.org/10.1093/bioinformatics/16.9.847}{10.1093/bioinformatics/16.9.847}.
   
@@ -3749,6 +3806,11 @@ mother, Jane H. Kamvar.}
   calculation of the rarefaction diversity measurement and the
   determination of sufficient sample size. \emph{Ecology} 56, 1459--1461.
   doi:\href{https://doi.org/10.2307/1934716}{10.2307/1934716}.
+  
+  \hypertarget{ref-heitman2012evolution}{}
+  Heitman, J., Sun, S., and James, T. Y. (2012). Evolution of fungal
+  sexual reproduction. \emph{Mycologia} 105, 1--27.
+  doi:\href{https://doi.org/10.3852/12-253}{10.3852/12-253}.
   
   \hypertarget{ref-hurlbert1971nonconcept}{}
   Hurlbert, S. H. (1971). The nonconcept of species diversity: A critique
@@ -3777,6 +3839,12 @@ mother, Jane H. Kamvar.}
   analysis of principal components: A new method for the analysis of
   genetically structured populations. \emph{BMC Genet} 11, 94.
   doi:\href{https://doi.org/10.1186/1471-2156-11-94}{10.1186/1471-2156-11-94}.
+  
+  \hypertarget{ref-jurasinski2014flux}{}
+  Jurasinski, G., Koebsch, F., Guenther, A., and Beetz, S. (2014).
+  \emph{flux: Flux rate calculation from dynamic closed chamber
+  measurements}. Available at:
+  \url{https://CRAN.R-project.org/package=flux}.
   
   \hypertarget{ref-khale2013ggmap}{}
   Kahle, D., and Wickham, H. (2013). ggmap: Spatial Visualization with
@@ -3931,12 +3999,6 @@ mother, Jane H. Kamvar.}
   genetics theory and fungicide resistance. \emph{Plant disease
   epidemiology} 2, 340--367.
   
-  \hypertarget{ref-milgroom1997contributions}{}
-  Milgroom, M., and Fry, W. E. (1997). Contributions of population
-  genetics to plant disease epidemiology and management. \emph{Advances in
-  Botanical Research} 24, 1--30.
-  doi:\href{https://doi.org/10.1016/S0065-2296(08)60069-5}{10.1016/S0065-2296(08)60069-5}.
-  
   \hypertarget{ref-nei1973analysis}{}
   Nei, M. (1973). Analysis of gene diversity in subdivided populations.
   \emph{Proceedings of the National Academy of Sciences} 70, 3321--3323.
@@ -3995,6 +4057,11 @@ mother, Jane H. Kamvar.}
   Peever, T. L., and Milgroom, M. G. (1994). Genetic structure of
   \emph{Pyrenophora teres} populations determined with random amplified
   polymorphic DNA markers. \emph{Canadian Journal of Botany} 72, 915--923.
+  
+  \hypertarget{ref-peng2008forward}{}
+  Peng, B., and Amos, C. I. (2008). Forward-time simulations of non-random
+  mating populations using simuPOP. \emph{Bioinformatics} 24, 1408--1409.
+  doi:\href{https://doi.org/10.1093/bioinformatics/btn179}{10.1093/bioinformatics/btn179}.
   
   \hypertarget{ref-pielou1975ecological}{}
   Pielou, E. (1975). Ecological diversity.
