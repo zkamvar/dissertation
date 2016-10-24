@@ -37,11 +37,11 @@ TBD...
 ## Introduction
 
 Population genetic theory is largely based on the neutral Wright-Fisher model 
-in which populations are infinitely large, with discrete generations, 
-no migration, no mutation, and randomly assorting alleles [@hartl1997principles;
-@nielsen2013introduction]. By using this model, population genetics are able to
-ask fundemental questions and test hypotheses about evolutionary processes that
-could lead to structured populations. (((EXAMPLE OF COOL RESEARCH))).
+in which populations are infinitely large, with discrete generations, randomly assorting alleles,
+no migration, and no mutation [@hartl1997principles;
+@nielsen2013introduction]. By using this model, population geneticists are able to
+ask fundamental questions and test hypotheses about evolutionary processes that
+could lead to structured populations.
 
 This neutral model, however, cannot be applied to populations whose life history
 violates the fundamental assumption of random assortment of alleles, such as
@@ -71,12 +71,12 @@ in populations that undergo clonal reproduction [@smith1993how;
 phases occurring at separate times, such as rust type fungi, methods like
 *CloNcaSe* are effective for estimating the rate of sexual reproduction and
 effective population size [@ali2016cloncase]. However, this method cannot be
-applied to populations where the reproducive cycle is not partitioned into
+applied to populations where the reproductive cycle is not partitioned into
 discrete generations.
 
 Simply detecting the presence of clonal reproduction, however can be useful in
 and of itself [@milgroom1996recombination]. A method commonly used to assess 
-this is the index of assocation ($I_A$), and its standardized version,
+this is the index of association ($I_A$), and its standardized version,
 $\bar{r}_d$, which measure multilocus linkage disequilibrium
 [@brown1980multilocus; @smith1993how; @haubold1998detecting; @Agapow_2001; 
 @de2004clonal; @kamvar2014poppr]. The value of $I_A$, as shown in equation
@@ -94,7 +94,7 @@ differences between samples are randomly distributed (linkage equilibrium), we
 can expect the value of $I_A$ to be zero [@smith1993how; @Agapow_2001]. Under
 scenarios of non-random mating (e.g. population structure or clonal
 reproduction), the observed variance would be greater than the expected due to a
-multimodal distribution of distances, and $I_A$ would be greater than zero
+multi-modal distribution of distances, and $I_A$ would be greater than zero
 [@smith1993how; @Agapow_2001; @milgroom2015population]. @Agapow_2001 noted that 
 this metric does not have an upper limit and increases with the number of loci.
 To correct this, they developed $\bar{r}_d$ (equation \@ref(eq:rd)), which has a
@@ -173,7 +173,7 @@ removing the limitations of data input and computational expense of analyzing
 the index of association, and in 2015, we expanded this to analysis of genome-
 wide SNP data [@R2016; @kamvar2014poppr; @kamvar2015novel]. With these tools we
 expand on previous studies by asking how sample size, marker choice,
-clone-correction, and the assumption of homogenous mutation rates affect our
+clone-correction, and the assumption of homogeneous mutation rates affect our
 ability to detect clonal reproduction in diploid populations. Our objectives to
 answer these questions are to (1) re-analyze $\bar{r}_d$ against increasing
 rates of sexual reproduction and different levels of population mixture in both
@@ -181,7 +181,7 @@ microsatellite and SNP data sets, (2) perform a power analysis of $\bar{r}_d$
 to assess sensitivity and specificity, (3) assess how genotypic and allelic
 evenness and diversity affects $\bar{r}_d$. Because studies have observed
 significantly negative values of the $I_A$ and $\bar{r}_d$ (p $\geq$ 0.95), we
-additionally seek to deterimine what factors result in negative $\bar{r}_d$ 
+additionally seek to determine what factors result in negative $\bar{r}_d$ 
 values.
 
 
@@ -230,7 +230,7 @@ reproduction for each marker type. All simulations were performed with the
 python package simuPOP version 1.1.7 in python version 3.4[@peng2008forward]. For each scenario,
 100 simulations with 10 replicates were created with a census size of 10,000
 diploid individuals with equal mating type proportions evolved over 10,000
-generations. The simulated populations were first stored in the native simuPOP format and then transferred to feather format using the python and R packages *feather* version 0.3.0 for downstream analyses. Micorsatellite simulations were performed on Ubuntu Linux version 14.04; SNP simulations were performed on CentOS Linux version 6.8. During downstream analysis, 10, 25, 50, and 100 individuals were sampled
+generations. The simulated populations were first stored in the native simuPOP format and then transferred to feather format using the python and R packages *feather* version 0.3.0 for downstream analyses. Microsatellite simulations were performed on Ubuntu Linux version 14.04; SNP simulations were performed on CentOS Linux version 6.8. During downstream analysis, 10, 25, 50, and 100 individuals were sampled
 without replacement for each replicate in R version 3.2 with the package
 *poppr* version 2.2.1 [@R2016; @kamvar2014poppr; @kamvar2015novel]. Analyses (described below) were performed on both full and clone-corrected data sets. All downstream
 analyses were run on the OSU CGRB Core Computing Facility (supplementary
