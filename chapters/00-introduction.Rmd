@@ -20,20 +20,11 @@ I put this as a comment since it's a guideline
  	2. application of these tools to address empirical and theoretical questions
 
 
-The majority of plant pathogenic species on earth are microbial. The majority of
-these microbes have the ability to reproduce both sexually and clonally, which
-allows them to adapt to their environment in different ways. In times of extreme
-stress, such as increased pesticide pressure, they can switch to sexual
-reproduction, which purges deleterious allele combinations and has the potential
-to give rise to beneficial gene combinations. Clonal reproduction on the other
-hand, allows them to hold on to their stacked deck of virulence genes, but at
-the cost of genetic variation.
-
 
 
 ## Population genetics of clonal organisms
 
- - Population genetics is traditionally centered around HWE
+ - Population genetics is traditionally centered around neutral models
  - Clonal populations violate basic statistical inference
  	- non-independent samples (clones)
  	- excess heterozygosity
@@ -78,11 +69,6 @@ include a figures such as: phylogenetic placement, morphologial fatures, life cy
  - Sudden Oak Death
  - Population genetics in US nurseries [@goss2009population]
 
-### Homothallic, partially clonal: *P. syringae*
-
- - Abundant in OR Nurseries (found in foliar isolates) [@parke2014phytophthora]
- - Genetic structure uncharacterized
-
 ## Tools for analysis of clonal population genetics
 
 Recommendations have been made for analysis [@arnaud2007standardizing]
@@ -96,7 +82,6 @@ Recommendations have been made for analysis [@arnaud2007standardizing]
  - Standardized Version [@Agapow_2001]
  - Previous Simulation Analyses [@de2004clonal]
  - What's missing
- 	- Sympatric clonal lineages
  	- Analysis of significance testing
  	- HTS markers
 
@@ -118,7 +103,6 @@ Problems with file formatting, time, and reproducibility.
 
  - Simulation analysis of $\bar{r}_d$
  - SSR analysis of *P. ramorum*
- - GBS analysis of *P. syringae*
 
 ## Conclusion
 
