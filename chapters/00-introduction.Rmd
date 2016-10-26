@@ -19,6 +19,12 @@ I put this as a comment since it's a guideline
  	1. development of computational tools to characterize populations
  	2. application of these tools to address empirical and theoretical questions
 
+<!-- INTRO PARAGRAPH ABOUT EVOLUTION OF PLANT PATHOGENS HERE -->
+
+The importance of understanding the population dynamics of these organisms with
+mixed modes of reproduction cannot be understated. 
+
+
 
 
 
