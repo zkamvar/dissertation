@@ -1,2 +1,198 @@
 # Introduction
 
+<!-- 
+
+From http://www.dissertationwriting.com/introduction-chapter-writing.shtml
+
+Introductory Paragraph
+
+State the general field of interest in one or two paragraphs, and end with a
+sentence that states what study will accomplish. Do not keep the reader waiting
+to find out the precise subject of the dissertation.
+
+-->
+
+
+
+<!--
+
+Background of the Problem
+
+This section is critically important as it must contain some mention of all the
+subject matter in the following Chapter 2 Review of the Literature 2 and the
+methodology in Chapter 3. Key words should abound that will subsequently be used
+again in Chapter 2. The section is a brief  two to four page summary of the
+major findings in the field of interest that cites the most current finding in
+the subject area. A minimum of two to three citations to the literature per
+paragraph is advisable. The paragraphs must be a summary of unresolved issues,
+conflicting findings, social concerns, or educational, national, or
+international issues, and lead to the next section, the statement of the
+problem. The problem is the gap in the knowledge. The focus of the Background of
+the Problem is where a gap in the knowledge is found in the current body of
+empirical (research) literature.
+
+-->
+
+<!--
+
+Statement of the Problem
+
+Arising from the background statement is this statement of the exact gap in the
+knowledge discussed in previous paragraphs that reviewed the most current
+literature found. A gap in the knowledge is the entire reason for the study, so
+state it specifically and exactly. Use the words “gap in the knowledge.” The
+problem statement will contain a definition of the general need for the study,
+and the specific problem that will be addressed.
+
+-->
+
+<!--
+
+Purpose of the Study
+
+The Purpose of the Study is a statement contained within one or two paragraphs
+that identifies the research design, such as qualitative, quantitative, mixed
+methods, ethnographic, or another design. The research variables, if a
+quantitative study, are identified, for instance, independent, dependent,
+comparisons, relationships, or other variables. The population that will be used
+is identified, whether it will be randomly or purposively chosen, and the
+location of the study is summarized. Most of these factors will be discussed in
+detail in Chapter 3.
+
+-->
+
+<!--
+
+Significance of the Study
+
+The significance is a statement of why it is important to determine the answer
+to the gap in the knowledge, and is related to improving the human condition.
+The contribution to the body of knowledge is described, and summarizes who will
+be able to use the knowledge to make better decisions, improve policy, advance
+science, or other uses of the new information. The “new” data is the information
+used to fill the gap in the knowledge.
+
+-->
+
+<!--
+
+Primary Research Questions
+
+The primary research question is the basis for data collection and arises from
+the Purpose of the Study. There may be one, or there may be several. When the
+research is finished, the contribution to the knowledge will be the answer to
+these questions. Do not confuse the primary research questions with interview
+questions in a qualitative study, or survey questions in a quantitative study.
+The research questions in a qualitative study are followed by both a null and an
+alternate hypothesis.
+
+-->
+
+<!--
+
+Hypotheses
+
+A hypothesis is a testable prediction for an observed phenomenon, namely, the
+gap in the knowledge. Each research question will have both a null and an
+alternative hypothesis in a quantitative study. Qualitative studies do not have
+hypotheses. The two hypotheses should follow the research question upon which
+they are based. Hypotheses are testable predictions to the gap in the knowledge.
+In a qualitative study the hypotheses are replaced with the primary research
+questions.
+
+-->
+
+<!--
+
+Research Design
+
+In Chapter 1 this is a summary of the methodology and contains a brief outline
+of three things: (a) the participants in a qualitative study or thesubjects of a
+quantitative study (human participants are referred tyo as participants, non-
+human subjects are referred to as subjects), (b) the instrumentation used to
+collect data, and (c) the procedure that will be followed. All of these elements
+will be reported in detail in Chapter 3. In a quantitative study, the
+instrumentation will be validated in Chapter 3 in detail. In a qualitative
+study, if it is a researcher-created questionnaire, validating the correctness
+of the interview protocol is usually accomplished with a pilot study.  For
+either a quantitative or a qualitative study, using an already validated survey
+instrument is easier to defend and does not require a pilot study; however,
+Chapter 3 must contain a careful review of the instrument and how it was
+validated by the creator.
+
+In a qualitative study, which usually involves interviews, the instrumentation
+is an interview protocol – a pre-determined set of questions that every
+participant is asked that are based on the primary research questions.  A
+qualitative interview should contain no less than 10 open-ended questions and
+take no less than 1 hour to administer to qualify as “robust” research.
+
+In the humanities, a demographic survey should be circulated with most
+quantitative and qualitative studies to establish the parameters of the
+participant pool. Demographic surveys are nearly identical in most
+dissertations. In the sciences, a demographic survey is rarely needed.
+
+-->
+
+<!--
+
+Theoretical Framework
+
+The theoretical framework is the foundational theory that is used to provide a
+perspective upon which the study is based. There are hundreds of theories in the
+literature.  For instance, if a study in the social sciences is about stress
+that may be causing teachers to quit, Apple’s Intensification Theory could be
+cited as the theory was that stress is cumulative and the result of continuing
+overlapping, progressively stringent responsibilities for teachers that
+eventually leads to the desire to quit. In the sciences, research about new
+species that may have evolved from older, extinct species would be based on the
+theory of evolution pioneered by Darwin.
+
+Some departments put the theoretical framework explanation in Chapter 1; some
+put it in Chapter 2.
+
+-->
+
+<!--
+
+Assumptions, Limitations, and Scope (Delimitations)
+
+Assumptions are self-evident truths.  In a qualitative study, it may be assumed
+that participants be highly qualified in the study is about administrators.  It
+can be assumed that participants will answer truthfully and accurately to the
+interview questions based on their personal experience, and that participants
+will respond honestly and to the best of their individual abilities.
+
+Limitations of a study are those things over which the research has no control.
+Evident limitations are potential weaknesses of a study. Researcher biases and
+perceptual misrepresentations are potential limitations in a qualitative study;
+in a quantitative study, a limitation may be the capability of an instrument to
+accurately record data.
+
+Scope is the extent of the study and contains measurements. In a qualitative
+study this would include the number of participants, the geographical location,
+and other pertinent numerical data. In a quantitative study the size of the
+elements of the experiment are cited. The generalizability of the study may be
+cited. The word generalizability, which is not in the Word 2007 dictionary,
+means the extent to which the data are applicable in places other than where the
+study took place, or under what conditions the study took place.
+
+Delimitations are limitations on the research design imposed deliberately by the
+researcher. Delimitations in a social sciences study would be such things as the
+specific school district where a study took place, or in a scientific study, the
+number of repetitions.
+
+-->
+
+<!--
+
+Definition of Terms
+
+The definition of terms is written for knowledgeable peers, not people from
+other disciplines As such, it is not the place to fill pages with definitions
+that knowledgeable peers would know at a glance. Instead, define terms that may
+have more than one meaning among knowledgeable peers.
+
+Summary
+
+
+ -->
