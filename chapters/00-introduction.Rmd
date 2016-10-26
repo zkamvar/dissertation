@@ -13,6 +13,19 @@ to find out the precise subject of the dissertation.
 -->
 
 
+<!-- REWRITE REWRITE REWRITE! -->
+One of the main assumptions in many neutral models of population genetic theory
+is a large, randomly mating population... These models cannot be applied to
+populations of clonal organisms due to the violation of the assumption of random
+mating... While analytical tools for analysis of clonal populations have been
+developed, many of these were only available as stand-alone programs, each with
+its own input format. This made it difficult to analyze population genetic data
+in a way that was reproducible. 
+
+The main goal of this work is to develop tools for the analysis of clonal
+populations in an open and reproducible manner, and apply them to answer
+questions about an outbreak of the Sudden Oak Death Pathogen in Curry County, OR,
+and the power of the index of association to detect clonal reproduction. <!-- THIS NEEDS TO CHANGE -->
 
 <!--
 
