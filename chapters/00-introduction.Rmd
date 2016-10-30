@@ -13,21 +13,20 @@ to find out the precise subject of the dissertation.
 -->
 
 
-<!-- REWRITE REWRITE REWRITE! -->
-One of the main assumptions in many neutral models of population genetic theory
-is a large, randomly mating population... These models cannot be applied to
-populations of clonal organisms due to the violation of the assumption of random
-mating... While analytical tools for analysis of clonal populations have been
-developed, many of these were only available as stand-alone programs, each with
-its own input format. This made it difficult to analyze population genetic data
-in a way that was reproducible. 
-
-The main goal of this work is to develop tools for the analysis of clonal
-populations in an open and reproducible manner, and apply them to answer
-questions about an outbreak of the Sudden Oak Death Pathogen in Curry County, OR,
-and the power of the index of association to detect clonal reproduction. <!-- THIS NEEDS TO CHANGE -->
-
+The work presented here presents tools designed to answer questions related to
+clonal population genetics and plant pathology. The term 'tool' in this context
+is not in reference to new derivations of mathematical models or theory for
+population genetics of clonal organisms; rather, 'tool' refers to software code 
+used to apply mathematical models or theory to population genetic data. The 
+merit of this work lies within the context of reproducible science 
+[@buckheit1995wavelab]. It provides the tools and demonstrates the usefulness
+and flexibility by applying these tools to the outbreak of sudden oak death from
+2001 to 2014 in Curry County, OR, USA and to simulation data, assessing the
+power of the index of association to detect clonal reproduction.
+  
 <!--
+
+
 
 Background of the Problem
 
@@ -45,6 +44,19 @@ the Problem is where a gap in the knowledge is found in the current body of
 empirical (research) literature.
 
 -->
+
+Sex exists in all major groups of organisms [@hietman2012evolution]. 
+
+Pathogenic species can use reproductive mode to adapt to different environmental
+factors.
+
+Knowing the reproductive mode of a pathogen can help you understand how to
+develop management strategies e.g. if you have a clonal population, you want to
+make sure you capture the diversity of genotypes before developing 
+anti-microbial treatments [@taylor1999evolutionary].
+
+
+
 
 <!--
 
