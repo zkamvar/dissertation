@@ -65,7 +65,24 @@ of SNP loci.
 
 ## Part 2: Applications
 
-
+The end goal of part one was not simply the development of the software, but
+rather, we developed the software for the goal of analyzing our own data.
+Serendipitously, by analyzing our own data with this software, we are able to
+not only demonstrate that it can be used, but also demonstrate that an entire
+analysis can be conducted in an open and reproducible manner. The next two
+chapters focus on answering practical and theoretical questions related to plant
+pathology and clonal population genetics, respectively.
 
 ### Summary of Chapter 4
 
+A newly-emerged disease of oak---called Sudden Oak Death---spread from
+California to the Southwest corner of Oregon in 2001. Because of intense
+management strategies, the epidemic was largely contained to Curry County for
+the next 15 years. In 2011, an isolated patch of disease appeared in Cape
+Sebastian, 12 miles from the nearest infected site. With microsatellite
+genotyping performed across 2 labs and 15 years, we sought to describe the
+spread of the epidemic in a population genetic context and ask the question of
+whether or not there was evidence for more than one introduction event. All the
+analyses were performed in an open-source and reproducible manner using R.
+
+### Summary of Chapter 5
