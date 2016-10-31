@@ -86,3 +86,15 @@ whether or not there was evidence for more than one introduction event. All the
 analyses were performed in an open-source and reproducible manner using R.
 
 ### Summary of Chapter 5
+
+The index of association is a measure of multilocus linkage disequilibrium, that
+is, a correlation coefficient across multiple loci. In sexual populations, loci
+are randomly assorting due to recombination, resulting in a near-zero value of
+the index of association. In clonal populations, recombination is non-existent,
+meaning that loci are passed from parent to offspring in a non-independent
+fashion, resulting in a significantly non-zero value of the index of
+association. @de2004clonal showed that this index shows high variance with low
+levels of sexual reproduction, but due to limitations in software were not able
+to perform power analyses. We use *poppr* to investigate the power of the index
+of association to detect sexual reproduction in simulated data sets generated
+with microsatellite and genomic markers. 
