@@ -1,16 +1,17 @@
 # Introduction
 
-The work presented here exists in the center of a Venn diagram depicting the
-disciplines of plant pathology, population genetics of clonal organisms, and
-reproducible research (Fig. \@ref(fig:introduction1)).
+<!-- Development of Tools for Genetic Analysis of Clonal Populations and Applications -->
 
 
-```{r, introduction1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
-knitr::include_graphics("figure/introduction/dissertation.png")
-figcap1 <- "A graphical representation of the three themes governing the work
-presented in this dissertation."
-figscap1 <- figcap1
-```
+> *Clearly, a discipline is defined by the questions asked, not the tools used.*
+> 
+> -- @milgroom1997contributions [p. 4]
+
+The above quote by Michael Milgroom and William Fry in 1997 was in reference to
+the use of molecular markers in molecular biology as compared to population
+genetics. This statement is slightly erroneous, however, as the questions asked
+are often a product of the answers interpreted from the results given by the
+tools used. In this sense, the tools are just as important as the questions.
 
 
 The work presented here presents tools designed to answer questions related to
@@ -23,6 +24,15 @@ merit of this work lies within the context of reproducible science
 and flexibility by applying these tools to the outbreak of sudden oak death from
 2001 to 2014 in Curry County, OR, USA and to simulation data, assessing the
 power of the index of association to detect clonal reproduction.
+
+```{r, introduction1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
+knitr::include_graphics("figure/introduction/dissertation.png")
+
+figcap1 <- "A graphical representation of the three themes governing the work
+presented in this dissertation." -> figscap1
+```
+
+
 
 ## Plant Pathology and Clonal Population Genetics
 
@@ -49,6 +59,8 @@ implications even in plant pathology; case in point, Sophien Kamoun's paper from
 [kamoun2015pubpeer]. The paper had a single duplicated image in a figure. In
 response, Kamoun's team found the original file and realized that the image had
 accidentally been pasted on top of the original.
+
+## Goals
 
 ## Part 1: Tools
 
