@@ -18,7 +18,7 @@ power of the index of association to detect clonal reproduction.
 
 ## Plant Pathology and Clonal Population Genetics
 
-Sex exists in all major groups of organisms [@hietman2012evolution]. 
+Sex exists in all major groups of organisms [@heitman2012evolution]. 
 
 Pathogenic species can use reproductive mode to adapt to different environmental
 factors.
