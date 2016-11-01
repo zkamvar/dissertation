@@ -2,7 +2,15 @@
 
 The work presented here exists in the center of a Venn diagram depicting the
 disciplines of plant pathology, population genetics of clonal organisms, and
-reproducible research. 
+reproducible research (Fig. \@ref(fig:introduction1)).
+
+
+```{r, introduction1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
+knitr::include_graphics("figure/introduction/dissertation.png")
+figcap1 <- "A graphical representation of the three themes governing the work
+presented in this dissertation."
+figscap1 <- figcap1
+```
 
 
 The work presented here presents tools designed to answer questions related to
