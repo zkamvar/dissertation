@@ -1,17 +1,21 @@
-This is a 
-\LaTeX template derived from the \beavtex template found on overleaf 
-(https://www.overleaf.com/latex/templates/oregon-state-university-thesis-and-dissertation/wnvzcdhqshxf) 
-and cloned using `git clone https://git.overleaf.com/5973847rnpkdf`
-
-I have made the following changes 
-
- - modified `beavtex.cls` from v1.1 to include support for verbatim font styles
-   in R code
- - stripped the template of its original content to create a pandoc template
- - placed this into a bookdown (https://bookdown.org/) framework
- - added packages latexsym, amsmath amssymb,amsthm, longtable, booktabs,
-   setspace, url, hyperref, lmodern, caption, and float
-
-This is still a WIP, but it seems to work for the moment.
-
-Zhian N. Kamvar 2016-08-25
+Research in the population genetics of microbial plant pathogens requires the
+use of specialized analyses designed for clonal organisms to avoid violating the
+assumptions of traditional population genetic models. The software necessary for
+performing these analyses existed within several different programs that did not
+necessarily run on all computing platforms. This meant that researchers not only
+had to reshape their data into different formats for each analysis, but they
+also had to switch computing platforms, not only creating a drain in time, but
+also increasing the risk of propagating human error into the analysis. To
+address this problem, we created the software package *poppr*, written in the R
+statistical language, available on all computing platforms. This package is
+designed for analysis of clonal, partially clonal, and sexual populations,
+empowering researchers to perform their work in a reproducible manner. We
+additionally demonstrate the utility of *poppr* for both plant pathological and
+theoretical questions by using real-world and simulated data. In chapter 4, we
+demonstrate evidence for at least two origins for the outbreak of the Sudden Oak
+Death pathogen, *Phytophthora ramorum* in Curry County, Oregon. In chapter 5, we
+use *poppr* to assess the power of the index of association with clone-
+correction, showing that clone-correction has the potential to reduce the power
+of detecting clonal reproduction. All of the software and analyses in this work
+were performed in an open and reproducible framework, serving as an example of
+the power of reproducible research in plant pathology.
