@@ -3,15 +3,13 @@
 <!-- Development of Tools for Genetic Analysis of Clonal Populations and Applications -->
 
 
-> *Clearly, a discipline is defined by the questions asked, not the tools used.*
-> 
-> -- @milgroom1997contributions [p. 4]
+```{r, introduction1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1, out.width = "50%"}
+knitr::include_graphics("figure/introduction/dissertation.png")
 
-The above quote by Michael Milgroom and William Fry in 1997 was in reference to
-the use of molecular markers in molecular biology as compared to population
-genetics. This statement is slightly erroneous, however, as the questions asked
-are often a product of the answers interpreted from the results given by the
-tools used. In this sense, the tools are just as important as the questions.
+figcap1 <- "A graphical representation of the three themes governing the work
+presented in this dissertation." -> figscap1
+```
+
 
 
 The work presented here presents tools designed to answer questions related to
@@ -24,14 +22,6 @@ merit of this work lies within the context of reproducible science
 and flexibility by applying these tools to the outbreak of sudden oak death from
 2001 to 2014 in Curry County, OR, USA and to simulation data, assessing the
 power of the index of association to detect clonal reproduction.
-
-```{r, introduction1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
-knitr::include_graphics("figure/introduction/dissertation.png")
-
-figcap1 <- "A graphical representation of the three themes governing the work
-presented in this dissertation." -> figscap1
-```
-
 
 
 ## Plant Pathology and Clonal Population Genetics
@@ -46,7 +36,61 @@ develop management strategies e.g. if you have a clonal population, you want to
 make sure you capture the diversity of genotypes before developing 
 anti-microbial treatments [@taylor1999evolutionary].
 
-## Scientific Software and Reproducible Research
+## Reproducible Research and Scientific Software
+
+
+> *Clearly, a discipline is defined by the questions asked, not the tools used.*
+> 
+> -- @milgroom1997contributions [p. 4]
+
+The above quote by Michael Milgroom and William Fry in 1997 was in reference to
+the use of molecular markers in molecular biology as compared to population
+genetics. While it is undisputed that questions shape a field of inquiry, the
+notion that tools are not influential in disciplines is misleading. Tools are
+necessary for answering the questions proposed, but the answers they give are
+always in the context of the assumptions of the field at the time the tools were
+produced. A simple example in which assumptions can be violated is in 
+'Anscombe's quartet' (Fig. \@ref(fig:introduction2)) [-@anscombe1973graphs].
+Here we see four data sets, only one of which has a linear relationship between
+the dependent and independent variable (case 1); the others violate the 
+assumptions of linearity or normality. Based on linear regression, however, all
+have identical variance, correlation, slope, and intercept. The fact that these
+clearly different data give the same result is not due to an error in the linear
+regression analysis, it was a failure to meet the assumptions of the tool
+provided.
+
+```{r, introduction2, echo = FALSE, fig.cap = anscomb, fig.scap = ansc, out.width = "50%"}
+library('tidyverse')
+ans <- gather(anscombe, case, y, y1, y2, y3, y4) %>% 
+  gather(xcase, x, x1, x2, x3, x4) %>% 
+  filter(as.numeric(substr(case, 2, 2)) == as.numeric(substr(xcase, 2, 2))) %>%
+  mutate(case = factor(case, labels = c("case 1", "case 2", "case 3", "case 4")))
+ggplot(ans, aes(x, y)) +
+  geom_point(size = 3) +
+  geom_abline(intercept = 3, slope = 0.5, lty = 2, color = "grey40") +
+  facet_wrap(~case) +
+  theme_bw() +
+  theme(text = element_text(size = 20, face = "bold")) +
+  theme(title = element_blank()) +
+  theme(strip.background = element_blank()) +
+  theme(strip.text = element_text(size = 20, face = "bold"))
+
+cap <- "A reproduction of 'Anscombe's quartet' [@anscombe1973graphs] 
+demonstrating different situations in which linear regression would give the 
+same answer."
+
+anscomb <- beaverdown::render_caption(caption = cap, figname = "fig1", to = TO)
+ansc    <- "A reproduction of 'Anscombe's quartet'"
+```
+
+Science moves forward by asking questions of natural phenomena and then
+investigating further the results of these questions, narrowing the scope of the
+succeeding questions to pin down an detailed mechanism that can explain the
+initial phenomena. Yes, a discipline is defined by the questions asked, but the
+tools provide the results that set the context for the follow up questions.
+
+----
+
 
 [kamoun2015pubpeer]: https://pubpeer.com/topics/1/877A42B12A198A44306771E0D80AB8
 
