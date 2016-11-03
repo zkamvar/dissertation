@@ -58,13 +58,19 @@ All of these tools are used within a theoretical framework (e.g. gravity,
 refraction); any observations or results produced with a particular tool is
 ultimately tied to the theory employed by the scientist using it (and would thus
 invoke different interpretations under a different theoretical framework)
-[@kuhn1996structure]. If all the assumptions of the theoretical framework are met, the tool will produce an observation or result that will help the scientist
+[@kuhn1996structure]. If all the assumptions of the theoretical framework are
+met, the tool will produce an observation or result that will help the scientist
 describe the natural phenomena accurately in terms according to theory.
 
-These tools, however, should not simply be seen as a means to an end of simply answering questions. Many tools will produce answers whether or not they are correct. A simple example of this concept was demonstrated by Anscombe, showing
-the need for graphical visualization in statistical analysis [-@anscombe1973graphs]. Reproduced in Fig. \@ref(fig:introduction2), four data
+These tools, however, should not simply be seen as a means to an end of simply
+answering questions. Many tools will produce answers whether or not they are
+correct. A simple example of this concept was demonstrated by Anscombe, showing
+the need for graphical visualization in statistical analysis
+[-@anscombe1973graphs]. Reproduced in Fig. \@ref(fig:introduction2), four data
 sets are shown fitted with a trendline produced via linear regression. All four
-data sets produce the exact same result (slope, intercept, variance, correlation) via linear regression. Upon visual inspection, it's clear that they have many different qualities. 
+data sets produce the exact same result (slope, intercept, variance,
+correlation) via linear regression. Upon visual inspection, it's clear that they
+have many different qualities.
 
 ```{r, introduction2, echo = FALSE, fig.cap = anscomb, fig.scap = ansc, out.width = "50%"}
 library('tidyverse')
@@ -90,15 +96,20 @@ anscomb <- beaverdown::render_caption(caption = cap, figname = "fig1", to = TO)
 ansc    <- "A reproduction of 'Anscombe's quartet'"
 ```
 
-Anscombe's quartet was initially published to demonstrate the need for visualization of statistical analyses in 1973, a period in which the end user had to write a program for visualization [@anscombe1973graphs]. If we imagine
-each data set as separate population and linear regression as our molecular marker, it wouldn't matter what our question was, because there would be no hope
-to detect any differentiation between these populations with the marker chosen. 
+Anscombe's quartet was initially published to demonstrate the need for
+visualization of statistical analyses in 1973, a period in which the end user
+had to write a program for visualization [@anscombe1973graphs]. If we imagine
+each data set as separate population and linear regression as our molecular
+marker, it wouldn't matter what our question was, because there would be no hope
+to detect any differentiation between these populations with the marker chosen.
 
-Science moves forward by asking questions of natural
-phenomena and then investigating further the results of these questions,
-narrowing the scope of the succeeding questions to pin down an detailed
-mechanism that can explain the initial phenomena. The tools provide the
-observations and results that set the context for future questions.
+Science moves forward by asking questions of natural phenomena and then
+investigating further the results of these questions, narrowing the scope of the
+succeeding questions to pin down an detailed mechanism that can explain the
+initial phenomena. The tools provide the observations and results that set the
+context for future questions [@searls2010roots].
+
+Bioinformatics is a discipline in and of itself centered around tools [@searls2010roots]. 
 
 
 ----
