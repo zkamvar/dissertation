@@ -112,10 +112,10 @@ context for future questions [@searls2010roots].
 
 The development of scientific software does not stand apart from science itself,
 but rather it serves as implementation of scientific theory
-[@partridge1984computer; @ouzounis2003bioinformatics; @earls2010roots;
+[@partridge1984computer; @ouzounis2003bioinformatics; @searls2010roots;
 @baxter2006scientific]
 
-Scientific software has been used to implement new theory [@felsenstein1989phylip; @Agapow_2001; @ali2016clonecase].
+Scientific software has been used to implement new theory [@felsenstein1989phylip; @Agapow_2001; @ali2016cloncase].
 
 Scientific software has been used to make accessible old theory and methods [@goudet1995fstat].
 
