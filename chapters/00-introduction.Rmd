@@ -24,7 +24,11 @@ and flexibility by applying these tools to the outbreak of sudden oak death from
 power of the index of association to detect clonal reproduction.
 
 
-## Plant Pathology and Clonal Population Genetics
+## Clonal Population Genetics and Plant Pathology
+
+Population genetics is the study of trying to understand the genetic variation
+within and among groups of organisms of the same species existing together 
+in an evolutionary context [@milgroom1997contributions].
 
 Sex exists in all major groups of organisms [@heitman2012evolution]. 
 
@@ -33,10 +37,22 @@ factors.
 
 Knowing the reproductive mode of a pathogen can help you understand how to
 develop management strategies e.g. if you have a clonal population, you want to
-make sure you capture the diversity of genotypes before developing 
-anti-microbial treatments [@taylor1999evolutionary].
+make sure you capture the diversity of genotypes before developing anti-
+microbial treatments [@taylor1999evolutionary].
 
-## Reproducible Research and Scientific Software
+Population genetics in the context of plant pathology.
+
+Life cycle concerns: overwintering oospores, sexual structures (image of *P.
+infestans life cycle*).
+
+Sexual reproduction risk: *Puccinia* pathway.
+
+Gene for Gene hypothesis
+
+
+
+
+## Scientific Software and Reproducible Research
 
 
 ### Tools of Scientific Inquiry
@@ -115,9 +131,11 @@ but rather it serves as implementation of scientific theory
 [@partridge1984computer; @ouzounis2003bioinformatics; @searls2010roots;
 @baxter2006scientific]
 
-Scientific software has been used to implement new theory [@felsenstein1989phylip; @Agapow_2001; @ali2016cloncase].
+Scientific software has been used to implement new theory
+[@felsenstein1989phylip; @Agapow_2001; @ali2016cloncase].
 
-Scientific software has been used to make accessible old theory and methods [@goudet1995fstat].
+Scientific software has been used to make accessible old theory and methods
+[@goudet1995fstat].
 
 Ultimately, publication and maintenance of scientific software exists to
 standardize the protocols in which we manipulate analyze our data.
@@ -136,17 +154,18 @@ standardize the protocols in which we manipulate analyze our data.
 
 @buckheit1995wavelab didn't invent the concept of reproducible research in
 scientific computing, but they did show computational research community that
-such a concept was possible. 
+such a concept was possible.
 
 The ultimate goal of reproducible research is in the term itself: to ensure that
 research is produced in a manner such that future researchers can reproduce and
 verify the results [@goecks2010galaxy]. This has been a problem in the past due
-to varying factors, including software [@ioannidis2008repeatability]. 
+to varying factors, including software [@ioannidis2008repeatability].
 
-In terms of population genetics, software suites for analyses proliferated in the
-late 1990's and early 2000's [@excoffier2006computer; @adamack2014popgenreport].
+In terms of population genetics, software suites for analyses proliferated in
+the late 1990's and early 2000's [@excoffier2006computer;
+@adamack2014popgenreport]. The number of formats also proliferated.
 
-Scientific software needs to be usable to be useful. Example in @de2004clonal 
+Scientific software needs to be usable to be useful. Example in @de2004clonal
 using <span style="font-variant:small-caps;">Multilocus</span> [@Agapow_2001].
 
 The benefits of scientific software are many [@mckiernan2016open].
