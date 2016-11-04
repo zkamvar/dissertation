@@ -358,6 +358,24 @@ version 0.3-0 [@jurasinski2014flux].
 
 ### Microsatellite Data
 
+
+```{r, sim1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
+knitr::include_graphics("figure/simulations/rd_sexrate.png")
+cap <- "Violin plots showing the decay of the Index of Association measured
+with declining rates of sexual reproduction for data sets simulated with even
+and uneven mutation rates over 20 and 21 loci, respectively. $\\bar{r}_d$ was
+calculated for both whole and clone corrected data sets. Each violin plot
+contains 1000 unique data sets. Black lines mark the 25, 50, and 75th
+percentile."
+
+scap <- "Violin plots showing the decay of the Index of Association measured
+with declining rates of sexual reproduction."
+
+figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1", to = TO)
+if (!LATEX) figcap1 <- gsub("@ref", "\\\\@ref", figcap1)
+figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s", to = TO)
+```
+
 ### SNP Data
 
 Because of the computational intensity of the simulations we were only
