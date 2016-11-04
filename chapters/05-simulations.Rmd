@@ -358,8 +358,10 @@ version 0.3-0 [@jurasinski2014flux].
 
 ### Microsatellite Data
 
+something \@ref(fig:sim1)
 
-```{r, sim1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
+
+```{r sim1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
 knitr::include_graphics("figure/simulations/rd_sexrate.png")
 cap <- "Violin plots showing the decay of the Index of Association measured with
 declining rates of sexual reproduction for data sets simulated with even and
@@ -378,6 +380,28 @@ if (!LATEX) figcap1 <- gsub("@ref", "\\\\@ref", figcap1)
 figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s", to = TO)
 ```
 
+```{r sim2, echo = FALSE, fig.cap = figcap2, fig.scap = figscap2}
+knitr::include_graphics("figure/simulations/AURC_box_plot.png")
+figcap2 <- "Box plots showing the distribution of the area under the ROC Curve for 
+each independent seed. boxes span the interquartile range (IQR) and the whiskers
+extend to 1.5 * IQR. "
+
+figscap2 <- "Box plots showing the distribution of the area under the ROC Curve for 
+each independent seed."
+```
+
+```{r sim3, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
+knitr::include_graphics("figure/simulations/AURC_ANOVA.png")
+figcap3 <- "Heatmap representing p-values from ANOVA analysis on AURC distributions
+comparing the effect of clone correction (top panel) and sample size (bottom
+panel). Each tile represents an independent comparison. cc = clone-corrected, 
+wd = uncorrected (whole data)."
+
+figscap3 <- "Heatmap representing p-values from ANOVA analysis on AURC distributions."
+```
+
+
+
 ### SNP Data
 
 Because of the computational intensity of the simulations we were only
@@ -386,7 +410,7 @@ replicates per seed. Because some replicates failed to save, we randomly sampled
 five replicates per seed per rate of sexual reproduction, giving us a total of 
 1200 total populations for analysis.
 
-```{r, sim2, echo = FALSE, fig.cap = figcap2, fig.scap = figscap2}
+```{r sim4, echo = FALSE, fig.cap = figcap4, fig.scap = figscap4}
 knitr::include_graphics("figure/simulations/genomic_rd.png")
 cap <- "Violin plots showing the decay of the Index of Association measured with
 declining rates of sexual reproduction for genomic-scale data sets sub-sampled
@@ -397,7 +421,7 @@ mark the 25, 50, and 75th percentile."
 scap <- "Violin plots showing the decay of the Index of Association measured
 with declining rates of sexual reproduction for genomic-scale data."
 
-figcap2  <- beaverdown::render_caption(caption = cap, figname = "fig2", to = TO)
+figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig2", to = TO)
 if (!LATEX) figcap1 <- gsub("@ref", "\\\\@ref", figcap1)
-figscap2 <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = TO)
+figscap4 <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = TO)
 ```
