@@ -1,0 +1,16 @@
+Package: zhianDissertation
+Title: zhianDissertation is not really an R package, but this is here to list the dependencies for generating the website and PDF.
+Version: 0.1
+Authors: Zhian N. Kamvar
+Depends: R (>= 3.1.0)
+URL: https://github.com/zkamvar/dissertation
+Imports:
+  beaverdown (>= 0.2.1),
+  poppr (>= 2.2.1),
+  tidyverse,
+  xtable
+Suggests:
+SystemRequirements: pandoc (>= 1.17.2) - http://johnmacfarlane.net/pandoc
+Remotes: 
+  zkamvar/beaverdown
+Encoding: UTF-8
