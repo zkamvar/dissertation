@@ -36,14 +36,14 @@ TBD...
 
 ## Introduction
 
-Population genetic theory is largely based on the neutral Wright-Fisher model 
+Population genetic theory is largely based on model populations such as the neutral Wright-Fisher model 
 in which populations are infinitely large, with discrete generations, randomly assorting alleles,
 no migration, and no mutation [@hartl1997principles;
-@nielsen2013introduction]. By using this model, population geneticists are able to
+@nielsen2013introduction]. By using such models, population geneticists are able to
 ask fundamental questions and test hypotheses about evolutionary processes that
 could lead to structured populations.
 
-This neutral model, however, cannot be applied to populations whose life history
+These neutral models, however, cannot be applied to populations whose life history
 violates the fundamental assumption of random assortment of alleles, such as
 populations that undergo clonal reproduction [@orive1993effective; 
 @milgroom1996recombination]. For many clonal populations, the contribution of
