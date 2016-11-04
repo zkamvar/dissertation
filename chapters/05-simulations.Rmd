@@ -227,7 +227,7 @@ values.
 
 Initial sets of simulations were created for different levels of sexual
 reproduction for each marker type. All simulations were performed with the
-python package simuPOP version 1.1.7 in python version 3.4[@peng2008forward]. For each scenario,
+python package simuPOP version 1.1.7 in python version 3.4 [@peng2008forward]. For each scenario,
 100 simulations with 10 replicates were created with a census size of 10,000
 diploid individuals with equal mating type proportions evolved over 10,000
 generations. The simulated populations were first stored in the native simuPOP format and then transferred to feather format using the python and R packages *feather* version 0.3.0 for downstream analyses. Microsatellite simulations were performed on Ubuntu Linux version 14.04; SNP simulations were performed on CentOS Linux version 6.8. During downstream analysis, 10, 25, 50, and 100 individuals were sampled
@@ -361,12 +361,14 @@ version 0.3-0 [@jurasinski2014flux].
 
 ```{r, sim1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
 knitr::include_graphics("figure/simulations/rd_sexrate.png")
-cap <- "Violin plots showing the decay of the Index of Association measured
-with declining rates of sexual reproduction for data sets simulated with even
-and uneven mutation rates over 20 and 21 loci, respectively. $\\bar{r}_d$ was
-calculated for both whole and clone corrected data sets. Each violin plot
-contains 1000 unique data sets. Black lines mark the 25, 50, and 75th
-percentile."
+cap <- "Violin plots showing the decay of the Index of Association measured with
+declining rates of sexual reproduction for data sets simulated with even and
+uneven mutation rates over 20 and 21 loci, respectively (columns) and 
+sub-sampled in four different population sizes (rows). $\\bar{r}_d$ was
+calculated for both whole and clone corrected data sets. Color indicates whether
+or not the calculations were performed on whole or clone-corrected data sets.
+Each violin plot contains 1000 unique data sets. Black lines mark the 25, 50,
+and 75th percentile."
 
 scap <- "Violin plots showing the decay of the Index of Association measured
 with declining rates of sexual reproduction."
