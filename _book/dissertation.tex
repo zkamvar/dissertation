@@ -63,30 +63,30 @@ Applications} % {An Analysis of Something}
 
 \advisor{Niklaus J. Grünwald} % {Jane R. Professor}
 
-\abstract{This is a \LaTeX template derived from the \beavtex template found on
-overleaf
-(\url{https://www.overleaf.com/latex/templates/oregon-state-university-thesis-and-dissertation/wnvzcdhqshxf})
-and cloned using
-\texttt{git\ clone\ https://git.overleaf.com/5973847rnpkdf} I have made
-the following changes
-
-\begin{itemize}
-\tightlist
-\item
-  modified \texttt{beavtex.cls} from v1.1 to include support for
-  verbatim font styles in R code
-\item
-  stripped the template of its original content to create a pandoc
-  template
-\item
-  placed this into a bookdown (\url{https://bookdown.org/}) framework
-\item
-  added packages latexsym, amsmath amssymb,amsthm, longtable, booktabs,
-  setspace, url, hyperref, lmodern, caption, and float
-\end{itemize}
-
-This is still a WIP, but it seems to work for the moment. Zhian N.
-Kamvar 2016-08-25}
+\abstract{Research in the population genetics of microbial plant pathogens
+requires the use of specialized analyses designed for clonal organisms
+to avoid violating the assumptions of traditional population genetic
+models. The software necessary for performing these analyses existed
+within several different programs that did not necessarily run on all
+computing platforms. This meant that researchers not only had to reshape
+their data into different formats for each analysis, but they also had
+to switch computing platforms, not only creating a drain in time, but
+also increasing the risk of propagating human error into the analysis.
+To address this problem, we created the software package \emph{poppr},
+written in the R statistical language, available on all computing
+platforms. This package is designed for analysis of clonal, partially
+clonal, and sexual populations, empowering researchers to perform their
+work in a reproducible manner. We additionally demonstrate the utility
+of \emph{poppr} for both plant pathological and theoretical questions by
+using real-world and simulated data. In chapter 4, we demonstrate
+evidence for at least two origins for the outbreak of the Sudden Oak
+Death pathogen, \emph{Phytophthora ramorum} in Curry County, Oregon. In
+chapter 5, we use \emph{poppr} to assess the power of the index of
+association with clone- correction, showing that clone-correction has
+the potential to reduce the power of detecting clonal reproduction. All
+of the software and analyses in this work were performed in an open and
+reproducible framework, serving as an example of the power of
+reproducible research in plant pathology.}
 \acknowledgements{I would like to acknowledge\ldots{}Lorem ipsum dolor sit amet,
 consectetur adipiscing elit. Maecenas vel eros sed mauris porttitor
 semper nec a orci. Nullam vestibulum mi nec condimentum posuere.
@@ -141,215 +141,270 @@ mother, Jane H. Kamvar.}
 
   \chapter{Introduction}\label{introduction}
   
-  \begin{itemize}
-  \tightlist
-  \item
-    Plant Pathogens
+  \begin{figure}
   
-    \begin{itemize}
-    \tightlist
-    \item
-      Evolution and Adaptation
-    \item
-      Understanding clonal population dynamics (\emph{Phytophthora} and
-      \emph{Zymoseptoria} examples)
-    \end{itemize}
-  \item
-    Tools for analysis
+  {\centering \includegraphics[width=0.5\linewidth]{figure/introduction/dissertation} 
   
-    \begin{itemize}
-    \tightlist
-    \item
-      Tools for clonal populations always come after sexual populations
-    \item
-      We wrote our own tools
-    \end{itemize}
-  \item
-    Goals of my work
+  }
   
-    \begin{enumerate}
-    \def\labelenumi{\arabic{enumi}.}
-    \tightlist
-    \item
-      development of computational tools to characterize populations
-    \item
-      application of these tools to address empirical and theoretical
-      questions
-    \end{enumerate}
-  \end{itemize}
+  \caption[A graphical representation of the three themes governing the work
+  presented in this dissertation.]{A graphical representation of the three themes governing the work
+  presented in this dissertation.}\label{fig:introduction1}
+  \end{figure}
   
-  \section{Population genetics of clonal
-  organisms}\label{population-genetics-of-clonal-organisms}
+  The work presented here presents tools designed to answer questions
+  related to clonal population genetics and plant pathology. The term
+  `tool' in this context is not in reference to new derivations of
+  mathematical models or theory for population genetics of clonal
+  organisms; rather, `tool' refers to software code used to apply
+  mathematical models or theory to population genetic data. The merit of
+  this work lies within the context of reproducible science (Buckheit and
+  Donoho, \protect\hyperlink{ref-buckheit1995wavelab}{1995}). It provides
+  the tools and demonstrates the usefulness and flexibility by applying
+  these tools to the outbreak of sudden oak death from 2001 to 2014 in
+  Curry County, OR, USA and to simulation data, assessing the power of the
+  index of association to detect clonal reproduction.
   
-  \begin{itemize}
-  \tightlist
-  \item
-    Population genetics is traditionally centered around HWE
-  \item
-    Clonal populations violate basic statistical inference
+  \section{Clonal Population Genetics and Plant
+  Pathology}\label{clonal-population-genetics-and-plant-pathology}
   
-    \begin{itemize}
-    \tightlist
-    \item
-      non-independent samples (clones)
-    \item
-      excess heterozygosity
-    \item
-      Meselson effect (Balloux et al.,
-      \protect\hyperlink{ref-balloux2003population}{2003}; Butlin,
-      \protect\hyperlink{ref-butlin2000virgin}{2000}; Welch and Meselson,
-      \protect\hyperlink{ref-welch2000evidence}{2000},
-      \protect\hyperlink{ref-welch2001rates}{2001})
-    \end{itemize}
-  \end{itemize}
+  Population genetics is the study of trying to understand the genetic
+  variation within and among groups of organisms of the same species
+  existing together in an evolutionary context (Milgroom and Fry,
+  \protect\hyperlink{ref-milgroom1997contributions}{1997}).
   
-  \section{\texorpdfstring{The Genus
-  \emph{Phytophthora}}{The Genus Phytophthora}}\label{the-genus-phytophthora}
+  Sex exists in all major groups of organisms (Heitman et al.,
+  \protect\hyperlink{ref-heitman2012evolution}{2012}).
   
-  The genus \emph{Phytophthora}, translating to ``plant destroyer'' in
-  Greek, contains over 100 species (Kroon et al.,
-  \protect\hyperlink{ref-kroon2012genus}{2012}), many of which have
-  significant impact on US agriculture. \emph{P. sojae} is a major problem
-  on soybean, causing \$1-2 billion in losses each year (Tyler,
-  \protect\hyperlink{ref-tyler2007phytophthora}{2007}). \emph{P. ramorum}
-  is changing the landscape of the North American West due to its wide
-  host range (Grünwald et al.,
-  \protect\hyperlink{ref-grunwald2008phytophthora}{2008}\protect\hyperlink{ref-grunwald2008phytophthora}{a}),
-  which results in devastating losses for the US forestry and nursery
-  industries. And \emph{P. infestans}, which was a root cause of over a
-  million deaths during the Irish Potato Famine and continues to be a
-  problem on tomato and potato crops, resulting in losses exceeding \$6
-  billion, annually (Haas et al.,
-  \protect\hyperlink{ref-haas2009genome}{2009}). \emph{Phytophthora spp.}
-  are water molds characterized by production of oospores and biflagellate
-  zoospores that place them into the Stramenopiles (Baldauf,
-  \protect\hyperlink{ref-baldauf2003deep}{2003}). They are most closely
-  related to golden brown algae and quite diverged from fungi.
+  Pathogenic species can use reproductive mode to adapt to different
+  environmental factors.
   
-  \subsection{life cycle}\label{life-cycle}
+  Knowing the reproductive mode of a pathogen can help you understand how
+  to develop management strategies e.g.~if you have a clonal population,
+  you want to make sure you capture the diversity of genotypes before
+  developing anti- microbial treatments (Taylor et al.,
+  \protect\hyperlink{ref-taylor1999evolutionary}{1999}).
   
-  \subsection{Sex and mating types}\label{sex-and-mating-types}
+  Population genetics in the context of plant pathology.
   
-  \subsection{\texorpdfstring{Heterothallic, clonal: \emph{P.
-  ramorum}}{Heterothallic, clonal: P. ramorum}}\label{heterothallic-clonal-p.-ramorum}
+  Life cycle concerns: overwintering oospores, sexual structures (image of
+  \emph{P. infestans life cycle}).
   
-  \begin{itemize}
-  \tightlist
-  \item
-    Sudden Oak Death
-  \item
-    Population genetics in US nurseries (Goss et al.,
-    \protect\hyperlink{ref-goss2009population}{2009})
-  \end{itemize}
+  Sexual reproduction risk: \emph{Puccinia} pathway.
   
-  \subsection{\texorpdfstring{Homothallic, partially clonal: \emph{P.
-  syringae}}{Homothallic, partially clonal: P. syringae}}\label{homothallic-partially-clonal-p.-syringae}
+  Gene for Gene hypothesis
   
-  \begin{itemize}
-  \tightlist
-  \item
-    Abundant in OR Nurseries (found in foliar isolates) (Parke et al.,
-    \protect\hyperlink{ref-parke2014phytophthora}{2014})
-  \item
-    Genetic structure uncharacterized
-  \end{itemize}
+  \section{Scientific Software and Reproducible
+  Research}\label{scientific-software-and-reproducible-research}
   
-  \section{Tools for analysis of clonal population
-  genetics}\label{tools-for-analysis-of-clonal-population-genetics}
+  \subsection{Tools of Scientific
+  Inquiry}\label{tools-of-scientific-inquiry}
   
-  Recommendations have been made for analysis (Arnaud-Hanod et al.,
-  \protect\hyperlink{ref-arnaud2007standardizing}{2007})
+  \begin{quote}
+  \emph{Clearly, a discipline is defined by the questions asked, not the
+  tools used.}
   
-  \begin{itemize}
-  \tightlist
-  \item
-    MLG diversity
-  \item
-    Genotype Accumulation Curve
-  \item
-    \(P_{sex}\) and \(P_{gen}\)
-  \end{itemize}
+  -- Milgroom and Fry
+  (\protect\hyperlink{ref-milgroom1997contributions}{1997}, 4)
+  \end{quote}
   
-  \subsection{Index of Association}\label{index-of-association}
+  The above quote by Michael Milgroom and William Fry in 1997 was in
+  reference to the use of molecular markers in molecular biology as
+  compared to population genetics. While it is undisputed that questions
+  shape a field of inquiry, the notion that tools are not influential in
+  disciplines is misleading. Tools are necessary for providing answers to
+  the questions proposed; they are the vehicle by which we apply our
+  scientific theory to the unknown world.
   
-  \begin{itemize}
-  \tightlist
-  \item
-    Standardized Version (Agapow and Burt,
-    \protect\hyperlink{ref-Agapow_2001}{2001})
-  \item
-    Previous Simulation Analyses (de Meeûs and Balloux,
-    \protect\hyperlink{ref-de2004clonal}{2004})
-  \item
-    What's missing
+  A tool, in this sense is any instrument, physical or analytical, that is
+  used to collect, measure, manipulate, represent, or analyze data
+  (Gigerenzer, \protect\hyperlink{ref-gigerenzer1991tools}{1991}). This
+  definition encompasses things like hammers, hand lenses, mass
+  spectrometers, maps, axioms, algorithms, gel electrophoresis, equations,
+  etc. All of these tools are used within a theoretical framework
+  (e.g.~gravity, refraction); any observations or results produced with a
+  particular tool is ultimately tied to the theory employed by the
+  scientist using it (and would thus invoke different interpretations
+  under a different theoretical framework) (Kuhn,
+  \protect\hyperlink{ref-kuhn1996structure}{1996}). If all the assumptions
+  of the theoretical framework are met, the tool will produce an
+  observation or result that will help the scientist describe the natural
+  phenomena accurately in terms according to theory.
   
-    \begin{itemize}
-    \tightlist
-    \item
-      Sympatric clonal lineages
-    \item
-      Analysis of significance testing
-    \item
-      HTS markers
-    \end{itemize}
-  \end{itemize}
+  These tools, however, should not simply be seen as a means to an end of
+  answering questions. Many tools will produce answers whether or not they
+  are correct. A simple example of this concept was demonstrated by
+  Anscombe, showing the need for graphical visualization in statistical
+  analysis (\protect\hyperlink{ref-anscombe1973graphs}{1973}). Reproduced
+  in Fig. \ref{fig:introduction2}, four data sets are shown fitted with a
+  trendline. Using linear regression, all four data sets produce the exact
+  same result (slope, intercept, variance, correlation). Upon visual
+  inspection, their differences are striking.
   
-  \subsection{Software Limitations}\label{software-limitations}
+  \begin{figure}
   
-  Plethora of tools, most designed for sexual populations except:
+  {\centering \includegraphics[width=0.5\linewidth]{dissertation_files/figure-latex/introduction2-1} 
   
-  \begin{itemize}
-  \tightlist
-  \item
-    GenClone
-  \item
-    GenoDive
-  \end{itemize}
+  }
   
-  Problems with file formatting, time, and reproducibility.
+  \caption[A reproduction of 'Anscombe's quartet']{A reproduction of `Anscombe's quartet' (Anscombe,
+  \protect\hyperlink{ref-anscombe1973graphs}{1973}) demonstrating
+  different situations in which linear regression would give the same
+  answer.}\label{fig:introduction2}
+  \end{figure}
   
-  \subsection{poppr}\label{poppr}
+  If we imagine each data set as separate population and linear regression
+  as our molecular marker, it wouldn't matter what our question was,
+  because there would be no hope to detect any differentiation between
+  these populations with the marker chosen.
   
-  \begin{itemize}
-  \tightlist
-  \item
-    R
-  \item
-    poppr
-  \end{itemize}
+  Science moves forward by asking questions of natural phenomena and then
+  investigating further the results of these questions, narrowing the
+  scope of the succeeding questions to pin down an detailed mechanism that
+  can explain the initial phenomena. The tools provide the observations
+  and results that set the context for future questions (Searls,
+  \protect\hyperlink{ref-searls2010roots}{2010}).
   
-  \section{Applications of novel tools for analysis of partially-clonal
-  populations}\label{applications-of-novel-tools-for-analysis-of-partially-clonal-populations}
+  \subsection{Scientific Software}\label{scientific-software}
   
-  \begin{itemize}
-  \tightlist
-  \item
-    Simulation analysis of \(\bar{r}_d\)
-  \item
-    SSR analysis of \emph{P. ramorum}
-  \item
-    GBS analysis of \emph{P. syringae}
-  \end{itemize}
+  The development of scientific software does not stand apart from science
+  itself, but rather it serves as implementation of scientific theory
+  (Baxter et al., \protect\hyperlink{ref-baxter2006scientific}{2006};
+  Ouzounis and Valencia,
+  \protect\hyperlink{ref-ouzounis2003bioinformatics}{2003}; Partridge et
+  al., \protect\hyperlink{ref-partridge1984computer}{1984}; Searls,
+  \protect\hyperlink{ref-searls2010roots}{2010})
   
-  \section{Conclusion}\label{conclusion}
+  Scientific software has been used to implement new theory (Agapow and
+  Burt, \protect\hyperlink{ref-Agapow_2001}{2001}; Ali et al.,
+  \protect\hyperlink{ref-ali2016cloncase}{2016}; Felsenstein,
+  \protect\hyperlink{ref-felsenstein1989phylip}{1989}).
   
-  \begin{itemize}
-  \tightlist
-  \item
-    Open Source Scientific Software Development of Poppr
+  Scientific software has been used to make accessible old theory and
+  methods (Goudet, \protect\hyperlink{ref-goudet1995fstat}{1995}).
   
-    \begin{itemize}
-    \tightlist
-    \item
-      Related tools
-    \end{itemize}
-  \item
-    Simulation Analysis
-  \item
-    Pop gen info for two \emph{Phytophthoras}
-  \item
-    Major results of your work in 2-4 sentences \ldots{}
-  \end{itemize}
+  Ultimately, publication and maintenance of scientific software exists to
+  standardize the protocols in which we manipulate analyze our data.
+  
+  \subsection{Reproducible Research}\label{reproducible-research}
+  
+  \begin{quote}
+  \emph{An article about computational science in a scientific publication
+  is not the scholarship itself, it is merely advertising of the
+  scholarship. The actual scholarship is the complete software development
+  environment and the complete set of instructions which generated the
+  figures.}
+  
+  -- John Buckheit and David Donho paraphrasing John Claerbout
+  (\protect\hyperlink{ref-buckheit1995wavelab}{1995})
+  \end{quote}
+  
+  Buckheit and Donoho (\protect\hyperlink{ref-buckheit1995wavelab}{1995})
+  didn't invent the concept of reproducible research in scientific
+  computing, but they did show computational research community that such
+  a concept was possible.
+  
+  The ultimate goal of reproducible research is in the term itself: to
+  ensure that research is produced in a manner such that future
+  researchers can reproduce and verify the results (Goecks et al.,
+  \protect\hyperlink{ref-goecks2010galaxy}{2010}). This has been a problem
+  in the past due to varying factors, including software (Ioannidis et
+  al., \protect\hyperlink{ref-ioannidis2008repeatability}{2008}).
+  
+  In terms of population genetics, software suites for analyses
+  proliferated in the late 1990's and early 2000's (Adamack and Gruber,
+  \protect\hyperlink{ref-adamack2014popgenreport}{2014}; Excoffier and
+  Heckel, \protect\hyperlink{ref-excoffier2006computer}{2006}). The number
+  of formats also proliferated.
+  
+  Scientific software needs to be usable to be useful. Example in de Meeûs
+  and Balloux (\protect\hyperlink{ref-de2004clonal}{2004}) using
+  \textsc{Multilocus} (Agapow and Burt,
+  \protect\hyperlink{ref-Agapow_2001}{2001}).
+  
+  The benefits of scientific software are many (McKiernan et al.,
+  \protect\hyperlink{ref-mckiernan2016open}{2016}).
+  
+  \section{Goals}\label{goals}
+  
+  \section{Part 1: Tools}\label{part-1-tools}
+  
+  \subsection{Summary of Chapter 2}\label{summary-of-chapter-2}
+  
+  To address the lack of tools for reproducible research in clonal
+  population genetics, we present the software package \emph{poppr} in the
+  R computing language (Kamvar et al.,
+  \protect\hyperlink{ref-kamvar2014poppr}{2014}\protect\hyperlink{ref-kamvar2014poppr}{b};
+  R Core Team, \protect\hyperlink{ref-R2016}{2016}). Previously, tools
+  necessary for analysis of clonal populations were available in several
+  stand-alone software programs, each requiring different data input
+  formats. Moreover, each program had different levels of documentation
+  and limited support for all computing platforms. The novelty of
+  \emph{poppr} was to introduce indices of multilocus genotype diversity,
+  the index of association, and a fast implementation of Bruvo's genetic
+  distance over unlimited levels of a user-specified population hierarchy
+  (Agapow and Burt, \protect\hyperlink{ref-Agapow_2001}{2001};
+  Arnaud-Hanod et al.,
+  \protect\hyperlink{ref-arnaud2007standardizing}{2007}; Bruvo et al.,
+  \protect\hyperlink{ref-bruvo2004simple}{2004}). Because this was
+  implemented in R these analyses could be performed in a reproducible
+  manner on all computing platforms.
+  
+  \subsection{Summary of Chapter 3}\label{summary-of-chapter-3}
+  
+  The initial implementation of \emph{poppr} contained basic tools for
+  analysis of clonal populations (Kamvar et al.,
+  \protect\hyperlink{ref-kamvar2014poppr}{2014}\protect\hyperlink{ref-kamvar2014poppr}{b}),
+  but lacked tools for custom definitions of multilocus genotypes and
+  performed poorly with genomic-scale data. Chapter 3 introduces an
+  updated and improved \emph{poppr} version 2.0. With high throughput
+  sequencing (HTS) data, the amount of missing data and genotyping error
+  increases, and the definition of a multilocus genotype becomes unclear.
+  Moreover, the calculation of the index of association scales poorly with
+  an increase in the number of loci. To address these limitations, we
+  improved poppr with new functionalities to define multilocus genotypes
+  based on genetic distance and calculate the index of association over
+  random samples or windows of SNP loci.
+  
+  \section{Part 2: Applications}\label{part-2-applications}
+  
+  The end goal of part one was not simply the development of the software,
+  but rather, we developed the software for the goal of analyzing our own
+  data. Serendipitously, by analyzing our own data with this software, we
+  are able to not only demonstrate that it can be used, but also
+  demonstrate that an entire analysis can be conducted in an open and
+  reproducible manner. The next two chapters focus on answering practical
+  and theoretical questions related to plant pathology and clonal
+  population genetics, respectively.
+  
+  \subsection{Summary of Chapter 4}\label{summary-of-chapter-4}
+  
+  A newly-emerged disease of oak---called Sudden Oak Death---spread from
+  California to the Southwest corner of Oregon in 2001. Because of intense
+  management strategies, the epidemic was largely contained to Curry
+  County for the next 15 years. In 2011, an isolated patch of disease
+  appeared in Cape Sebastian, 12 miles from the nearest infected site.
+  With microsatellite genotyping performed across 2 labs and 15 years, we
+  sought to describe the spread of the epidemic in a population genetic
+  context and ask the question of whether or not there was evidence for
+  more than one introduction event. All the analyses were performed in an
+  open-source and reproducible manner using R.
+  
+  \subsection{Summary of Chapter 5}\label{summary-of-chapter-5}
+  
+  The index of association is a measure of multilocus linkage
+  disequilibrium, that is, a correlation coefficient across multiple loci.
+  In sexual populations, loci are randomly assorting due to recombination,
+  resulting in a near-zero value of the index of association. In clonal
+  populations, recombination is non-existent, meaning that loci are passed
+  from parent to offspring in a non-independent fashion, resulting in a
+  significantly non-zero value of the index of association. de Meeûs and
+  Balloux (\protect\hyperlink{ref-de2004clonal}{2004}) showed that this
+  index shows high variance with low levels of sexual reproduction, but
+  due to limitations in software were not able to perform power analyses.
+  We use \emph{poppr} to investigate the power of the index of association
+  to detect sexual reproduction in simulated data sets generated with
+  microsatellite and genomic markers.
   
   \chapter{\texorpdfstring{\emph{Poppr}: an R Package For Genetic Analysis
   of Populations With Clonal, Partially Clonal, and/or Sexual
@@ -1559,7 +1614,7 @@ mother, Jane H. Kamvar.}
   been added using the \emph{ggplot2} function \texttt{stat\_smooth}.}\label{fig:moniliniacurve}
   \end{figure}
   
-  \subsection{Index of association}\label{index-of-association-1}
+  \subsection{Index of association}\label{index-of-association}
   
   The index of association (\(I_A\)) is a measure of multilocus linkage
   disequilibrium that is most often used to detect clonal reproduction
@@ -3135,17 +3190,18 @@ mother, Jane H. Kamvar.}
   
   \section{Introduction}\label{introduction-4}
   
-  Population genetic theory is largely based on 
-  model populations such as the neutral Wright-Fisher model in which populations are infinitely large, with discrete
+  Population genetic theory is largely based on the neutral Wright-Fisher
+  model in which populations are infinitely large, with discrete
   generations, randomly assorting alleles, no migration, and no mutation
   (Hartl and Clark, \protect\hyperlink{ref-hartl1997principles}{2007};
   Nielsen and Slatkin,
-  \protect\hyperlink{ref-nielsen2013introduction}{2013}). By using such
-  modeld, population geneticists are able to ask fundamental questions and
-  test hypotheses about which evolutionary processes might have resulted in the obersved patterns.
+  \protect\hyperlink{ref-nielsen2013introduction}{2013}). By using this
+  model, population geneticists are able to ask fundamental questions and
+  test hypotheses about evolutionary processes that could lead to
+  structured populations.
   
-  These neutral models, however, cannot be applied to populations whose life
-  history violate the fundamental assumption of random assortment of
+  This neutral model, however, cannot be applied to populations whose life
+  history violates the fundamental assumption of random assortment of
   alleles, such as populations that undergo clonal reproduction (Milgroom,
   \protect\hyperlink{ref-milgroom1996recombination}{1996}; Orive,
   \protect\hyperlink{ref-orive1993effective}{1993}). For many clonal
@@ -3495,6 +3551,21 @@ mother, Jane H. Kamvar.}
   
   \subsection{Microsatellite Data}\label{microsatellite-data}
   
+  \begin{figure}
+  
+  {\centering \includegraphics[width=0.8\linewidth]{figure/simulations/rd_sexrate} 
+  
+  }
+  
+  \caption[Violin plots showing the decay of the Index of Association measured with
+  declining rates of sexual reproduction.]{Violin plots showing the decay of the Index of Association measured with
+  declining rates of sexual reproduction for data sets simulated with even
+  and uneven mutation rates over 20 and 21 loci, respectively.
+  \(\bar{r}_d\) was calculated for both whole and clone corrected data
+  sets. Each violin plot contains 1000 unique data sets. Black lines mark
+  the 25, 50, and 75th percentile.}\label{fig:sim1}
+  \end{figure}
+  
   \subsection{SNP Data}\label{snp-data}
   
   Because of the computational intensity of the simulations we were only
@@ -3513,6 +3584,12 @@ mother, Jane H. Kamvar.}
   \setlength{\parskip}{8pt} \singlespacing
   
   \hypertarget{refs}{}
+  \hypertarget{ref-adamack2014popgenreport}{}
+  Adamack, A. T., and Gruber, B. (2014). PopGenReport: Simplifying basic
+  population genetic analyses in r. \emph{Methods in Ecology and
+  Evolution} 5, 384--387.
+  doi:\href{https://doi.org/10.1111/2041-210x.12158}{10.1111/2041-210x.12158}.
+  
   \hypertarget{ref-Agapow_2001}{}
   Agapow, P.-M., and Burt, A. (2001). Indices of multilocus linkage
   disequilibrium. \emph{Molecular Ecology Notes} 1, 101--102.
@@ -3530,21 +3607,27 @@ mother, Jane H. Kamvar.}
   plant-pathogenic fungi. \emph{Annual review of phytopathology} 33,
   369--391.
   
+  \hypertarget{ref-anscombe1973graphs}{}
+  Anscombe, F. J. (1973). Graphs in statistical analysis. \emph{The
+  American Statistician} 27, 17.
+  doi:\href{https://doi.org/10.2307/2682899}{10.2307/2682899}.
+  
   \hypertarget{ref-arnaud2007standardizing}{}
   Arnaud-Hanod, S., Duarte, C. M., Alberto, F., and Serrão, E. A. (2007).
   Standardizing methods to address clonality in population studies.
   \emph{Molecular Ecology} 16, 5115--5139.
   doi:\href{https://doi.org/10.1111/j.1365-294X.2007.03535.x}{10.1111/j.1365-294X.2007.03535.x}.
   
-  \hypertarget{ref-baldauf2003deep}{}
-  Baldauf, S. (2003). The deep roots of eukaryotes. \emph{Science} 300,
-  1703--1706.
-  doi:\href{https://doi.org/10.1126/science.1085544}{10.1126/science.1085544}.
-  
   \hypertarget{ref-balloux2003population}{}
   Balloux, F., Lehmann, L., and de Meeûs, T. (2003). The population
   genetics of clonal and partially clonal diploids. \emph{Genetics} 164,
   1635--1644.
+  
+  \hypertarget{ref-baxter2006scientific}{}
+  Baxter, S. M., Day, S. W., Fetrow, J. S., and Reisinger, S. J. (2006).
+  Scientific software development is not an oxymoron. \emph{PLoS Comput
+  Biol} 2, e87.
+  doi:\href{https://doi.org/10.1371/journal.pcbi.0020087}{10.1371/journal.pcbi.0020087}.
   
   \hypertarget{ref-bivand2014rgdal}{}
   Bivand, R., Keitt, T., and Rowlingson, B. (2014). \emph{rgdal: Bindings
@@ -3568,16 +3651,16 @@ mother, Jane H. Kamvar.}
   A simple method for the calculation of microsatellite genotype distances
   irrespective of ploidy level. \emph{Molecular Ecology} 13, 2101--2106.
   
+  \hypertarget{ref-buckheit1995wavelab}{}
+  Buckheit, J. B., and Donoho, D. L. (1995). ``WaveLab and reproducible
+  research,'' in \emph{Wavelets and statistics} (Springer), 55--81.
+  doi:\href{https://doi.org/10.1007/978-1-4612-2544-7_5}{10.1007/978-1-4612-2544-7\_5}.
+  
   \hypertarget{ref-burt1996molecular}{}
   Burt, A., Carter, D. A., Koenig, G. L., White, T. J., and Taylor, J. W.
   (1996). Molecular markers reveal cryptic sex in the human pathogen
   \emph{Coccidioides immitis}. \emph{Proceedings of the National Academy
   of Sciences} 93, 770--773.
-  
-  \hypertarget{ref-butlin2000virgin}{}
-  Butlin, R. K. (2000). Virgin rotifers. \emph{Trends in Ecology \&
-  Evolution} 15, 389--390.
-  doi:\href{https://doi.org/10.1016/S0169-5347(00)01937-6}{10.1016/S0169-5347(00)01937-6}.
   
   \hypertarget{ref-canty2015boot}{}
   Canty, A., and Ripley, B. D. (2015). \emph{Boot: Bootstrap r (s-plus)
@@ -3596,10 +3679,11 @@ mother, Jane H. Kamvar.}
   doi:\href{https://doi.org/10.1111/j.1755-0998.2011.02985.x}{10.1111/j.1755-0998.2011.02985.x}.
   
   \hypertarget{ref-cooke2012genome}{}
-  Cooke, D. E., Cano, L. M., Raffaele, S., Bain, R. A., Cooke, L. R.,
+  Cooke, D. E. L., Cano, L. M., Raffaele, S., Bain, R. A., Cooke, L. R.,
   Etherington, G. J., et al. (2012). Genome analyses of an aggressive and
-  invasive lineage of the Irish potato famine pathogen. \emph{PLoS
-  pathogens} 8, e1002940.
+  invasive lineage of the irish potato famine pathogen. \emph{PLoS Pathog}
+  8, e1002940.
+  doi:\href{https://doi.org/10.1371/journal.ppat.1002940}{10.1371/journal.ppat.1002940}.
   
   \hypertarget{ref-croucher2013combining}{}
   Croucher, P. J. P., Mascheretti, S., and Garbelotto, M. (2013).
@@ -3673,6 +3757,12 @@ mother, Jane H. Kamvar.}
   159--174.
   doi:\href{https://doi.org/10.1007/978-3-662-44056-8_8}{10.1007/978-3-662-44056-8\_8}.
   
+  \hypertarget{ref-excoffier2006computer}{}
+  Excoffier, L., and Heckel, G. (2006). Computer programs for population
+  genetics data analysis: A survival guide. \emph{Nature Reviews Genetics}
+  7, 745--758.
+  doi:\href{https://doi.org/10.1038/nrg1904}{10.1038/nrg1904}.
+  
   \hypertarget{ref-excoffier1992analysis}{}
   Excoffier, L., Smouse, P. E., and Quattro, J. M. (1992). Analysis of
   molecular variance inferred from metric distances among DNA haplotypes:
@@ -3691,6 +3781,22 @@ mother, Jane H. Kamvar.}
   population structure using multilocus genotype data: Linked loci and
   correlated allele frequencies. \emph{Genetics} 164, 1567--1587.
   Available at: \url{http://www.genetics.org/content/164/4/1567.abstract}.
+  
+  \hypertarget{ref-felsenstein1989phylip}{}
+  Felsenstein, J. (1989). PHYLIP-phylogeny inference package (version
+  3.2). \emph{cladistics} 5, 163--166.
+  
+  \hypertarget{ref-gigerenzer1991tools}{}
+  Gigerenzer, G. (1991). From tools to theories: A heuristic of discovery
+  in cognitive psychology. \emph{Psychological Review} 98, 254--267.
+  doi:\href{https://doi.org/10.1037/0033-295x.98.2.254}{10.1037/0033-295x.98.2.254}.
+  
+  \hypertarget{ref-goecks2010galaxy}{}
+  Goecks, J., Nekrutenko, A., Taylor, J., and Team, T. G. (2010). Galaxy:
+  A comprehensive approach for supporting accessible, reproducible, and
+  transparent computational research in the life sciences. \emph{Genome
+  Biol} 11, R86.
+  doi:\href{https://doi.org/10.1186/gb-2010-11-8-r86}{10.1186/gb-2010-11-8-r86}.
   
   \hypertarget{ref-goss2009population}{}
   Goss, E. M., Larsen, M., Chastagner, G. A., Givens, D. R., and Grünwald,
@@ -3712,6 +3818,11 @@ mother, Jane H. Kamvar.}
   \emph{Phytophthora infestans} originated in central Mexico rather than
   the Andes. \emph{Proceedings of the National Academy of Sciences} 111,
   8791--8796.
+  
+  \hypertarget{ref-goudet1995fstat}{}
+  Goudet, J. (1995). FSTAT (version 1.2): A computer program to calculate
+  f-statistics. \emph{Journal of heredity} 86, 485--486. Available at:
+  \url{http://jhered.oxfordjournals.org/content/86/6/485}.
   
   \hypertarget{ref-goudet2005hierfstat}{}
   Goudet, J. (2005). Hierfstat, a package for R to compute and test
@@ -3772,13 +3883,6 @@ mother, Jane H. Kamvar.}
   sequence-based \emph{Phytophthora} identification tool. \emph{Plant
   Disease} 95, 337--342.
   
-  \hypertarget{ref-haas2009genome}{}
-  Haas, B. J., Kamoun, S., Zody, M. C., Jiang, R. H., Handsaker, R. E.,
-  Cano, L. M., et al. (2009). Genome sequence and analysis of the Irish
-  potato famine pathogen \emph{Phytophthora infestans}. \emph{Nature} 461,
-  393--398.
-  doi:\href{https://doi.org/10.1038/nature08358}{10.1038/nature08358}.
-  
   \hypertarget{ref-hansen2008epidemiology}{}
   Hansen, E. M., Kanaskie, A., Prospero, S., McWilliams, M., Goheen, E.
   M., Osterbauer, N., et al. (2008). Epidemiology of \emph{Phytophthora
@@ -3815,6 +3919,12 @@ mother, Jane H. Kamvar.}
   Hurlbert, S. H. (1971). The nonconcept of species diversity: A critique
   and alternative parameters. \emph{Ecology} 52, 577--586.
   doi:\href{https://doi.org/10.2307/1934145}{10.2307/1934145}.
+  
+  \hypertarget{ref-ioannidis2008repeatability}{}
+  Ioannidis, J. P. A., Allison, D. B., Ball, C. A., Coulibaly, I., Cui,
+  X., Culhane, A., et al. (2008). Repeatability of published microarray
+  gene expression analyses. \emph{Nature Genetics} 41, 149--155.
+  doi:\href{https://doi.org/10.1038/ng.295}{10.1038/ng.295}.
   
   \hypertarget{ref-ivors2006microsatellite}{}
   Ivors, K., Garbelotto, M., Vries, I. D. E., Ruyter-spira, C., Hekkert,
@@ -3890,10 +4000,10 @@ mother, Jane H. Kamvar.}
   clonal, and/or sexual reproduction. \emph{PeerJ} 2, e281.
   doi:\href{https://doi.org/10.7717/peerj.281}{10.7717/peerj.281}.
   
-  \hypertarget{ref-kroon2012genus}{}
-  Kroon, L. P., Brouwer, H., Cock, A. W. de, and Govers, F. (2012). The
-  Genus \emph{Phytophthora}. \emph{Phytopathology} 102, 348--364.
-  doi:\href{https://doi.org/10.1094/PHYTO-01-11-0025}{10.1094/PHYTO-01-11-0025}.
+  \hypertarget{ref-kuhn1996structure}{}
+  Kuhn, T. S. (1996). \emph{The structure of scientific revolutions}.
+  University of Chicago Press
+  doi:\href{https://doi.org/10.7208/chicago/9780226458106.001.0001}{10.7208/chicago/9780226458106.001.0001}.
   
   \hypertarget{ref-laloe2007consensus}{}
   Laloë, D., Jombart, T., Dufour, A.-B., and Moazami-Goudarzi, K. (2007).
@@ -3963,6 +4073,12 @@ mother, Jane H. Kamvar.}
   \emph{Euphytica} 124, 163--180.
   doi:\href{https://doi.org/10.1023/A:1015678432355}{10.1023/A:1015678432355}.
   
+  \hypertarget{ref-mckiernan2016open}{}
+  McKiernan, E. C., Bourne, P. E., Brown, C. T., Buck, S., Kenall, A.,
+  Lin, J., et al. (2016). How open science helps researchers succeed.
+  \emph{eLife} 5.
+  doi:\href{https://doi.org/10.7554/elife.16800}{10.7554/elife.16800}.
+  
   \hypertarget{ref-meirmans2004genotype}{}
   Meirmans, P. G., and Van Tienderen, P. H. (2004). GENOTYPE and GENODIVE:
   Two programs for the analysis of genetic diversity of asexual organisms.
@@ -3997,6 +4113,12 @@ mother, Jane H. Kamvar.}
   Milgroom, M. G., Levin, S. A., and Fry, W. E. (1989). Population
   genetics theory and fungicide resistance. \emph{Plant disease
   epidemiology} 2, 340--367.
+  
+  \hypertarget{ref-milgroom1997contributions}{}
+  Milgroom, M., and Fry, W. (1997). ``Contributions of population genetics
+  to plant disease epidemiology and management,'' in \emph{Advances in
+  botanical research} (Elsevier BV), 1--30.
+  doi:\href{https://doi.org/10.1016/s0065-2296(08)60069-5}{10.1016/s0065-2296(08)60069-5}.
   
   \hypertarget{ref-nei1973analysis}{}
   Nei, M. (1973). Analysis of gene diversity in subdivided populations.
@@ -4034,18 +4156,23 @@ mother, Jane H. Kamvar.}
   life-histories. \emph{Theoretical Population Biology} 44, 316--340.
   doi:\href{https://doi.org/10.1006/tpbi.1993.1031}{10.1006/tpbi.1993.1031}.
   
+  \hypertarget{ref-ouzounis2003bioinformatics}{}
+  Ouzounis, C. A., and Valencia, A. (2003). Early bioinformatics: The
+  birth of a discipline--a personal view. \emph{Bioinformatics} 19,
+  2176--2190.
+  doi:\href{https://doi.org/10.1093/bioinformatics/btg309}{10.1093/bioinformatics/btg309}.
+  
   \hypertarget{ref-paradis2004ape}{}
   Paradis, E., Claude, J., and Strimmer, K. (2004). APE: Analyses of
   phylogenetics and evolution in r language. \emph{Bioinformatics} 20,
   289--290.
   doi:\href{https://doi.org/10.1093/bioinformatics/btg412}{10.1093/bioinformatics/btg412}.
   
-  \hypertarget{ref-parke2014phytophthora}{}
-  Parke, J. L., Knaus, B. J., Fieland, V. J., Lewis, C., and Grünwald, N.
-  J. (2014). Phytophthora community structure analyses in Oregon nurseries
-  inform systems approaches to disease management. \emph{Phytopathology}
-  104, 1052--1062.
-  doi:\href{https://doi.org/10.1094/PHYTO-01-14-0014-R}{10.1094/PHYTO-01-14-0014-R}.
+  \hypertarget{ref-partridge1984computer}{}
+  Partridge, D., Lopez, P. D., and Johnston, V. S. (1984). Computer
+  programs as theories in biology. \emph{Journal of Theoretical Biology}
+  108, 539--564.
+  doi:\href{https://doi.org/10.1016/s0022-5193(84)80079-x}{10.1016/s0022-5193(84)80079-x}.
   
   \hypertarget{ref-Peakall:2006}{}
   Peakall, R., and Smouse, P. E. (2006). GenAlEx 6: genetic analysis in
@@ -4153,6 +4280,11 @@ mother, Jane H. Kamvar.}
   Schliep, K. (2011). Phangorn: phylogenetic analysis in R.
   \emph{Bioinformatics} 27, 592--593.
   
+  \hypertarget{ref-searls2010roots}{}
+  Searls, D. B. (2010). The roots of bioinformatics. \emph{PLoS Comput
+  Biol} 6, e1000809.
+  doi:\href{https://doi.org/10.1371/journal.pcbi.1000809}{10.1371/journal.pcbi.1000809}.
+  
   \hypertarget{ref-shannon2001mathematical}{}
   Shannon, C. (2001). A mathematical theory of communication. \emph{ACM
   SIGMOBILE Mobile Computing and Communications Review} 5, 3--55.
@@ -4178,10 +4310,10 @@ mother, Jane H. Kamvar.}
   typing -- it's not just for bacteria. \emph{Current opinion in
   microbiology} 6, 351--356.
   
-  \hypertarget{ref-tyler2007phytophthora}{}
-  Tyler, B. M. (2007). \emph{Phytophthora sojae}: root rot pathogen of
-  soybean and model oomycete. \emph{Molecular Plant Pathology} 8, 1--8.
-  doi:\href{https://doi.org/10.1111/j.1364-3703.2006.00373.x}{10.1111/j.1364-3703.2006.00373.x}.
+  \hypertarget{ref-taylor1999evolutionary}{}
+  Taylor, J. W., Geiser, D. M., Burt, A., and Koufopanou, V. (1999). The
+  evolutionary biology and population genetics underlying fungal strain
+  typing. \emph{Clinical Microbiology Reviews} 12, 126--146.
   
   \hypertarget{ref-vercauteren2010clonal}{}
   Vercauteren, A., Dobbelaere, I. D., Grünwald, N. J., Bonants, P.,
@@ -4200,18 +4332,6 @@ mother, Jane H. Kamvar.}
   \hypertarget{ref-weir1996genetic}{}
   Weir, B. S., and Cockerham, C. (1996). Genetic data analysis ii: Methods
   for discrete population genetic data.
-  
-  \hypertarget{ref-welch2000evidence}{}
-  Welch, D. B. M., and Meselson, M. (2000). Evidence for the evolution of
-  bdelloid rotifers without sexual reproduction or genetic exchange.
-  \emph{Science} 288, 1211--1215.
-  doi:\href{https://doi.org/10.1126/science.288.5469.1211}{10.1126/science.288.5469.1211}.
-  
-  \hypertarget{ref-welch2001rates}{}
-  Welch, D. B. M., and Meselson, M. S. (2001). Rates of nucleotide
-  substitution in sexual and anciently asexual rotifers. \emph{Proceedings
-  of the National Academy of Sciences} 98, 6720--6724.
-  doi:\href{https://doi.org/10.1073/pnas.111144598}{10.1073/pnas.111144598}.
   
   \hypertarget{ref-werres2001phytophthora}{}
   Werres, S., Marwitz, R., veld, W. A. M. I., Cock, A. W. D., Bonants, P.
