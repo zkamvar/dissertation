@@ -382,9 +382,11 @@ figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s", to = T
 
 ```{r sim2, echo = FALSE, fig.cap = figcap2, fig.scap = figscap2}
 knitr::include_graphics("figure/simulations/AURC_box_plot.png")
-figcap2 <- "Box plots showing the distribution of the area under the ROC Curve for 
-each independent seed. boxes span the interquartile range (IQR) and the whiskers
-extend to 1.5 * IQR. "
+figcap2 <- "Box plots showing the distribution of the area under the ROC Curve
+for each independent seed. boxes span the interquartile range (IQR) and the
+whiskers extend to 1.5 * IQR. An AURC of 1 indicates a perfect classifier, while
+an AURC of 0.5 indicates the classifier is no better than a random guess. Any
+values below 0.5 (shaded in grey) is considered worse than random."
 
 figscap2 <- "Box plots showing the distribution of the area under the ROC Curve for 
 each independent seed."
@@ -400,6 +402,15 @@ wd = uncorrected (whole data)."
 figscap3 <- "Heatmap representing p-values from ANOVA analysis on AURC distributions."
 ```
 
+```{r sim4, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
+knitr::include_graphics("figure/simulations/ssr_power.png")
+figcap3 <- "Power (true positive rate) to detect non-random mating decreasing
+with increasing rates of sexual reproduction in SSR data. "
+
+figscap3 <- "Power (true positive rate) to detect non-random mating decreasing
+with increasing rates of sexual reproduction in SSR data."
+```
+
 
 
 ### SNP Data
@@ -410,7 +421,7 @@ replicates per seed. Because some replicates failed to save, we randomly sampled
 five replicates per seed per rate of sexual reproduction, giving us a total of 
 1200 total populations for analysis.
 
-```{r sim4, echo = FALSE, fig.cap = figcap4, fig.scap = figscap4}
+```{r sim5, echo = FALSE, fig.cap = figcap5, fig.scap = figscap5}
 knitr::include_graphics("figure/simulations/genomic_rd.png")
 cap <- "Violin plots showing the decay of the Index of Association measured with
 declining rates of sexual reproduction for genomic-scale data sets sub-sampled
@@ -421,7 +432,19 @@ mark the 25, 50, and 75th percentile."
 scap <- "Violin plots showing the decay of the Index of Association measured
 with declining rates of sexual reproduction for genomic-scale data."
 
-figcap4  <- beaverdown::render_caption(caption = cap, figname = "fig2", to = TO)
+figcap5  <- beaverdown::render_caption(caption = cap, figname = "fig2", to = TO)
 if (!LATEX) figcap1 <- gsub("@ref", "\\\\@ref", figcap1)
-figscap4 <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = TO)
+figscap5 <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = TO)
+```
+
+
+```{r sim6, echo = FALSE, fig.cap = figcap6, fig.scap = figscap6}
+knitr::include_graphics("figure/simulations/genomic_power.png")
+figcap6 <- "Power (true positive rate) to detect non-random mating decreasing with
+increasing rates of sexual reproduction in genomic-scale data sub-sampled in
+four different population sizes. False positive rate is shown as increasing
+transparency."
+
+figscap6 <- "Power to detect non-random mating decreasing with increasing rates of
+sexual reproduction in genomic data."
 ```
