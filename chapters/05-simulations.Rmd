@@ -439,12 +439,19 @@ figscap5 <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = T
 
 
 ```{r sim6, echo = FALSE, fig.cap = figcap6, fig.scap = figscap6}
+knitr::include_graphics("figure/simulations/AURC_genomic.png")
+figcap6 <- "Plot of AURC for genomic data."
+
+figscap6 <- "Plot of AURC for genomic data."
+```
+
+```{r sim7, echo = FALSE, fig.cap = figcap7, fig.scap = figscap7}
 knitr::include_graphics("figure/simulations/genomic_power.png")
-figcap6 <- "Power (true positive rate) to detect non-random mating decreasing with
+figcap7 <- "Power (true positive rate) to detect non-random mating decreasing with
 increasing rates of sexual reproduction in genomic-scale data sub-sampled in
 four different population sizes. False positive rate is shown as increasing
 transparency."
 
-figscap6 <- "Power to detect non-random mating decreasing with increasing rates of
+figscap7 <- "Power to detect non-random mating decreasing with increasing rates of
 sexual reproduction in genomic data."
 ```
