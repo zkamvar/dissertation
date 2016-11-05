@@ -353,13 +353,41 @@ calculated for sample size, mutation rate, and clone-correction. The area under
 the ROC curves was calculated using the `auc()` function in the R package *flux*
 version 0.3-0 [@jurasinski2014flux].
 
+Because simulations across rates of sexual reproduction were generated from
+unique seeds, we additionally constructed ROC curves for each seed with respect
+to sample size, mutation rate, and clone-correction. After dividing data sets by
+mutation rate and rate of sexual reproduction, we used ANOVA to test if the
+means of the distributions were significantly different from each other based on
+sample size and clone correction.
+
 
 ## Results
 
+For both microsatellite and SNP data, as found in @de2004clonal, large variances
+were observed with extremely low levels of sexual reproduction (Figs.
+\@ref(fig:sim1), \@ref(fig:sim5)). The variances and means of $\bar{r}_d$ 
+decrease with increasing levels of sexual reproduction. The most striking
+feature observed, however, was the bimodal nature of the distributions at these
+low levels of sexual reproduction. As this feature appears in both the
+microsatellite and SNP data, it appears not to be an artifact. Additionally,
+with larger sample sizes, the variance also decreases, suggesting that this
+index is influenced by sample size.
+
 ### Microsatellite Data
 
-something \@ref(fig:sim1)
+The range of the values of $\bar{r}_d$ for completely clonal and nearly clonal
+populations were extreme. They ranged from -0.577 to 1 in completely clonal
+data sets (Table \@ref(tab:simtab2)). 
 
+mutation rate   clone-correction    n = 10   n = 25   n = 50   n = 100
+--------------  -----------------  -------  -------  -------  --------
+even            uncorrected         -0.192   -0.158   -0.064    -0.115
+even            clone-corrected       -Inf   -0.500   -0.333    -0.333
+uneven          uncorrected         -0.268   -0.029   -0.023    -0.007
+uneven          clone-corrected     -0.577   -0.115   -0.084    -0.059
+
+Table: (\#tab:simtab2) Minimum values for $\bar{r}_d$ for clonal microsatellite
+data separated by mutation rate, clone correction, and sample size.
 
 ```{r sim1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
 knitr::include_graphics("figure/simulations/rd_sexrate.png")
