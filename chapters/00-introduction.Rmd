@@ -13,15 +13,16 @@ presented in this dissertation." -> figscap1
 
 
 The work presented here presents tools designed to answer questions related to
-clonal population genetics and plant pathology. The term 'tool' in this context
+clonal population genetics and plant pathology. In this context, the term 'tool'
 is not in reference to new derivations of mathematical models or theory for
 population genetics of clonal organisms; rather, 'tool' refers to software code 
 used to apply mathematical models or theory to population genetic data. The 
 merit of this work lies within the context of reproducible science 
-[@buckheit1995wavelab]. It provides the tools and demonstrates the usefulness
-and flexibility by applying these tools to the outbreak of sudden oak death from
-2001 to 2014 in Curry County, OR, USA and to simulation data, assessing the
-power of the index of association to detect clonal reproduction.
+[@buckheit1995wavelab]. We demonstrate the usefulness and flexibility of these
+tools by using them to show evidence for multiple introductions in the Curry
+County, OR outbreak of sudden oak death, and by assessing the power of
+multilocus linkage disequilibrium measure $\bar{r}_d$ to detect clonal
+reproduction.
 
 
 ## Clonal Population Genetics and Plant Pathology
