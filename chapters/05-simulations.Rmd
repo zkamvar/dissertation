@@ -422,10 +422,9 @@ each independent seed."
 
 ```{r sim3, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
 knitr::include_graphics("figure/simulations/AURC_ANOVA.png")
-figcap3 <- "Heatmap representing p-values from ANOVA analysis on AURC distributions
-comparing the effect of clone correction (top panel) and sample size (bottom
-panel). Each tile represents an independent comparison. cc = clone-corrected, 
-wd = uncorrected (whole data)."
+figcap3 <- "Heatmap representing p-values from ANOVA analysis on AURC
+distributions with the model AURC ~ Clone Correction X Sample Size X Mutation
+Rate for each rate of sexual reproduction separately."
 
 figscap3 <- "Heatmap representing p-values from ANOVA analysis on AURC distributions."
 ```
@@ -483,3 +482,14 @@ transparency."
 figscap7 <- "Power to detect non-random mating decreasing with increasing rates of
 sexual reproduction in genomic data."
 ```
+
+## Discussion
+
+### Not using multiple tests correction
+
+We did not use multiple tests correction on the p-values derived from tests of
+significance on $\bar{r}_d$ because each p-value represents that derived from
+an independent study on an independent population as opposed to independent
+variables within a population. Much like we wouldn't perform a multiple tests
+correction on the results of 1,000 NIH studies, we wouldn't perform one on the
+results of 1,000 independently evolved populations. 
