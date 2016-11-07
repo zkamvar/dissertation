@@ -10,8 +10,6 @@ figcap1 <- "A graphical representation of the three themes governing the work
 presented in this dissertation." -> figscap1
 ```
 
-
-
 The work presented here presents tools designed to answer questions related to
 clonal population genetics and plant pathology. In this context, the term 'tool'
 is not in reference to new derivations of mathematical models or theory for
@@ -24,8 +22,9 @@ County, OR outbreak of sudden oak death, and by assessing the power of
 multilocus linkage disequilibrium measure $\bar{r}_d$ to detect clonal
 reproduction.
 
-
 ## Clonal Population Genetics and Plant Pathology
+
+### Life without sex 
 
 Population genetics is the study of trying to understand the genetic variation
 within and among groups of organisms of the same species existing together 
@@ -38,19 +37,19 @@ factors.
 
 Knowing the reproductive mode of a pathogen can help you understand how to
 develop management strategies e.g. if you have a clonal population, you want to
-make sure you capture the diversity of genotypes before developing anti-
-microbial treatments [@taylor1999evolutionary].
+make sure you capture the diversity of genotypes before developing 
+anti-microbial treatments [@taylor1999evolutionary].
 
-Population genetics in the context of plant pathology.
+### Population Genetics Under the Lens of Plant Pathology
 
 Life cycle concerns: overwintering oospores, sexual structures (image of *P.
-infestans life cycle*).
+infestans* life cycle).
 
 Sexual reproduction risk: *Puccinia* pathway.
 
-Gene for Gene hypothesis
+These are both examples of partially clonal organisms.
 
-
+Examine entirely clonal *Phytophthora ramorum*. 
 
 
 ## Scientific Software and Reproducible Research
