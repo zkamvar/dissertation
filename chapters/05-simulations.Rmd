@@ -349,17 +349,21 @@ increments of 0.01 from 0 to 1 and plotting the true positive fraction on the y
 axis and false positive fraction on the x axis. Curves were calculated
 hierarchically by rate of sexual reproduction (< 1) and unique seed used to
 generate the populations. For each hierarchical level, separate curves were
-calculated for sample size, mutation rate, and clone-correction. The area under
-the ROC curves was calculated using the `auc()` function in the R package *flux*
-version 0.3-0 [@jurasinski2014flux].
+calculated for sample size, mutation rate, and clone-correction. The areas under
+the ROC curves (AURC) were calculated using the `auc()` function in the R
+package *flux* version 0.3-0 [@jurasinski2014flux].
 
 Because simulations across rates of sexual reproduction were generated from
 unique seeds, we additionally constructed ROC curves for each seed with respect
-to sample size, mutation rate, and clone-correction. After dividing data sets by
-mutation rate and rate of sexual reproduction, we used ANOVA to test if the
-means of the distributions were significantly different from each other based on
-sample size and clone correction.
+to clone-correction, sample size, and mutation rate. To test for significant 
+effects of clone-correction, sample size, and mutation rate on the inference of 
+non-random mating, we then separated the data by rate of sexual reproduction and
+performed a three way (type III) ANOVA on each rate separately with formula
+\@ref(eq:anova) (for microsatellite data).
 
+\begin{equation}
+AURC \sim Clone Correction \times Sample Size \times Mutation Rate (\#eq:anova)
+\end{equation}
 
 ## Results
 
@@ -377,7 +381,7 @@ index is influenced by sample size.
 
 The range of the values of $\bar{r}_d$ for completely clonal and nearly clonal
 populations were extreme. They ranged from -0.577 to 1 in completely clonal
-data sets (Table \@ref(tab:simtab2)). 
+data sets (Table \@ref(tab:simtab2)).  
 
 mutation rate   clone-correction    n = 10   n = 25   n = 50   n = 100
 --------------  -----------------  -------  -------  -------  --------
@@ -408,15 +412,37 @@ if (!LATEX) figcap1 <- gsub("@ref", "\\\\@ref", figcap1)
 figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s", to = TO)
 ```
 
+We found that the power (p <= 0.01) to detect non-random mating decreases
+significantly with very little sexual reproduction (Fig. \@ref(fig:sim4)). This
+is further affected by both mutation rate, sample size, and clone correction.
+Clone correction, however, appears to affect even mutation rates more strongly
+than uneven mutation rates. For all scenarios the power to detect non-random
+mating crashes to below 0.25 with rates of sexual reproduction greater than 1%.
+This trend is only moderately improved when the threshold is raised to p <=
+0.05. Strikingly, there is less power to detect non-random mating at 0% and
+0.01% sex as compared to 0.05% and 0.1% sex. This appears to be due to
+dramatically negative values of $\bar{r}_d$ which result in a p-value of 1. At p
+<= 0.01, there additionally appears to be a false positive rate of 1.5% in the
+worst case scenario.
+
 ```{r sim4, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
 knitr::include_graphics("figure/simulations/ssr_power.png")
 figcap3 <- "Power (true positive rate) to detect non-random mating decreasing
-with increasing rates of sexual reproduction in SSR data. "
-
+with increasing rates of sexual reproduction in SSR data. Plots are arranged in
+a grid with clone-correction in rows and mutation rate in columns. Values are
+shown for $\\alpha$ = 0.01"
+figcap3  <- beaverdown::render_caption(caption = figcap3, figname = "fig1", to = TO)
 figscap3 <- "Power (true positive rate) to detect non-random mating decreasing
 with increasing rates of sexual reproduction in SSR data."
 ```
 
+The AURC analysis showed a steady decrease in the ability to detect non-random
+mating with increasing levels of sexual reproduction, mainly due to a loss in
+sensitivity with increasing levels of $\alpha$ (Fig. \@ref(fig:sim2)). As seen
+in the power analysis (Fig. \@ref(fig:sim4)), clone correction consistently
+appears to negatively affect the AURC. For all scenarios, the diagnostic power
+of $\bar{r}_d$ to detect non-random mating is no better than random at 10% or
+greater rates of sexual reproduction. 
 
 ```{r sim2, echo = FALSE, fig.cap = figcap2, fig.scap = figscap2}
 knitr::include_graphics("figure/simulations/AURC_box_plot.png")
@@ -429,6 +455,16 @@ values below 0.5 (shaded in grey) is considered worse than random."
 figscap2 <- "Box plots showing the distribution of the area under the ROC Curve for 
 each independent seed."
 ```
+
+A three-way ANOVA adds support for the hypothesis that clone correction
+significantly affects the diagnostic power of $\bar{r}_d$ (Fig. \@ref(fig:sim3),
+Table \@ref(tab:sim3)). The results show that, while there are no significant
+effects at 50% sex, clone correction, mutation rate, and sample size all have a
+very real effect on $\bar{r}_d$'s diagnostic properties. At low levels of sex (<
+1%), the interaction of clone correction and mutation rate shows a significant
+effect, which is not seen in the interaction of clone correction and sample
+size. Only at sex rates of 0.01% and 0.05% do we see significant effects across
+all interactions.
 
 ```{r sim3, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
 knitr::include_graphics("figure/simulations/AURC_ANOVA.png")
