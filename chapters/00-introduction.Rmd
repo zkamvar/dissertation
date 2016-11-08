@@ -35,6 +35,17 @@ Sex exists in all major groups of organisms [@heitman2012evolution].
 Pathogenic species can use reproductive mode to adapt to different environmental
 factors.
 
+> ...uniparental reproduciton is ... predominant enough in natural populations
+> to generate clones that are stable in space and time, even on an evolutionary
+> time scale.
+> 
+> ...the hypothesis of clonality does not rule out the possibility of occasional
+> genetic recombination, but rather it indicates that such recombination is not
+> important enough for altering significantly the prevailing pattern of clonal
+> population structure.
+>
+> -- [@tibayrenc1990clonal]
+
 Knowing the reproductive mode of a pathogen can help you understand how to
 develop management strategies e.g. if you have a clonal population, you want to
 make sure you capture the diversity of genotypes before developing 
