@@ -10,10 +10,8 @@
 # HTML and Bookdown Derivatives -----------------------------------------------
 _bookdown_files/*
 *_book/*html
-*_book/*pdf
-*_book/*tex
 *_book/libs/*
 *_book/*json
 _book/figure/*
 _book/dissertation_files/*
-
+_book/dissertation.*
