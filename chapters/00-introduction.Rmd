@@ -1,8 +1,5 @@
 # Introduction
 
-<!-- Development of Tools for Genetic Analysis of Clonal Populations and Applications -->
-
-
 ```{r, introduction1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1, out.width = "50%"}
 knitr::include_graphics("figure/introduction/dissertation.png")
 
@@ -32,26 +29,28 @@ captures the essence of biological study [-@dobzhansky2013nothing]. In a more
 reductionist sense, it is perhaps appropriate to state that nothing in evolution
 makes sense except in the light of mutation; that is to say that mutation in an
 organism's genetic code is the seed upon which evolution acts
-[@lynch2016genetic]. Of course, a seed left alone will not grow, it needs the
-right soil and conditions in which to grow; in order to thrive, a mutation needs
+[@lynch2016genetic]. Of course, a seed left alone will not grow; it needs the
+right soil and environmental conditions. In order to thrive, a mutation needs
 a population. A population can be defined as a group of interbreeding 
 individuals, sharing the same space and time (though we will see later that this
 is not always the best definition) [@milgroom1997contributions]. In a
 population, if the conditions are right, a mutation can grow in frequency and
 become an established allele. The study of population genetics seeks to
 understand how evolution acts upon these alleles to shape populations as they
-grow, shrink, split, and adapt to their environment. These populations are what
-give rise to species. 
-
-
+grow, shrink, split, and adapt to their environment. Ultimately, these 
+populations are what give rise to species. 
 
 ### Microbial Pathogen Genetics
 
 Before molecular techniques were widely available, the variation within most
 pathogenic microorganisms was described using phenotypic traits describing their
 pathogenicity (ability to cause disease) and virulence (severity of disease), 
-placing them into different pathotypes [@milgroom1997contributions; 
-@levin1999population]. 
+placing them into different pathotypes [@milgroom1997contributions;
+@levin1999population]. The problem was, with only pathotype information, it was
+not possible to ask questions about inheritance, which is of the upmost
+importance if one is attempting to find a source of disease 
+[@tibayrenc1995population].
+
 
 
 ### The Question of Sex
@@ -79,6 +78,10 @@ anti-microbial treatments [@taylor1999evolutionary].
 
 ### Population Genetics Under the Lens of Plant Pathology
 
+Agricultural ecosystems behave very differently than natural ecosystems
+[@milgroom1997contributions; @stukenbrock2008origins]. They can serve as
+incubator for new variants of plant pathogens due to selective pressures.
+
 Life cycle concerns: overwintering oospores, sexual structures (image of *P.
 infestans* life cycle).
 
@@ -89,6 +92,10 @@ These are both examples of partially clonal organisms.
 Examine entirely clonal *Phytophthora ramorum*. 
 
 ## The need for reproducible research
+
+Replicate the standards we have for wet lab research to computational analyses.
+
+
 
 ## Goals
 
