@@ -1,7 +1,3 @@
-This work, like any other exists because of the help and efforts of many people.
-
-## Funding {-}
-
 I must first acknowledge my funding for my Ph. D.: US Department of 
 Agriculture (USDA) Agricultural Research Service Grant 5358-22000-039-00D, USDA
 APHIS, the USDA-ARS Floriculture Nursery Initiative, the Oregon Department of
@@ -17,7 +13,6 @@ Hackathon in Charlotte, NC, which helped me get in contact with developers of
 Association and the American Phytopathological Society Foundation for providing
 me with funding to attend the 2016 APS Annual Meeting in Tampa, FL.
 
-## People {-}
 
 A Ph. D. student is nothing without the support of her/his community. For this
 support, I am ever grateful for the Department of Botany and Plant Pathology for
