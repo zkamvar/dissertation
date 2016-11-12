@@ -60,91 +60,86 @@ http://grunwaldlab.cgrb.oregonstate.edu/.
 ## Introduction 
 
 
-The Wright-Fisher model of populations is one of the oldest models
-utilized in population genetic theory. Populations in this model are
-characterized as having non-overlapping generations with a constant size
-free from any selective pressures [@weir1996genetic; @hartl1997principles;
-@nielsen2013introduction]. Conceptually, these
-populations are represented as pools of alleles that are independently
-assorting where random mating is approximated by randomly sampling
-alleles with replacement from one generation to the next. Assumptions of
-this model, or related models, are implicitly assumed for common
-population genetic analysis tools. In clonal populations, however,
-alleles are not independently passed on from one generation to the next,
-and these assumptions are violated. Classical textbooks on population
-genetics do not provide much guidance on how to analyze clonal or mixed
-clonal and sexual populations. In reality, many populations are not
-strictly clonal or sexual, but can range from completely sexual to
-completely clonal and this is commonly observed for fungal, oomycete, or
-microbial populations [@anderson1995clonality; @milgroom1996recombination]. Currently, analysis of these populations
-is not straightforward as we lack the sophisticated tools and methods
-developed for model populations that are typically either haploid or
-diploid [@grunwald2011evolution].
+The Wright-Fisher model of populations is one of the oldest models utilized in
+population genetic theory. Populations in this model are characterized as having
+non-overlapping generations with a constant size free from any selective
+pressures [@weir1996genetic; @hartl1997principles; @nielsen2013introduction]. 
+Conceptually, these populations are represented as pools of alleles that are
+independently assorting where random mating is approximated by randomly sampling
+alleles with replacement from one generation to the next. Assumptions of this
+model, or related models, are implicitly assumed for common population genetic
+analysis tools. In clonal populations, however, alleles are not independently
+passed on from one generation to the next, and these assumptions are violated.
+Classical textbooks on population genetics do not provide much guidance on how
+to analyze clonal or mixed clonal and sexual populations. In reality, many
+populations are not strictly clonal or sexual, but can range from completely
+sexual to completely clonal and this is commonly observed for fungal, oomycete,
+or microbial populations [@anderson1995clonality; @milgroom1996recombination].
+Currently, analysis of these populations is not straightforward as we lack the
+sophisticated tools and methods developed for model populations that are
+typically either haploid or diploid [@grunwald2011evolution].
 
-Inferring population structure with many commonly used model-based
-clustering approaches such as the program 
-<span style="font-variant:small-caps;">Structure</span>
-[@pritchard2000inference] is inherently problematic for clonal
-populations. These approaches cannot be used as clonal populations
-violate basic assumptions of panmixia and Hardy-Weinberg equilibrium.
-Thus, model free methods such as those relying on k-means clustering,
-dendrograms including bootstrap support for clades, or minimum spanning
-networks are more appropriate [@goss2009population; @cooke2012genome; @mascheretti2008reconstruction]. Furthermore,
-analysis of mixed or clonal populations traditionally relies on
-calculation of diversity of genotypes observed and analysis of
-clone-censored versus non-censored populations [@mcdonald1997population;
-@milgroom1996recombination; @grunwald2006hierarchical]. Clone censoring involves
-reduction of any population sample to a single observation for each
-multilocus genotype (MLG) in a population thereby approximating
-panmictic populations and removing the effect of genetic linkage
-[@milgroom1996recombination]. Analysis of diversity, in turn, involves
-calculation of the number of genotypes observed (richness), diversity,
-and evenness [@grunwald2003analysis]. Typical measures of genotypic diversity are
-borrowed from ecology and use either the Shannon-Wiener or Stoddart and
-Taylor index [@stoddart1988genotypic; @shannon2001mathematical; @grunwald2003analysis].
+Inferring population structure with many commonly used model-based clustering
+approaches such as the program <span style="font-variant:small-caps;">
+Structure</span> [@pritchard2000inference] is inherently problematic for
+clonal populations. These approaches cannot be used as clonal populations
+violate basic assumptions of panmixia and Hardy-Weinberg equilibrium. Thus,
+model free methods such as those relying on k-means clustering, dendrograms
+including bootstrap support for clades, or minimum spanning networks are more
+appropriate [@goss2009population; @cooke2012genome;
+@mascheretti2008reconstruction]. Furthermore, analysis of mixed or clonal
+populations traditionally relies on calculation of diversity of genotypes
+observed and analysis of clone-censored versus non-censored populations
+[@mcdonald1997population; @milgroom1996recombination; 
+@grunwald2006hierarchical]. Clone censoring involves reduction of any population
+sample to a single observation for each multilocus genotype (MLG) in a
+population thereby approximating panmictic populations and removing the effect
+of genetic linkage [@milgroom1996recombination]. Analysis of diversity, in turn,
+involves calculation of the number of genotypes observed (richness), diversity,
+and evenness [@grunwald2003analysis]. Typical measures of genotypic diversity
+are borrowed from ecology and use either the Shannon-Wiener or Stoddart and
+Taylor index [@stoddart1988genotypic; @shannon2001mathematical;
+@grunwald2003analysis].
 
-A critical aspect of analyzing clonal or mixed populations is testing a
-null hypothesis of panmixia [@milgroom1996recombination]. Testing of this
-hypothesis for potentially clonal populations typically relies on
-assessment of linkage disequilibrium among loci
-[@milgroom1996recombination]. This is achieved via calculation of the
-index of association or related indices in combination with resampling
-of the data to obtain a null distribution for the expectation of random
-mating [@burt1996molecular; @brown1980multilocus; @smith1993how; @milgroom1996recombination]. These approaches
-have, for example, been applied to *Pyrenophora teres*
-[@peever1994genetic] and *Aphanomyces euteiches* [@grunwald2006hierarchical] and are
-routinely used in the analyses of clonal populations although they are
-not easily calculated given available software including <span
-style="font-variant:small-caps;">multilocus</span>, which is no longer
-supported, and <span style="font-variant:small-caps;">LIAN</span>, which
+A critical aspect of analyzing clonal or mixed populations is testing a null
+hypothesis of panmixia [@milgroom1996recombination]. Testing of this hypothesis
+for potentially clonal populations typically relies on assessment of linkage
+disequilibrium among loci [@milgroom1996recombination]. This is achieved via
+calculation of the index of association or related indices in combination with
+resampling of the data to obtain a null distribution for the expectation of
+random mating [@burt1996molecular; @brown1980multilocus; @smith1993how;
+@milgroom1996recombination]. These approaches have, for example, been applied to
+*Pyrenophora teres* [@peever1994genetic] and *Aphanomyces euteiches*
+[@grunwald2006hierarchical] and are routinely used in the analyses of clonal
+populations although they are not easily calculated given available software
+including <span style="font-variant:small-caps;">Multilocus</span>, which is no
+longer supported, and <span style="font-variant:small-caps;">LIAN</span>, which
 only works for haploids [@Agapow_2001; @Haubold:2000].
 
-Hierarchical sampling adds another layer of complexity to analysis of
-clonal populations. With microbial populations, the geographic structure
-of each population is not entirely clear, and it is often important to
-sample temporally to see if clones persist over time [@grunwald2006hierarchical]. A
-common approach when faced with multiple levels of sampling is to create
-a separate data set for each level or combination of levels and to
-analyze them separately. However, the number of data sets undergo a
-factorial increase with each hierarchical level, therefore increasing
-the chances of human error in data reformatting or analysis. Thus, tools
-are needed for analysis of population data across hierarchies or subsets
-of data.
+Hierarchical sampling adds another layer of complexity to analysis of clonal
+populations. With microbial populations, the geographic structure of each
+population is not entirely clear, and it is often important to sample temporally
+to see if clones persist over time [@grunwald2006hierarchical]. A common
+approach when faced with multiple levels of sampling is to create a separate
+data set for each level or combination of levels and to analyze them separately.
+However, the number of data sets undergo a factorial increase with each
+hierarchical level, therefore increasing the chances of human error in data
+reformatting or analysis. Thus, tools are needed for analysis of population data
+across hierarchies or subsets of data.
 
-Here, we introduce the R package *poppr* that is specifically designed
-for analysis of populations that are clonal, admixed and/or sexual.
-*Poppr* complements and builds on previously existing R packages
-including *adegenet* and *vegan* [@Jombart_2008; @jombart2011adegenet; @oksanen2013vegan]
-while implementing tools novel to R significantly facilitating data
-import, population genetic analyses, and graphing of clonal or partially
-clonal populations. These tools include among others: analysis across
-hierarchies of populations, subsetting of populations, clone-censoring,
-Bruvo's genetic distance @bruvo2004simple, the index of association and
-related statistics [@brown1980multilocus; @smith1993how], and bootstrap support for
-trees based on Bruvo's distance. By providing a centralized suite of
-tools appropriate for many data types, this package represents a novel
-and useful resource specifically tailored for analysis of clonal
-populations.
+Here, we introduce the R package *poppr* that is specifically designed for
+analysis of populations that are clonal, admixed and/or sexual. *Poppr*
+complements and builds on previously existing R packages including *adegenet*
+and *vegan* [@Jombart_2008; @jombart2011adegenet; @oksanen2013vegan] while
+implementing tools novel to R significantly facilitating data import, population
+genetic analyses, and graphing of clonal or partially clonal populations. These
+tools include among others: analysis across hierarchies of populations,
+subsetting of populations, clone-censoring, Bruvo's genetic distance
+@bruvo2004simple, the index of association and related statistics
+[@brown1980multilocus; @smith1993how], and bootstrap support for trees based on
+Bruvo's distance. By providing a centralized suite of tools appropriate for many
+data types, this package represents a novel and useful resource specifically
+tailored for analysis of clonal populations.
 
 ## Materials and Methods
 
