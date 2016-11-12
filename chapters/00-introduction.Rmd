@@ -40,6 +40,8 @@ understand how evolution acts upon these alleles to shape populations as they
 grow, shrink, split, and adapt to their environment. Ultimately, these 
 populations are what give rise to species. 
 
+The above definition of a population is ultimately reliant upon the assumption that the individuals within the populations are panmictic, that is that they are randomly mating so that the individuals in the next generation will have a random assortment of alleles as compared to their parents [@rice2002evolution; @nielsen2013introduction; @hartl1997principles]. This assumption is a relatively safe one considering that sex occurs in all major organismal groups [@rice2002evolution; @heitman2012evolution].
+
 ### Microbial Pathogen Genetics
 
 Before molecular techniques were widely available, the variation within most
