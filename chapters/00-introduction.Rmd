@@ -52,7 +52,24 @@ and viruses are known to exclusively reproduce clonally [@rice2002evolution;
 @heitman2012evolution; @arnaud2012implications; @orive1993effective; 
 @arnaud2007standardizing]. Clonal reproduction here means reproduction that
 results in offspring that are genetically identical to the parents (note that
-this can include organisms derived from selfing in a haploid organism). 
+this can include organisms derived from selfing in a haploid organism). There
+are several costs and benefits associated with both clonal and sexual
+reproductive strategies in an evolutionary perspective. 
+
+For organisms whose main mode of reproduction is sexual, there is the two-fold
+cost of sex: the cost of finding a mate and the cost of losing half of one's
+genome in the successive generation [@rice2002evolution; @heitman2012evolution;
+@nieuwenhuis2016frequency]. These costs are balanced by the benefits that come
+with recombining genetic material, which allows these organisms to create novel
+combinations of genes and purge deleterious mutations. Since clonally
+reproducing organisms do not undergo regular periods of recombination, they
+explicitly do not benefit from the previously mentioned advantages of
+recombination [@heitman2012evolution; @nieuwenhuis2016frequency]. The advantage
+of clonal reproduction is the ability for organisms to rapidly pass on their
+genetic material in whole to their offspring because they don't have to find a
+mate [@heitman2012evolution]. The balance of costs and benefits in organisms
+that undergo either sexual or clonal reproduction is based on adaptation for the
+present or adaptation for the future.
 
 ### Microbial Pathogen Genetics
 
