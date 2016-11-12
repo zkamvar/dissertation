@@ -49,10 +49,10 @@ safe one considering that sex occurs in all major organismal groups
 [@rice2002evolution; @heitman2012evolution]. However, it is erroneous to say
 that sex occurs in all organisms as several plants, fungi, protists, bacteria,
 and viruses are known to exclusively reproduce clonally [@rice2002evolution;
-@heitman2012evolution; @arnaud2012implications; @orive1993effective]. Clonal
-reproduction here means reproduction that results in the offspring is
-genetically identical to the parent (note that this can include organisms
-derived from selfing in a haploid organism).
+@heitman2012evolution; @arnaud2012implications; @orive1993effective; 
+@arnaud2007standardizing]. Clonal reproduction here means reproduction that
+results in offspring that are genetically identical to the parents (note that
+this can include organisms derived from selfing in a haploid organism). 
 
 ### Microbial Pathogen Genetics
 
@@ -109,6 +109,8 @@ Examine entirely clonal *Phytophthora ramorum*.
 
 Replicate the standards we have for wet lab research to computational analyses.
 
+There have been a call for standards in analyzing clonal organisms for the past
+twenty years [@tibayrenc1996towards; @arnaud2007standardizing].
 
 
 ## Goals
