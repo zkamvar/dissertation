@@ -104,11 +104,11 @@ their pathogenicity (ability to cause disease) and virulence (severity of
 disease), placing them into different pathotypes [@milgroom1997contributions;
 @levin1999population]. The problem was, with only pathotype information, it was
 not possible to ask questions about inheritance, which is of the utmost
-importance if one is attempting to find a source of disease 
-[@tibayrenc1995population].
+importance if one is attempting to find a source of disease or trying to 
+understand the evolutionary potential of these pathotypes in response to new
+host genotypes or antimicrobials [@tibayrenc1995population; 
+@milgroom1997contributions].
 
-Pathogenic species can use reproductive mode to adapt to different environmental
-factors.
 
 > ...uniparental reproduction is ... predominant enough in natural populations
 > to generate clones that are stable in space and time, even on an evolutionary
