@@ -19,9 +19,7 @@ County, OR outbreak of sudden oak death, and by assessing the power of
 multilocus linkage disequilibrium measure $\bar{r}_d$ to detect clonal
 reproduction.
 
-## Clonal Population Genetics and Plant Pathology
-
-### Population Genetics 
+## Population Genetics and Clonality
 
 Dobzhansky's infamous quote "Nothing in biology makes sense except in the light
 of evolution" is cliché, but it's hard to find a statement that more elegantly 
@@ -53,8 +51,13 @@ animals, and viruses are known to exclusively reproduce clonally
 @orive1993effective; @arnaud2007standardizing]. Clonal reproduction here means
 reproduction that results in offspring that are genetically identical to the
 parents (note that this can include organisms derived from selfing in a haploid
-organism). There are several costs and benefits associated with both clonal and
-sexual reproductive strategies in an evolutionary perspective.
+organism). Thus, the definition of a population is perhaps best rephrased to
+simply indicate a group of individuals of the same species^[This ultimately 
+depends on your definition of a species, which is out of the scope of this 
+dissertation and therefore best debated over copious quantities of alcohol] 
+coexisting in the same space and time [@milgroom1997contributions]. There are
+several costs and benefits associated with both clonal and sexual reproductive
+strategies in an evolutionary perspective.
 
 For organisms whose main mode of reproduction is sexual, there is the two-fold
 cost of sex: the cost of finding a mate and the cost of losing half of one's
@@ -71,33 +74,38 @@ the number of deleterious mutations accumulate [@felsenstein1974evolutionary;
 @loewe2006quantifying; @lynch1993mutational; @lynch1990mutation]. The advantage
 of clonal reproduction is the ability for organisms to rapidly pass on their
 genetic material in whole to their offspring because they don't have to find a
-mate [@heitman2012evolution]. In terms of adaptation, these reproductive
-strategies can be thought of as maintaining adaptations to current environmental
-conditions for clonal organisms and safeguarding against future environmental
-conditions in sexual organisms.
+mate [@heitman2012evolution]. The clonal strategy is ideal when resources are
+limited since populations have the potential to grow twice as fast as sexual
+populations. Sexual populations, however have the advantage of high levels of
+genotypic diversity, which give a greater chance of surviving drastic changes in
+the environment [@milgroom1996recombination]. These aspects are especially 
+important when considering the population genetics of microbial pathogens where
+survival depends on host resistance and environmental conditions. As we shall 
+see in the following sections, many microbial pathogens have the ability to
+reproduce both sexually and asexually [@tibayrenc1995population;
+@anderson1995clonality; @milgroom1996recombination].
 
-Reproductive mode is not hardwired (unlike *Daphnia pulex* [@xu2015hybridization]).
-Especially true in microbial populations.
+## Microbial Pathogens and the Question of Sex
 
-
-
-
-### Microbial Pathogen Genetics
+The question of sexual reproduction and population structure in microbial 
+pathogens is important for management strategies [@tibayrenc1990clonal;
+@tibayrenc1995population; @milgroom1997contributions; @taylor1999evolutionary].
+If one were developing an antimicrobial agent on a known set of strains, the 
+effectiveness of this agent will be diminished if these strains represent only
+a fraction of the genotypic diversity due to sexual recombination
+[@taylor1999evolutionary; @tibayrenc1990clonal; @smith1993how]. The question
+then becomes, how do you detect the presence of clonal or sexual reproduction?
+To answer this, its important to understand the history of microbial population
+genetics.
 
 Before molecular techniques were widely available, the variation within most
-pathogenic microorganisms was described using phenotypic traits describing their
-pathogenicity (ability to cause disease) and virulence (severity of disease), 
-placing them into different pathotypes [@milgroom1997contributions;
+pathogenic microorganisms was described using phenotypic traits that reflected 
+their pathogenicity (ability to cause disease) and virulence (severity of 
+disease), placing them into different pathotypes [@milgroom1997contributions;
 @levin1999population]. The problem was, with only pathotype information, it was
-not possible to ask questions about inheritance, which is of the upmost
+not possible to ask questions about inheritance, which is of the utmost
 importance if one is attempting to find a source of disease 
 [@tibayrenc1995population].
-
-
-
-### The Question of Sex
-
-Sex exists in all major groups of organisms [@heitman2012evolution]. 
 
 Pathogenic species can use reproductive mode to adapt to different environmental
 factors.
@@ -113,12 +121,8 @@ factors.
 >
 > -- [@tibayrenc1990clonal]
 
-Knowing the reproductive mode of a pathogen can help you understand how to
-develop management strategies e.g. if you have a clonal population, you want to
-make sure you capture the diversity of genotypes before developing 
-anti-microbial treatments [@taylor1999evolutionary].
 
-### Population Genetics Under the Lens of Plant Pathology
+## Population Genetics Under the Lens of Plant Pathology
 
 Agricultural ecosystems behave very differently than natural ecosystems
 [@milgroom1997contributions; @stukenbrock2008origins]. They can serve as
