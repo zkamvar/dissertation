@@ -144,19 +144,26 @@ is important that they be unlinked within the genome [@mcdonald1997population].
 ### Detecting Sex
 
 Because neutral genetic markers vary independently within a population, these
-are more appropriate than selected markers to detect sexual reproduction. 
+are more appropriate than selected markers to detect sexual reproduction. The
+theory behind this is simple; sexual reproduction breaks up associations between
+unlinked markers due to recombination and assortment while clonal reproduction
+transfers the entire genome in tact to the next generation, preserving these 
+associations [@orive1993effective; @heitman2012evolution; 
+@nieuwenhuis2016frequency; @mcdonald1997population; @milgroom1997contributions;
+@tibayrenc1995population]. This means that not only will there be significant
+associations between alleles in a clonal population, but because of their
+inability to purge mutations, we also expect to see excess heterozygosity
+[@tibayrenc1990clonal; @tibayrenc1996towards].
 
-> ...uniparental reproduction is ... predominant enough in natural populations
-> to generate clones that are stable in space and time, even on an evolutionary
-> time scale.
-> 
-> ...the hypothesis of clonality does not rule out the possibility of occasional
-> genetic recombination, but rather it indicates that such recombination is not
-> important enough for altering significantly the prevailing pattern of clonal
-> population structure.
->
-> -- [@tibayrenc1990clonal]
-
+By using these basic principles, core sets of statistical analyses have been
+proposed to detect sexual reproduction by analyzing diversity within loci (for
+diploid organisms), linkage among loci, and diversity of multi-locus genotypes
+within the population [@tibayrenc1996towards; @arnaud2007standardizing; 
+@parks1993study; @smith1993how; @mcdonald1997population; @grunwald2003analysis].
+None of these tests alone can give a definitive answer as to the nature of 
+reproduction in a given population [@tibayrenc1995population; @de2004clonal; 
+@nieuwenhuis2016frequency]. Researchers still need to use biological evidence
+such as sexual reproductive structures to support the presence of sex.
 
 ## Population Genetics Under the Lens of Plant Pathology
 
