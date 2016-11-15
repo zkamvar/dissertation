@@ -126,16 +126,25 @@ genetic techniques, they needed to embrace molecular markers
 [@milgroom1997contributions; @tibayrenc1995population; @mcdonald1997population;
 @taylor1999evolutionary].
 
-With the advent of molecular markers, it was possible to address these questions
-in a population genetic context [@milgroom1997contributions; 
-@tibayrenc1995population; @mcdonald1997population]. Genetic markers that are
-selectively neutral can reveal information about population size and
-subdivision, and selected markers can reveal information about the evolutionary
-potential of the population [@milgroom1997contributions; 
-@mcdonald1997population; @tibayrenc1995population]. Importantly, markers must be
-independent from one another, that is, they must be genetically unlinked
-[@mcdonald1997population]. 
+Under the central dogma of genetics, all heritable traits originate in the DNA.
+A wide variety of molecular markers exist from protein mobility assays to 
+randomly amplified DNA, to length polymorphisms to direct sequencing of the
+genetic code that all reflect this principle [@tibayrenc1995population;
+@halkett2005tackling]. It's not necessary to expound here on the variety of
+molecular markers available to us, but it's useful to take note of the common
+features. Genetic markers come in two major flavors, selectively neutral and
+selected markers [@milgroom1997contributions; @mcdonald1997population; 
+@tibayrenc1995population]. Selected markers, based on protein coding genes that
+confer and evolutionary advantage to the organism, can be used to infer the
+evolutionary potential of a population. Selectively neutral markers, on the
+other hand, are used as independent variables that can reflect the degree of
+population size, subdivision, and migration. For selectively neutral markers, it
+is important that they be unlinked within the genome [@mcdonald1997population].
 
+### Detecting Sex
+
+Because neutral genetic markers vary independently within a population, these
+are more appropriate than selected markers to detect sexual reproduction. 
 
 > ...uniparental reproduction is ... predominant enough in natural populations
 > to generate clones that are stable in space and time, even on an evolutionary
