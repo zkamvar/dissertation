@@ -97,8 +97,13 @@ pathogens is important for management strategies [@tibayrenc1990clonal;
 If one were developing an antimicrobial agent on a known set of strains, the 
 effectiveness of this agent will be diminished if these strains represent only
 a fraction of the genotypic diversity due to sexual recombination
-[@taylor1999evolutionary; @tibayrenc1990clonal; @smith1993how]. The question
-then becomes, how do you detect the presence of clonal or sexual reproduction?
+[@taylor1999evolutionary; @tibayrenc1990clonal; @smith1993how]. Since most
+inference of population structure is based on neutral models that assume sexual
+reproduction, it's important to identify whether or not the population in 
+question is reproducing sexually or clonally before one attempts to assess 
+population structure and infer evolutionary processes [@tibayrenc1990clonal]. 
+The question then becomes how do you detect the presence of clonal or sexual
+reproduction?
 
 ### A Word on Molecular Markers
 
@@ -106,12 +111,20 @@ Before molecular techniques were widely available, the variation within most
 pathogenic microorganisms was described using phenotypic traits that reflected 
 their pathogenicity (ability to cause disease) and virulence (severity of 
 disease), placing them into different pathotypes [@milgroom1997contributions;
-@levin1999population]. The problem was, with only pathotype information, it was
-not possible to ask questions about inheritance, which is of the utmost
-importance if one is attempting to find a source of disease or trying to 
-understand the evolutionary potential of these pathotypes in response to new
-host genotypes or antimicrobials [@tibayrenc1995population; 
-@milgroom1997contributions; @taylor1999evolutionary].
+@levin1999population]. When considering markers for population genetic analysis,
+one of the most important criteria is that these markers are heritable to a 
+degree.
+
+The problem was, unlike the eye color in Thomas Hunt Morgan's *Drosophila* or
+the shape of the Mendel's peas, pathotype wasn't a heritable trait
+[@milgroom1997contributions; @tibayrenc1995population]. This meant that, while
+it was possible to define a panel of pathotypes upon which to develop 
+anti-microbial treatments or resistant host cultivars, there was no way of 
+assessing the evolutionary potential of the pathogens to overcome host 
+resistance or develop drug resistance. If pathologists wanted to use population
+genetic techniques, they needed to embrace molecular markers
+[@milgroom1997contributions; @tibayrenc1995population; @mcdonald1997population;
+@taylor1999evolutionary].
 
 With the advent of molecular markers, it was possible to address these questions
 in a population genetic context [@milgroom1997contributions; 
