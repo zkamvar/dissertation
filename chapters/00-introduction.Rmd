@@ -28,15 +28,15 @@ reductionist sense, it is perhaps appropriate to state that nothing in evolution
 makes sense except in the light of mutation; that is to say that mutation in an
 organism's genetic code is the seed upon which evolution acts
 [@lynch2016genetic]. Of course, a seed left alone will not grow; it needs the
-right soil and environmental conditions. In order to thrive, a mutation needs
-a population. A population can be defined as a group of interbreeding 
-individuals, sharing the same space and time (though we will see later that this
-is not always the best definition) [@milgroom1997contributions]. In a
+right soil and environmental conditions. In turn, a mutation needs a population
+in order to thrive. A population can be defined as a group of interbreeding 
+individuals, coexisting temporally and spatially (though we will see later that
+this is not always the best definition) [@milgroom1997contributions]. In a
 population, if the conditions are right, a mutation can grow in frequency and
 become an established allele. The study of population genetics seeks to
 understand how evolution acts upon these alleles to shape populations as they
-grow, shrink, split, and adapt to their environment. Ultimately, these 
-populations are what give rise to species. 
+grow, shrink, split, and adapt to their environment. Ultimately, these
+populations are what give rise to species.
 
 The above definition of a population is ultimately reliant upon the assumption
 that the individuals within the populations are panmictic, that is that they are
@@ -52,38 +52,42 @@ animals, and viruses are known to exclusively reproduce clonally
 reproduction that results in offspring that are genetically identical to the
 parents (note that this can include organisms derived from selfing in a haploid
 organism). Thus, the definition of a population is perhaps best rephrased to
-simply indicate a group of individuals of the same species^[This ultimately 
-depends on your definition of a species, which is out of the scope of this 
-dissertation and therefore best debated over copious quantities of alcohol] 
-coexisting in the same space and time [@milgroom1997contributions]. There are
-several costs and benefits associated with both clonal and sexual reproductive
-strategies in an evolutionary perspective.
+simply indicate a group of individuals of the same species^[This depends on your
+definition of a species, which is out of the scope of this dissertation and
+therefore best debated over copious quantities of alcohol] coexisting in the
+spatially and temporally [@milgroom1997contributions]. There are several costs
+and benefits associated with both clonal and sexual reproductive strategies in
+an evolutionary perspective.
 
 For organisms whose main mode of reproduction is sexual, there is the two-fold
-cost of sex: the cost of finding a mate and the cost of losing half of one's
-genome in the successive generation [@rice2002evolution; @heitman2012evolution;
+cost of outcrossing: 1) only half of the available genetic material is inherited
+by the offspring and 2) the loss of advantageous gene combinations due to
+recombination [@rice2002evolution; @heitman2012evolution;
 @nieuwenhuis2016frequency]. These costs are balanced by the benefits that come
-with recombining genetic material, which allows these organisms to create novel
-combinations of genes and purge deleterious mutations. Since clonally
-reproducing organisms do not undergo regular periods of recombination, they
-explicitly do not benefit from the previously mentioned advantages of
-recombination [@heitman2012evolution; @nieuwenhuis2016frequency]. This leads to
-a theory known as Muller's ratchet, which indicates that the overall fitness of
-small populations of clonally reproducing organisms will decrease over time as
-the number of deleterious mutations accumulate [@felsenstein1974evolutionary;
-@loewe2006quantifying; @lynch1993mutational; @lynch1990mutation]. The advantage
-of clonal reproduction is the ability for organisms to rapidly pass on their
-genetic material in whole to their offspring because they don't have to find a
-mate [@heitman2012evolution]. The clonal strategy is ideal when resources are
-limited since populations have the potential to grow twice as fast as sexual
-populations. Sexual populations, however have the advantage of high levels of
-genotypic diversity, which give a greater chance of surviving drastic changes in
-the environment [@milgroom1996recombination]. These aspects are especially 
-important when considering the population genetics of microbial pathogens where
-survival depends on host resistance and environmental conditions. As we shall 
-see in the following sections, many microbial pathogens have the ability to
-reproduce both sexually and asexually [@tibayrenc1995population;
-@anderson1995clonality; @milgroom1996recombination].
+with recombining genetic material, which allows these organisms to purge
+deleterious mutations. As clonally reproducing organisms do not undergo regular
+periods of recombination, they explicitly do not benefit from the previously
+mentioned advantage of recombination [@heitman2012evolution;
+@nieuwenhuis2016frequency]. This leads to a theory known as Muller's ratchet,
+which indicates that the overall fitness of small populations of clonally
+reproducing organisms will decrease over time as the number of deleterious
+mutations accumulate, eventually leading to extinction
+[@felsenstein1974evolutionary; @loewe2006quantifying; @lynch1993mutational; 
+@lynch1990mutation]. Despite this, clonal organisms still have the advantage of
+passing on 100% of their genetic material on to the next generation.
+
+It's easy to see the advantage of both of these strategies in the context of 
+genetic adaptation to environment. Clonal populations that are well adapted to
+their environment get to keep the combination of genes that allow them to be so
+well adapted [@heitman2012evolution]. This strategy provides an advantage when
+resources are scarce and competition is high, but does not lend itself well to
+adaptation against changing environments due to low genotypic diversity 
+[@milgroom1996recombination]. Conversely, while sexual populations lose the 
+competitive advantage of conserved genotypic structure, they make up for it with
+high genotypic diversity, increasing the chances of surviving drastic change in
+the environment. As we shall see in the following sections, many microbial
+pathogens have the ability to reproduce both sexually and asexually
+[@tibayrenc1995population; @anderson1995clonality; @milgroom1996recombination].
 
 ## Microbial Pathogens and the Question of Sex
 
@@ -95,8 +99,8 @@ effectiveness of this agent will be diminished if these strains represent only
 a fraction of the genotypic diversity due to sexual recombination
 [@taylor1999evolutionary; @tibayrenc1990clonal; @smith1993how]. The question
 then becomes, how do you detect the presence of clonal or sexual reproduction?
-To answer this, its important to understand the history of microbial population
-genetics.
+
+### A Word on Molecular Markers
 
 Before molecular techniques were widely available, the variation within most
 pathogenic microorganisms was described using phenotypic traits that reflected 
@@ -107,7 +111,17 @@ not possible to ask questions about inheritance, which is of the utmost
 importance if one is attempting to find a source of disease or trying to 
 understand the evolutionary potential of these pathotypes in response to new
 host genotypes or antimicrobials [@tibayrenc1995population; 
-@milgroom1997contributions].
+@milgroom1997contributions; @taylor1999evolutionary].
+
+With the advent of molecular markers, it was possible to address these questions
+in a population genetic context [@milgroom1997contributions; 
+@tibayrenc1995population; @mcdonald1997population]. Genetic markers that are
+selectively neutral can reveal information about population size and
+subdivision, and selected markers can reveal information about the evolutionary
+potential of the population [@milgroom1997contributions; 
+@mcdonald1997population; @tibayrenc1995population]. Importantly, markers must be
+independent from one another, that is, they must be genetically unlinked
+[@mcdonald1997population]. 
 
 
 > ...uniparental reproduction is ... predominant enough in natural populations
