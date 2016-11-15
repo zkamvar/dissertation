@@ -8,16 +8,16 @@ presented in this dissertation." -> figscap1
 ```
 
 The work presented here presents tools designed to answer questions related to
-clonal population genetics and plant pathology. In this context, the term 'tool'
-is not in reference to new derivations of mathematical models or theory for
-population genetics of clonal organisms; rather, 'tool' refers to software code 
-used to apply mathematical models or theory to population genetic data. The 
-merit of this work lies within the context of reproducible science 
-[@buckheit1995wavelab]. We demonstrate the usefulness and flexibility of these
-tools by using them to show evidence for multiple introductions in the Curry
-County, OR outbreak of sudden oak death, and by assessing the power of
-multilocus linkage disequilibrium measure $\bar{r}_d$ to detect clonal
-reproduction.
+clonal population genetics and plant pathology (Fig. \@ref(fig:introduction1)). 
+In this context, the term 'tool' is not in reference to new derivations of
+mathematical models or theory for population genetics of clonal organisms;
+rather, 'tool' refers to software code used to apply mathematical models or
+theory to population genetic data. The merit of this work lies within the
+context of reproducible science [@buckheit1995wavelab]. We demonstrate the
+usefulness and flexibility of these tools by using them to show evidence for
+multiple introductions in the Curry County, OR outbreak of sudden oak death, and
+by assessing the power of multilocus linkage disequilibrium measure $\bar{r}_d$
+to detect clonal reproduction.
 
 ## Population Genetics and Clonality
 
@@ -167,9 +167,42 @@ such as sexual reproductive structures to support the presence of sex.
 
 ## Population Genetics Under the Lens of Plant Pathology
 
-Agricultural ecosystems behave very differently than natural ecosystems
-[@milgroom1997contributions; @stukenbrock2008origins]. They can serve as
-incubator for new variants of plant pathogens due to selective pressures.
+In plant pathology, where many of the diseases are caused by fungi or oomycetes,
+sexual reproduction often confers another advantage to pathogen populations:
+survival. For several species of plant pathogenic fungi and oomycetes, sexual
+reproduction produces spores that have the ability to survive in the soil for
+several years [@mcdonald2002pathogen]. This, in combination with the increase in
+genotypic diversity makes understanding the reproductive strategy of plant
+pathogens ever more important. Here, I will review how agricultural ecosystems
+promote pathogen evolution and then give two examples of how the use of 
+population genetic theory and detection of sexual reproduction has helped 
+researchers manage black stem rust of wheat and potato late blight. 
+
+One of the over-arching themes in both ecology and evolution is that diversity
+is important for stable population and community structure 
+[@magurran1988diversity; @mcdonald2002pathogen]. Agricultural systems, however,
+behave very differently to natural ecosystems [@milgroom1997contributions; 
+@stukenbrock2008origins]. The plants and the landscape are homogenized, 
+providing a steady source of food for people, but this homogeneity combined with
+intensive management practices also provides fertile ground for the evolution of
+plant pathogens [@stukenbrock2008origins]. McDonald identified five major 
+factors influencing the evolution of plant pathogens in agricultural systems, 1)
+mutation 2) genetic drift 3) gene/genotype flow 4) mating system 5) selection
+due to host resistance [-@mcdonald2002pathogen]. Understanding these factors 
+have helped plant pathologists developed salient strategies for combating
+rapidly evolving pathogens.
+
+
+
+
+
+```{r pinflife, echo = FALSE, fig.cap = figcap2, fig.scap = figscap2}
+knitr::include_graphics("figure/introduction/Pinfestans_life.png")
+
+figcap2 <- "Life cycle of the oomycete pathogen, *Phytophthora infestans* on 
+potato by M. Piepenbring. M! = meiosis, P! = plasmogamy, K! = karyogamy"
+figcap2 <- beaverdown::render_caption(caption = figcap2, figname = "fig2", to = TO) -> figscap2
+```
 
 Life cycle concerns: overwintering oospores, sexual structures (image of *P.
 infestans* life cycle).
