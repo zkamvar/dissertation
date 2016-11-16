@@ -211,17 +211,34 @@ reproduction had occurred. While evidence for sexual reproduction was found
 still reproducing and spreading clonally [@goodwin1994panglobal].
 @cooke2012genome analyzed isolates from 1983 to 2008 and found a rapid shift in
 clonal population structure, showing a dramatic increase in the prevalence of a
-particularly aggressive lineage. Computational methods were increasingly 
-important for answering these questions, and of ever increasing importance is 
-ensuring that these computational methods are reproducible.
+particularly aggressive lineage. While sexual reproduction was not found to be
+prevalent, it was only via population genetic techniques that this question
+could be addressed. Additionally, computational methods were increasingly
+important for answering these questions, and as more and more of our analyses 
+becoming computational, we need to ensure that our computational methods are
+reproducible.
 
 ## The Need For Reproducible Research
 
-Replicate the standards we have for wet lab research to computational analyses.
+Computational methods are crucial for population genetic analyses in the 21st
+century [@excoffier2006computer]. There have been a call for standards in 
+analyzing clonal organisms for the past twenty years, which resulted in a 
+plethora of computer programs [@tibayrenc1996towards; @arnaud2007standardizing].
+It was not uncommon for a researcher to use several programs to answer a single
+research question, and each program would often require its own custom input 
+format and would not necessarily run on all operating platforms 
+[@excoffier2006computer; @kamvar2014poppr]. The constant reformatting of data,
+and the inability to automate series of analyses made it not only challenging to
+communicate the methods, but also increased the chance for error 
+[@excoffier2006computer; @kamvar2014poppr; @goecks2010galaxy]. 
 
-There have been a call for standards in analyzing clonal organisms for the past
-twenty years [@tibayrenc1996towards; @arnaud2007standardizing].
-
+Biologists often think about reproducibility in terms of wet lab or bench work.
+Care is taken to ensure that all methods and data are faithfully recorded in a
+lab notebook, but is not necessarily extended to computational analyses. The
+concept of reproducible research in scientific computing is attempting to take
+the principles of reproducibility we use in the wet lab and extend them to our
+downstream analyses. This work attempts to introduce tools for reproducible 
+research in clonal population genetics in an open manner.
 
 ## Part 1: Tools
 
