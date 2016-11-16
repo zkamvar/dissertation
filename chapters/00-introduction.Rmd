@@ -167,24 +167,6 @@ such as sexual reproductive structures to support the presence of sex.
 
 ## Population Genetics Under the Lens of Plant Pathology
 
-In plant pathology many of the diseases are caused by fungi or oomycetes. With
-few exceptions, these organisms have the ability to undergo both sexual and
-asexual reproduction [@heitman2012evolution; @nieuwenhuis2016frequency]. 
-Oomycetes are generally diploid, but fungi can be haploid, diploid, dikaryotic,
-or heterokaryotic. 
-
-
-Beyond increasing genotypic diversity sexual reproduction often confers another
-advantage to pathogen populations: survival. For several species of plant
-pathogenic fungi and oomycetes, sexual reproduction produces specialized spores
-that have the ability to survive in the soil for several years
-[@mcdonald2002pathogen]. This, in combination with the increase in genotypic
-diversity makes understanding the reproductive strategy of plant pathogens ever
-more important. Here, I will review how agricultural ecosystems promote pathogen
-evolution and then give two examples of how the use of population genetic theory
-and detection of sexual reproduction has helped researchers manage black stem
-rust of wheat and potato late blight.
-
 One of the over-arching themes in both ecology and evolution is that diversity
 is important for stable population and community structure 
 [@magurran1988diversity; @mcdonald2002pathogen]. Agricultural systems, however,
@@ -193,26 +175,22 @@ behave very differently to natural ecosystems [@milgroom1997contributions;
 providing a steady source of food for people, but this homogeneity combined with
 intensive management practices also provides fertile ground for the evolution of
 plant pathogens [@stukenbrock2008origins]. McDonald identified five major 
-factors influencing the evolution of plant pathogens in agricultural systems, 1)
-mutation 2) genetic drift 3) gene/genotype flow 4) mating system 5) selection
-due to host resistance [-@mcdonald2002pathogen]. Understanding these factors 
-have helped plant pathologists developed salient strategies for combating
-rapidly evolving pathogens.
+factors influencing the evolution of plant pathogens in agricultural systems: 1)
+mutation, 2) genetic drift, 3) gene/genotype flow, 4) mating system, and 5) 
+selection due to host resistance [-@mcdonald2002pathogen]. An example of how
+changing one of these five factors influences plant health is clear in the
+oomycete *Phytophthora infestans* (Mont.) de Bary.
 
-An example of a successful management strategy concerning mitigating the effects
-of sexual reproduction is that of the wheat stem rust pathogen, *Puccinia 
-graminis* [@roelfs1982effects; @schumann2000stem]. This disease produces
-pustules of clonally derived spores on the leaves and the stems of their hosts,
-rapidly spreading and reducing yield. This fungus is an obligate biotroph with a
-heteroecious life cycle, meaning that it requires two live hosts to complete its
-life cycle, wheat and barberry [@schumann2000stem; @roelfs1982effects]. It is on
-barberry that *P. graminis* completes its sexual cycle, producing new genotypes
-that have a greater potential to overcome the resistance of wheat plants 
-[@roelfs1982effects; @schumann2000stem; @mcdonald2002pathogen]. An epidemic of
-stem rust in 1916 promoted an effort to eradicate barberry from wheat growing
-regions [@roelfs1982effects]. By taking away the potential for sexual 
-recombination, the number of *P. graminis* strains declined three fold from 1918
-to 1977 and the [@roelfs1982effects]. 
+The causal agent of potato late blight and poster child for plant pathology, 
+*P. infestans* has changed the very demographics of human populations across
+the Atlantic ocean due to its role in the Irish potato famine 
+[@erwin1996phytophthora]. It has a heterothallic (no selfing) life cycle that 
+includes both clonally and sexually derived infectious propagules (Fig.
+\@ref(fig:pinflife)). The clonally derived propagules are swimming short-lived
+zoospores that can be transmitted via wind or water, whereas the sexually
+derived propagules are double-walled oospores. While *P. infestans* can survive
+as hyphae in infected tubers, the sexually derived oospores can survive for
+years in the soil, highlighting the added risk of sexual reproduction.
 
 
 ```{r pinflife, echo = FALSE, fig.cap = figcap2, fig.scap = figscap2}
@@ -223,15 +201,27 @@ potato by M. Piepenbring. M! = meiosis, P! = plasmogamy, K! = karyogamy"
 figcap2 <- beaverdown::render_caption(caption = figcap2, figname = "fig2", to = TO) -> figscap2
 ```
 
-## The need for reproducible research
+From the time of the Great Famine to 1980, there was only one single mating
+type, A1, observed in Europe, meaning that it was reproducing in a strictly
+clonal fashion [@mcdonald2002pathogen]. Sexual reproduction became possible when
+the second mating type, A2, was introduced. Because of this risk, population
+genetic tools and methods were needed to assess whether or not sexual
+reproduction had occurred. While evidence for sexual reproduction was found
+[@sujkowski1994increased], it additionally appeared that *P. infestans* was
+still reproducing and spreading clonally [@goodwin1994panglobal].
+@cooke2012genome analyzed isolates from 1983 to 2008 and found a rapid shift in
+clonal population structure, showing a dramatic increase in the prevalence of a
+particularly aggressive lineage. Computational methods were increasingly 
+important for answering these questions, and of ever increasing importance is 
+ensuring that these computational methods are reproducible.
+
+## The Need For Reproducible Research
 
 Replicate the standards we have for wet lab research to computational analyses.
 
 There have been a call for standards in analyzing clonal organisms for the past
 twenty years [@tibayrenc1996towards; @arnaud2007standardizing].
 
-
-## Goals
 
 ## Part 1: Tools
 
