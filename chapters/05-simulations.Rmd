@@ -412,7 +412,7 @@ greater rates of sexual reproduction.
 ```{r sim2, echo = FALSE, fig.cap = figcap2, fig.scap = figscap2}
 knitr::include_graphics("figure/simulations/AURC_box_plot.png")
 figcap2 <- "Box plots showing the distribution of the area under the ROC Curve
-for each independent seed. boxes span the interquartile range (IQR) and the
+for each independent seed. Boxes span the interquartile range (IQR) and the
 whiskers extend to 1.5 * IQR. An AURC of 1 indicates a perfect classifier, while
 an AURC of 0.5 indicates the classifier is no better than a random guess. Any
 values below 0.5 (shaded in grey) is considered worse than random."
@@ -537,11 +537,11 @@ MR = Mutation Rate.
 When using the criteria of $E_{5A} \geq 0.85$ to augment the criteria for the 
 ROC analysis, we found that the power to detect non-random mating increased
 significantly whereas the false positive rate appeared to only increase with
-low sample sizes (Fig. \@ref(fig:sim4a)). Analyzing the distributions of the
-AURC with AMOVA, we found that the most consistently significant effect found
-was that of sample size (Fig. \@ref(fig:sim3a), Tab. \@ref(tab:sim4)) (albiet
-much like Fig. \@ref(fig:sim3), all effects and interactions were significant
-for 0.1% and 0.5% sex). 
+low sample sizes (Fig. \@ref(fig:sim4a), \@ref(fig:sim2a)). Analyzing the
+distributions of the AURC with AMOVA, we found that the most consistently
+significant effect found was that of sample size (Fig. \@ref(fig:sim3a), Tab.
+\@ref(tab:sim4)) (albiet much like Fig. \@ref(fig:sim3), all effects and
+interactions were significant for 0.1% and 0.5% sex).
 
 ```{r sim4a, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
 knitr::include_graphics("figure/simulations/ssr_power_ea.png")
@@ -554,6 +554,19 @@ figcap3  <- beaverdown::render_caption(caption = figcap3, figname = "fig1", to =
 figscap3 <- "Power (true positive rate) to detect non-random mating decreasing
 with increasing rates of sexual reproduction in SSR data taking into account 
 allelic evenness."
+```
+
+```{r sim2a, echo = FALSE, fig.cap = figcap2a, fig.scap = figscap2a}
+knitr::include_graphics("figure/simulations/AURC_box_plot.png")
+figcap2a <- "Box plots showing the distribution of the area under the ROC Curve
+for each independent seed taking into account allelic evenness. Boxes span the 
+interquartile range (IQR) and the whiskers extend to 1.5 * IQR. An AURC of 1
+indicates a perfect classifier, while an AURC of 0.5 indicates the classifier is
+no better than a random guess. Any values below 0.5 (shaded in grey) is
+considered worse than random."
+
+figscap2a <- "Box plots showing the distribution of the area under the ROC Curve for 
+each independent seed taking into account allelic evenness."
 ```
 
 ```{r sim3a, echo = FALSE, fig.cap = figcap3a, fig.scap = figscap3a, out.width = "100%"}
