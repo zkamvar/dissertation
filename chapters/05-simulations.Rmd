@@ -190,6 +190,7 @@ values.
 
 ## Methods
 
+We used simulations to evaluate the behavior of $\bar{r}_d$ under different population scenarios.
 Initial sets of simulations were created for different levels of sexual
 reproduction for each marker type. All simulations were performed with the
 python package simuPOP version 1.1.7 in python version 3.4 [@peng2008forward].
@@ -204,7 +205,7 @@ and 100 individuals were sampled without replacement for each replicate in R
 version 3.2 with the package *poppr* version 2.2.1 [@R2016; @kamvar2014poppr;
 @kamvar2015novel]. Analyses (described below) were performed on both full and
 clone-corrected data sets. All downstream analyses were run on the OSU CGRB Core
-Computing Facility (supplementary information).
+Computing Facility (Supplementary information).
 
 ### Simulating Microsatellite Loci
 
@@ -226,7 +227,7 @@ simuPOP.
 ### Mating
 
 Simulations of sexual reproduction were conducted at 10 rates of sexual
-reproduction on a log scale (0.0, 1e-4, 5e-4, 1e-3, 5e-3, 1e-2, 5e-2, 0.1, 0.5,
+reproduction over a log scale (0.0, 1e-4, 5e-4, 1e-3, 5e-3, 1e-2, 5e-2, 0.1, 0.5,
 1.0) reflecting the fraction of individuals in generation *t+1* produced via
 sexual reproduction. One to three offspring could be produced at each mating
 event. For sexual events, two parents were chosen randomly from the population
@@ -240,7 +241,7 @@ only clonal reproduction.
 ### Analysis of Microsatellite Data
 
 The standardized index of association ($\bar{r}_d$) was calculated for full and
-clone-corrected data using the *poppr* function `ia()`. Tests for significance
+clone-corrected data using the *poppr* function `ia()` [@kamvar2014poppr]. Tests for significance
 were performed by randomly permuting the alleles at each locus independently and
 then assessing $\bar{r}_d$. This was done 999 times for each replicate
 population. This was done for both full and clone-corrected data. The p-values
@@ -251,42 +252,38 @@ variance. The genotypic diversity statistics we calculated were Shannon's Index,
 $H = -\sum p_i ln p_i$ [@shannon2001mathematical], Stoddart and Taylor's Index,
 $G = 1/\sum p_i^2$ [@stoddart1988genotypic], and Evenness, $E_5 = (G - 1)/(e^H -
 1)$ [@pielou1975ecological] where $p_i$ is the frequency of the *i*th genotype.
-
-We additionally Nei's 1978 expected heterozygosity, also known as gene diversity
-[@Nei:1978], calculated mean allelic evenness $E_{5A} = (1/m) \sum E_{5l}$ where
+We additionally calculated Nei's expected heterozygosity, also known as gene diversity
+[@Nei:1978], and mean allelic evenness $E_{5A} = (1/m) \sum E_{5l}$, where
 *m* is the number of loci and $E_{5l}$ is the evenness of the alleles at locus
 *l*.
 
 
 ### Analysis of SNP Data
 
-Because GBS data are associated with high error rates, we additionally wanted to
-assess the effect of missing data on analysis. To do this, we used scripts
-written for @kamvar2015novel to randomly insert missing data via the `pop_NA()`
-function [@kamvar2015poppr2supp] at rates of 1%, 5%, and 10% each.
-
 The overall value of $\bar{r}_d$ was calculated for each simulation with the
-*poppr* function `bitwise.ia()`. Significance was first assessed by randomly
+*poppr* function `bitwise.ia()` [@kamvar2015novel]. Significance was first assessed by randomly
 shuffling genotypes at each locus independently and then, to preserve existing
 background linkage structure, at each chromosome independently. This was done
 999 times for each replicate population. P-values represent the proportion of
 random samples greater than or equal to the observed statistic.
 
+Because GBS data are associated with high error rates, we additionally wanted to
+assess the effect of missing data on analysis. To do this, we used scripts
+written for @kamvar2015novel to randomly insert missing data via the `pop_NA()`
+function [@kamvar2015poppr2supp] at rates of 1%, 5%, and 10% each.
+
+
 ### Power Analysis
 
 Permutation analysis of the index of association is commonly used as a
 diagnostic for detecting non-random mating. If the observed value of $\bar{r}_d$
-is greater than 95% of the results from the permutations, then the population is
-declared to be clonal. Standard practice for analyzing microbial populations is
+is greater than 95% of the results from the permutations, then the null hypothesis of linkage equilibrium is rejected. Standard practice for analyzing microbial populations is
 to perform this test on both the whole data set (wd) and clone-corrected data
 (cc), where each multilocus genotype is represented only once per population to
 avoid signatures of linkage that arise from re-sampling the same individual.
 [@goss2014irish; @milgroom1996recombination; @mcdonald1997population]. If the
 p-value for $\bar{r}_d$ is significant after clone-correction, then the
-population is considered clonal. Because knowing a pathogen's mode of
-reproduction can affect management strategies, it's important to know how sample
-size, rate of sexual reproduction, mutation rate homogeneity, and clone-
-correction affect this method's sensitivity and specificity.
+population is expected to be clonal.
 
 The Receiver Operating Characteristic (ROC) curve is a method of assessing the
 the balance between sensitivity and specificity of a diagnostic method
@@ -297,7 +294,7 @@ area under the ROC curve will be equal to 1. If a method has no explanatory
 power, the area under the ROC curve will be equal to 0.5. We used this method to
 assess the efficacy of $\bar{r}_d$ to detect non-random mating.
 
-To calculate the ROC curve, we first have to define defined what a positive
+To calculate the ROC curve, we first define what a positive
 value is. We define it as a significant value of $\bar{r}_d$ based on a
 threshold, $\alpha$, where $\alpha$ is a value in [0, 1]. Therefore, any
 randomly mating population (sexual reproduction is equal to one) with a
@@ -312,8 +309,8 @@ $\bar{r}_d$ is considered a true positive (Table \@ref(tab:simtab1)).
 
 Table: (\#tab:simtab1) Definitions of false positive and true positive values
 for ROC analysis of simulations. *p* is the p-value for $\bar{r}_d$, $\alpha$ is
-a threshold value in [0, 1] Random Mating populations are simulated with a sex
-rate of 1. Non-Random Mating populations are simulated with a sex rate less than
+a threshold value in [0, 1] Random mating populations are simulated with a sex
+rate of 1. Non-Random mating populations are simulated with a sex rate less than
 one.
 
 We constructed each curve by assessing the ROC over values of $\alpha$ in
@@ -675,7 +672,7 @@ Because of the computational intensity of the simulations we were only able to
 run 24 unique seeds over all rates of sexual reproduction with 10 replicates per
 seed. Due to an unexpected corner condition, some replicates failed to save, so
 we randomly sampled five replicates per seed per rate of sexual reproduction,
-giving us a total of 1200 total populations for analysis.
+giving us a total of 1,200 total populations for analysis.
 
 Analysis of $\bar{r}_d$ for SNP data showed a similar pattern to microsatellite
 data where clonal and nearly clonal (0.1% sexual reproduction) distributions of
@@ -764,6 +761,11 @@ Table: (\#tab:sim5) ANOVA table comparing the model $AURC \sim Sample Size$ for
 each rate of sexual reproduction separately with SNP data. SS = Sample Size.
 
 ## Discussion
+
+Because knowing a pathogen's mode of reproduction can affect management
+strategies, it's important to know how sample size, rate of sexual reproduction,
+mutation rate homogeneity, and clone-correction affect this method's
+sensitivity and specificity.
 
 Main points:
 
