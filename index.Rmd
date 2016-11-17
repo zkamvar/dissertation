@@ -35,8 +35,8 @@ csl: csl/frontiers.csl
 link-citations: yes
 # For citations at the end of every chapter in the gitbook and linked citations
 # in the PDF document.
-header-includes:
-- \renewcommand{\familydefault}{\sfdefault}
+# header-includes:
+# - \renewcommand{\familydefault}{\sfdefault}
 #
 # Pretext sections ------------------------------------------------------------
 #

@@ -14,8 +14,8 @@ additionally demonstrate the utility of *poppr* for both plant pathological and
 theoretical questions by using real-world and simulated data. In chapter 4, we
 demonstrate evidence for at least two origins for the outbreak of the Sudden Oak
 Death pathogen, *Phytophthora ramorum* in Curry County, Oregon. In chapter 5, we
-use *poppr* to assess the power of the index of association with clone-
-correction, showing that clone-correction has the potential to reduce the power
-of detecting clonal reproduction. All of the software and analyses in this work
-were performed in an open and reproducible framework, serving as an example of
-the power of reproducible research in plant pathology.
+use *poppr* to assess the power of the index of association with 
+clone-correction, showing that clone-correction has the potential to reduce the
+power of detecting clonal reproduction. All of the software and analyses in this
+work were performed in an open and reproducible framework, serving as an example
+of the power of reproducible research in plant pathology.
