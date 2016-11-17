@@ -37,11 +37,11 @@ TBD...
 ## Introduction
 
 Population genetic theory is largely based on model populations such as the
-neutral Wright-Fisher model in which populations are infinitely large, with
-discrete generations, randomly assorting alleles, no migration, and no mutation
-[@hartl1997principles; @nielsen2013introduction]. By using such models, 
+neutral Wright-Fisher model in which populations are assumed to be infinitely large, with
+discrete generations, randomly assorting alleles, with no migration and no mutation
+[@hartl1997principles; @nielsen2013introduction]. By using such reductionist models, 
 population geneticists are able to ask fundamental questions and test hypotheses
-about evolutionary processes that could lead to structured populations.
+about evolutionary processes that could explain population structure and history.
 
 These neutral models, however, cannot be applied to populations whose life
 history violates the fundamental assumption of random assortment of alleles,
@@ -51,6 +51,13 @@ genetic variation from mutation is greater than that of recombination. While
 this increases the risk of the accumulation of deleterious mutations, the 
 two-fold cost of sex is drastically reduced, meaning that selectively 
 advantageous combinations of alleles are maintained [@heitman2012evolution].
+
+<!-- NIK
+Why management all of a sudden? Out of context.
+Resistant to what?
+This section is out of context and too specific
+-->
+
 Detecting recombination in populations of pathogenic microorganisms is therefore
 important for management strategies as a prevalence of sexual reproduction could
 create resistant genotypes [@smith1993how; @milgroom1996recombination;
@@ -64,11 +71,11 @@ clonal reproduction [@smith1993how; @balloux2003population; @de2004clonal;
 @ali2016cloncase; @nieuwenhuis2016frequency].  -->
 
 
-Several studies have been conducted in an attempt to quantify the amount of sex
+Several studies have attempted to infer the degree of sex
 in populations that undergo clonal reproduction [@smith1993how;
 @balloux2003population; @de2004clonal; @ali2016cloncase;
 @nieuwenhuis2016frequency]. For populations with well-defined sexual and clonal
-phases occurring at separate times, such as rust type fungi, methods like
+phases occurring at separate times, such as rust fungi, methods like
 *CloNcaSe* are effective for estimating the rate of sexual reproduction and
 effective population size [@ali2016cloncase]. However, this method cannot be
 applied to populations where the reproductive cycle is not partitioned into
@@ -110,54 +117,51 @@ similar structure to a correlation coefficient and ranges from 0 (no linkage) to
 (\#eq:rd)
 \end{align}
 
-<!-- @smith1993how demonstrated that $I_A$ has the ability to detect non-random
-mating due to population structure, strict clonal reproduction, or a recent
-epidemic, but at that time, no one had quantified how much clonal reproduction
-had to occur to produce a significant value of $I_A$. This was of significant
-concern, considering that, as with any summary statistic, a lot of information
-is lost when evaluating a population based on $I_A$ [@brown1980multilocus]. One
-way to assess the effect of different population genetic scenarios was via
-simulations.
- -->
-
 @de2004clonal investigated the effect of increasing levels of sexual
 reproduction on $\bar{r}_d$ (noted in their publication as $\bar{r}_D$). They
 found that very little (1%) sexual reproduction is required to produce a value
 of $\bar{r}_d$ close to zero. This indicates that $\bar{r}_d$ alone might not be
 well suited as a measure of clonal reproduction. @prugnolle2010apparent tested
-the effect of sampling design on $\bar{r}_d$, finding that the its value is
+the effect of sampling design on $\bar{r}_d$, finding that its value is
 drastically reduced when clones from multiple populations are sampled, leading
 to an over-estimation of the level of recombination.
 
+<!-- NIK
+
+...clones from multiple populations are sampled...
+multiple, different clones from same population?
+
+ -->
+
 These studies laid the groundwork for understanding the behavior of $\bar{r}_d$
 under different scenarios of non-random mating in diploid organisms, but there
-were some limitations in available technology that prevented deep analysis from
-being performed. For both studies, the only software available for calculation
-of $\bar{r}_d$ for diploid organisms was <span style="font-variant:small-
-caps;">Multilocus</span>, which could only take one data set at a time
+were some limitations in available technology. 
+For both studies, the only software available for calculation
+of $\bar{r}_d$ for diploid organisms was 
+<span style="font-variant:small-caps;">Multilocus</span>, which could only take one data set at a time
 [@Agapow_2001; @de2004clonal; @prugnolle2010apparent; @kamvar2014poppr]. This 
 constrained the researchers to only analyze a minimal set of populations (20) 
 per scenario.
 
+A non-zero value of $I_A$ and $\bar{r}_d$ does not always indicate a significant
+departure from the null assumption of unlinked loci. 
 Since the distribution of $I_A$ and $\bar{r}_d$ are not known, the safest way to
 test for significance are random permutation tests. These tests effectively
 create unlinked populations by shuffling individuals at each locus,
 independently and re-calculating $I_A$ and $\bar{r}_d$ [@smith1993how;
-@Agapow_2001; @haubold1998detecting]. A one-sided *t*-test of significance was
-then used to see if the observed statistic was greater than the observed
+@Agapow_2001; @haubold1998detecting]. An upper one-sided test of significance is
+then used to see if the observed statistic is greater than the observed
 distribution.
-
 While significance testing is available in 
 <span style="font-variant:small-caps;">Multilocus</span> in the form of random
 permutations, it's computationally expensive, and can only take one data set at
 a time [@Agapow_2001; @kamvar2014poppr]. As a result, power analysis of
 $\bar{r}_d$ to detect clonal reproduction has not yet been performed
-[@de2004clonal]. Our current study aims to evaluate the power and specificity of
-assessing $\bar{r}_d$ via permutation analysis to detect non-random mating.
+[@de2004clonal]. 
 
 In the years since the studies conducted by @de2004clonal and
 @prugnolle2010apparent, reduced-representation, high-throughput sequencing
-methods such as Genotyping-By-Sequencing (GBS) and RAD-seq have rapidly become
+methods such as Genotyping-By-Sequencing (GBS) and Restriction site associated DNA sequencing (RAD-seq) have rapidly become
 popular tools for population genetic analysis [@davey2010rad; @davey2011genome;
 @elshire2011robust]. These methods have the capability to generate thousands of
 unlinked markers at a fraction of the cost and time necessary to develop high
@@ -168,12 +172,12 @@ markers posed a significant challenge. With the advent of these current
 technologies, how does marker choice and genotyping error affect the index of
 association?
 
-In 2014, we developed the R package *poppr* for analysis of clonal populations,
+We developed the R package *poppr* for analysis of clonal populations,
 removing the limitations of data input and computational expense of analyzing
-the index of association, and in 2015, we expanded this to analysis of genome-
-wide SNP data [@R2016; @kamvar2014poppr; @kamvar2015novel]. With these tools we
-expand on previous studies by asking how sample size, marker choice, clone-
-correction, and the assumption of homogeneous mutation rates affect our ability
+the index of association [@kamvar2014poppr] and further expanded this to analysis of 
+genome-wide SNP data [@R2016; @kamvar2015novel]. With these tools we
+expand on previous studies by asking how sample size, marker choice, 
+clone-correction, and the assumption of homogeneous mutation rates affect our ability
 to detect clonal reproduction in diploid populations. Our objectives to answer
 these questions are to (1) re-analyze $\bar{r}_d$ against increasing rates of
 sexual reproduction and different levels of population mixture in both
