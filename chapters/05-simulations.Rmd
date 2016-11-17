@@ -334,11 +334,11 @@ correction or mutation rate differences, so we set these variables to 1.
 AURC \sim Clone Correction \times Sample Size \times Mutation Rate (\#eq:anova)
 \end{equation}
 
-Because of a pattern that we saw in the results of $E_{5A}$, we decided to ask
-the question of whether or not using a value of $E_{5A} \geq 0.85$ could help
-detect clonal reproduction even if the p-value was non-significant. To assess
-this, we parameterized an additional ROC analysis to "flip" any non-significant
-value if it met the above criteria.
+Because of a pattern that we saw in the results of $E_{5A}$ for microsatellite
+data, we decided to ask the question of whether or not using a value of $E_{5A}
+\geq 0.85$ could help detect clonal reproduction even if the p-value was 
+non-significant. To assess this, we parameterized an additional ROC analysis to
+"flip" any non-significant value if it met the above criteria.
 
 ## Results
 
@@ -557,7 +557,7 @@ allelic evenness."
 ```
 
 ```{r sim2a, echo = FALSE, fig.cap = figcap2a, fig.scap = figscap2a}
-knitr::include_graphics("figure/simulations/AURC_box_plot.png")
+knitr::include_graphics("figure/simulations/AURC_box_plot_ea.png")
 figcap2a <- "Box plots showing the distribution of the area under the ROC Curve
 for each independent seed taking into account allelic evenness. Boxes span the 
 interquartile range (IQR) and the whiskers extend to 1.5 * IQR. An AURC of 1
