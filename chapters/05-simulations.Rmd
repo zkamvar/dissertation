@@ -180,13 +180,12 @@ expand on previous studies by asking how sample size, marker choice,
 clone-correction, and the assumption of homogeneous mutation rates affect our ability
 to detect clonal reproduction in diploid populations. Our objectives to answer
 these questions are to (1) re-analyze $\bar{r}_d$ against increasing rates of
-sexual reproduction and different levels of population mixture in both
-microsatellite and SNP data sets, (2) perform a power analysis of $\bar{r}_d$ to
-assess sensitivity and specificity, (3) assess how genotypic and allelic
-evenness and diversity affects $\bar{r}_d$. Because studies have observed
-significantly negative values of the $I_A$ and $\bar{r}_d$ (p $\geq$ 0.95), we
-additionally seek to determine what factors result in negative $\bar{r}_d$
-values.
+sexual reproduction in both microsatellite and SNP data sets, (2) perform a
+power analysis of $\bar{r}_d$ to assess sensitivity and specificity, (3) assess
+how genotypic and allelic evenness and diversity affects $\bar{r}_d$. Because
+studies have observed significantly negative values of the $I_A$ and $\bar{r}_d$
+(p $\geq$ 0.95), we additionally seek to determine what factors result in
+negative $\bar{r}_d$ values.
 
 ## Methods
 
@@ -309,7 +308,7 @@ $\bar{r}_d$ is considered a true positive (Table \@ref(tab:simtab1)).
 
 Table: (\#tab:simtab1) Definitions of false positive and true positive values
 for ROC analysis of simulations. *p* is the p-value for $\bar{r}_d$, $\alpha$ is
-a threshold value in [0, 1] Random mating populations are simulated with a sex
+a threshold value in [0, 1]. Random mating populations are simulated with a sex
 rate of 1. Non-Random mating populations are simulated with a sex rate less than
 one.
 
