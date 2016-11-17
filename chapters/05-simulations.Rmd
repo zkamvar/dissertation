@@ -357,13 +357,20 @@ Because simulations across rates of sexual reproduction were generated from
 unique seeds, we additionally constructed ROC curves for each seed with respect
 to clone-correction, sample size, and mutation rate. To test for significant 
 effects of clone-correction, sample size, and mutation rate on the inference of 
-non-random mating, we then separated the data by rate of sexual reproduction and
-performed a three way (type III) ANOVA on each rate separately with formula
-\@ref(eq:anova) (for microsatellite data).
+non-random mating on microsatellite data, we then separated the data by rate of
+sexual reproduction and performed a three way (type III) ANOVA on each rate
+separately with formula \@ref(eq:anova). For SNP data, we did not have clone
+correction or mutation rate differences, so we set these variables to 1. 
 
 \begin{equation}
 AURC \sim Clone Correction \times Sample Size \times Mutation Rate (\#eq:anova)
 \end{equation}
+
+Because of a pattern that we saw in the results of $E_{5A}$, we decided to ask
+the question of whether or not using a value of $E_{5A} \geq 0.85$ could help
+detect clonal reproduction even if the p-value was non-significant. To assess
+this, we parameterized an additional ROC analysis to "flip" any non-significant
+value if it met the above criteria.
 
 ## Results
 
@@ -564,6 +571,40 @@ Table: (\#tab:sim3) ANOVA table comparing the model $AURC \sim Clone Correction
 \times Sample Size \times Mutation Rate$ for each rate of sexual reproduction
 separately. CC = Clone Correction, SS = Sample Size, MR = Mutation Rate.
 
+### Assessing Allelic Evenness
+
+When using the criteria of $E_{5A} \geq 0.85$ to augment the criteria for the 
+ROC analysis, we found that the power to detect non-random mating increased
+significantly whereas the false positive rate appeared to only increase with
+low sample sizes (Fig. \@ref(fig:sim4a)). Analyzing the distributions of the
+AURC with AMOVA, we found that the most consistently significant effect found
+was that of sample size (Fig. \@ref(fig:sim3a), Tab. \@ref(tab:sim4)) (albiet
+much like Fig. \@ref(fig:sim3), all effects and interactions were significant
+for 0.1% and 0.5% sex). 
+
+```{r sim4a, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
+knitr::include_graphics("figure/simulations/ssr_power_ea.png")
+figcap3 <- "Power (true positive rate) to detect non-random mating decreasing
+with increasing rates of sexual reproduction in SSR data taking into account
+allelic evenness. Plots are arranged in a grid with clone-correction in rows and
+mutation rate in columns. Values are shown for $\\alpha$ = 0.01 and $E_{5A}
+\\geq 0.85$"
+figcap3  <- beaverdown::render_caption(caption = figcap3, figname = "fig1", to = TO)
+figscap3 <- "Power (true positive rate) to detect non-random mating decreasing
+with increasing rates of sexual reproduction in SSR data taking into account 
+allelic evenness."
+```
+
+```{r sim3a, echo = FALSE, fig.cap = figcap3a, fig.scap = figscap3a, out.width = "100%"}
+knitr::include_graphics("figure/simulations/AURC_ANOVA_ea.png")
+figcap3a <- "Heatmap representing p-values from ANOVA analysis on AURC
+distributions with the model $AURC \\sim Clone Correction \\times Sample Size 
+\\times Mutation Rate$ for each rate of sexual reproduction separately. Allelic 
+evenness was taken into account when calculating the ROC."
+figcap3a  <- beaverdown::render_caption(caption = figcap3a, figname = "fig1", to = TO)
+figscap3a <- "Heatmap representing p-values from ANOVA analysis on AURC
+distributions taking into account allelic evenness."
+```
 
 
 sexrate   term             sumsq     df    statistic   p.value
@@ -658,18 +699,24 @@ CC = Clone Correction, SS = Sample Size, MR = Mutation Rate.
 
 ### SNP Data
 
-Because of the computational intensity of the simulations we were only
-able to run 24 unique seeds over all rates of sexual reproduction with 10
-replicates per seed. Due to a mistake some replicates failed to save, we randomly sampled
-five replicates per seed per rate of sexual reproduction, giving us a total of 
-1200 total populations for analysis.
+Because of the computational intensity of the simulations we were only able to
+run 24 unique seeds over all rates of sexual reproduction with 10 replicates per
+seed. Due to an unexpected corner condition, some replicates failed to save, so
+we randomly sampled five replicates per seed per rate of sexual reproduction,
+giving us a total of 1200 total populations for analysis.
+
+Analysis of $\bar{r}_d$ for SNP data showed a similar pattern to microsatellite
+data where clonal and nearly clonal (0.1% sexual reproduction) distributions of
+$\bar{r}_d$ were bimodal, but they did not have as many significantly negative
+values (Fig. \@ref(fig:sim5)). An interesting observation is that none of the
+values of $\bar{r}_d$ for the sexual population reached zero. 
 
 ```{r sim5, echo = FALSE, fig.cap = figcap5, fig.scap = figscap5}
 knitr::include_graphics("figure/simulations/genomic_rd.png")
 cap <- "Violin plots showing the decay of the Index of Association measured with
 declining rates of sexual reproduction for genomic-scale data sets sub-sampled
 in four different population sizes. $\\bar{r}_d$ was calculated for both whole
-and clone corrected data sets. points represent the observed values. Black lines
+and clone corrected data sets. Points represent the observed values. Black lines
 mark the 25, 50, and 75th percentile."
 
 scap <- "Violin plots showing the decay of the Index of Association measured
@@ -680,26 +727,84 @@ if (!LATEX) figcap1 <- gsub("@ref", "\\\\@ref", figcap1)
 figscap5 <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = TO)
 ```
 
+We initially randomized all loci independently to test for significant
+departures from random mating. Our results from that analysis showed *p = 0.001*
+for all but two clonal data sets. After shuffling each chromosome independently,
+we were able to obtain significance values that better reflected our
+observations from the microsatellite data. Because of the dearth of
+significantly negative $\bar{r}_d$ values in clonal populations, the power of
+the index to detect clonal reproduction was greater, but at the cost of an
+additional increase to false positive rates (Fig. \@ref(fig:sim6)). An AMOVA
+analysis of the distributions of ROC over the 24 seeds showed significant 
+differences for 0.5% to 10% sexual reproduction (Fig. \@ref(fig:sim7), Tab.
+\@ref(tab:sim5)).
 
 ```{r sim6, echo = FALSE, fig.cap = figcap6, fig.scap = figscap6}
-knitr::include_graphics("figure/simulations/AURC_genomic.png")
-figcap6 <- "Plot of AURC for genomic data."
+knitr::include_graphics("figure/simulations/genomic_power.png")
+figcap6 <- "Power (true positive rate) to detect non-random mating decreasing with
+increasing rates of sexual reproduction in genomic-scale data sub-sampled in
+four different population sizes. False positive rate is shown as increasing
+transparency. Data shown for both p = 0.01 and p = 0.05"
 
-figscap6 <- "Plot of AURC for genomic data."
+figscap6 <- "Power to detect non-random mating decreasing with increasing rates of
+sexual reproduction in SNP data."
 ```
 
 ```{r sim7, echo = FALSE, fig.cap = figcap7, fig.scap = figscap7}
-knitr::include_graphics("figure/simulations/genomic_power.png")
-figcap7 <- "Power (true positive rate) to detect non-random mating decreasing with
-increasing rates of sexual reproduction in genomic-scale data sub-sampled in
-four different population sizes. False positive rate is shown as increasing
-transparency."
+knitr::include_graphics("figure/simulations/AURC_genomic.png")
+figcap7 <- "Distributions of AURC for SNP data over increasing rates of sexual
+reproduction Points represent AURC for 10 populations, 5 produced via random 
+mating and 5 produced via non random mating."
 
-figscap7 <- "Power to detect non-random mating decreasing with increasing rates of
-sexual reproduction in genomic data."
+figscap7 <- "Distributions of AURC for SNP data."
 ```
+sexrate   term            sumsq   df   statistic   p.value
+--------  ------------  -------  ---  ----------  --------
+0.0000    (Intercept)    22.932    1   17347.604     0.000
+          SS              0.004    3       1.121     0.345
+          Residuals       0.122   92          NA        NA
+0.0001    (Intercept)    23.602    1   29949.701     0.000
+          SS              0.001    3       0.352     0.787
+          Residuals       0.072   92          NA        NA
+0.0005    (Intercept)    23.562    1   28317.512     0.000
+          SS              0.001    3       0.339     0.797
+          Residuals       0.077   92          NA        NA
+0.0010    (Intercept)    23.562    1   28317.512     0.000
+          SS              0.001    3       0.339     0.797
+          Residuals       0.077   92          NA        NA
+0.0050    (Intercept)    19.117    1    6103.399     0.000
+          SS              0.174    3      18.568     0.000
+          Residuals       0.288   92          NA        NA
+0.0100    (Intercept)    13.984    1    1590.890     0.000
+          SS              0.806    3      30.552     0.000
+          Residuals       0.809   92          NA        NA
+0.0500    (Intercept)     6.510    1     232.786     0.000
+          SS              1.340    3      15.972     0.000
+          Residuals       2.573   92          NA        NA
+0.1000    (Intercept)     5.920    1     155.018     0.000
+          SS              0.575    3       5.023     0.003
+          Residuals       3.514   92          NA        NA
+0.5000    (Intercept)     6.161    1     169.859     0.000
+          SS              0.059    3       0.542     0.655
+          Residuals       3.337   92          NA        NA
+
+Table: (\#tab:sim5) ANOVA table comparing the model $AURC \sim Sample Size$ for 
+each rate of sexual reproduction separately with SNP data. SS = Sample Size.
 
 ## Discussion
+
+Main points:
+
+ - Permutation analyses of $\bar{r}_d$ appear to have sufficient power to detect
+   clonal reproduction as long as the rate of sexual reproduction does not reach
+   levels greater than 1%.
+ - Power decreases with sample size
+ - Clone correction decreases sample size and will decrease power. Interpret the
+   results of clone-correction carefully.
+ - A failure to reject the null hypothesis of random mating does not mean that
+   the population is randomly mating [@smith1993how; @tibayrenc1996towards].
+ - Ignoring linkage when doing permutation tests will show significant effects
+   even if none exists.
 
 ### Not using multiple tests correction
 
