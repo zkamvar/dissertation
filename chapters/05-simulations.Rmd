@@ -215,7 +215,7 @@ rate of 1e-5 mutations/generation with the exception of the first locus, at
 which the mutation rate was set to 1e-3. All mutations were applied in a
 stepwise manner using the `StepwiseMutator()` operator in simuPOP.
 
-### GBS Simulations
+### Simulating SNP Loci
 
 Simulations of 10,000 binary loci spread evenly over 10 chromosomal fragments
 were simulated with a mutation rate of 1e-5 mutations per generation for forward
@@ -282,7 +282,7 @@ to perform this test on both the whole data set (wd) and clone-corrected data
 avoid signatures of linkage that arise from re-sampling the same individual.
 [@goss2014irish; @milgroom1996recombination; @mcdonald1997population]. If the
 p-value for $\bar{r}_d$ is significant after clone-correction, then the
-population is expected to be clonal.
+population is expected to be clonal. 
 
 The Receiver Operating Characteristic (ROC) curve is a method of assessing the
 the balance between sensitivity and specificity of a diagnostic method
@@ -310,7 +310,7 @@ power, the AURC will be equal to 0.5. We used this method to
 assess the efficacy of $\bar{r}_d$ to detect non-random mating.
 
 To calculate the ROC curve, we first define what a positive
-value is. We define it as a significant value of $\bar{r}_d$ based on a
+value is. If we consider the p-value of $\bar{r}_d$ as a classifier to determine clonality, we can define a positive value as a significant value of $\bar{r}_d$ based on a
 threshold, $\alpha$, where $\alpha$ is a value in [0, 1]. Therefore, any
 randomly mating population (sexual reproduction is equal to one) with a
 significant value of $\bar{r}_d$ is considered a false positive, and
