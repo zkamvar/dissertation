@@ -57,10 +57,12 @@ Why management all of a sudden? Out of context.
 Resistant to what?
 This section is out of context and too specific
 -->
-
+Pathogenic microorganisms can reproduce sexually or clonally
+[@tibayrenc1996towards; @milgroom1996recombination]. Diseases caused by these
+organisms are managed by antimicrobial compounds that kill these organisms. 
 Detecting recombination in populations of pathogenic microorganisms is therefore
 important for management strategies as a prevalence of sexual reproduction could
-create resistant genotypes [@smith1993how; @milgroom1996recombination;
+lead to resistant genotypes [@smith1993how; @milgroom1996recombination;
 @goss2014irish; @de2006molecular; @nieuwenhuis2016frequency].
 
 <!-- The study of population genetics of clonal organisms is not a new field 
