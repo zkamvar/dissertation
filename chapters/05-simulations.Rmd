@@ -590,6 +590,14 @@ sumsq = sum of squares, df = degrees of freedom, statistic = F statistic,
 p.value = p-value,Terms are as follows: CC = Clone Correction, SS = Sample Size,
 MR = Mutation Rate.
 
+
+```{r, results = "asis", echo = FALSE}
+out <- "
+\\newpage
+"
+cat(beaverdown::iflatex(out))
+```
+
 ### Assessing Allelic Evenness
 
 When using the criteria of $E_{5A} \geq 0.85$ to augment the criteria for the 
