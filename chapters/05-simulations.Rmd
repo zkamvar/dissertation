@@ -288,9 +288,25 @@ The Receiver Operating Characteristic (ROC) curve is a method of assessing the
 the balance between sensitivity and specificity of a diagnostic method
 [@metz1978basic]. This is done by simultaneously assessing the true positive
 fraction of tests to a false positive fraction along a gradient of thresholds of
-increasing leniency. Briefly, if a method has perfect explanatory power, the
+increasing leniency. A simple way of thinking about ROC analysis is to imagine
+two factories that both make marbles. On average, factory A makes marbles half
+the size of factory B. Both factories manufacture for the same distributor,
+which mixes the marbles from both factories. You are tasked with finding the
+best sieve that can accurately and precisely separate the marbles. To measure
+this quantity, you order a set of orange marbles from factory A and a set of
+blue marbles from factory B. To calculate the ROC curve, you would take a range
+of sieves and stack them such that the one with the largest mesh size is on top
+and the one with the smallest mesh size is on bottom and pour both orange and 
+blue marbles through. The fraction of orange and blue marbles that passed 
+through each sieve are the true positive and false positive fractions, 
+respectively. Plot the true positive fraction against the false positive 
+fraction for each sieve respectively, and you can assess how well the sieve 
+method works by examining the shape of the ROC curve. 
+
+A useful summary of the ROC curve is to calculate the area under the ROC curve 
+(AURC). Briefly, if a method has perfect explanatory power, the
 area under the ROC curve will be equal to 1. If a method has no explanatory
-power, the area under the ROC curve will be equal to 0.5. We used this method to
+power, the AURC will be equal to 0.5. We used this method to
 assess the efficacy of $\bar{r}_d$ to detect non-random mating.
 
 To calculate the ROC curve, we first define what a positive
