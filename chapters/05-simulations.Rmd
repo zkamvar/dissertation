@@ -374,7 +374,16 @@ index is influenced by sample size.
 
 The range of the values of $\bar{r}_d$ for completely clonal and nearly clonal
 populations were extreme. They ranged from -0.577 to 1 in completely clonal
-data sets (Fig. \@ref(fig:sim1)).  
+data sets (Fig. \@ref(fig:sim1)). Genotypic diversity statistics (Fig.
+\@ref(fig:simdiv), top six panels) showed a predictable pattern of genotypic
+diversity increasing with sexual reproduction with diversity being higher on
+average for clonal populations with uneven mutation rates as compared to even
+mutation rates. Allelic diversity statistics (Fig. \@ref(fig:simdiv), bottom
+four panels) showed few differences in means due to mutation rate, but $E_{5A}$
+shows consistent differences in rate of sexual reproduction and sample size. 
+Both $E_{5A}$ and $H_{exp}$ showed higher values for populations where the rate
+of sexual reproduction is < 0.1%. Not shown in the graph is a bimodal pattern in
+the $H_{exp}$ distributions with a rate of sexual reproduction < 0.1%.
 
 ```{r sim1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
 knitr::include_graphics("figure/simulations/rd_sexrate.png")
@@ -394,6 +403,23 @@ figcap1  <- beaverdown::render_caption(caption = cap, figname = "fig1", to = TO)
 if (!LATEX) figcap1 <- gsub("@ref", "\\\\@ref", figcap1)
 figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s", to = TO)
 ```
+
+```{r simdiv, echo = FALSE, fig.cap = figcapdiv, fig.scap = figscapdiv}
+knitr::include_graphics("figure/simulations/diversity_stats.png")
+cap <- "Genotypic and allelic diversity statistics shown over increasing rates
+of sexual reproduction. Genotypic diversity: H = Shannon-Wiener index, $E_5$ =
+evenness, G = Stoddart and Taylor's index. Allelic Diversity: $E_{5A}$ = allelic
+evenness, $H_{exp}$ = Nei's expected heterozygosity (gene diversity). Points 
+indicate means and lines extend to to standard deviations on either side of the 
+mean. Color/shading indicates sample size. Vertical axis on different scales."
+
+figscapdiv <- "Genotypic and allelic diversity statistics shown over increasing
+rates of sexual reproduction."
+
+figcapdiv  <- beaverdown::render_caption(caption = cap, figname = "figdiv", to = TO)
+if (!LATEX) figcapdiv <- gsub("@ref", "\\\\@ref", figcapdiv)
+```
+
 
 We found that the power (p <= 0.01) to detect non-random mating decreases
 significantly with very little sexual reproduction (Fig. \@ref(fig:sim4)). This
