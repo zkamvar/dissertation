@@ -401,13 +401,27 @@ figscap3 <- "Power (true positive rate) to detect non-random mating decreasing
 with increasing rates of sexual reproduction in SSR data."
 ```
 
-The AURC analysis showed a steady decrease in the ability to detect non-random
-mating with increasing levels of sexual reproduction, mainly due to a loss in
-sensitivity with increasing levels of $\alpha$ (Fig. \@ref(fig:sim2)). As seen
-in the power analysis (Fig. \@ref(fig:sim4)), clone correction consistently
-appears to negatively affect the AURC. For all scenarios, the diagnostic power
-of $\bar{r}_d$ to detect non-random mating is no better than random at 10% or
-greater rates of sexual reproduction. 
+```{r simroc, echo = FALSE, fig.cap = figcaproc, fig.scap = figscaproc}
+knitr::include_graphics("figure/simulations/ROC_Curve.png")
+figcaproc <- "ROC curves for $\\bar{r}_d$ over each rate of sexual reproduction
+(rows) in clone corrected (cc) and whole (wd) data sets with even and uneven
+mutation rates (columns). Line type indicates the use of $E_{5A}$ > 0.85 to
+augment the analysis. Line shade indicates sample size. A dotted line of unity
+is shown in each plot. Each ROC curve is calculated over 100 values of $\\alpha$
+from 0 to 1."
+
+figcaproc  <- beaverdown::render_caption(caption = figcaproc, figname = "fig1", to = TO)
+figscaproc <- "ROC curves for $\\bar{r}_d$."
+figscaproc  <- beaverdown::render_caption(caption = figscaproc, figname = "fig1", to = TO)
+```
+
+The ROC and AURC analyses showed a steady decrease in the ability to detect non-
+random mating with increasing levels of sexual reproduction, mainly due to a
+loss in sensitivity with increasing levels of $\alpha$ (Fig. \@ref(fig:simroc),
+\@ref(fig:sim2)). As seen in the power analysis (Fig. \@ref(fig:sim4)), clone
+correction consistently appears to negatively affect the AURC. For all
+scenarios, the diagnostic power of $\bar{r}_d$ to detect non-random mating is no
+better than random at 10% or greater rates of sexual reproduction.
 
 ```{r sim2, echo = FALSE, fig.cap = figcap2, fig.scap = figscap2}
 knitr::include_graphics("figure/simulations/AURC_box_plot.png")
@@ -790,6 +804,13 @@ Main points:
    the population is randomly mating [@smith1993how; @tibayrenc1996towards].
  - Ignoring linkage when doing permutation tests will show significant effects
    even if none exists.
+
+Design Drawbacks:
+
+ - Effect of uneven mutation rate might simply be an effect of a higher mutation
+   rate.
+ - Homoplasy would be prevalent with the few allelic states used to initialize
+   the population.
 
 ### Not using multiple tests correction
 
