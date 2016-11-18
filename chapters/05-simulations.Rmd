@@ -744,15 +744,17 @@ Analysis of $\bar{r}_d$ for SNP data showed a similar pattern to microsatellite
 data where clonal and nearly clonal (0.1% sexual reproduction) distributions of
 $\bar{r}_d$ were bimodal, but they did not have as many significantly negative
 values (Fig. \@ref(fig:sim5)). An interesting observation is that none of the
-values of $\bar{r}_d$ for the sexual population reached zero. 
+values of $\bar{r}_d$ for the sexual population reached zero. Increasing levels
+of missing data appeared to consistently decrease the value of $\bar{r}_d$
+(\@ref(fig:simmisssnp)). This effect was exacerbated when missing data was
+treated as a new allele.
 
 ```{r sim5, echo = FALSE, fig.cap = figcap5, fig.scap = figscap5}
 knitr::include_graphics("figure/simulations/genomic_rd.png")
 cap <- "Violin plots showing the decay of the Index of Association measured with
 declining rates of sexual reproduction for genomic-scale data sets sub-sampled
-in four different population sizes. $\\bar{r}_d$ was calculated for both whole
-and clone corrected data sets. Points represent the observed values. Black lines
-mark the 25, 50, and 75th percentile."
+in four different population sizes. Points represent the observed values. Black
+lines mark the 25, 50, and 75th percentile."
 
 scap <- "Violin plots showing the decay of the Index of Association measured
 with declining rates of sexual reproduction for genomic-scale data."
@@ -761,6 +763,24 @@ figcap5  <- beaverdown::render_caption(caption = cap, figname = "fig2", to = TO)
 if (!LATEX) figcap1 <- gsub("@ref", "\\\\@ref", figcap1)
 figscap5 <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = TO)
 ```
+
+```{r simmisssnp, echo = FALSE, fig.cap = figcapmisssnp, fig.scap = figscapmisssnp}
+knitr::include_graphics("figure/simulations/genomic_missing.png")
+cap <- "Violin plots showing the effect of increasing rates of missing data on
+$\\bar{r}_d$ for SNP data. measured with declining rates of sexual reproduction.
+Panels are arranged horizontally with increasing rates of missing data from left
+to right and vertically with increasing sample size from top to bottom. Shading
+indicates whether or not missing data was ignored or treated as a new allele.
+Black lines mark the 25, 50, and 75th percentile."
+
+scap <- "Violin plots showing the effect of increasing rates of missing data on
+the $\\bar{r}_d$ for SNP data."
+
+figcapmisssnp  <- beaverdown::render_caption(caption = cap, figname = "fig2", to = TO)
+if (!LATEX) figcap1 <- gsub("@ref", "\\\\@ref", figcap1)
+figscapmisssnp <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = TO)
+```
+
 
 We initially randomized all loci independently to test for significant
 departures from random mating. Our results from that analysis showed *p = 0.001*
