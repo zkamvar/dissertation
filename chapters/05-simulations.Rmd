@@ -787,10 +787,11 @@ follows: SS = Sample Size.
 
 ## Discussion
 
-Because knowing a pathogen's mode of reproduction can affect management
-strategies, it's important to know how sample size, rate of sexual reproduction,
-mutation rate homogeneity, and clone-correction affect this method's
-sensitivity and specificity.
+Knowing a pathogen's mode of reproduction can affect management strategies, and
+a  it's
+additionally important to know how sample size, rate of sexual reproduction,
+mutation rate homogeneity, and clone-correction affect this method's sensitivity
+and specificity.
 
 Main points:
 
