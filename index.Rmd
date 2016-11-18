@@ -21,7 +21,7 @@ site: bookdown::bookdown_site
 output: 
   # beaverdown::thesis_pdf: default
   beaverdown::thesis_gitbook: default
-#  beaverdown::thesis_word: default
+  # beaverdown::thesis_word: default
 #  beaverdown::thesis_epub: default
 # If you are creating a PDF you'll need to write your preliminary content here 
 # or use code similar to the line below for the files.  If you are producing in 
