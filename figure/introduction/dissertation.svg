@@ -36,9 +36,9 @@
      inkscape:window-height="1164"
      id="namedview42"
      showgrid="false"
-     inkscape:zoom="2.6222222"
-     inkscape:cx="186.57939"
-     inkscape:cy="196.77744"
+     inkscape:zoom="1.8541911"
+     inkscape:cx="162.75056"
+     inkscape:cy="168.80961"
      inkscape:window-x="1280"
      inkscape:window-y="23"
      inkscape:window-maximized="0"
@@ -118,7 +118,7 @@
        sodipodi:role="line"
        id="tspan3380"
        x="120.88983"
-       y="102.9661"></tspan><tspan
+       y="102.9661" /><tspan
        sodipodi:role="line"
        x="120.88983"
        y="142.96609"
@@ -157,21 +157,9 @@
        y="291.28177"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:Helvetica;text-align:center;text-anchor:middle"
        id="tspan3409">Research</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     id="text3411"
-     y="137.18494"
-     x="179.87183"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:'Nanum Gothic';-inkscape-font-specification:'Nanum Gothic, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       id="tspan3415"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:Helvetica;text-align:center;text-anchor:middle"
-       y="137.18494"
-       x="179.87183"
-       sodipodi:role="line">This</tspan><tspan
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Helvetica;-inkscape-font-specification:Helvetica;text-align:center;text-anchor:middle"
-       y="159.05994"
-       x="179.87183"
-       sodipodi:role="line"
-       id="tspan3419">Dissertation</tspan></text>
+  <path
+     style="opacity:0.88999999;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:9.60000038;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:38.40000153, 9.60000038;stroke-dashoffset:33.60000229;stroke-opacity:1"
+     d="m 175.82515,220.60913 c -17.99101,-11.40592 -32.20107,-27.22424 -41.5829,-46.28911 -3.55848,-7.23121 -5.17468,-11.29559 -7.35482,-18.49577 -2.6346,-8.70107 -4.28424,-19.04488 -4.52541,-28.37597 l -0.11738,-4.54123 4.19492,-2.22281 c 11.43272,-6.05798 24.01077,-10.14141 37.56356,-12.19488 5.12711,-0.77684 7.27653,-0.89335 16.20763,-0.87854 8.70371,0.0144 11.15205,0.14918 15.82627,0.87102 13.85374,2.13943 27.21671,6.55509 38.57605,12.74707 l 3.24917,1.77112 -0.14745,4.11339 c -0.33941,9.46889 -1.8924,19.28536 -4.46497,28.22317 -2.03509,7.07044 -3.76819,11.48009 -7.47696,19.02408 -7.96102,16.19346 -19.31852,29.91455 -33.74008,40.76163 -4.71397,3.54558 -11.35718,7.83016 -12.09716,7.80213 -0.26817,-0.0101 -2.11788,-1.05204 -4.11047,-2.3153 z"
+     id="path3358"
+     inkscape:connector-curvature="0" />
 </svg>
