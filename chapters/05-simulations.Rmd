@@ -59,10 +59,10 @@ This section is out of context and too specific
 -->
 Pathogenic microorganisms can reproduce sexually or clonally
 [@tibayrenc1996towards; @milgroom1996recombination]. Diseases caused by these
-organisms are managed by antimicrobial compounds that kill these organisms. 
+organisms are in part managed by the use of antimicrobial compounds that kill these organisms. 
 Detecting recombination in populations of pathogenic microorganisms is therefore
-important for management strategies as a prevalence of sexual reproduction could
-lead to resistant genotypes [@smith1993how; @milgroom1996recombination;
+important for the implementation of rational management strategies as a prevalence of sexual reproduction could
+lead to the repeated emergence of novel, resistant genotypes [@smith1993how; @milgroom1996recombination;
 @goss2014irish; @de2006molecular; @nieuwenhuis2016frequency].
 
 <!-- The study of population genetics of clonal organisms is not a new field 
@@ -622,7 +622,7 @@ cat(beaverdown::iflatex(out))
 
 ### Low Allelic Diversity Creates Negative Values of $\bar{r}_d$ in Clonal Populations
 
-When using the criteria of $E_{5A} \geq 0.85$ to augment the criteria for the 
+When using the criterion of $E_{5A} \geq 0.85$ to augment the criteria for the 
 ROC analysis, we found that the power to detect non-random mating increased
 significantly whereas the false positive rate appeared to only increase with
 low sample sizes (Fig. \@ref(fig:sim4a), \@ref(fig:sim2a)). Analyzing the
@@ -911,8 +911,8 @@ Design Drawbacks:
 
 ### Not using multiple tests correction
 
-We did not use multiple tests correction on the p-values derived from tests of
-significance on $\bar{r}_d$ because each p-value represents that derived from
+We did not use a correction for multiple tests on the p-values derived for the
+significance on $\bar{r}_d$ because each p-value represents one derived from
 an independent study on an independent population as opposed to independent
 variables within a population. Much like we wouldn't perform a multiple tests
 correction on the results of 1,000 NIH studies, we wouldn't perform one on the
