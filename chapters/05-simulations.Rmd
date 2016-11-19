@@ -121,7 +121,7 @@ similar structure to a correlation coefficient and ranges from 0 (no linkage) to
 
 @de2004clonal investigated the effect of increasing levels of sexual
 reproduction on $\bar{r}_d$ (noted in their publication as $\bar{r}_D$). They
-found that very little ($\sim$1%) sexual reproduction is required to produce a value
+found that very little ($\sim$ 1%) sexual reproduction is required to produce a value
 of $\bar{r}_d$ close to zero. This indicates that $\bar{r}_d$ alone might not be
 well suited as a measure of clonal reproduction. @prugnolle2010apparent tested
 the effect of sampling design on $\bar{r}_d$, finding that its value is
