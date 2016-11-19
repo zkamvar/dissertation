@@ -76,9 +76,9 @@ but rather it serves as implementation of scientific theory
 theory [@felsenstein1989phylip; @Agapow_2001; @arnaud2006genclone;
 @ali2016cloncase] and it has been used to make accessible existing theory and
 methods in a way that is more accessible [@goudet1995fstat; @winter2012mmod;
-@bailleul2016rclone; @kamvar2014poppr].Ultimately, publication and maintenance 
+@bailleul2016rclone; @kamvar2014poppr]. Ultimately, publication and maintenance 
 of scientific software exists to standardize the protocols in which we 
-manipulate analyze our data.
+manipulate analyze our data. 
 
 ## Reproducible Research
 

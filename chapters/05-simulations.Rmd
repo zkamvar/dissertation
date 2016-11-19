@@ -285,7 +285,7 @@ avoid signatures of linkage that arise from re-sampling the same individual
 p-value for $\bar{r}_d$ is significant after clone-correction, then the
 population is expected to be clonal. 
 
-The Receiver Operating Characteristic (ROC) curve is a statistical method of assessing the
+The Receiver Operating Characteristic (ROC) curve is a statistical method of assessing
 the balance between sensitivity and specificity of a diagnostic method
 [@metz1978basic]. This is done by simultaneously assessing the true positive
 fraction of tests to a false positive fraction along a gradient of thresholds of
@@ -298,7 +298,7 @@ this quantity, you order a set of orange marbles from factory A and a set of
 blue marbles from factory B. To calculate the ROC curve, you would take a range
 of sieves and stack them such that the one with the largest mesh size is on top
 and the one with the smallest mesh size is on bottom and pour both orange and 
-blue marbles through. The fraction of orange and blue marbles that passed 
+blue marbles through. The fractions of orange and blue marbles that passed 
 through each sieve are the true positive and false positive fractions, 
 respectively. Plot the true positive fraction against the false positive 
 fraction for each sieve respectively, and you can assess how well the sieve 
@@ -361,16 +361,6 @@ considered significant.
 
 ## Results
 
-For both microsatellite and SNP data, as found in @de2004clonal, large variances
-were observed with extremely low levels of sexual reproduction (Figs.
-\@ref(fig:sim1), \@ref(fig:sim5)). The variances and means of $\bar{r}_d$ 
-decrease with increasing levels of sexual reproduction. The most striking
-feature observed, however, was the bimodal nature of the distributions at these
-low levels of sexual reproduction. As this feature appears in both the
-microsatellite and SNP data. Additionally,
-with larger sample sizes, the variance also decreases, suggesting that the behavior of the
-index is also affected by sample size.
-
 ### Clone Correction Negatively Impacts Clonal Inference
 
 For microsatellite data, the values of $\bar{r}_d$ for completely clonal and nearly clonal
@@ -381,7 +371,7 @@ diversity increasing with sexual reproduction with diversity being higher on
 average for clonal populations with uneven mutation rates as compared to even
 mutation rates. Allelic diversity statistics (Fig. \@ref(fig:simdiv), bottom
 four panels) showed few differences in means due to mutation rate, but $E_{5A}$
-shows consistent differences in rate of sexual reproduction and sample size. 
+showed consistent differences in rate of sexual reproduction and sample size. 
 Both $E_{5A}$ and $H_{exp}$ showed higher values for populations where the rate
 of sexual reproduction is < 0.1%. Not shown in the graph is a bimodal pattern in
 the $H_{exp}$ distributions with a rate of sexual reproduction < 0.1%.
@@ -395,9 +385,8 @@ mating drops to below 0.25 with rates of sexual reproduction greater than 1%.
 This trend is only moderately improved when the threshold is raised to p <=
 0.05 (data not shown). There is less power to detect non-random mating at 0% and
 0.01% sex as compared to 0.05% and 0.1% sex. This appears to be due to
-dramatically negative values of $\bar{r}_d$ which result in a p-value of 1. At p
-<= 0.01, there additionally appears to be a false positive rate of 1.5% in the
-worst case scenario.
+the observed negative values of $\bar{r}_d$ that result in a p-value of 1. At p
+<= 0.01, we observe a false positive rate of 1.5% in the worst case scenario.
 
 ```{r sim1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
 knitr::include_graphics("figure/simulations/rd_sexrate.png")
@@ -476,7 +465,7 @@ The ROC and AURC analyses showed a steady decrease in the ability to detect non-
 random mating with increasing levels of sexual reproduction, mainly due to a
 loss in sensitivity with increasing levels of $\alpha$ (Fig. \@ref(fig:simroc),
 \@ref(fig:sim2)). As seen in the power analysis (Fig. \@ref(fig:sim4)), clone
-correction consistently appears to reduce the AURC. For all
+correction consistently appears to lower the power to detect linkage based on the AURC. For all
 scenarios, the diagnostic power of $\bar{r}_d$ to detect non-random mating is no
 better than random at 10% or greater rates of sexual reproduction.
 
@@ -620,16 +609,16 @@ out <- "
 cat(beaverdown::iflatex(out))
 ```
 
-### Low Allelic Diversity Creates Negative Values of $\bar{r}_d$ in Clonal Populations
+### Negative Values of $\bar{r}_d$ in Clonal Populations Correlated With Low Allelic Diversity
 
 When using the criterion of $E_{5A} \geq 0.85$ to augment the criteria for the 
 ROC analysis, we found that the power to detect non-random mating increased
 significantly whereas the false positive rate appeared to only increase with
 low sample sizes (Fig. \@ref(fig:sim4a), \@ref(fig:sim2a)). Analyzing the
-distributions of the AURC with AMOVA, we found that the most consistently
+distributions of the AURC with ANOVA, we found that the most consistently
 significant effect found was that of sample size (Fig. \@ref(fig:sim3a), Tab.
-\@ref(tab:sim4)) (albiet much like Fig. \@ref(fig:sim3), all effects and
-interactions were significant for 0.1% and 0.5% sex).
+\@ref(tab:sim4)) (albeit much like Fig. \@ref(fig:sim3), all effects and
+interactions were significant for 0.1% and 0.05% sex).
 
 ```{r sim4a, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
 knitr::include_graphics("figure/simulations/ssr_power_ea.png")
@@ -770,7 +759,7 @@ seed. Due to an unexpected corner condition, some replicates failed to save, so
 we randomly sampled five replicates per seed per rate of sexual reproduction,
 giving us a total of 1,200 total populations for analysis.
 
-Analysis of $\bar{r}_d$ for SNP data showed a similar pattern to microsatellite
+Analysis of $\bar{r}_d$ for SNP data showed a similar pattern to the microsatellite
 data where clonal and nearly clonal (0.1% sexual reproduction) distributions of
 $\bar{r}_d$ were bimodal, but they did not have as many significantly negative
 values (Fig. \@ref(fig:sim5)). An interesting observation is that none of the
@@ -782,11 +771,11 @@ treated as a new allele.
 We initially randomized all loci independently to test for significant
 departures from random mating. Our results from that analysis showed *p = 0.001*
 for all but two clonal data sets. After shuffling each chromosome independently,
-we were able to obtain significance values that better reflected our
+we obtained significance values that better reflected our
 observations from the microsatellite data. Because of the dearth of
 significantly negative $\bar{r}_d$ values in clonal populations, the power of
 the index to detect clonal reproduction was greater, but at the cost of an
-additional increase to false positive rates (Fig. \@ref(fig:sim6)). An AMOVA
+increase in false positive rates (Fig. \@ref(fig:sim6)). An AMOVA
 analysis of the distributions of ROC over the 24 seeds showed significant 
 differences for 0.5% to 10% sexual reproduction (Fig. \@ref(fig:sim7), Tab.
 \@ref(tab:sim5)).
@@ -880,6 +869,22 @@ each rate of sexual reproduction separately with SNP data. Columns: sexrate =
 rate of sexual reproduction, term = ANOVA term, sumsq = sum of squares, df =
 degrees of freedom, statistic = F statistic, p.value = p-value,Terms are as
 follows: SS = Sample Size.
+
+### Common Features of Microsatellite and SNP Markers
+
+For both microsatellite and SNP data, as found in @de2004clonal, large variances
+were observed with extremely low levels of sexual reproduction (Figs.
+\@ref(fig:sim1), \@ref(fig:sim5)). The variances and means of $\bar{r}_d$ 
+decrease with increasing levels of sexual reproduction. For low levels of sexual
+reproduction (< 0.01%), the distributions appeared bimodal. This feature appears
+in both the microsatellite and SNP data, but with microsatellite data, the lower
+part of the distribution extends into the negative values of $\bar{r}_d$,
+resulting in non-significant p-values, which appear to be caused by low allelic
+diversity. Additionally, with larger sample sizes, the variance also decreases,
+suggesting that the behavior of the index is also affected by sample size. Based
+on the power analysis, we observe that the critical point to detect clonal 
+reproduction in a population is at a maximum of 1% sexual reproduction (Fig.
+\@ref(fig:sim4), \@ref(fig:sim4a), \@ref(fig:sim6)). 
 
 ## Discussion
 
