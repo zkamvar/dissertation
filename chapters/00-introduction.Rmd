@@ -1,38 +1,19 @@
 # Introduction
 
-```{r, introduction1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1, out.width = "50%"}
-knitr::include_graphics("figure/introduction/dissertation.png")
-
-figcap1 <- "A graphical representation of the three themes governing the work
-presented in this dissertation." -> figscap1
-```
-
-The work presented here offers tools designed to answer questions related to
-clonal population genetics and plant pathology (Fig. \@ref(fig:introduction1)).
-In this context, the term 'tool' refers to software code used to apply
-mathematical models or theory to population genetic data. The merit of this work
-lies within the context of reproducible science, which ensures that the
-computational environment used to create results can be replicated
-[@buckheit1995wavelab]. We demonstrate the usefulness and flexibility of these
-tools by using them to show evidence for multiple introductions in the Curry
-County, OR outbreak of the sudden oak death pathogen, *Phytophthora ramorum*. 
-We additionally assess the power of the multilocus linkage disequilibrium
-measure $\bar{r}_d$ to detect clonal reproduction.
-
 ## Population Genetics and Clonality
 
-Dobzhansky's infamous quote "Nothing in biology makes sense except in the light
-of evolution" is cliché, but it's hard to find a statement that more elegantly 
+Dobzhansky's famous quote "Nothing in biology makes sense except in the light
+of evolution" has become cliché, but it's hard to find a statement that more elegantly 
 captures the essence of biological study [-@dobzhansky2013nothing]. In a more
 reductionist sense, it is perhaps appropriate to state that nothing in evolution
 makes sense except in the light of mutation; that is to say that mutation in an
 organism's genetic code is the seed upon which evolution acts
 [@lynch2016genetic]. Of course, a seed left alone will not grow; it needs the
-right soil and environmental conditions. In turn, a mutation needs a population
+right environment and conditions. In turn, a mutation needs a population
 in order to thrive. A population can be defined as a group of interbreeding 
 individuals, coexisting temporally and spatially (though we will see later that
 this is not always the best definition) [@milgroom1997contributions]. In a
-population, if the conditions are right, a mutation can grow in frequency and
+population, if the conditions are right, a new mutation can grow in frequency and
 become an established allele. The study of population genetics seeks to
 understand how evolution acts upon these alleles to shape populations as they
 grow, shrink, split, and adapt to their environment. Ultimately, these
@@ -41,22 +22,20 @@ populations are what give rise to species.
 The classical definition of a population is reliant upon the assumption
 that the individuals within the populations are panmictic, that is that they are
 randomly mating so that the individuals in the next generation will have a
-random assortment of alleles as compared to their parents [@rice2002evolution;
-@nielsen2013introduction; @hartl1997principles]. This assumption is a relatively
-safe one considering that sex occurs in all major organismal groups
-[@rice2002evolution; @heitman2012evolution]. However, it is erroneous to say
-that sex occurs in all organisms as many plants, fungi, protists, bacteria,
+random assortment of alleles inherited from their parents [@rice2002evolution;
+@nielsen2013introduction; @hartl1997principles]. The assumption that sex occurs applies to most major organismal groups
+[@rice2002evolution; @heitman2012evolution]. However, sex does not occur in all organisms as many plants, fungi, protists, bacteria,
 animals, and viruses are known to exclusively reproduce clonally
 [@rice2002evolution; @heitman2012evolution; @arnaud2012implications; 
 @orive1993effective; @arnaud2007standardizing]. Clonal reproduction here means
 reproduction that results in offspring that are genetically identical to the
 parents (note that this can include organisms derived from the selfing of a haploid
 organism). Thus, the definition of a population is perhaps best rephrased to
-simply indicate a group of individuals of the same species coexisting in the
+simply indicate a group of individuals of the same species^[This depends on your definition of a species, which is out of the scope of this dissertation and therefore best debated elsewhere.] coexisting in the
 spatially and temporally [@milgroom1997contributions]. 
 
 There are several costs and benefits associated with both clonal and sexual
-reproductive strategies in an evolutionary perspective. For organisms whose main
+reproductive strategies from an evolutionary perspective. For organisms whose main
 mode of reproduction is sexual, there is the two-fold cost of outcrossing: 1)
 only half of the available genetic material is inherited by the offspring and 2)
 the loss of advantageous gene combinations due to recombination
@@ -72,7 +51,7 @@ reproducing organisms will decrease over time as the number of deleterious
 mutations accumulate, eventually leading to extinction
 [@felsenstein1974evolutionary; @loewe2006quantifying; @lynch1993mutational;
 @lynch1990mutation]. Despite this, clonal organisms still have the advantage of
-passing on 100% of their genetic material on to the next generation.
+passing on 100% of their genetic material to the next generation.
 
 It's easy to see the advantage of both of these strategies in the context of 
 genetic adaptation to the environment. Clonal populations that are well adapted to
@@ -81,59 +60,61 @@ well adapted [@heitman2012evolution]. This strategy provides an advantage when
 resources are scarce and competition is high, but does not lend itself well to
 adaptation against changing environments due to low genotypic diversity 
 [@milgroom1996recombination]. Conversely, while sexual populations lose the 
-competitive advantage of conserved genotypic structure, they make up for it with
-high genotypic diversity, increasing the chances of surviving drastic change in
+competitive advantage of conserved beneficial allelic combinations, they make up for it with
+high genotypic diversity, increasing the chances of surviving change in
 the environment. As we shall see in the following sections, many microbial
 pathogens have the ability to reproduce both sexually and asexually
 [@tibayrenc1995population; @anderson1995clonality; @milgroom1996recombination].
 
 The question of sexual reproduction and population structure in microbial 
-pathogens is important for management strategies [@tibayrenc1990clonal;
+pathogens is important for the development of rational management strategies for pathogens or beneficial microbes [@tibayrenc1990clonal;
 @tibayrenc1995population; @milgroom1997contributions; @taylor1999evolutionary].
 If one were developing an antimicrobial agent on a known set of strains, the 
 effectiveness of this agent will be diminished if these strains represent only
 a fraction of the genotypic diversity due to sexual recombination
 [@taylor1999evolutionary; @tibayrenc1990clonal; @smith1993how]. Since most
 inference of population structure is based on neutral models that assume sexual
-reproduction, it's important to identify whether or not the population in 
+reproduction, it is important to identify whether or not the population in 
 question is reproducing sexually or clonally before one attempts to assess 
 population structure and infer evolutionary processes [@tibayrenc1990clonal]. 
-The question then becomes how do you detect the presence of clonal or sexual
-reproduction?
 
 Neutral molecular markers are commonly used for population genetic analyses.
-Before molecular techniques were widely available, however, the variation within
-most pathogenic microorganisms was described using phenotypic traits that
-reflected their pathogenicity (ability to cause disease) and virulence (severity
-of disease), placing them into different pathotypes [@milgroom1997contributions;
-@levin1999population]. When considering markers for population genetic analysis,
-one of the most important criteria is that these markers are heritable to a
-degree. The problem with pathotypes was that, while it was possible to define a
+Before molecular techniques became widely available for characterization of
+pathogens or microbes, the variation within most pathogenic microorganisms was
+described using phenotypic traits that reflected their pathogenicity (ability to
+cause disease), virulence (severity of disease), or morphotype placing them into
+different phenotypes [@milgroom1997contributions; @levin1999population]. When 
+considering markers for population genetic analysis, one of the most important
+criteria is that these markers are heritable.
+<!-- NIK: This doesn't flow, rewrite or delete
+
+The problem with pathotypes was that, while it was possible to define a
 panel of pathotypes upon which to develop anti-microbial treatments or resistant
 host cultivars, there was no way of assessing the evolutionary potential of the
 pathogens to overcome host resistance or develop drug resistance
 [@milgroom1997contributions; @tibayrenc1995population]. If pathologists wanted
 to use population genetic techniques, they needed to embrace molecular markers
 [@milgroom1997contributions; @tibayrenc1995population; @mcdonald1997population;
-@taylor1999evolutionary].
+@taylor1999evolutionary]. -->
 
 A wide variety of molecular markers exist from protein mobility assays to 
 randomly amplified DNA, to length polymorphisms to direct sequencing of the
 genetic code that all reflect this principle [@tibayrenc1995population;
-@halkett2005tackling]. It's not necessary to expound here on the variety of
-molecular markers available to us, but it's useful to take note of the common
+@halkett2005tackling]. It is not necessary to expound here on the variety of
+molecular markers available to us, but it is useful to take note of the common
 features. Generally, genetic markers come in two major flavors, selectively neutral and
 selected markers [@milgroom1997contributions; @mcdonald1997population; 
 @tibayrenc1995population].  Selectively neutral markers are used as independent
-variables that can reflect the degree of population size, subdivision, and
-migration. For selectively neutral markers, it is important that they be
-independent and unlinked within the genome [@mcdonald1997population].
+variables that can reflect the evolutionary history of descent. For selectively
+neutral markers, it is important that they be independent and unlinked within
+the genome [@mcdonald1997population].
 
-Because neutral genetic markers vary independently within a population, these
+The question then becomes how do you detect the presence of clonal or sexual
+reproduction? Because neutral genetic markers vary independently within a population, these
 are more appropriate than selected markers to detect sexual reproduction. The
 theory behind this is simple; sexual reproduction breaks up associations between
-markers due to recombination. This contrasts with clonal reproduction, which
-transfers the entire genome in tact to the next generation, preserving these 
+markers due to recombination and independent, random assortment. This contrasts with clonal reproduction, which
+transfers the entire genome in tact to the next generation, preserving 
 associations [@orive1993effective; @heitman2012evolution; 
 @nieuwenhuis2016frequency; @mcdonald1997population; @milgroom1997contributions;
 @tibayrenc1995population]. This means that not only will there be significant
@@ -169,12 +150,12 @@ gene/genotype flow, 4) mating system, and 5) selection due to host resistance
 
 An example of how changing one of these five factors influences plant health is
 clear in the oomycete *Phytophthora infestans* (Mont.) de Bary. The causal agent
-of potato late blight (and poster child for plant pathology), *P. infestans* has
+of potato late blight (and a poster child for plant pathology), *P. infestans* has
 changed the very demographics of human populations across the Atlantic ocean due
 to its role in the Irish potato famine [@erwin1996phytophthora]. It has a
 heterothallic (no selfing) life cycle that includes both clonally and sexually
 derived infectious propagules (Fig.\@ref(fig:pinflife)). The clonally derived
-propagules are swimming short-lived zoospores that can be transmitted via wind
+propagules are swimming, short-lived zoospores that can be transmitted via wind
 or water, whereas the sexually derived propagules are double-walled oospores.
 While *P. infestans* can survive as hyphae in infected tubers, the sexually
 derived oospores can survive for years in the soil, highlighting the added risk
@@ -215,7 +196,7 @@ resulted in a plethora of computer programs [@tibayrenc1996towards;
 @arnaud2007standardizing]. It was not uncommon for a researcher to use several
 programs to answer a single research question, and each program would often
 require its own custom input format and would not necessarily run on all
-operating platforms [@excoffier2006computer; @kamvar2014poppr]. The constant
+operating systems [@excoffier2006computer; @kamvar2014poppr]. The constant
 reformatting of data, and the inability to automate series of analyses made it
 not only challenging to communicate the methods, but also increased the chance
 for error [@excoffier2006computer; @kamvar2014poppr; @goecks2010galaxy].
@@ -225,12 +206,36 @@ Care is taken to ensure that all methods and data are faithfully recorded in a
 lab notebook, but this is not necessarily extended to computational analyses.
 The concept of reproducible research in scientific computing is attempting to
 take the principles of reproducibility we use in the wet lab and extend them to
-our downstream analyses. This work attempts to introduce tools for reproducible
+our downstream analyses in silico. This work attempts to introduce tools for reproducible
 research in clonal population genetics in an open manner. When researchers have
 open tools that can be easily shared, they can spend more time asking questions
 and less time formatting data. 
 
 ## Chapter Summaries
+
+```{r, introduction1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1, out.width = "50%"}
+knitr::include_graphics("figure/introduction/dissertation.png")
+
+figcap1 <- "A graphical representation of the three themes governing the work
+presented in this dissertation." -> figscap1
+```
+
+The work presented here offers tools designed to answer questions related to
+clonal population genetics and plant pathology (Fig. \@ref(fig:introduction1)).
+In this context, the term 'tool' refers to software code used to apply
+mathematical models or theory to population genetic data. The merit of this work
+lies within the context of reproducible science, which ensures that the
+computational environment used to create results can be replicated
+[@buckheit1995wavelab]. The end goal was not simply the development of the
+software, but rather, the development of software for the goal of analyzing our
+own data. Serendipitously, by analyzing our own data with this software, we are
+able to not only demonstrate that it can be used, but also demonstrate that an
+entire analysis can be conducted in an open and reproducible manner. We
+demonstrate the usefulness and flexibility of these tools by using them to show
+evidence for multiple introductions in the Curry County, OR outbreak of the
+sudden oak death pathogen, *Phytophthora ramorum*. We additionally assess the
+power of the multilocus linkage disequilibrium measure $\bar{r}_d$ to detect
+clonal reproduction.
 
 ### Summary of Chapter 2
 
@@ -241,8 +246,8 @@ populations were available in several stand-alone software programs, each
 requiring different data input formats. Moreover, each program had different
 levels of documentation and limited support for all computing platforms. The
 novelty of *poppr* was to introduce indices of multilocus genotype diversity,
-the index of association, and a fast implementation of Bruvo's genetic distance
-over unlimited levels of user-specified population hierarchies
+the index of association, and a fast implementation of Bruvo's genetic distance,
+and clone-correction over unlimited levels of user-specified population hierarchies
 [@arnaud2007standardizing; @Agapow_2001; @bruvo2004simple]. Because this was
 implemented in R these analyses could be performed in a reproducible manner on
 all computing platforms. 
@@ -256,18 +261,12 @@ introduces an updated and improved *poppr* version 2.0. With high throughput
 sequencing (HTS) data, the amount of missing data and genotyping error
 increases, and the definition of a multilocus genotype becomes unclear.
 Moreover, the calculation of the index of association scales poorly with an
-increase in the number of loci. To address these limitations, we improved poppr
+increase in the number of loci. To address these limitations, we improved *poppr*
 with new functionalities to define multilocus genotypes based on genetic
 distance and calculate the index of association over random samples or windows
 of SNP loci.
 
-The end goal of part one was not simply the development of the software, but
-rather, we developed the software for the goal of analyzing our own data.
-Serendipitously, by analyzing our own data with this software, we are able to
-not only demonstrate that it can be used, but also demonstrate that an entire
-analysis can be conducted in an open and reproducible manner. The next two
-chapters focus on answering practical and theoretical questions related to plant
-pathology and clonal population genetics, respectively.
+
 
 ### Summary of Chapter 4
 
@@ -289,8 +288,9 @@ are randomly assorting due to recombination, resulting in a near-zero value of
 the index of association. In clonal populations, recombination is non-existent,
 meaning that loci are passed from parent to offspring in a non-independent
 fashion, resulting in a significantly non-zero value of the index of
-association. @de2004clonal showed that this index shows high variance with low
-levels of sexual reproduction, but due to limitations in software were not able
-to perform power analyses. We used *poppr* to investigate the power of the index
-of association to detect sexual reproduction in simulated data sets generated
-with microsatellite and genomic markers. 
+association. @de2004clonal demonstrated that this index shows high variance with
+low levels of sexual reproduction, but due to limitations in software were not
+able to perform power analyses. We used *poppr* to investigate the power of the
+index of association to detect sexual reproduction in simulated data sets
+generated with microsatellite and genomic markers. This chapter provides novel
+insights on the power, sensitivity, and scope of the index of association.

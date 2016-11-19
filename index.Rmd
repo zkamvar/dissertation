@@ -3,7 +3,7 @@
 # Required Information --------------------------------------------------------
 #
 doctype: 'Dissertation' 
-title: 'Development of Tools for Genetic Analysis of Clonal Populations and Applications'
+title: 'Development and Application of Tools for Genetic Analysis of Clonal Populations'
 author: 'Zhian N. Kamvar'
 date: 'December 6, 2016'
 commencement: '2017'    
