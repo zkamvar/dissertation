@@ -11,7 +11,7 @@ the use of molecular markers in molecular biology as compared to population
 genetics. While it is undisputed that questions shape a field of inquiry, the
 notion that tools are not influential in disciplines is misleading. Tools are
 necessary for providing answers to the questions proposed; they are the vehicle
-by which we apply our scientific theory to the unknown world.
+where by we apply our scientific theory to the unknown world.
 
 A tool, in this sense is any instrument, physical or analytical, that is used to
 collect, measure, manipulate, represent, or analyze data [@gigerenzer1991tools].
@@ -58,15 +58,15 @@ anscomb <- beaverdown::render_caption(caption = cap, figname = "fig1", to = TO)
 ansc    <- "A reproduction of 'Anscombe's quartet'"
 ```
 
-If we imagine each data set as separate population and linear regression as our
+If we imagine each data set as a separate population and linear regression as our
 molecular marker, it wouldn't matter what our question was, because there would
 be no hope to detect any differentiation between these populations with the
 marker chosen. 
 
-Science moves forward by asking questions of natural phenomena and then
+Science moves forward by asking questions about natural phenomena and then
 investigating further the results of these questions, narrowing the scope of the
-succeeding questions to pin down an detailed mechanism that can explain the
-initial phenomena. The tools provide the observations and results that set the
+succeeding questions to pin down a detailed mechanism that can explain the
+phenomena. The tools provide the observations and results that set the
 context for future questions [@searls2010roots].
 
 ### Scientific Software
@@ -98,10 +98,10 @@ standardize the protocols in which we manipulate analyze our data.
 [kamoun2015pubpeer]: https://pubpeer.com/topics/1/877A42B12A198A44306771E0D80AB8
 
 @buckheit1995wavelab didn't invent the concept of reproducible research in
-scientific computing, but they did show computational research community that
+scientific computing, but they did show the computational research community that
 such a concept was possible.
 
-The ultimate goal of reproducible research is in the term itself: to ensure that
+The ultimate goal of reproducible research lies in the term itself: to ensure that
 research is produced in a manner such that future researchers can reproduce and
 verify the results [@goecks2010galaxy]. This has been a problem in the past due
 to varying factors, including software [@ioannidis2008repeatability].
