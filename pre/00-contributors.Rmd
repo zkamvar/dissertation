@@ -5,20 +5,41 @@ The following people contributed to this dissertation:
 
 #### Chapter 2 {-}
 
-  Javier F. Tabima assisted in writing the code and design, Niklaus J. Grünwald
-  assisted in design, and editing of the manuscript.
+
+Zhian N. Kamvar designed, wrote, and tested the code and wrote the manuscript.
+Javier F. Tabima assisted in writing the code and design and reviewed drafts of
+the manuscript. Niklaus J. Grünwald assisted in design, and writing of the
+manuscript.
+
 
 #### Chapter 3 {-}
 
-  Zhian N. Kamvar, Meredeth M. Larsen, Alan M. Kanaskie, Everett M.
-  Hansen, and Niklaus J. Grünwald...
+
+Zhian N. Kamvar designed, wrote, and tested the code, designed and wrote the
+analyses, and wrote the manuscript.
+Jonah C. Brooks assisted in writing and testing the code. Niklaus J. Grünwald
+assisted in the design, coördination of the collaborative effort, and writing of
+the manuscript.
+
 
 #### Chapter 4 {-}
 
-  Jonah C. Brooks assisted in writing and testing the code. Niklaus J. Grünwald
-  assisted in the design, coördination of the collaborative effort, and editing
-  the manuscript.
+
+Zhian N. Kamvar designed and ran the computational analyses, interpreted the
+results, and wrote the manuscript Meredeth M. Larsen extracted DNA and genotyped
+isolates of *P. ramorum* from 2013 and 2014 at 14 microsatellite loci,
+harmonized the data between labs and wrote the genotyping methods. Alan M. 
+Kanaskie collected *P. ramorum* isolates from infected plant material, performed
+field surveys, GIS work, and geotagging with the Brooking SOD ground crew and
+assisted with writing of the manuscript, Everett M. Hansen provided data from 
+his lab, isolated by Paul Reeser and Wendy Sutton, and genotyped by Jen Britt
+and assisted with writing the manuscript, and Niklaus J. Grünwald coördinated
+the collaborative effort, helped design the analyses, and wrote the manuscript.
+
 
 #### Chapter 5 {-}
 
-  Niklaus J. Grünwald assisted in the design, and editing of the manuscript.
+
+Zhian N. Kamvar designed the simulations and analyses, interpreted the data, and
+wrote the manuscript. Niklaus J. Grünwald assisted in the design, and editing of
+the manuscript.

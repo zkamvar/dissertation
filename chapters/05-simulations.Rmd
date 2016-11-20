@@ -1,4 +1,4 @@
-# Factors Influencing Recombination Inference in Diploid Populations
+# Factors Influencing Inference of Clonality in Diploid Populations
 
 ```{r, results = "asis", echo = FALSE}
 out <- "
