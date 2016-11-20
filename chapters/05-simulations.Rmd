@@ -263,14 +263,14 @@ population to evaluate statistical support. Analyses were done for both full and
 reflect the proportion of observations greater than the observed statistic.
 Estimates of genotypic diversity were assessed with the *poppr* function
 `diversity_boot()` with 999 bootstrap replicates, recording the estimate and
-variance. The genotypic diversity statistics we calculated were Shannon's Index,
+variance [@kamvar2015novel]. The genotypic diversity statistics we calculated were Shannon's Index,
 $H = -\sum p_i ln p_i$ [@shannon2001mathematical], Stoddart and Taylor's Index,
 $G = 1/\sum p_i^2$ [@stoddart1988genotypic], and Evenness, $E_5 = (G - 1)/(e^H -
 1)$ [@pielou1975ecological] where $p_i$ is the frequency of the *i*th genotype.
 We additionally calculated Nei's expected heterozygosity, also known as gene diversity
 [@Nei:1978], and mean allelic evenness $E_{5A} = (1/m) \sum E_{5l}$, where
 *m* is the number of loci and $E_{5l}$ is the evenness of the alleles at locus
-*l* [@grunwald2003analysis].
+*l* with the *poppr* function `locus_table()` [@grunwald2003analysis; @kamvar2014poppr].
 
 
 ### Analysis of SNP Data
@@ -481,13 +481,13 @@ out <- "
 cat(beaverdown::iflatex(out))
 ```
 
-The ROC and AURC analyses showed a steady decrease in the ability to detect non-
-random mating with increasing levels of sexual reproduction, mainly due to a
+The ROC and AURC analyses showed a steady decrease in the ability to detect 
+non-random mating with increasing levels of sexual reproduction, mainly due to a
 loss in sensitivity with increasing levels of $\alpha$ (Fig. \@ref(fig:simroc),
 \@ref(fig:sim2)). As seen in the power analysis (Fig. \@ref(fig:sim4)), clone
 correction consistently appears to lower the power to detect linkage based on the AURC. For all
 scenarios, the diagnostic power of $\bar{r}_d$ to detect non-random mating is no
-better than random at 10% or greater rates of sexual reproduction.
+better than random at rates of sexual reproduction greater than 10%.
 
 A three-way ANOVA adds support for the hypothesis that clone correction
 significantly affects the diagnostic power of $\bar{r}_d$ (Fig. \@ref(fig:sim3),
@@ -793,15 +793,15 @@ giving us a total of 1,200 total populations for analysis.
 Analysis of $\bar{r}_d$ for SNP data showed a similar pattern to the microsatellite
 data where clonal and nearly clonal (0.1% sexual reproduction) distributions of
 $\bar{r}_d$ were bimodal, but they did not have as many significantly negative
-values (Fig. \@ref(fig:sim5)). An interesting observation is that none of the
+values (Fig. \@ref(fig:sim5)). We observed that that none of the
 values of $\bar{r}_d$ for the sexual population reached zero. Increasing levels
 of missing data appeared to consistently decrease the value of $\bar{r}_d$
-(\@ref(fig:simmisssnp)). This effect was exacerbated when missing data was
+(\@ref(fig:simmisssnp)). This effect was magnified when missing data was
 treated as a new allele.
 
 We initially randomized all loci independently to test for significant
 departures from random mating. Our results from that analysis showed *p = 0.001*
-for all but two clonal data sets. After shuffling each chromosome independently,
+for all but two clonal data sets (data not shown). After shuffling each chromosome independently,
 we obtained significance values that better reflected our
 observations from the microsatellite data. Because of the dearth of
 significantly negative $\bar{r}_d$ values in clonal populations, the power of
@@ -941,7 +941,8 @@ clonal reproduction, it does not explicitly rule out sexual reproduction
 in an 'epidemic' population structure where there is a sudden expansion of one
 genotype in an otherwise panmictic population [@smith1993how]. Thus, a common
 recommendation to researchers is to conduct analyses on both clone-corrected and
-uncorrected data [@smith1993how; @mcdonald1997population]. When analyzing
+uncorrected data in the hopes that this will reveal any underlying recombination
+[@smith1993how; @mcdonald1997population]. When analyzing
 $\bar{r}_d$, common wisdom says that if the result is significant with and
 without clone-correction, then there is strong evidence for clonal reproduction.
 This technique was used by Goss et al. to support the hypothesis that South
@@ -955,25 +956,36 @@ false negatives due to clone-correction, further highlighting the fact that a
 failure to reject the null hypothesis of random mating does not mean that the 
 population is randomly mating [@smith1993how; @tibayrenc1996towards]. 
 
+### Mutation Rates and $\bar{r}_d$ 
+
+We proposed to assess uneven mutation rate because we had observed that a
+single, hypervarible locus with 18 alleles  was the driver for most of the
+diversity observed in the 2001 outbreak of *Phytophthora ramorum* in Curry
+County, OR (@kamvar2015spatial, Supplementary Table S4 (\@ref(tab:ramtabS4))).
+We hypothesized that the high variability would reduce linkage and thus, reduce
+the power of $\bar{r}_d$ to detect clonal reproduction. In contrast, we observed
+that the opposite happened (Fig. \@ref(fig:sim4), \@ref(fig:simroc)). This also
+appears to make the effects of clone-correction less severe. We believe that 
+this is most likely due to the observed increase in genotypic diversity, which
+causes an increased sample size with clone-correction (Fig. \@ref(fig:simdiv)).
+
 ### Allelic Diversity Influences the value of $\bar{r}_d$ in Clonal Populations
 
-Our results largely confirmed the results of @de2004clonal, which showed large
-variances in $\bar{r}_d$ for clonal populations and near-zero values of
-$\bar{r}_d$ at rates of sexual reproduction > 1% (Fig. \@ref(fig:sim1)). A novel
+A novel
 feature that we found in our results not present in @de2004clonal was the 
-presence of negative values of $\bar{r}_d$. While positive values of $\bar{r}_d$
+presence of negative values of $\bar{r}_d$ (Fig. \@ref(fig:sim1)). While positive values of $\bar{r}_d$
 are easy to interpret (the observed variance is greater than expected, 
 suggesting non-random mating), negative values are often simply considered to be
 evidence for random mating. We had previously observed significantly (p = 1) 
 negative values of $\bar{r}_d$ of pathogens that are explicitly known to be
 clonal such as the sudden oak death pathogen, *Phytophthora ramorum*
-(@kamvar2015spatial, Supplementary Table S3) and the wheat stripe rust pathogen
-*Puccinia graminis* f.sp. *tritici* (Les Szabo, pers. comm.). We observed a
+(@kamvar2015spatial, Supplementary Table S3 (Fig. \@ref(tab:ramtabS3))) and the wheat stripe rust pathogen
+*Puccinia graminis* f.sp. *tritici* (Les Szabo, pers. comm.). A
 common pattern in all of these populations in that they all had values of 
-$E_5A$ > 0.9 and an average of fewer than 4 alleles per locus. This is reflected
+$E_{5A}$ > 0.9 and, on average, fewer than 4 alleles per locus. This is reflected
 in our simulations (Fig. \@ref(fig:simdiv)). When we parameterized our power
-analysis by considering a positive value as $p \leq \alpha \mid E_{5A} \geq 
-0.85$ and found that this condition helped drastically reduce the number of 
+analysis by considering a positive value as $\{p \leq \alpha \mid E_{5A} \geq 
+0.85\}$ and found that this condition helped drastically reduce the number of 
 false negatives without significantly contributing to the number of false 
 positives (Fig. \@ref(fig:sim4a), \@ref(fig:sim2a)). Levels of $E_{5A} > 0.85$
 also had low number of allelic states, which indicates that the bimodal
@@ -987,24 +999,29 @@ at or below zero (Fig. \@ref(fig:sim5)). Testing for significance by shuffling
 data at each locus independently rendered all the values of $\bar{r}_d$ 
 significant, regardless of rate of sexual reproduction. Only when we shuffled
 linkage groups were we able to obtain the same level of significance as compared
-to the microsatellite data. This indicates that great care must be taken to 
-ensure that SNP markers are not linked before assessing significance of a value
+to the microsatellite data. This indicates that it is possible to detect clonal
+reproduction with the same power as microsatellite markers even with physically
+linked markers. Great care, however must be taken to ensure that linkage blocks
+are shuffled together or that SNP markers are not linked before assessing significance of a value
 of $\bar{r}_d$. In contrast to the microsatellite data, sample size did not 
 significantly affect power with high levels of clonal reproduction (Fig 
-\@ref(fig:sim7, Tab: \@ref(tab:sim5))). 
+\@ref(fig:sim7), Tab: \@ref(tab:sim5)). 
 
 ### Limitations of This Study
 
 The scope of simulation studies are limited to the parameters used to generate
-the simulations. We do not know, for example, what effect selection or
-population subdivision would have on inference of $\bar{r}_d$. While we were
+the simulations. We do not know, for example, what effect selection, population 
+subdivision, or polyploidy would have on inference of $\bar{r}_d$. While we were
 able to directly compare our populations with even and uneven mutation rates
 because they both represent the exact same populations, we do not know if the
-effect we see is not due to higher average mutation rate. Additionally, because
-of the low number of alleles per locus, there was a higher chance of homoplasy
-in our simulations. This, however was most likely beneficial to our analysis as
-our results show that low allelic diversity can lead to negative $\bar{r}_d$ 
-values, which we have seen in data from purely clonal organisms.
+effect we see is not due to higher average mutation rate, thus further study is
+needed to detect the effect of mutation rate in clonal populations. Our
+simulations were designed with a small number of alleles per locus to better
+reflect microsatellites that would be selected for population genetic study.
+Because of this, there was a higher chance of homoplasy in our simulations.
+This, however was most likely beneficial to our analysis as our results show
+that low allelic diversity can lead to negative $\bar{r}_d$ values, which we
+have seen in data from purely clonal organisms.
 
 <!-- We did not use a correction for multiple tests on the p-values derived for the
 significance on $\bar{r}_d$ because each p-value represents one derived from
