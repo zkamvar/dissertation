@@ -910,10 +910,63 @@ reproduction in a population is at a maximum of 1% sexual reproduction (Fig.
 Knowing a pathogen's mode of reproduction can affect the development of rational
 management strategies. Researchers have used the index of association to provide
 evidence for clonal reproduction in populations with support from permutation
-analysis. 
-additionally important to know how sample size, rate of sexual reproduction,
-mutation rate homogeneity, and clone-correction affect this method's sensitivity
-and specificity.
+analysis. @de2004clonal showed that very little sexual reproduction is required
+for $\bar{r}_d$ to reach values close to zero. We confirmed that the power to
+detect clonal reproduction is greatly diminished after $\sim$ 1% sex in a 
+population. We provide here novel insights into how $\bar{r}_d$ responds to 
+marker type, sample size, mutation rate homogeneity, and clone-correction. We 
+found that the power to detect significant departures of $\bar{r}_d$ from 
+expected under random mating decreases with small sample sizes, and thus also
+decreases with clone-correction.
+
+### Clone Correction Increases False Negatives
+
+While the presence of over-represented genotypes is often an indication of
+clonal reproduction, it does not explicitly rule out sexual reproduction
+[@smith1993how; @tibayrenc1996towards; @taylor1999evolutionary]. This can happen
+in an 'epidemic' population structure where there is a sudden expansion of one
+genotype in an otherwise panmictic population [@smith1993how]. Thus, a common
+recommendation to researchers is to conduct analyses on both clone-corrected and
+uncorrected data [@smith1993how; @mcdonald1997population]. When analyzing
+$\bar{r}_d$, common wisdom says that if the result is significant with and
+without clone-correction, then there is strong evidence for clonal reproduction.
+This technique was used by Goss et al. to support the hypothesis that South
+American populations of the potato late blight pathogen, *Phytophthora
+infestans* were reproducing clonally [-@goss2014irish]. Our findings show that a
+non-significant value does not necessarily indicate the absence of clonal
+reproduction since the power to detect clonal reproduction consistently
+decreases with clone-correction(Fig. \@ref(fig:sim2), \@ref(fig:sim2a)). Our
+results confirm the concerns raised in @tibayrenc1996towards of the increase of 
+false negatives due to clone-correction, further highlighting the fact that a
+failure to reject the null hypothesis of random mating does not mean that the 
+population is randomly mating [@smith1993how; @tibayrenc1996towards]. 
+
+### Allelic Diversity Influences the value of $\bar{r}_d$ in Clonal Populations
+
+Our results largely confirmed the results of @de2004clonal, which showed large
+variances in $\bar{r}_d$ for clonal populations and near-zero values of
+$\bar{r}_d$ at rates of sexual reproduction > 1% (Fig. \@ref(fig:sim1)). A novel
+feature that we found in our results not present in @de2004clonal was the 
+presence of negative values of $\bar{r}_d$. While positive values of $\bar{r}_d$
+are easy to interpret (the observed variance is greater than expected, 
+suggesting non-random mating), negative values are often simply considered to be
+evidence for random mating. We had previously observed significantly (p = 1) 
+negative values of $\bar{r}_d$ of pathogens that are explicitly known to be
+clonal such as the sudden oak death pathogen, *Phytophthora ramorum*
+(@kamvar2015spatial, Supplementary Table S3) and the wheat stripe rust pathogen
+*Puccinia graminis* f.sp. *tritici* (Les Szabo, pers. comm.). 
+
+### Limitations of This Study
+
+We did not use a correction for multiple tests on the p-values derived for the
+significance on $\bar{r}_d$ because each p-value represents one derived from
+an independent study on an independent population as opposed to independent
+variables within a population. Much like we wouldn't perform a multiple tests
+correction on the results of 1,000 NIH studies, we wouldn't perform one on the
+results of 1,000 independently evolved populations. 
+
+### Conclusions
+
 
 Main points:
 
@@ -936,11 +989,3 @@ Design Drawbacks:
  - Homoplasy would be prevalent with the few allelic states used to initialize
    the population.
 
-### Not using multiple tests correction
-
-We did not use a correction for multiple tests on the p-values derived for the
-significance on $\bar{r}_d$ because each p-value represents one derived from
-an independent study on an independent population as opposed to independent
-variables within a population. Much like we wouldn't perform a multiple tests
-correction on the results of 1,000 NIH studies, we wouldn't perform one on the
-results of 1,000 independently evolved populations. 
