@@ -166,7 +166,8 @@ presented by sexual reproduction.
 knitr::include_graphics("figure/introduction/Pinfestans_life.png")
 
 figcap2 <- "Life cycle of the oomycete pathogen, *Phytophthora infestans* on 
-potato [@piepenbring2015infestans]. M! = meiosis, P! = plasmogamy, K! = karyogamy"
+potato [@piepenbring2015infestans]. M! = meiosis, P! = plasmogamy, K! = 
+karyogamy. Accessed from https://goo.gl/XO7TmS"
 figcap2 <- beaverdown::render_caption(caption = figcap2, figname = "fig2", to = TO) -> figscap2
 ```
 
@@ -199,7 +200,8 @@ require its own custom input format and would not necessarily run on all
 operating systems [@excoffier2006computer; @kamvar2014poppr]. The constant
 reformatting of data, and the inability to automate series of analyses made it
 not only challenging to communicate the methods, but also increased the chance
-for error [@excoffier2006computer; @kamvar2014poppr; @goecks2010galaxy].
+for error [@excoffier2006computer; @adamack2014popgenreport; @kamvar2014poppr; 
+@goecks2010galaxy].
 
 Biologists often think about reproducibility in terms of wet lab or bench work.
 Care is taken to ensure that all methods and data are faithfully recorded in a

@@ -32,7 +32,9 @@ cat(beaverdown::iflatex(out))
 
 ## Abstract
 
-TBD...
+The index of association is an often used measure to help support the hypothesis
+of clonal reproduction in populations. It has previously been shown that this
+index shows 
 
 ## Introduction
 

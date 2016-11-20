@@ -1,7 +1,5 @@
 # Conclusions
 
-## Tools of Scientific Inquiry
-
 > *Clearly, a discipline is defined by the questions asked, not the tools used.*
 > 
 > -- @milgroom1997contributions [p. 4]
@@ -58,16 +56,33 @@ anscomb <- beaverdown::render_caption(caption = cap, figname = "fig1", to = TO)
 ansc    <- "A reproduction of 'Anscombe's quartet'"
 ```
 
-If we imagine each data set as a separate population and linear regression as our
-molecular marker, it wouldn't matter what our question was, because there would
-be no hope to detect any differentiation between these populations with the
-marker chosen. 
+If we imagine each data set as a separate population and linear regression as
+our molecular marker, it wouldn't matter what our question was, because there
+would be no hope to detect any differentiation between these populations with
+the marker chosen.
 
 Science moves forward by asking questions about natural phenomena and then
 investigating further the results of these questions, narrowing the scope of the
 succeeding questions to pin down a detailed mechanism that can explain the
 phenomena. The tools provide the observations and results that set the
-context for future questions [@searls2010roots].
+context for future questions [@searls2010roots]. This dissertation presents such
+tools in the form of scientific software, which can enable reproducible research
+in the context of computational science.
+
+> *An article about computational science in a scientific publication is not the
+> scholarship itself, it is merely advertising of the scholarship. The actual
+> scholarship is the complete software development environment and the complete
+> set of instructions which generated the figures.*
+>
+> -- John Buckheit and David Donho paraphrasing John Claerbout [-@buckheit1995wavelab]
+
+@buckheit1995wavelab didn't invent the concept of reproducible research in
+scientific computing, but they did show the computational research community
+that such a concept was possible. The ultimate goal of reproducible research
+lies in the term itself: to ensure that research is produced in a manner such
+that future researchers can reproduce and verify the results 
+[@goecks2010galaxy]. This has been a problem in the past due to varying factors,
+including software [@ioannidis2008repeatability]. The consequences of not 
 
 The development of scientific software does not stand apart from science itself,
 but rather it serves as implementation of scientific theory
@@ -78,33 +93,31 @@ theory [@felsenstein1989phylip; @Agapow_2001; @arnaud2006genclone;
 methods in a way that is more accessible [@goudet1995fstat; @winter2012mmod;
 @bailleul2016rclone; @kamvar2014poppr]. Ultimately, publication and maintenance 
 of scientific software exists to standardize the protocols in which we 
-manipulate analyze our data. 
+manipulate analyze our data, allowing researchers to more efficiently and
+reliably produce answers to their questions. When scientists produce their
+research in an open and reproducible manner, the benefits not only include 
+higher citation counts, but also increased potential for collaboration and data
+reuse [@mckiernan2016open; @wilson2014best; @wilson2016good]. It is thus 
+imperative that the software available not simply exist as a black box from
+which a researcher can produce an answer; it must be useful, well tested,
+extensible, and open.
 
-## Reproducible Research
-
-> *An article about computational science in a scientific publication is not the
-> scholarship itself, it is merely advertising of the scholarship. The actual
-> scholarship is the complete software development environment and the complete
-> set of instructions which generated the figures.*
->
-> -- John Buckheit and David Donho paraphrasing John Claerbout [-@buckheit1995wavelab]
-
-[kamoun2015pubpeer]: https://pubpeer.com/topics/1/877A42B12A198A44306771E0D80AB8
-
-@buckheit1995wavelab didn't invent the concept of reproducible research in
-scientific computing, but they did show the computational research community that
-such a concept was possible.
-
-The ultimate goal of reproducible research lies in the term itself: to ensure that
-research is produced in a manner such that future researchers can reproduce and
-verify the results [@goecks2010galaxy]. This has been a problem in the past due
-to varying factors, including software [@ioannidis2008repeatability].
-
-In terms of population genetics, software suites for analyses proliferated in
-the late 1990's and early 2000's [@excoffier2006computer;
-@adamack2014popgenreport]. The number of formats also proliferated.
-
-Scientific software needs to be usable to be useful. Example in @de2004clonal
-using <span style="font-variant:small-caps;">Multilocus</span> [@Agapow_2001].
-
-The benefits of scientific software are many [@mckiernan2016open].
+We have provided in this dissertation descriptions of the research software,
+*poppr*. Chapters 2 and 3 expounded on the functionalities and benefits of 
+*poppr* in terms of reproducible research, ease of use, and speed. It is 
+important to acknowledge the fact that the progress of this work could not exist
+without open and collaborative software development. Chapter 3 was only possible
+because of the contributions I was able to make to *adegenet* (the package
+*poppr* depends on) during and after the NESCent Population Genetics in R
+Hackathon in 2014 [@kamvar2015novel; @jombart2011adegenet; @paradis2016towards].
+An important aspect of software development is 'eating your own dogfood', that
+is, using your own software the way it was intended [@kamvar2016developing].
+We have used *poppr* in conjunction with the larger ecosystem of R packages to
+give evidence of two introductions of *Phytophthora ramorum* in Curry County, OR
+in a reproducible manner [@kamvar2015spatial; @kamvar2014sudden] and to show
+that the power of $\bar{r}_d$ is affected by both sample size and allelic 
+diversity in diploids. Beyond what has been published in scientific journals, we
+continue to develop poppr so that it holds to standards of scientific software
+development such as the use of rigorous testing, continuous integration, version
+control, community support, and sensible documentation [@wilson2016good;
+@baxter2006scientific; @prliac2012software].
