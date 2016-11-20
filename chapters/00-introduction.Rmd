@@ -213,7 +213,7 @@ research in clonal population genetics in an open manner. When researchers have
 open tools that can be easily shared, they can spend more time asking questions
 and less time formatting data. 
 
-## The Intersection of Plant Pathology, Population Genetics, and Reproducible Research
+## Overview
 
 ```{r, introduction1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1, out.width = "50%"}
 knitr::include_graphics("figure/introduction/dissertation.png")
