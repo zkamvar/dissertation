@@ -961,7 +961,7 @@ population is randomly mating [@smith1993how; @tibayrenc1996towards].
 We proposed to assess uneven mutation rate because we had observed that a
 single, hypervarible locus with 18 alleles  was the driver for most of the
 diversity observed in the 2001 outbreak of *Phytophthora ramorum* in Curry
-County, OR (@kamvar2015spatial, Supplementary Table S4 (\@ref(tab:ramtabS4))).
+County, OR (@kamvar2015spatial, Supplementary Table S4)).
 We hypothesized that the high variability would reduce linkage and thus, reduce
 the power of $\bar{r}_d$ to detect clonal reproduction. In contrast, we observed
 that the opposite happened (Fig. \@ref(fig:sim4), \@ref(fig:simroc)). This also
@@ -979,7 +979,7 @@ suggesting non-random mating), negative values are often simply considered to be
 evidence for random mating. We had previously observed significantly (p = 1) 
 negative values of $\bar{r}_d$ of pathogens that are explicitly known to be
 clonal such as the sudden oak death pathogen, *Phytophthora ramorum*
-(@kamvar2015spatial, Supplementary Table S3 (Fig. \@ref(tab:ramtabS3))) and the wheat stripe rust pathogen
+(@kamvar2015spatial, Supplementary Table S3) and the wheat stripe rust pathogen
 *Puccinia graminis* f.sp. *tritici* (Les Szabo, pers. comm.). A
 common pattern in all of these populations in that they all had values of 
 $E_{5A}$ > 0.9 and, on average, fewer than 4 alleles per locus. This is reflected
