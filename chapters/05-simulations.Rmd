@@ -954,38 +954,60 @@ evidence for random mating. We had previously observed significantly (p = 1)
 negative values of $\bar{r}_d$ of pathogens that are explicitly known to be
 clonal such as the sudden oak death pathogen, *Phytophthora ramorum*
 (@kamvar2015spatial, Supplementary Table S3) and the wheat stripe rust pathogen
-*Puccinia graminis* f.sp. *tritici* (Les Szabo, pers. comm.). 
+*Puccinia graminis* f.sp. *tritici* (Les Szabo, pers. comm.). We observed a
+common pattern in all of these populations in that they all had values of 
+$E_5A$ > 0.9 and an average of fewer than 4 alleles per locus. This is reflected
+in our simulations (Fig. \@ref(fig:simdiv)). When we parameterized our power
+analysis by considering a positive value as $p \leq \alpha \mid E_{5A} \geq 
+0.85$ and found that this condition helped drastically reduce the number of 
+false negatives without significantly contributing to the number of false 
+positives (Fig. \@ref(fig:sim4a), \@ref(fig:sim2a)). Levels of $E_{5A} > 0.85$
+also had low number of allelic states, which indicates that the bimodal
+distribution of $\bar{r}_d$ for clonal populations is driven by allelic 
+diversity. 
+
+### Linkage in SNP Data Increases $\bar{r}_d$ Unilaterally
+
+The results we obtained from SNP data revealed almost no values of $\bar{r}_d$ 
+at or below zero (Fig. \@ref(fig:sim5)). Testing for significance by shuffling
+data at each locus independently rendered all the values of $\bar{r}_d$ 
+significant, regardless of rate of sexual reproduction. Only when we shuffled
+linkage groups were we able to obtain the same level of significance as compared
+to the microsatellite data. This indicates that great care must be taken to 
+ensure that SNP markers are not linked before assessing significance of a value
+of $\bar{r}_d$. In contrast to the microsatellite data, sample size did not 
+significantly affect power with high levels of clonal reproduction (Fig 
+\@ref(fig:sim7, Tab: \@ref(tab:sim5))). 
 
 ### Limitations of This Study
 
-We did not use a correction for multiple tests on the p-values derived for the
+The scope of simulation studies are limited to the parameters used to generate
+the simulations. We do not know, for example, what effect selection or
+population subdivision would have on inference of $\bar{r}_d$. While we were
+able to directly compare our populations with even and uneven mutation rates
+because they both represent the exact same populations, we do not know if the
+effect we see is not due to higher average mutation rate. Additionally, because
+of the low number of alleles per locus, there was a higher chance of homoplasy
+in our simulations. This, however was most likely beneficial to our analysis as
+our results show that low allelic diversity can lead to negative $\bar{r}_d$ 
+values, which we have seen in data from purely clonal organisms.
+
+<!-- We did not use a correction for multiple tests on the p-values derived for the
 significance on $\bar{r}_d$ because each p-value represents one derived from
 an independent study on an independent population as opposed to independent
 variables within a population. Much like we wouldn't perform a multiple tests
 correction on the results of 1,000 NIH studies, we wouldn't perform one on the
-results of 1,000 independently evolved populations. 
+results of 1,000 independently evolved populations.  -->
 
 ### Conclusions
 
-
-Main points:
-
- - Permutation analyses of $\bar{r}_d$ appear to have sufficient power to detect
-   clonal reproduction as long as the rate of sexual reproduction does not reach
-   levels greater than 1%.
- - Power decreases with sample size
- - Clone correction decreases sample size and will decrease power. Interpret the
-   results of clone-correction carefully.
- - A failure to reject the null hypothesis of random mating does not mean that
-   the population is randomly mating [@smith1993how; @tibayrenc1996towards].
- - Ignoring linkage when doing permutation tests will show significant effects
-   even if none exists.
- - It is important not to rely solely on $\bar{r}_d$ to declare a population clonal or sexual. The researcher must understand the biology of the organism. Example in *P. ramorum* [@kamvar2015spatial] and (Les Szabo, Pers. Comm.)
-
-Design Drawbacks:
-
- - Effect of uneven mutation rate might simply be an effect of a higher mutation
-   rate.
- - Homoplasy would be prevalent with the few allelic states used to initialize
-   the population.
+The index of association is a valuable measure for giving support to the
+hypothesis of clonal reproduction in natural populations. We confirm the
+findings of @de2004clonal that $\bar{r}_d$ can provide evidence for at least 99%
+clonal reproduction, but conclude that this inference is dependent on sample 
+size and allelic diversity, thus researchers should exercise caution when
+interpreting results from a clone-corrected data set. We found that this index
+is robust enough to detect the same level of clonal reproduction for SNP data,
+but results from permutation analyses may be misleading if linkage is present
+between markers. 
 
