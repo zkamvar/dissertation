@@ -48,7 +48,7 @@ ggplot(ans, aes(x, y)) +
   theme(strip.background = element_blank()) +
   theme(strip.text = element_text(size = 20, face = "bold"))
 
-cap <- "A reproduction of 'Anscombe's quartet' [@anscombe1973graphs] 
+cap <- "A reproduction of Anscombe's quartet [@anscombe1973graphs] 
 demonstrating different situations in which linear regression would give the 
 same answer."
 
@@ -65,7 +65,7 @@ Science moves forward by asking questions about natural phenomena and then
 investigating further the results of these questions, narrowing the scope of the
 succeeding questions to pin down a detailed mechanism that can explain the
 phenomena. The tools provide the observations and results that set the
-context for future questions [@searls2010roots]. This dissertation presents such
+context for future questions [@searls2010roots]. I've presented such
 tools in the form of scientific software, which can enable reproducible research
 in the context of computational science.
 
@@ -80,9 +80,10 @@ in the context of computational science.
 scientific computing, but they did show the computational research community
 that such a concept was possible. The ultimate goal of reproducible research
 lies in the term itself: to ensure that research is produced in a manner such
-that future researchers can reproduce and verify the results 
-[@goecks2010galaxy]. This has been a problem in the past due to varying factors,
-including software [@ioannidis2008repeatability]. The consequences of not 
+that future researchers can faithfully reproduce and verify the results 
+[@goecks2010galaxy]. Lack of reproducibility has been (and still is) a problem
+due to varying factors, including software and point-and-click user interfaces
+[@ioannidis2008repeatability; @ziemann2016gene]. 
 
 The development of scientific software does not stand apart from science itself,
 but rather it serves as implementation of scientific theory
@@ -117,7 +118,7 @@ give evidence of two introductions of *Phytophthora ramorum* in Curry County, OR
 in a reproducible manner [@kamvar2015spatial; @kamvar2014sudden] and to show
 that the power of $\bar{r}_d$ is affected by both sample size and allelic 
 diversity in diploids. Beyond what has been published in scientific journals, we
-continue to develop poppr so that it holds to standards of scientific software
+continue to develop *poppr* so that it holds to standards of scientific software
 development such as the use of rigorous testing, continuous integration, version
 control, community support, and sensible documentation [@wilson2016good;
 @baxter2006scientific; @prliac2012software].
