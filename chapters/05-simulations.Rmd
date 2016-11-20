@@ -32,9 +32,18 @@ cat(beaverdown::iflatex(out))
 
 ## Abstract
 
-The index of association is an often used measure to help support the hypothesis
-of clonal reproduction in populations. It has previously been shown that this
-index shows 
+The standardized index of association is a measure of multilocus linkage
+disequilibrium that is analogous to a correlation coefficient among loci in a
+population and is often used to give support for the hypothesis of clonal
+reproduction in populations. Previous studies have shown that it decays rapidly
+with increasing rates of sexual reproduction (> 1%) and exhibits high variance
+in populations with strict clonal reproduction. We aim to assess how marker
+choice, sample size, mutation rate, and clone-correction affect inference of
+clonal reproduction with the standardized index of association in diploid
+populations. We simulated populations with microsatellite and SNP markers and
+found that power to detect clonal reproduction decreases with small sample sizes
+and low allelic diversity. This work provides information that is useful for 
+population geneticists analyzing clonal populations.
 
 ## Introduction
 
