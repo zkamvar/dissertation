@@ -29,7 +29,8 @@ output:
 # this YAML header.
 bibliography: ['bib/main_bibliography.bib']
 # Download your specific bibliography database file and refer to it in the line above.
-csl: csl/frontiers.csl
+# csl: csl/frontiers.csl
+csl: csl/apa.csl
 # csl: csl/american-phytopathological-society.csl
 # Download your specific csl file and refer to it in the line above.
 link-citations: yes
