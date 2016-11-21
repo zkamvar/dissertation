@@ -4,31 +4,31 @@
 > 
 > -- @milgroom1997contributions [p. 4]
 
-The above quote by Michael Milgroom and William Fry in 1997 was in reference to
+The above quote by Michael Milgroom and William Fry was in reference to
 the use of molecular markers in molecular biology as compared to population
 genetics. While it is undisputed that questions shape a field of inquiry, the
 notion that tools are not influential in disciplines is misleading. Tools are
 necessary for providing answers to the questions proposed; they are the vehicle
-where by we apply our scientific theory to the unknown world.
+whereby we apply our scientific theory to the unknown world.
 
 A tool, in this sense is any instrument, physical or analytical, that is used to
 collect, measure, manipulate, represent, or analyze data [@gigerenzer1991tools].
 This definition encompasses things like hammers, hand lenses, mass
 spectrometers, maps, axioms, algorithms, gel electrophoresis, equations, etc.
 All of these tools are used within a theoretical framework (e.g. gravity,
-refraction); any observations or results produced with a particular tool is
+refraction); any observations or results produced with a particular tool are
 ultimately tied to the theory employed by the scientist using it (and would thus
 invoke different interpretations under a different theoretical framework)
 [@kuhn1996structure]. If all the assumptions of the theoretical framework are
 met, the tool will produce an observation or result that will help the scientist
-describe the natural phenomena accurately in terms according to theory.
+describe the natural phenomena accurately in terms of the testable theory.
 
 These tools, however, should not simply be seen as a means to an end of
 answering questions. Many tools will produce answers whether or not they are
-correct. A simple example of this concept was demonstrated by Anscombe, showing
-the need for graphical visualization in statistical analysis 
-[-@anscombe1973graphs]. Reproduced in Fig. \@ref(fig:introduction2), four data
-sets are shown fitted with a trendline. Using linear regression, all four data
+correct. A simple example of this concept was demonstrated by [@anscombe1973graphs], showing
+the need for graphical visualization in statistical analysis. Reproduced in Fig. \@ref(fig:introduction2) 
+are four data
+sets showing a fitted trendline. Using linear regression, all four data
 sets produce the exact same result (slope, intercept, variance, correlation).
 Upon visual inspection, their differences are striking.
 
@@ -57,14 +57,14 @@ ansc    <- "A reproduction of 'Anscombe's quartet'"
 ```
 
 If we imagine each data set as a separate population and linear regression as
-our molecular marker, it wouldn't matter what our question was, because there
-would be no hope to detect any differentiation between these populations with
-the marker chosen.
+our tool, it wouldn't matter what our question was, because there
+would be no hope of detecting any differentiation between these populations with
+the tool (e.g. molecular marker) chosen.
 
 Science moves forward by asking questions about natural phenomena and then
-investigating further the results of these questions, narrowing the scope of the
+investigating the results of these questions further, narrowing the scope of the
 succeeding questions to pin down a detailed mechanism that can explain the
-phenomena. The tools provide the observations and results that set the
+phenomena observed. The tools provide the observations and results that set the
 context for future questions [@searls2010roots]. I've presented such
 tools in the form of scientific software, which can enable reproducible research
 in the context of computational science.

@@ -4,8 +4,8 @@ assumptions of traditional population genetic models. The tools necessary for
 performing these analyses existed as a set of unrelated software with 
 non-overlapping capabilities and did not cover all aspects of analysis. This
 meant that researchers not only had to reshape their data into different formats
-for each analysis, but they also had to switch computing platforms, not only
-creating a drain in time, but also increasing the risk of propagating human
+for each analysis, but they also had to switch computing platforms, thus
+creating a drain in time, and increasing the risk of propagating human
 error into the analysis. To address this problem, we created the software
 package *poppr*, written in the R statistical language, available on all
 computing platforms. This package is designed for analysis of clonal, partially

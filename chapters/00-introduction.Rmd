@@ -1,9 +1,7 @@
 # Introduction
 
-## Population Genetics and Clonality
-
 Dobzhansky's famous quote "Nothing in biology makes sense except in the light
-of evolution" has become cliché, but it's hard to find a statement that more elegantly 
+of evolution" has become cliché, but it is hard to find a statement that more elegantly 
 captures the essence of biological study [-@dobzhansky2013nothing]. In a more
 reductionist sense, it is perhaps appropriate to state that nothing in evolution
 makes sense except in the light of mutation; that is to say that mutation in an
@@ -18,6 +16,8 @@ become an established allele. The study of population genetics seeks to
 understand how evolution acts upon these alleles to shape populations as they
 grow, shrink, split, and adapt to their environment. Ultimately, these
 populations are what give rise to species.
+
+## Population Genetics and Clonality
 
 The classical definition of a population is reliant upon the assumption
 that the individuals within the populations are panmictic, that is that they are
