@@ -14,4 +14,4 @@ _bookdown_files/*
 *_book/*json
 _book/figure/*
 _book/dissertation_files/*
-
+_book/dissertation.*

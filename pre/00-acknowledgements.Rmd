@@ -1,1 +1,44 @@
-I would like to acknowledge...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel eros sed mauris porttitor semper nec a orci. Nullam vestibulum mi nec condimentum posuere. Pellentesque eget diam id sapien aliquet ullamcorper. Pellentesque blandit nec lectus ut mollis. Praesent in facilisis justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eget congue leo, sed consequat libero. In rutrum malesuada nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi sollicitudin tortor ut sem facilisis mollis.
+
+A Ph. D. student is nothing without the support of her/his community. For this
+support, I am ever grateful for the Department of Botany and Plant Pathology and
+the USDA ARS Horticultural Crops Research Laboratory for providing me with a
+home for the past 5 years. I must thank my advisor, Niklaus J. Grünwald for
+providing me with the tools and challenges necessary for me to succeed. I thank
+my committee members, Gail Langellotto, Chris Mundt, Michael Blouin, and Joey
+Spatafora for their immense patience and understanding whenever I came to them
+stuck in a well of my own thoughts. I am ever grateful to Jeff Chang, Jerry 
+Weiland, and Walt Mahaffee for long and winding conversations on the nature of
+graduate school and science. The Hansen lab graciously hosted me and my 
+*Phytophthora* samples during the October 2013 government shutdown. Paul Reeser,
+Wendy Sutton, Laura Sims, and Everett Hansen taught me a lot about the biology
+of *Phytophthora syringae*. I also would like to thank Val Fieland, Meg Larsen,
+Caroline Press, and Karan Fairchild for teaching me to culture *Phytophthora*, 
+and keeping the Grünwald lab running smoothly despite my best efforts to
+introduce chaos. I could not have made it through graduate school without the
+patience and support of Sydney E. Everhart and Brian J. Knaus, who were always
+willing to sit down and talk about everything from population genetic theory to
+writing style to life in general. 
+
+
+...Many people to thank here....
+
+
+I need to thank Robin Choudhury, Brian Knaus, and Danielle Tom, for taking time
+to be sounding boards for the structure of the introduction and conclusion of
+this dissertation.
+
+
+I must additionally acknowledge my funding for my Ph. D.: US Department of 
+Agriculture (USDA) Agricultural Research Service Grant 5358-22000-039-00D, USDA
+APHIS, the USDA-ARS Floriculture Nursery Initiative, the Oregon Department of
+Agriculture/Oregon Association of Nurseries (ODA-OAN), the USDA-Forest
+Service Forest Health Monitoring Program, the Department of Botany and Plant
+Pathology for providing me with two terms of valuable teaching experience, as
+well as a generous travel grant from the Anita Summers foundataion. The Oregon
+State University Graduate School provided me with a $500 travel grant and
+NESCent provided me with airfare to attend the Population Genetics in R
+Hackathon in Charlotte, NC, which helped me get in contact with developers of
+*adegenet*, which helped immeasurably to the improvement of *poppr* and Chapter
+3. Finally, I must acknowledge the Botany and Plant Pathology Graduate Student
+Association and the American Phytopathological Society Foundation for providing
+me with funding to attend the 2016 APS Annual Meeting in Tampa, FL.

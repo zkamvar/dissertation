@@ -3,7 +3,7 @@
 # Required Information --------------------------------------------------------
 #
 doctype: 'Dissertation' 
-title: 'Development of Tools for Genetic Analysis of Clonal Populations and Applications'
+title: 'Development and Application of Tools for Genetic Analysis of Clonal Populations'
 author: 'Zhian N. Kamvar'
 date: 'December 6, 2016'
 commencement: '2017'    
@@ -21,7 +21,7 @@ site: bookdown::bookdown_site
 output: 
   # beaverdown::thesis_pdf: default
   beaverdown::thesis_gitbook: default
-#  beaverdown::thesis_word: default
+  # beaverdown::thesis_word: default
 #  beaverdown::thesis_epub: default
 # If you are creating a PDF you'll need to write your preliminary content here 
 # or use code similar to the line below for the files.  If you are producing in 
@@ -29,14 +29,15 @@ output:
 # this YAML header.
 bibliography: ['bib/main_bibliography.bib']
 # Download your specific bibliography database file and refer to it in the line above.
-csl: csl/frontiers.csl
+# csl: csl/frontiers.csl
+csl: csl/apa.csl
 # csl: csl/american-phytopathological-society.csl
 # Download your specific csl file and refer to it in the line above.
 link-citations: yes
 # For citations at the end of every chapter in the gitbook and linked citations
 # in the PDF document.
-header-includes:
-- \renewcommand{\familydefault}{\sfdefault}
+# header-includes:
+# - \renewcommand{\familydefault}{\sfdefault}
 #
 # Pretext sections ------------------------------------------------------------
 #
@@ -45,12 +46,13 @@ abstract: >
 # If you'd rather include the preliminary content in files instead of inline
 # like below, use a command like that for the abstract above.  Note that a tab is 
 # needed on the line after the >.
-acknowledgements: >
+acknowledgements: |
   `r if(knitr:::is_latex_output()) beaverdown::inc("pre/00-acknowledgements.Rmd")`
-contributors: > 
+contributors: | 
   `r if(knitr:::is_latex_output()) beaverdown::inc("pre/00-contributors.Rmd")`
-dedication: >
-  This dissertation is for my grandfather, Franklin R. Hepner and for my mother, Jane H. Kamvar.
+dedication: |
+  This dissertation is dedicated to my mother, Jane H. Kamvar and the memory of
+  my grandfather, Franklin R. Hepner. 
 # preface: >  
 #  Uncomment the above to include a preface. Again, this can be rendered much
 #  like the files above.

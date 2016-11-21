@@ -424,7 +424,7 @@ github link below). Graphs and figures were created using the R packages
 *ggplot2, ape, igraph, ggmap,* and *poppr* [@wickham2009ggplot2;
 @csardi2006igraph; @paradis2004ape; @khale2013ggmap; @kamvar2014poppr]. 
 Within-locus allelic diversity was analyzed across and within years and regions
-using the function `locus_table()` from the R package *poppr* (Table \@ref(ramtabS1))
+using the function `locus_table()` from the R package *poppr* (Table \@ref(tab:ramtabS1))
 [@kamvar2014poppr]. To address the temporal and spatial aspects of the data,
 populations were analyzed both by year isolated and watershed region (Table
 \@ref(tab:ramorum1); Fig. \@ref(fig:ramorum1)). Watershed regions were drawn
@@ -571,7 +571,7 @@ genotypes were connected to their immediate neighbors by a genetic distance of
 0.05 or the equivalent of one mutational step across 5 diploid loci.
 
 
-```{r, ramorum3, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3}
+```{r, ramorum3, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "75%"}
 knitr::include_graphics("figure/phytopathology/figure_3.png")
 cap <- "Minimum spanning network based on Bruvo's genetic distance
 for microsatellite markers for *P. ramorum* populations. Nodes (circles)
