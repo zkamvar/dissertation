@@ -6,26 +6,78 @@ home for the past 5 years. I must thank my advisor, Niklaus J. Grünwald for
 providing me with the tools and challenges necessary for me to succeed. I thank
 my committee members, Gail Langellotto, Chris Mundt, Michael Blouin, and Joey
 Spatafora for their immense patience and understanding whenever I came to them
-stuck in a well of my own thoughts. I am ever grateful to Jeff Chang, Jerry 
-Weiland, and Walt Mahaffee for long and winding conversations on the nature of
-graduate school and science. The Hansen lab graciously hosted me and my 
-*Phytophthora* samples during the October 2013 government shutdown. Paul Reeser,
-Wendy Sutton, Laura Sims, and Everett Hansen taught me a lot about the biology
-of *Phytophthora syringae*. I also would like to thank Val Fieland, Meg Larsen,
-Caroline Press, and Karan Fairchild for teaching me to culture *Phytophthora*, 
-and keeping the Grünwald lab running smoothly despite my best efforts to
-introduce chaos. I could not have made it through graduate school without the
-patience and support of Sydney E. Everhart and Brian J. Knaus, who were always
-willing to sit down and talk about everything from population genetic theory to
-writing style to life in general. 
+stuck in a well of my own thoughts. I am ever grateful to Joyce Loper, Brenda
+McComb, Jeff Chang, Jerry Weiland, and Walt Mahaffee for long and winding
+conversations on the nature of graduate school and science. The Hansen lab
+graciously hosted me and my *Phytophthora* samples during the October 2013
+government shutdown. Paul Reeser, Wendy Sutton, Sarah Navarro, Laura Sims, and
+Everett Hansen taught me a lot about the biology of *Phytophthora*. I also would
+like to thank Val Fieland, Meg Larsen, Caroline Press, and Karan Fairchild for
+teaching me to culture *Phytophthora*, and keeping the Grünwald lab running
+smoothly despite my best efforts to introduce chaos. I also wish to thank Dianne
+Simpson, Carleen Nutt, and Blaine Baker for providing a sanctuary of sarcastic
+jokes and for keeping BPP together. I also want to thank my wonderful
+undergraduate mentees, Ciera Gray and Jonah Brooks. It was a wonderful
+opportunity to get to see both of you grow and apply your skills.
 
 
-...Many people to thank here....
+I could not have made it through graduate school without the patience and
+support of Sydney E. Everhart and Brian J. Knaus, who were always willing to sit
+down and talk about everything from population genetic theory, writing style, to
+life in general. These two were responsible for guiding me through much of the
+research and writing before it ever went to my advisor. Most importantly, Sydney
+and Brian gave me encouragement even if I was being down on myself.
 
 
-I need to thank Robin Choudhury, Brian Knaus, and Danielle Tom, for taking time
-to be sounding boards for the structure of the introduction and conclusion of
-this dissertation.
+I must also thank all the graduate students for being such a
+strong community for all of us to debate, celebrate, and commiserate. I
+especially need to thank (in no particular order) M. Quamar Salih, J. Caity
+Smyth, Hank Raizen, Sarah Navarro, Joey Hulbert, Top Jimmy Klick, Lorena Rangel,
+Rachel Bomberger, Lindsey Thiessen, Javier F. Tabima R., Alija Bajro Mujic
+(word), Christina Hagerty, Hannah Rivedal, Kat Sweeny, Kevin Weitemier, Trang
+Dang, Danielle Tom, Shankar "Shanks" Shakya, Zach S.L. Foster, Alisha Owensby
+Quandt, Chris Hedstrom, Dani Lightle, Derek Johnson, Thomas Stokely, Tyler
+Schappe (for endless Simpsons quotes), Kristen Finch, Brian Atkinson, Phil
+Schapker, Mara Friddle, Jeremy Hoffman, Braden Elliot, Biz Stamm, Chris
+Benemann, Daniel Henry Farber, John Yeo, Alfredo Diaz, Pat DiBello, Megan
+O'Malley, Gray Rozabach, Nash Irongay, Sam Colby, and Lea Condon. All of these
+people and more have contributed to my well being in one way or another and I
+can't possibly thank them enough for it. I also need to thank everyone at the
+Coalition of Graduate Employees who taught me the strength of community,
+especially, but not limited to, Ashley Bromley, (K)Sean McGregor, Béatrice
+Moissinac, Kris Osterloh, Chris Mihiar, Stephanie Parreira, Thomas Morrill,
+Vance Almquist, Clint Mattox, and Dixie Daniels.
+
+
+Special thanks goes to Joseph Michael Hulbert. Together with his drive and
+ambition, we created the radio show Inspiration Dissemination which has to date
+interviewed over 150 graduate students from Oregon State University. This show
+has provided a valuable outlet for me and it would not be possible without the
+undying dedication from Joey. In turn, I would like to thank Matthew Spence
+McConnell for not only picking up the torch from Joey, but also for continuing
+to improve the show and attract a wider range of graduate students to be
+featured. I am additionally thankful for the hosts who will take the show to a
+glorious future, Kristen Finch, Adrian Gallo, Steve Friedman, Mackenzie Smith,
+and Lillie Padgitt-Cobb. I need to thank all of the guests who have come on the
+show and told your stories. Lastly, I need to thank all of the people at KBVR
+who have supported the show throughout the years, especially: Kurt Hagan, Jodie
+Davaz, Matt Walton, Rose Kearsey, Anthony Heatherly, and Jack Kemp. Radio has
+always been an escape for me and I'm thankful for the people who helped me be a
+part of it. 
+
+
+For many, the writing of the introduction and conclusion to a dissertation is
+one of the most difficult tasks. I want to thank Robin Choudhury, Brian Knaus,
+Danielle Tom, and Nik Grünwald for taking time to be sounding boards for the
+structure of the introduction and conclusion of this dissertation.
+
+
+Finally, I need to thank my family for their enduring patience; my mother, Jane
+H. Kamvar, my sister Margo Cartwright, and my brother Rostam Kamvar. The most
+thanks must of course go to my wonderful spouse, Jimin Im Kamvar. Without her, 
+my life would have no color or balance. She was the only one who could keep me
+going when all seemed hopeless. 
+
 
 
 I must additionally acknowledge my funding for my Ph. D.: US Department of 
