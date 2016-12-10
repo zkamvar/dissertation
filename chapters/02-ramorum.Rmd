@@ -466,10 +466,8 @@ generated using the R packages *igraph* and *poppr* [@csardi2006igraph;
 
 If the epidemic had a single origin, a correlation between genetic and
 geographic distance would be expected as populations acquire mutations over time
-and clonally diverge regardless of rates of spread. Divergence is affected by
-rates and distance of spread where long-distance dispersal or low rates of
-mutation would lead to less divergence and thus lower correlations between
-genetic and geographic distances. This was tested by performing Mantel tests
+and clonally diverge regardless of rates of spread. 
+This was tested by performing Mantel tests
 across all hierarchical levels in the data set utilizing the function
 `mantel.randtest()` in the R package *ade4* between Bruvo's distance as
 described above and Euclidean distances between geographic coordinates
