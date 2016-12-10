@@ -7,7 +7,7 @@ providing me with the tools and challenges necessary for me to succeed. I thank
 my committee members, Gail Langellotto, Chris Mundt, Michael Blouin, and Joey
 Spatafora for their immense patience and understanding whenever I came to them
 stuck in a well of my own thoughts. I am ever grateful to Joyce Loper, Brenda
-McComb, Jeff Chang, Jerry Weiland, and Walt Mahaffee for long and winding
+Shaffer, Jeff Chang, Jerry Weiland, and Walt Mahaffee for long and winding
 conversations on the nature of graduate school and science. The Hansen lab
 graciously hosted me and my *Phytophthora* samples during the October 2013
 government shutdown. Paul Reeser, Wendy Sutton, Sarah Navarro, Laura Sims, and
@@ -29,24 +29,24 @@ research and writing before it ever went to my advisor. Most importantly, Sydney
 and Brian gave me encouragement even if I was being down on myself.
 
 
-I must also thank all the graduate students for being such a
-strong community for all of us to debate, celebrate, and commiserate. I
-especially need to thank (in no particular order) M. Quamar Salih, J. Caity
-Smyth, Hank Raizen, Sarah Navarro, Joey Hulbert, Top Jimmy Klick, Lorena Rangel,
-Rachel Bomberger, Lindsey Thiessen, Javier F. Tabima R., Alija Bajro Mujic
-(word), Christina Hagerty, Hannah Rivedal, Kat Sweeny, Kevin Weitemier, Trang
-Dang, Danielle Tom, Shankar "Shanks" Shakya, Zach S.L. Foster, Alisha Owensby
-Quandt, Chris Hedstrom, Dani Lightle, Derek Johnson, Thomas Stokely, Tyler
-Schappe (for endless Simpsons quotes), Kristen Finch, Brian Atkinson, Phil
-Schapker, Mara Friddle, Jeremy Hoffman, Braden Elliot, Biz Stamm, Chris
-Benemann, Daniel Henry Farber, John Yeo, Alfredo Diaz, Pat DiBello, Megan
-O'Malley, Gray Rozabach, Nash Irongay, Sam Colby, and Lea Condon. All of these
-people and more have contributed to my well being in one way or another and I
-can't possibly thank them enough for it. I also need to thank everyone at the
-Coalition of Graduate Employees who taught me the strength of community,
-especially, but not limited to, Ashley Bromley, (K)Sean McGregor, Béatrice
-Moissinac, Kris Osterloh, Chris Mihiar, Stephanie Parreira, Thomas Morrill,
-Vance Almquist, Clint Mattox, and Dixie Daniels.
+I must also thank all the graduate students for being such a strong community
+for all of us to debate, celebrate, and commiserate. I especially need to thank
+(in no particular order) M. Quamar Salih, J. Caity Smyth, Hank Raizen, Sarah
+Navarro, Joey Hulbert, Top Jimmy Klick, Lorena Rangel, Rachel Bomberger, Lindsey
+Thiessen, Javier F. Tabima R., Alija Bajro Mujic (word), Christina Hagerty,
+Hannah Rivedal, Kat Sweeny, Kevin Weitemier, Trang Dang, Danielle Tom, Shankar
+"Shanks" Shakya, Zach S.L. Foster, Alisha Owensby Quandt, Chris Hedstrom, Dani
+Lightle, Derek Johnson, Thomas Stokely, Tyler Schappe (for endless Simpsons
+quotes), Kristen Finch, Brian Atkinson, Phil Schapker, Mara Friddle, Jeremy
+Hoffman, Braden Elliot, Biz Stamm, Chris Benemann, Daniel Henry Farber, John
+Yeo, Alfredo Diaz, Pat DiBello, Megan O'Malley, Gray Rozabach, Nash Irongay, Sam
+Colby, Lea Condon, Dabao Lu, and Pat Bennett. All of these people and more have
+contributed to my well being in one way or another and I can't possibly thank
+them enough for it. I also need to thank everyone at the Coalition of Graduate
+Employees who taught me the strength of community, especially, but not limited
+to, Ashley Bromley, (K)Sean McGregor, Béatrice Moissinac, Kris Osterloh, Chris
+Mihiar, Stephanie Parreira, Thomas Morrill, Vance Almquist, Clint Mattox, and
+Dixie Daniels.
 
 
 Special thanks goes to Joseph Michael Hulbert. Together with his drive and
@@ -58,7 +58,7 @@ McConnell for not only picking up the torch from Joey, but also for continuing
 to improve the show and attract a wider range of graduate students to be
 featured. I am additionally thankful for the hosts who will take the show to a
 glorious future, Kristen Finch, Adrian Gallo, Steve Friedman, Mackenzie Smith,
-and Lillie Padgitt-Cobb. I need to thank all of the guests who have come on the
+and Lillie Padgitt-Cobb. I want to thank all of the guests who have come on the
 show and told your stories. Lastly, I need to thank all of the people at KBVR
 who have supported the show throughout the years, especially: Kurt Hagan, Jodie
 Davaz, Matt Walton, Rose Kearsey, Anthony Heatherly, and Jack Kemp. Radio has
@@ -89,8 +89,9 @@ Pathology for providing me with two terms of valuable teaching experience, as
 well as a generous travel grant from the Anita Summers foundataion. The Oregon
 State University Graduate School provided me with a $500 travel grant and
 NESCent provided me with airfare to attend the Population Genetics in R
-Hackathon in Charlotte, NC, which helped me get in contact with developers of
-*adegenet*, which helped immeasurably to the improvement of *poppr* and Chapter
-3. Finally, I must acknowledge the Botany and Plant Pathology Graduate Student
-Association and the American Phytopathological Society Foundation for providing
-me with funding to attend the 2016 APS Annual Meeting in Tampa, FL.
+Hackathon in Charlotte, NC. This helped me get in contact with Thibaut Jombart,
+the maintainer of *adegenet*, allowing me to contribute significant
+improvements, which helped immeasurably to the improvement of *poppr* and
+Chapter 3. Finally, I must acknowledge the Botany and Plant Pathology Graduate
+Student Association and the American Phytopathological Society Foundation for
+providing me with funding to attend the 2016 APS Annual Meeting in Tampa, FL.
