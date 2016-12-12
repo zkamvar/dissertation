@@ -147,11 +147,19 @@ random permutation tests. These tests effectively create unlinked populations by
 shuffling individuals at each locus, independently and re-calculating $I_A$ and
 $\bar{r}_d$ [@smith1993how; @Agapow_2001; @haubold1998detecting]. An upper 
 one-sided test of significance is then used to see if the observed statistic is
-greater than the observed distribution. While significance testing is available
-in <span style="font-variant:small-caps;">Multilocus</span> in the form of
-random permutations, it is computationally expensive, and can only take one data
-set at a time [@Agapow_2001; @kamvar2014poppr]. As a result, power analysis of
-$\bar{r}_d$ to detect clonal reproduction has not yet been performed
+greater than the observed distribution. 
+
+Standard practice for analyzing microbial populations is to perform this test on
+both the whole data set (wd) and clone-corrected data (cc), where each
+multilocus genotype is represented only once per population to avoid signatures
+of linkage that arise from re-sampling the same individual [@goss2014irish;
+@milgroom1996recombination; @mcdonald1997population]. If the p-value for
+$\bar{r}_d$ is significant after clone-correction, then the population is
+expected to be clonal. While significance testing is available in 
+<span style="font-variant:small- caps;">Multilocus</span> in the form of random
+permutations, it is computationally expensive, and can only take one data set at
+a time [@Agapow_2001; @kamvar2014poppr]. As a result, power analysis of
+$\bar{r}_d$ to detect clonal reproduction with and without clone-correction has not yet been performed
 [@de2004clonal].
 
 In the years since the studies conducted by @de2004clonal and
@@ -279,14 +287,10 @@ function [@kamvar2015poppr2supp] at rates of 1%, 5%, and 10% each.
 Permutation analysis of the index of association is commonly used as to
 calculate statistical support for detecting non-random mating. If the observed
 value of $\bar{r}_d$ is greater than 95% of the results from the permutations,
-then the null hypothesis of linkage equilibrium is rejected. Standard practice
-for analyzing microbial populations is to perform this test on both the whole
-data set (wd) and clone-corrected data (cc), where each multilocus genotype is
-represented only once per population to avoid signatures of linkage that arise
-from re-sampling the same individual [@goss2014irish; 
-@milgroom1996recombination; @mcdonald1997population]. If the p-value for
-$\bar{r}_d$ is significant after clone-correction, then the population is
-expected to be clonal.
+then the null hypothesis of linkage equilibrium is rejected. The power or
+sensitivity of this test can be seen as the fraction of significant results in
+within a set of simulation parameters when the rate of sexual reproduction is <
+1.
 
 The Receiver Operating Characteristic (ROC) curve is a statistical method of
 assessing the balance between sensitivity and specificity of a diagnostic method
