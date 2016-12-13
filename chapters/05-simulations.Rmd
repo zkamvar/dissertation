@@ -225,8 +225,9 @@ for population genetic studies to avoid statistical noise. Before mating,
 mutations occurred at each locus at a rate of 1e-5 mutations/generation with the
 exception of the first locus, at which the mutation rate was set to 1e-3.
 The mutation rate of 1e-5 was selected as this was previously used in 
-@de2004clonal. All mutations were applied in a stepwise manner using the
-`StepwiseMutator()` operator in simuPOP.
+@de2004clonal and is close to the estimated recombination rate of *Saccharomyces 
+cerevisiae* microsatellite loci [@lynch2008genome]. All mutations were applied
+in a stepwise manner using the `StepwiseMutator()` operator in simuPOP.
 
 ### Simulating SNP Loci
 
