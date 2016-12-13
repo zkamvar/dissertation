@@ -769,8 +769,16 @@ two different hierarchies]{",
 
 
 
-```{r, ramfig4, echo = FALSE, fig.cap = figcap4, fig.scap = figscap4}
-knitr::include_graphics("figure/phytopathology/figure_4.png")
+```{r, ramfig4, echo = FALSE, fig.cap = figcap4, fig.scap = figscap4, fig.width = 5, fig.height = 5}
+# knitr::include_graphics("figure/phytopathology/figure_4.png")
+library("poppr")
+data("Pram")
+for2nur.dapc <- dapc(Pram, n.pca = 20, n.da = 8)
+scatter(for2nur.dapc, col = other(Pram)$comparePal, cex = 2, legend = TRUE, clabel = FALSE,
+        posi.leg = "bottomleft", scree.pca = TRUE, posi.pca = "topright",
+        posi.da = "topleft", cleg = 0.75, xax = 1, yax = 2, inset.solid = 1,
+        ratio.pca = 0.2, ratio.da = 0.2)
+
 cap <- "Scatterplot from DAPC of the first two principal components
 discriminating *P. ramorum* populations by regions. Points represent
 individual observations. Colors and lines represent population
@@ -1059,8 +1067,17 @@ utilized by two labs from 2001 to 2014."
 
 ```
 
-```{r, ramS2, fig.cap = S2cap, fig.scap = S2scap, echo = FALSE}
-knitr::include_graphics("figure/phytopathology/figureS2.png")
+```{r, ramS2, fig.cap = S2cap, fig.scap = S2scap, echo = FALSE, fig.width = 4, fig.height = 3, fig.keep = "last"}
+# knitr::include_graphics("figure/phytopathology/figureS2.png")
+library("poppr")
+library("ggplot2")
+data("Pram")
+genotype_curve(Pram[pop = -c(1:2)], sample = 999, quiet = TRUE, thresh = 0.9)
+p <- last_plot()
+p + 
+  theme_classic() + 
+  ggtitle("Genotype accumulation curve\nfor forest isolates") + 
+  theme(plot.title = element_text(hjust = 0.5))
 
 cap <- "Genotype accumulation curve for OR forest *P. ramorum*
 isolates. The vertical axis denotes the number of observed MLGs, from 0
@@ -1092,8 +1109,26 @@ S3scap <- beaverdown::render_caption(caption = scap, figname = "figS3", to = TO)
 
 ```
 
-```{r, ramS4, fig.cap = S4cap, fig.scap = S4scap, echo = FALSE}
-knitr::include_graphics("figure/phytopathology/figureS4.png")
+```{r, ramS4, fig.cap = S4cap, fig.scap = S4scap, echo = FALSE, fig.width = 6.6, fig.height = 3.3}
+# knitr::include_graphics("figure/phytopathology/figureS4.png")
+library("poppr")
+data("Pram")
+z2.dapc <- dapc(Pram[pop = -c(1:2)], n.pca = 12, n.da = 6)
+loadingplot(z2.dapc$var.contr, axis = 1)
+
+cap <- "Loading plot from DAPC of *P. ramorum from* forest
+populations showing the contribution of alleles to the first DAPC
+eigenvalue separating Hunter Creek isolates from all other regions."
+
+
+S4cap <- beaverdown::render_caption(caption = cap, figname = "figS4", to = TO)
+S4scap <- S4cap
+
+
+```
+
+```{r, ramS5, fig.cap = S5cap, fig.scap = S5scap, echo = FALSE}
+knitr::include_graphics("figure/phytopathology/figureS5.png")
 
 cap <- "Fractions of posterior population assignments from DAPC
 clustering of *P. ramorum* isolates from forest populations. The
@@ -1103,21 +1138,9 @@ Shape indicates presence or absence of nursery populations in the DAPC."
 scap <- "Fractions of posterior population assignments from DAPC
 clustering of *P. ramorum* isolates from forest populations."
 
-S4cap <- beaverdown::render_caption(caption = cap, figname = "figS4", to = TO)
-S4scap <- beaverdown::render_caption(caption = scap, figname = "figS4", to = TO)
-
-
-```
-
-```{r, ramS5, fig.cap = S5cap, fig.scap = S5scap, echo = FALSE}
-knitr::include_graphics("figure/phytopathology/figureS5.png")
-
-cap <- "Loading plot from DAPC of *P. ramorum from* forest
-populations showing the contribution of alleles to the first DAPC
-eigenvalue separating Hunter Creek isolates from all other regions."
 
 S5cap <- beaverdown::render_caption(caption = cap, figname = "figS5", to = TO)
-S5scap <- S5cap
+S5scap <- beaverdown::render_caption(caption = scap, figname = "figS5", to = TO)
 
 ```
 
