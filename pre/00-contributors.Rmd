@@ -23,7 +23,7 @@ of the paper.
 
 
 Zhian N. Kamvar and Jonah C. Brooks wrote and tested the code. Zhian N. Kamvar
-and Niklaus J. Grünwald conceived, discussed, implications, and wrote the
+and Niklaus J. Grünwald conceived, discussed implications, and wrote the
 manuscript. Niklaus J. Grünwald coördinated the collaborative effort.
 
 
@@ -46,6 +46,6 @@ reagents/materials/analysis tools, and wrote the paper.
 #### Chapter 5 {-}
 
 
-Zhian N. Kamvar designed the simulations and analyses, interpreted the data, and
-wrote the manuscript. Niklaus J. Grünwald conceived the study, analyzed the data
-and wrote the manuscript.
+Zhian N. Kamvar designed the simulations and analyses, analyzed the data, 
+interpreted the data, and wrote the manuscript. Niklaus J. Grünwald conceived
+the study and reviewed drafts of the manuscript.

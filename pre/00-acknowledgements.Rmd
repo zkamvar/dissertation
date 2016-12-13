@@ -17,7 +17,7 @@ teaching me to culture *Phytophthora*, and keeping the Grünwald lab running
 smoothly despite my best efforts to introduce chaos. I also wish to thank Dianne
 Simpson, Carleen Nutt, and Blaine Baker for providing a sanctuary of sarcastic
 jokes and for keeping BPP together. I also want to thank my wonderful
-undergraduate mentees, Ciera Gray and Jonah Brooks. It was a wonderful
+undergraduate mentees, Ciera Gray and Jonah Brooks. It was a fantastic
 opportunity to get to see both of you grow and apply your skills.
 
 
@@ -28,8 +28,15 @@ life in general. These two were responsible for guiding me through much of the
 research and writing before it ever went to my advisor. Most importantly, Sydney
 and Brian gave me encouragement even if I was being down on myself.
 
+My work absolutely could not have been done without the support of the wider R
+and open source community. Without open codebases, *poppr* would have broken a
+long time ago. I wish to thank Thibaut Jombart for always being open and 
+accepting of my suggestions for improvements to *adegenet*, which in turn, 
+improved *poppr*. Thanks also goes to C. Titus Brown for helping me with 
+questions I had about the nature of open science and reproducible research.
 
-I must also thank all the graduate students for being such a strong community
+
+I also thank all the graduate students for being such a strong community
 for all of us to debate, celebrate, and commiserate. I especially need to thank
 (in no particular order) M. Quamar Salih, J. Caity Smyth, Hank Raizen, Sarah
 Navarro, Joey Hulbert, Top Jimmy Klick, Lorena Rangel, Rachel Bomberger, Lindsey
