@@ -396,7 +396,12 @@ the observed negative values of $\bar{r}_d$ that result in a p-value of 1. At p
 <= 0.01, we observe a false positive rate of 1.5% in the worst case scenario.
 
 ```{r sim1, echo = FALSE, fig.cap = figcap1, fig.scap = figscap1}
-knitr::include_graphics("figure/simulations/rd_sexrate.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/rd_sexrate.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/rd_sexrate.png")
+}
+
 cap <- "Effect of rate of sexual reproduction, sample size, mutation rate, and
 clone-correction on $\\bar{r}_d$ for microsatellite data. Violin plots represent
 data sets simulated with even and uneven mutation rates over 20 and 21 loci,
@@ -414,7 +419,12 @@ figscap1 <- beaverdown::render_caption(caption = scap, figname = "fig1s", to = T
 ```
 
 ```{r simdiv, echo = FALSE, fig.cap = figcapdiv, fig.scap = figscapdiv}
-knitr::include_graphics("figure/simulations/diversity_stats.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/diversity_stats.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/diversity_stats.png")
+}
+
 cap <- "Effect rate of sexual reproduction and sample size on genotypic and
 allelic diversity for microsatellite data. Genotypic diversity: 
 H = Shannon-Wiener index, $E_5$ = evenness, G = Stoddart and Taylor's index.
@@ -438,7 +448,12 @@ cat(beaverdown::iflatex(out))
 ```
 
 ```{r sim4, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
-knitr::include_graphics("figure/simulations/ssr_power.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/ssr_power.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/ssr_power.png")
+}
+
 figcap3 <- "Effect of rate of sexual reproduction, sample size, mutation rate,
 and clone-correction on the power of permutation analysis for microsatellite
 data. Power (true positive rate) is on the vertical axis. Values are shown for p
@@ -451,7 +466,12 @@ data."
 ```
 
 ```{r simroc, echo = FALSE, fig.cap = figcaproc, fig.scap = figscaproc}
-knitr::include_graphics("figure/simulations/ROC_Curve.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/ROC_Curve.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/ROC_Curve.png")
+}
+
 figcaproc <- "Effect of rate of sexual reproduction, sample size, mutation
 rate, clone-correction, and $E_{5A}$ augmentation on ROC analysis of 
 $\\bar{r}_d$. Rate of sexual reproduction arranged in rows. Clone corrected (cc)
@@ -493,7 +513,12 @@ size. Only at sex rates of 0.1% and 0.05% do we see significant effects across
 all interactions.
 
 ```{r sim2, echo = FALSE, fig.cap = figcap2, fig.scap = figscap2}
-knitr::include_graphics("figure/simulations/AURC_box_plot.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/AURC_box_plot.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/AURC_box_plot.png")
+}
+
 figcap2 <- "Effect of rate of sexual reproduction, sample size, mutation rate,
 and clone-correction on area under the ROC curve. Box plots showing the
 distribution of the AURC for each independent seed. Boxes span the interquartile
@@ -516,7 +541,12 @@ cat(beaverdown::iflatex(out))
 
 
 ```{r sim3, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
-knitr::include_graphics("figure/simulations/AURC_ANOVA.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/AURC_ANOVA.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/AURC_ANOVA.png")
+}
+
 figcap3 <- "P-values from ANOVA analysis assessing AURC distributions with the 
 model $AURC \\sim Clone Correction \\times Sample Size \\times Mutation Rate$
 for each rate of sexual reproduction, separately. P-values are represented both
@@ -641,7 +671,12 @@ significant effect found was that of sample size (Fig. \@ref(fig:sim3a), Tab.
 interactions were significant for 0.1% and 0.05% sex).
 
 ```{r sim4a, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "100%"}
-knitr::include_graphics("figure/simulations/ssr_power_ea.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/ssr_power_ea.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/ssr_power_ea.png")
+}
+
 figcap3 <- "Effect of rate of sexual reproduction, sample size, mutation rate,
 and clone-correction on the power of permutation analysis for microsatellite
 data taking into account allelic evenness. Plots are arranged in a grid with
@@ -654,7 +689,12 @@ data taking into account allelic evenness."
 ```
 
 ```{r sim2a, echo = FALSE, fig.cap = figcap2a, fig.scap = figscap2a}
-knitr::include_graphics("figure/simulations/AURC_box_plot_ea.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/AURC_box_plot_ea.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/AURC_box_plot_ea.png")
+}
+
 figcap2a <- "Effect of rate of sexual reproduction, sample size, mutation rate,
 and clone-correction on area under the ROC curve taking into account allelic
 evenness. Box plots showing the distribution of the area under the ROC Curve for
@@ -669,7 +709,12 @@ evenness."
 ```
 
 ```{r sim3a, echo = FALSE, fig.cap = figcap3a, fig.scap = figscap3a, out.width = "100%"}
-knitr::include_graphics("figure/simulations/AURC_ANOVA_ea.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/AURC_ANOVA_ea.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/AURC_ANOVA_ea.png")
+}
+
 figcap3a <- "P-values from ANOVA analysis on AURC distributions with the model
 $AURC \\sim Clone Correction \\times Sample Size \\times Mutation Rate$ for each
 rate of sexual reproduction separately taking into account allelic evenness.
@@ -805,7 +850,12 @@ the distributions of ROC over the 24 seeds showed significant differences for
 \@ref(tab:sim5)).
 
 ```{r sim5, echo = FALSE, fig.cap = figcap5, fig.scap = figscap5}
-knitr::include_graphics("figure/simulations/genomic_rd.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/genomic_rd.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/genomic_rd.png")
+}
+
 cap <- "Effect of rate of sexual reproduction and sample size on $\\bar{r}_d$ 
 for SNP data. Each panel represents a different sample size. Each violin plot
 contains 120 unique data sets. Points represent observed values. Black lines in
@@ -820,7 +870,12 @@ figscap5 <- beaverdown::render_caption(caption = scap, figname = "fig2s", to = T
 ```
 
 ```{r simmisssnp, echo = FALSE, fig.cap = figcapmisssnp, fig.scap = figscapmisssnp}
-knitr::include_graphics("figure/simulations/genomic_missing.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/genomic_missing.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/genomic_missing.png")
+}
+
 cap <- "Effect of rate of sexual reproduction, sample size, and missing data on 
 $\\bar{r}_d$ for SNP data. Panels are arranged horizontally with increasing
 rates of missing data from left to right and vertically with increasing sample
@@ -840,7 +895,12 @@ figscapmisssnp <- beaverdown::render_caption(caption = scap, figname = "fig2s", 
 
 
 ```{r sim6, echo = FALSE, fig.cap = figcap6, fig.scap = figscap6}
-knitr::include_graphics("figure/simulations/genomic_power.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/genomic_power.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/genomic_power.png")
+}
+
 figcap6 <- "Effect of rate of sexual reproduction and sample size the power to 
 detect non-random mating for SNP data. Color indicates sample size. False
 positive rate is shown as increasing transparency. Data shown for both p = 0.01
@@ -851,7 +911,12 @@ detect non-random mating for SNP data. Color indicates sample size."
 ```
 
 ```{r sim7, echo = FALSE, fig.cap = figcap7, fig.scap = figscap7}
-knitr::include_graphics("figure/simulations/AURC_genomic.png")
+if (LATEX){
+	knitr::include_graphics("figure/simulations/AURC_genomic.pdf")
+} else {
+	knitr::include_graphics("figure/simulations/AURC_genomic.png")
+}
+
 figcap7 <- "Effect of rate of sexual reproduction and sample size on area under 
 the ROC curve for SNP data. Each point represents AURC calculated with 10 
 populations total. 5 populations with a sex rate of 1.0 and 5 populations with a 
