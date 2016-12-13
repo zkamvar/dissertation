@@ -200,26 +200,33 @@ levels of sexual reproduction for each marker type. All simulations were
 performed with the python package simuPOP version 1.1.7 in python version 3.4
 [@peng2008forward]. For each scenario, 100 simulations with 10 replicates were
 created with a census size of 10,000 diploid individuals with equal mating type
-proportions evolved over 10,000 generations. The simulated populations were
-first stored in the native simuPOP format and then transferred to feather format
-using the python and R packages *feather* version 0.3.0 for downstream analyses.
-Microsatellite simulations were performed on Ubuntu Linux version 14.04; SNP
-simulations were performed on CentOS Linux version 6.8. During downstream
-analysis, 10, 25, 50, and 100 individuals were sampled without replacement for
-each replicate in R version 3.2 with the package *poppr* version 2.2.1 [@R2016;
-@kamvar2014poppr; @kamvar2015novel]. Analyses (described below) were performed
-on both full and clone-corrected data sets. All downstream analyses were run on
-the OSU CGRB Core Computing Facility.
+proportions evolved over 10,000 generations. We chose a census size of 10,000 
+individuals to minimize the effect of drift. We chose to run the simulations for
+10,000 generations because this was previously shown in @de2004clonal to be
+sufficient in reaching equilibrium for summary statistics.
+
+The simulated populations were first stored in the native simuPOP format and
+then transferred to feather format using the python and R packages *feather*
+version 0.3.0 for downstream analyses. Microsatellite simulations were performed
+on Ubuntu Linux version 14.04; SNP simulations were performed on CentOS Linux
+version 6.8. During downstream analysis, 10, 25, 50, and 100 individuals were
+sampled without replacement for each replicate in R version 3.2 with the package
+*poppr* version 2.2.1 [@R2016;@kamvar2014poppr; @kamvar2015novel]. Analyses
+(described below) were performed on both full and clone-corrected data sets. All
+downstream analyses were run on the OSU CGRB Core Computing Facility.
 
 ### Simulating Microsatellite Loci
 
 Each population was simulated with 21 co-dominant, unlinked loci containing 6 to
 10 alleles per locus with frequencies drawn from a uniform distribution and
 subsequently normalized so that allele frequencies at each locus sum to one.
-Before mating, mutations occurred at each locus at a rate of 1e-5
-mutations/generation with the exception of the first locus, at which the
-mutation rate was set to 1e-3. All mutations were applied in a stepwise manner
-using the `StepwiseMutator()` operator in simuPOP.
+We used 6 to 10 alleles per locus as this is the number of alleles commonly used
+for population genetic studies to avoid statistical noise. Before mating,
+mutations occurred at each locus at a rate of 1e-5 mutations/generation with the
+exception of the first locus, at which the mutation rate was set to 1e-3.
+The mutation rate of 1e-5 was selected as this was previously used in 
+@de2004clonal. All mutations were applied in a stepwise manner using the
+`StepwiseMutator()` operator in simuPOP.
 
 ### Simulating SNP Loci
 
@@ -235,7 +242,7 @@ Simulations of sexual reproduction were conducted at 10 rates of sexual
 reproduction over a log scale (0.0, 1e-4, 5e-4, 1e-3, 5e-3, 1e-2, 5e-2, 0.1, 0.5,
 1.0) reflecting the fraction of individuals in generation *t+1* produced via
 sexual reproduction. One to three offspring could be produced at each mating
-event. For sexual events, two parents were chosen randomly from the population
+event. Rates were chosen to investigate the dynamics of $\bar{r}_d$ at low levels of clonal reproduction.   For sexual events, two parents were chosen randomly from the population
 with the `RandomSelection()` operator and offspring genotypes were created via
 the `MendelianGenoTransmitter()` operator. The clonal fraction was created by
 randomly sampling individuals from the population and duplicating their
