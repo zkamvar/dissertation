@@ -660,12 +660,6 @@ p.value = p-value,Terms are as follows: CC = Clone Correction, SS = Sample Size,
 MR = Mutation Rate.
 
 
-```{r, results = "asis", echo = FALSE}
-out <- "
-\\newpage
-"
-cat(beaverdown::iflatex(out))
-```
 
 ### Negative Values of $\bar{r}_d$ in Clonal Populations Correlated With Low Allelic Diversity
 
@@ -1071,6 +1065,14 @@ distribution of $\bar{r}_d$ for clonal populations is driven by allelic
 diversity. Thus, including allelic evenness can serve as a diagnostic parameter
 when interpreting linkage at low levels of sexual reproduction under conditions
 of low allelic diversity.
+
+
+```{r, results = "asis", echo = FALSE}
+out <- "
+\\newpage
+"
+cat(beaverdown::iflatex(out))
+```
 
 ### Linkage in SNP Data Increases $\bar{r}_d$ Unilaterally
 
