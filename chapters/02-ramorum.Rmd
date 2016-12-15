@@ -555,18 +555,19 @@ cat(beaverdown::iflatex("\\newpage"))
 
 Allelic and genotype diversity within loci revealed that PrMS43 had, on average,
 the highest number of alleles (n = 18). All other loci had 5 or fewer alleles
-with a moderate to high amount of diversity (Table \@ref(tab:ramtabS2)). Nevertheless, the
-genotype accumulation curve showed a slight plateau, indicating that we have
-enough power in our data to describe a significant number of MLGs (Fig. \@ref(fig:ramS2)).
-Genotypic diversity (*H* = 2.98, *G* = 8.64), evenness (*E~5~* = 0.41), and
-richness (*eMLG* = 7) were low as expected for a clonal population slowly
-accumulating mutations over space and time (Table \@ref(tab:ramtabS3)). A pattern of increasing
-diversity across years (with number of MLGs not fewer than 10) was also observed
-(Table \@ref(tab:ramtabS3)). The minimum spanning network showed that MLGs 17, 22, and 28
-clustered in the center of the network and had the highest number of connections
-to other genotypes in the forest populations (Fig. \@ref(fig:ramorum3)). Most
-genotypes were connected to their immediate neighbors by a genetic distance of
-0.05 or the equivalent of one mutational step across 5 diploid loci.
+with a moderate to high amount of diversity (Table \@ref(tab:ramtabS2)).
+Nevertheless, the genotype accumulation curve showed a slight plateau,
+indicating that we have enough power in our data to describe a significant
+number of MLGs (Fig. \@ref(fig:ramS2)). Genotypic diversity (*H* = 2.98, *G* =
+8.64), evenness (*E~5~* = 0.41), and richness (*eMLG* = 7) were low as expected
+for a clonal population slowly accumulating mutations over space and time (Table
+\@ref(tab:ramtabS3)). A pattern of increasing diversity across years (with
+number of MLGs not fewer than 10) was also observed (Table \@ref(tab:ramtabS3)).
+The minimum spanning network showed that MLGs 17, 22, and 28 clustered in the
+center of the network and had the highest number of connections to other
+genotypes in the forest populations (Fig. \@ref(fig:ramorum3)). Most genotypes
+were connected to their immediate neighbors by a genetic distance of 0.05 or the
+equivalent of one mutational step across 5 diploid loci.
 
 
 ```{r, ramorum3, echo = FALSE, fig.cap = figcap3, fig.scap = figscap3, out.width = "75%"}
@@ -682,30 +683,31 @@ cat(res)
 
 Cluster analysis of populations with respect to year using Nei's genetic
 distance showed no significant (&gt;70%) bootstrap support for any clades, but
-does show that these tend to cluster by region as opposed to year (Fig. \@ref(fig:ramS3)).
-AMOVA analysis revealed significant population structure between regions on both
-clone-corrected (with respect to hierarchy) and uncorrected data sets (Table
-\@ref(tab:ramtab4)). Significant structure was only found between years within
-regions on the uncorrected data set. Both patterns were observed without Hunter
-Creek and Pistol River South Fork isolates. DAPC clustering showed that the
-first discriminant component separated Hunter Creek from all other regions and
-the second discriminant component shows a gradient from Joe Hall Creek to the
-coast (Fig. \@ref(fig:ramfig4)). This distinction was reflected in the percent
-of correct posterior assignment of isolates to their original populations. Over
-the whole data set there was an 81.5% assignment-success rate. Hunter Creek
-received 100% successful reassignment. Joe Hall Creek, Winchuck, and Coast all
-had &gt;85% successful reassignment whereas Chetco Main, North Fork of the
-Chetco, and Pistol River South Fork all had &lt;69% successful reassignment
-(Fig. \@ref(fig:ramS4)). The isolation of the Hunter Creek isolates in the DAPC analysis was
-found to be mainly driven by allele 493 at locus PrMS43 (Fig. \@ref(fig:ramS5)). The only
-other population to share this allele was Joe Hall Creek where it was present in
-a total of 4 isolates, and only isolates found in the coastal region or North
-Fork Chetco contained the allele 489, which is one mutational step away in a
-stepwise mutation model of a tetranucleotide repeat locus. When DAPC was run
-without Hunter Creek and Pistol River South Fork data, percent successful
-reassignment for all regions did not change significantly. Prediction of sources
-for the Hunter Creek data revealed that over 98% of the genotypes were assigned
-to the Coast with a 99% probability.
+does show that these tend to cluster by region as opposed to year (Fig.
+\@ref(fig:ramS3)). AMOVA analysis revealed significant population structure
+between regions on both clone-corrected (with respect to hierarchy) and
+uncorrected data sets (Table \@ref(tab:ramtab4)). Significant structure was only
+found between years within regions on the uncorrected data set. Both patterns
+were observed without Hunter Creek and Pistol River South Fork isolates. DAPC
+clustering showed that the first discriminant component separated Hunter Creek
+from all other regions and the second discriminant component shows a gradient
+from Joe Hall Creek to the coast (Fig. \@ref(fig:ramfig4)). This distinction was
+reflected in the percent of correct posterior assignment of isolates to their
+original populations. Over the whole data set there was an 81.5% assignment-
+success rate. Hunter Creek received 100% successful reassignment. Joe Hall
+Creek, Winchuck, and Coast all had &gt;85% successful reassignment whereas
+Chetco Main, North Fork of the Chetco, and Pistol River South Fork all had
+&lt;69% successful reassignment (Fig. \@ref(fig:ramS4)). The isolation of the
+Hunter Creek isolates in the DAPC analysis was found to be mainly driven by
+allele 493 at locus PrMS43 (Fig. \@ref(fig:ramS5)). The only other population to
+share this allele was Joe Hall Creek where it was present in a total of 4
+isolates, and only isolates found in the coastal region or North Fork Chetco
+contained the allele 489, which is one mutational step away in a stepwise
+mutation model of a tetranucleotide repeat locus. When DAPC was run without
+Hunter Creek and Pistol River South Fork data, percent successful reassignment
+for all regions did not change significantly. Prediction of sources for the
+Hunter Creek data revealed that over 98% of the genotypes were assigned to the
+Coast with a 99% probability.
 
 ```{r, ramotab4, echo = FALSE, results = "asis"}
 
@@ -803,18 +805,18 @@ cat(beaverdown::iflatex("\\newpage"))
 We used previously published data to determine if nursery populations in
 California or Oregon could have been source populations for the Oregon forest
 epidemic [@goss2011phytophthora; @goss2009population;
-@grunwald2009standardizing; @prospero2009migration;
-@prospero2007population]. Nursery data included 40 MLGs across 216 samples of
-NA1 clones. Of these 40, 12 MLGs matched the forest sample and 28 MLGs were
-unique to the nurseries. The only region that did not contain genotypes that
-matched those found in nurseries was Pistol River South Fork. When considering
-those 12 genotypes that were present in both data sets, with the exception of
-Joe Hall Creek, all genotypes were first isolated from nurseries before
-discovery in the forest. At the most variable locus, PrMS43, both nursery
-populations had the allele 281 at frequencies of 4.5% and 4.9% for CA and OR,
-respectively. This allele was not observed in the forest population. Both
-populations contained allele 489 at &gt;10% frequency and the CA nursery
-population contained allele 493 at a frequency of 1.4%.
+@grunwald2009standardizing; @prospero2009migration; @prospero2007population].
+Nursery data included 40 MLGs across 216 samples of NA1 clones. Of these 40, 12
+MLGs matched the forest sample and 28 MLGs were unique to the nurseries. The
+only region that did not contain genotypes that matched those found in nurseries
+was Pistol River South Fork. When considering those 12 genotypes that were
+present in both data sets, with the exception of Joe Hall Creek, all genotypes
+were first isolated from nurseries before discovery in the forest. At the most
+variable locus, PrMS43, both nursery populations had the allele 281 at
+frequencies of 4.5% and 4.9% for CA and OR, respectively. This allele was not
+observed in the forest population. Both populations contained allele 489 at
+&gt;10% frequency and the CA nursery population contained allele 493 at a
+frequency of 1.4%.
 
 When nursery genotypes were added to the minimum spanning network, MLGs found at
 Hunter Creek, previously isolated in the network, connected by only a single MLG
@@ -848,21 +850,22 @@ cat(beaverdown::iflatex("\\newpage"))
 
 The assignment successes for the regions before or after inclusion of nursery
 data changed less than 5% for all regions except for the coast, which saw a
-decrease of 17.6% when nursery populations were included (Fig. \@ref(fig:ramS4)). Prediction
-of sources for nursery genotypes against the forest data revealed that 48% of
-these nursery isolates were predicted to share membership with the coast at
-$\geq$ 95% probability (Fig. \@ref(fig:ramS6), \@ref(fig:ramS7)). A total of 3.2% of the isolates were
-predicted to share membership with Hunter Creek at $\geq$ 99.9% membership
-probability. Furthermore, 21.75% of the nursery data could not be assigned to
-any of the forest populations at &gt;60% probability.
+decrease of 17.6% when nursery populations were included (Fig. 
+\@ref(fig:ramS4)). Prediction of sources for nursery genotypes against the
+forest data revealed that 48% of these nursery isolates were predicted to share
+membership with the coast at $\geq$ 95% probability (Fig. \@ref(fig:ramS6),
+\@ref(fig:ramS7)). A total of 3.2% of the isolates were predicted to share
+membership with Hunter Creek at $\geq$ 99.9% membership probability.
+Furthermore, 21.75% of the nursery data could not be assigned to any of the
+forest populations at &gt;60% probability.
 
 Since 3.2% of the nursery isolates had a very strong signal for Hunter Creek, we
 predicted sources for Hunter Creek isolates when considering nursery isolates.
 This approach determines if Hunter Creek isolates cluster more readily with
 nursery or coast populations. Indeed, 92% of the Hunter Creek isolates were
 predicted to share membership with California nurseries at $\geq$ 99% membership
-probability (Fig. \@ref(fig:ramS8)). No Hunter Creek isolate was predicted to share membership
-with a forest population at &gt;0.45% membership probability.
+probability (Fig. \@ref(fig:ramS8)). No Hunter Creek isolate was predicted to
+share membership with a forest population at &gt;0.45% membership probability.
 
 ## Discussion
 
@@ -900,19 +903,20 @@ via Bruvo's distance in combination with data from nursery populations, however,
 these genotypes from Hunter Creek appear to be more similar to California
 nursery populations (Fig. \@ref(fig:ramorum3)) than Oregon forest populations.
 Predictions based on DAPC place samples from Hunter Creek as coming from
-California nurseries (Fig. \@ref(fig:ramS8)). This, in combination with the observation that
-purely forest genotypes (i.e. those only found in the forest) are connected to
-Hunter Creek genotypes through nursery genotypes, indicates a possible
-contribution from nursery populations to the epidemic. This is supported by the
-observation that all population level clustering, with and without clone
-correction, places the Hunter Creek isolates adjacent to the nursery isolates
-from CA (Fig. \@ref(fig:ramfig4), \@ref(fig:ramorum5)). This appears to be
-driven by the high frequency of allele 246 at locus PrMS39, which interestingly
-appears to segregate in an east to west fashion and is increasing in frequency
-over time (Fig. \@ref(fig:ramS9), \@ref(fig:ramS10)). This, along with the results from the DAPC clustering
-and subsequent prediction (Fig. \@ref(fig:ramS6), \@ref(fig:ramS7)) provide weak support for a potential
-third introduction into the coastal region from nurseries sometime after the
-Hunter Creek introduction event.
+California nurseries (Fig. \@ref(fig:ramS8)). This, in combination with the
+observation that purely forest genotypes (i.e. those only found in the forest)
+are connected to Hunter Creek genotypes through nursery genotypes, indicates a
+possible contribution from nursery populations to the epidemic. This is
+supported by the observation that all population level clustering, with and
+without clone correction, places the Hunter Creek isolates adjacent to the
+nursery isolates from CA (Fig. \@ref(fig:ramfig4), \@ref(fig:ramorum5)). This
+appears to be driven by the high frequency of allele 246 at locus PrMS39, which
+interestingly appears to segregate in an east to west fashion and is increasing
+in frequency over time (Fig. \@ref(fig:ramS9), \@ref(fig:ramS10)). This, along
+with the results from the DAPC clustering and subsequent prediction (Fig.
+\@ref(fig:ramS6), \@ref(fig:ramS7)) provide weak support for a potential third
+introduction into the coastal region from nurseries sometime after the Hunter
+Creek introduction event.
 
 An interesting aspect is the observation that there appeared to be more than one
 cluster of genotypes introduced into the Joe Hall area during the early stages

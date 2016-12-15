@@ -4,12 +4,12 @@
 > 
 > -- @milgroom1997contributions [p. 4]
 
-The above quote by Michael Milgroom and William Fry was in reference to
-the use of molecular markers in molecular biology as compared to population
-genetics. While it is undisputed that questions shape a field of inquiry, the
-notion that tools are not influential in disciplines is misleading. Tools are
-necessary for providing answers to the questions proposed; they are the vehicle
-whereby we apply our scientific theory to the unknown world.
+The above quote by Michael Milgroom and William Fry was in reference to the use
+of molecular markers in molecular biology as compared to population genetics.
+While it is undisputed that questions shape a field of inquiry, the notion that
+tools are not influential in disciplines is misleading. Tools are necessary for
+providing answers to the questions proposed; they are the vehicle whereby we
+apply our scientific theory to the unknown world.
 
 A tool, in this sense is any instrument, physical or analytical, that is used to
 collect, measure, manipulate, represent, or analyze data [@gigerenzer1991tools].
@@ -25,12 +25,12 @@ describe the natural phenomena accurately in terms of a testable theory.
 
 These tools, however, should not simply be seen as a means to an end for
 answering questions. Many tools will produce answers whether or not they are
-correct. A simple example of this concept was demonstrated by @anscombe1973graphs, showing
-the need for graphical visualization in statistical analysis. Reproduced in Fig. \@ref(fig:introduction2) 
-are four data
-sets showing a fitted trendline. Using linear regression, all four data
-sets produce the exact same result (slope, intercept, variance, correlation).
-Upon visual inspection, their differences are striking.
+correct. A simple example of this concept was demonstrated by
+@anscombe1973graphs, showing the need for graphical visualization in statistical
+analysis. Reproduced in Fig. \@ref(fig:introduction2) are four data sets showing
+a fitted trendline. Using linear regression, all four data sets produce the
+exact same result (slope, intercept, variance, correlation). Upon visual
+inspection, their differences are striking.
 
 ```{r, introduction2, echo = FALSE, fig.cap = anscomb, fig.scap = ansc, out.width = "50%"}
 library('tidyverse')
@@ -57,17 +57,17 @@ ansc    <- "A reproduction of 'Anscombe's quartet'"
 ```
 
 If we imagine each data set as a separate population and linear regression as
-our tool, it wouldn't matter what our question was, because there
-would be no hope of detecting any differentiation between these populations with
-the tool (e.g. molecular marker) chosen.
+our tool, it wouldn't matter what our question was, because there would be no
+hope of detecting any differentiation between these populations with the tool
+(e.g. molecular marker) chosen.
 
 Science moves forward by asking questions about natural phenomena and then
 investigating the results of these questions further, narrowing the scope of the
 succeeding questions to pin down a detailed mechanism that can explain the
 phenomena observed. The tools provide the observations and results that set the
-context for future questions [@searls2010roots]. I have presented such
-tools in the form of scientific software, which can enable reproducible research
-in the context of computational science.
+context for future questions [@searls2010roots]. I have presented such tools in
+the form of scientific software, which can enable reproducible research in the
+context of computational science.
 
 > *An article about computational science in a scientific publication is not the
 > scholarship itself, it is merely advertising of the scholarship. The actual
@@ -80,46 +80,47 @@ in the context of computational science.
 scientific computing, but they did show the computational research community
 that such a concept was possible. The ultimate goal of reproducible research
 lies in the term itself: to ensure that research is produced in a manner such
-that future researchers can faithfully reproduce and verify the results 
+that future researchers can faithfully reproduce and verify the results
 [@goecks2010galaxy]. Lack of reproducibility has been (and still is) a problem
 due to varying factors, including software and point-and-click user interfaces
-[@ioannidis2008repeatability; @ziemann2016gene]. 
+[@ioannidis2008repeatability; @ziemann2016gene].
 
 The development of scientific software does not stand apart from science itself,
 but rather it serves as implementation of scientific theory
 [@partridge1984computer; @ouzounis2003bioinformatics; @searls2010roots;
-@baxter2006scientific]. Scientific software has been used to implement new 
+@baxter2006scientific]. Scientific software has been used to implement new
 theory [@felsenstein1989phylip; @Agapow_2001; @arnaud2006genclone;
 @ali2016cloncase] and it has been used to make accessible existing theory and
 methods in a way that is more accessible [@goudet1995fstat; @winter2012mmod;
-@bailleul2016rclone; @kamvar2014poppr]. Ultimately, publication and maintenance 
-of scientific software exists to standardize the protocols in which we 
+@bailleul2016rclone; @kamvar2014poppr]. Ultimately, publication and maintenance
+of scientific software exists to standardize the protocols in which we
 manipulate and analyze our data, allowing researchers to more efficiently and
 reliably produce answers to their questions. When scientists produce their
-research in an open and reproducible manner, the benefits not only include 
+research in an open and reproducible manner, the benefits not only include
 higher citation counts, but also increased potential for collaboration and data
-reuse [@mckiernan2016open; @wilson2014best; @wilson2016good]. It is thus 
+reuse [@mckiernan2016open; @wilson2014best; @wilson2016good]. It is thus
 imperative that the software available not simply exist as a black box from
 which a researcher can produce an answer; it must be useful, well tested,
-extensible, and open. In our experience, writing educational user manuals
-for software and  responding to user feedback also help adoption and reproducibility.
+extensible, and open. In our experience, writing educational user manuals for
+software and  responding to user feedback also help adoption and
+reproducibility.
 
 We have provided in this dissertation descriptions of the research software,
-*poppr*. Chapters 2 and 3 expounded on the functionalities and benefits of 
-*poppr* in terms of reproducible research, ease of use, and speed. It is 
+*poppr*. Chapters 2 and 3 expounded on the functionalities and benefits of
+*poppr* in terms of reproducible research, ease of use, and speed. It is
 important to acknowledge the fact that the progress of this work could not exist
 without open and collaborative software development. Chapter 3 was only possible
 because of the contributions I was able to make to *adegenet* (the package
 *poppr* depends on) during and after the NESCent Population Genetics in R
 Hackathon in 2014 [@kamvar2015novel; @jombart2011adegenet; @paradis2016towards].
 An important aspect of software development is 'eating your own dogfood', that
-is, using your own software the way it was intended [@kamvar2016developing].
-We have used *poppr* in conjunction with the larger ecosystem of R packages to
-give evidence of two introductions of *Phytophthora ramorum* in Curry County, OR
-in a reproducible manner [@kamvar2015spatial; @kamvar2014sudden] and to show
-that the power of $\bar{r}_d$ is affected by both sample size and allelic 
-diversity in diploids. Beyond what has been published in scientific journals, we
-continue to develop *poppr* so that it holds to standards of scientific software
-development such as the use of rigorous testing, continuous integration, version
-control, community support, and sensible documentation [@wilson2016good;
+is, using your own software the way it was intended [@kamvar2016developing]. We
+have used *poppr* in conjunction with the larger ecosystem of R packages to give
+evidence of two introductions of *Phytophthora ramorum* in Curry County, OR in a
+reproducible manner [@kamvar2015spatial; @kamvar2014sudden] and to show that the
+power of $\bar{r}_d$ is affected by both sample size and allelic diversity in
+diploids. Beyond what has been published in scientific journals, we continue to
+develop *poppr* so that it holds to standards of scientific software development
+such as the use of rigorous testing, continuous integration, version control,
+community support, and sensible documentation [@wilson2016good;
 @baxter2006scientific; @prliac2012software].

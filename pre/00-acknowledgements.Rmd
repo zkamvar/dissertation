@@ -28,6 +28,14 @@ life in general. These two were responsible for guiding me through much of the
 research and writing before it ever went to my advisor. Most importantly, Sydney
 and Brian gave me encouragement even if I was being down on myself.
 
+
+If it weren't for the guidance and mentoring of my undergraduate research
+advisors, Drs. Brent Buckner and Dianne Janick-Buckner, I might never have
+pursued graduate education. They recognized that grades did not always reflect
+the intelligence or potential of a student. They brought me into their research
+team, and I can't possibly thank them enough for that.
+
+
 My work absolutely could not have been done without the support of the wider R
 and open source community. Without open codebases, *poppr* would have broken a
 long time ago. I wish to thank Thibaut Jombart for always being open and 
@@ -84,7 +92,6 @@ H. Kamvar, my sister Margo Cartwright, and my brother Rostam Kamvar. The most
 thanks must of course go to my wonderful spouse, Jimin Im Kamvar. Without her, 
 my life would have no color or balance. She was the only one who could keep me
 going when all seemed hopeless. 
-
 
 
 I must additionally acknowledge my funding for my Ph. D.: US Department of 
