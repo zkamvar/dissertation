@@ -1,7 +1,7 @@
 # Introduction
 
 Dobzhansky's famous quote "Nothing in biology makes sense except in the light
-of evolution" has become cliché, but it is hard to find a statement that more elegantly 
+of evolution" has become a cliché, but it is hard to find a statement that more elegantly 
 captures the essence of biological study [-@dobzhansky2013nothing]. In a more
 reductionist sense, it is perhaps appropriate to state that nothing in evolution
 makes sense except in the light of mutation; that is to say that mutation in an
@@ -31,7 +31,7 @@ animals, and viruses are known to exclusively reproduce clonally
 reproduction that results in offspring that are genetically identical to the
 parents (note that this can include organisms derived from the selfing of a haploid
 organism). Thus, the definition of a population is perhaps best rephrased to
-simply indicate a group of individuals of the same species^[This depends on your definition of a species, which is out of the scope of this dissertation and therefore best debated elsewhere.] coexisting in the
+simply indicate a group of individuals of the same species^[This depends on your definition of a species, which is out of the scope of this dissertation and therefore best debated elsewhere.] coexisting
 spatially and temporally [@milgroom1997contributions]. 
 
 There are several costs and benefits associated with both clonal and sexual
@@ -86,31 +86,18 @@ cause disease), virulence (severity of disease), or morphotype placing them into
 different phenotypes [@milgroom1997contributions; @levin1999population]. When 
 considering markers for population genetic analysis, one of the most important
 criteria is that these markers are heritable.
-<!-- NIK: This doesn't flow, rewrite or delete
 
-The problem with pathotypes was that, while it was possible to define a
-panel of pathotypes upon which to develop anti-microbial treatments or resistant
-host cultivars, there was no way of assessing the evolutionary potential of the
-pathogens to overcome host resistance or develop drug resistance
-[@milgroom1997contributions; @tibayrenc1995population]. If pathologists wanted
-to use population genetic techniques, they needed to embrace molecular markers
-[@milgroom1997contributions; @tibayrenc1995population; @mcdonald1997population;
-@taylor1999evolutionary]. -->
-
-A wide variety of molecular markers exist from protein mobility assays to 
-randomly amplified DNA, to length polymorphisms to direct sequencing of the
-genetic code that all reflect this principle [@tibayrenc1995population;
+A wide variety of heritable molecular markers exist for population genetic analysis [@tibayrenc1995population;
 @halkett2005tackling]. It is not necessary to expound here on the variety of
 molecular markers available to us, but it is useful to take note of the common
 features. Generally, genetic markers come in two major flavors, selectively neutral and
 selected markers [@milgroom1997contributions; @mcdonald1997population; 
-@tibayrenc1995population].  Selectively neutral markers are used as independent
+@tibayrenc1995population]. Selectively neutral markers are used as independent
 variables that can reflect the evolutionary history of descent. For selectively
 neutral markers, it is important that they be independent and unlinked within
-the genome [@mcdonald1997population].
+the genome [@mcdonald1997population]. 
 
-The question then becomes how do you detect the presence of clonal or sexual
-reproduction? Because neutral genetic markers vary independently within a population, these
+Because neutral genetic markers vary independently within a population, these
 are more appropriate than selected markers to detect sexual reproduction. The
 theory behind this is simple; sexual reproduction breaks up associations between
 markers due to recombination and independent, random assortment. This contrasts with clonal reproduction, which
@@ -150,7 +137,7 @@ gene/genotype flow, 4) mating system, and 5) selection due to host resistance
 
 An example of how changing one of these five factors influences plant health is
 clear in the oomycete *Phytophthora infestans* (Mont.) de Bary. The causal agent
-of potato late blight (and a poster child for plant pathology), *P. infestans* has
+of potato late blight (and a poster child for plant pathology). *P. infestans* has
 changed the very demographics of human populations across the Atlantic ocean due
 to its role in the Irish potato famine [@erwin1996phytophthora]. It has a
 heterothallic (no selfing) life cycle that includes both clonally and sexually
@@ -173,8 +160,8 @@ figcap2 <- beaverdown::render_caption(caption = figcap2, figname = "fig2", to = 
 
 From the time of the Great Famine to 1980, there was only one single mating
 type, A1, observed in Europe, indicating that it was reproducing in a strictly
-clonal fashion [@mcdonald2002pathogen]. Sexual reproduction became possible when
-the second mating type, A2, was introduced to Europe. Because of this risk, population
+clonal fashion [@goodwin1994panglobal]. Sexual reproduction became possible when
+the second mating type, A2, was introduced to Europe [@galindo1960nature]. Because of this risk, population
 genetic tools and methods were needed to assess whether or not sexual
 reproduction had occurred. While evidence for sexual reproduction was found
 [@sujkowski1994increased], it additionally appeared that *P. infestans* was
@@ -187,9 +174,9 @@ could be addressed.
 
 ## The Need For Reproducible Research
 
-Computational methods were increasingly important for answering questions
-crucial to plant pathology, and as more and more of our analyses becoming
-computational, we need to ensure that our computational methods are
+Computational methods are increasingly important for answering questions
+crucial to plant pathology, and as more and more of our analyses are becoming
+computational in nature, we need to ensure that these methods are
 reproducible. Computational methods are crucial for population genetic analyses
 in the 21st century [@excoffier2006computer]. There has been a call for
 standards in the analysis of clonal organisms for the past twenty years, which
@@ -247,11 +234,11 @@ genetics, we present the software package *poppr* in the R computing language
 populations were available in several stand-alone software programs, each
 requiring different data input formats. Moreover, each program had different
 levels of documentation and limited support for all computing platforms. The
-novelty of *poppr* was to introduce indices of multilocus genotype diversity,
+novelty of *poppr* was to introduce indices of multilocus genotypic diversity,
 the index of association, and a fast implementation of Bruvo's genetic distance,
 and clone-correction over unlimited levels of user-specified population hierarchies
 [@arnaud2007standardizing; @Agapow_2001; @bruvo2004simple]. Because this was
-implemented in R these analyses could be performed in a reproducible manner on
+implemented in R these analyses can be performed in a reproducible manner on
 all computing platforms. 
 
 ### Summary of Chapter 3
@@ -274,12 +261,13 @@ of SNP loci.
 
 A newly-emerged disease of oak---called Sudden Oak Death---spread from
 California to the Southwest corner of Oregon in 2001. Because of intense
-management strategies, the epidemic was largely contained to Curry County for
+management strategies, the epidemic was largely contained to Curry county for
 the next 15 years. In 2011, an isolated patch of disease appeared in Cape
 Sebastian, 12 miles from the nearest infected site. With microsatellite
 genotyping performed across 2 labs and 15 years, we sought to describe the
 spread of the epidemic in a population genetic context and ask the question of
-whether or not there was evidence for more than one introduction event. All the
+whether or not there was evidence for more than one introduction event. 
+This work provided evidence supporting at least two introductions to Curry county forests. All the
 analyses were performed in an open-source and reproducible manner using R.
 
 ### Summary of Chapter 5
@@ -290,8 +278,8 @@ are randomly assorting due to recombination, resulting in a near-zero value of
 the index of association. In clonal populations, recombination is non-existent,
 meaning that loci are passed from parent to offspring in a non-independent
 fashion, resulting in a significantly non-zero value of the index of
-association. @de2004clonal demonstrated that this index shows high variance with
-low levels of sexual reproduction, but due to limitations in software were not
+association. De Meeûs & Balloux [-@de2004clonal] demonstrated that this index shows high variance with
+low levels of sexual reproduction, but due to limitations in software, they were not
 able to perform power analyses. We used *poppr* to investigate the power of the
 index of association to detect sexual reproduction in simulated data sets
 generated with microsatellite and genomic markers. This chapter provides novel
