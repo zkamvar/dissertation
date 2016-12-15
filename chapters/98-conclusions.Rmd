@@ -21,11 +21,11 @@ ultimately tied to the theory employed by the scientist using it (and would thus
 invoke different interpretations under a different theoretical framework)
 [@kuhn1996structure]. If all the assumptions of the theoretical framework are
 met, the tool will produce an observation or result that will help the scientist
-describe the natural phenomena accurately in terms of the testable theory.
+describe the natural phenomena accurately in terms of a testable theory.
 
-These tools, however, should not simply be seen as a means to an end of
+These tools, however, should not simply be seen as a means to an end for
 answering questions. Many tools will produce answers whether or not they are
-correct. A simple example of this concept was demonstrated by [@anscombe1973graphs], showing
+correct. A simple example of this concept was demonstrated by @anscombe1973graphs, showing
 the need for graphical visualization in statistical analysis. Reproduced in Fig. \@ref(fig:introduction2) 
 are four data
 sets showing a fitted trendline. Using linear regression, all four data
@@ -65,7 +65,7 @@ Science moves forward by asking questions about natural phenomena and then
 investigating the results of these questions further, narrowing the scope of the
 succeeding questions to pin down a detailed mechanism that can explain the
 phenomena observed. The tools provide the observations and results that set the
-context for future questions [@searls2010roots]. I've presented such
+context for future questions [@searls2010roots]. I have presented such
 tools in the form of scientific software, which can enable reproducible research
 in the context of computational science.
 
@@ -94,14 +94,15 @@ theory [@felsenstein1989phylip; @Agapow_2001; @arnaud2006genclone;
 methods in a way that is more accessible [@goudet1995fstat; @winter2012mmod;
 @bailleul2016rclone; @kamvar2014poppr]. Ultimately, publication and maintenance 
 of scientific software exists to standardize the protocols in which we 
-manipulate analyze our data, allowing researchers to more efficiently and
+manipulate and analyze our data, allowing researchers to more efficiently and
 reliably produce answers to their questions. When scientists produce their
 research in an open and reproducible manner, the benefits not only include 
 higher citation counts, but also increased potential for collaboration and data
 reuse [@mckiernan2016open; @wilson2014best; @wilson2016good]. It is thus 
 imperative that the software available not simply exist as a black box from
 which a researcher can produce an answer; it must be useful, well tested,
-extensible, and open.
+extensible, and open. In our experience, writing educational user manuals
+for software and  responding to user feedback also help adoption and reproducibility.
 
 We have provided in this dissertation descriptions of the research software,
 *poppr*. Chapters 2 and 3 expounded on the functionalities and benefits of 
