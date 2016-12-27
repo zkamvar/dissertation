@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Development and Application of Tools for Genetic Analysis of Clonal Populations</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Development and Application of Tools for Genetic Analysis of Clonal Populations">
+  <meta name="generator" content="bookdown 0.1.18 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Development and Application of Tools for Genetic Analysis of Clonal Populations" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Development and Application of Tools for Genetic Analysis of Clonal Populations" />
+  
+  
+  
+
+<meta name="author" content="Zhian N. Kamvar">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html">
+<link rel="next" href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="1-introduction.html"><a href="1-introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-introduction.html"><a href="1-introduction.html#population-genetics-and-clonality"><i class="fa fa-check"></i><b>1.1</b> Population Genetics and Clonality</a></li>
+<li class="chapter" data-level="1.2" data-path="1-introduction.html"><a href="1-introduction.html#population-genetics-under-the-lens-of-plant-pathology"><i class="fa fa-check"></i><b>1.2</b> Population Genetics Under the Lens of Plant Pathology</a></li>
+<li class="chapter" data-level="1.3" data-path="1-introduction.html"><a href="1-introduction.html#the-need-for-reproducible-research"><i class="fa fa-check"></i><b>1.3</b> The Need For Reproducible Research</a></li>
+<li class="chapter" data-level="1.4" data-path="1-introduction.html"><a href="1-introduction.html#overview"><i class="fa fa-check"></i><b>1.4</b> Overview</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-2"><i class="fa fa-check"></i><b>1.4.1</b> Summary of Chapter 2</a></li>
+<li class="chapter" data-level="1.4.2" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-3"><i class="fa fa-check"></i><b>1.4.2</b> Summary of Chapter 3</a></li>
+<li class="chapter" data-level="1.4.3" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-4"><i class="fa fa-check"></i><b>1.4.3</b> Summary of Chapter 4</a></li>
+<li class="chapter" data-level="1.4.4" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-5"><i class="fa fa-check"></i><b>1.4.4</b> Summary of Chapter 5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><i class="fa fa-check"></i><b>2</b> <em>Poppr</em>: an R Package For Genetic Analysis of Populations With Clonal, Partially Clonal, and/or Sexual Reproduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#abstract"><i class="fa fa-check"></i><b>2.1</b> Abstract</a></li>
+<li class="chapter" data-level="2.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#introduction-1"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#materials-and-methods"><i class="fa fa-check"></i><b>2.3</b> Materials and Methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#data-import"><i class="fa fa-check"></i><b>2.3.1</b> Data import</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#data-analysis"><i class="fa fa-check"></i><b>2.3.2</b> Data analysis</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#visualizations"><i class="fa fa-check"></i><b>2.3.3</b> Visualizations</a></li>
+<li class="chapter" data-level="2.3.4" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#performance"><i class="fa fa-check"></i><b>2.3.4</b> Performance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#citation-of-methods-implemented-in-poppr"><i class="fa fa-check"></i><b>2.4</b> Citation of methods implemented in <em>poppr</em></a></li>
+<li class="chapter" data-level="2.5" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#results-and-discussion"><i class="fa fa-check"></i><b>2.5</b> Results and Discussion</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#new-functionalities"><i class="fa fa-check"></i><b>2.5.1</b> New functionalities</a></li>
+<li class="chapter" data-level="2.5.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#performance-1"><i class="fa fa-check"></i><b>2.5.2</b> Performance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#conclusions"><i class="fa fa-check"></i><b>2.6</b> Conclusions</a></li>
+<li class="chapter" data-level="2.7" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#acknowledgements"><i class="fa fa-check"></i><b>2.7</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><i class="fa fa-check"></i><b>3</b> Novel R Tools For Analysis of Genome-Wide Population Genetic Data With Emphasis on Clonality</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#abstract-1"><i class="fa fa-check"></i><b>3.1</b> Abstract</a></li>
+<li class="chapter" data-level="3.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#introduction-2"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#implementations-and-examples"><i class="fa fa-check"></i><b>3.3</b> Implementations and Examples</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#clonal-identification"><i class="fa fa-check"></i><b>3.3.1</b> Clonal identification</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#minimum-spanning-networks-with-reticulation"><i class="fa fa-check"></i><b>3.3.2</b> Minimum Spanning Networks with Reticulation</a></li>
+<li class="chapter" data-level="3.3.3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#bootstrapping"><i class="fa fa-check"></i><b>3.3.3</b> Bootstrapping</a></li>
+<li class="chapter" data-level="3.3.4" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#genotype-accumulation-curve"><i class="fa fa-check"></i><b>3.3.4</b> Genotype Accumulation Curve</a></li>
+<li class="chapter" data-level="3.3.5" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#index-of-association"><i class="fa fa-check"></i><b>3.3.5</b> Index of association</a></li>
+<li class="chapter" data-level="3.3.6" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#data-format-updates-population-strata-and-hierarchies"><i class="fa fa-check"></i><b>3.3.6</b> Data format updates: population strata and hierarchies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#availability"><i class="fa fa-check"></i><b>3.4</b> Availability</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#requirements"><i class="fa fa-check"></i><b>3.4.1</b> Requirements</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#installation"><i class="fa fa-check"></i><b>3.4.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#discussion"><i class="fa fa-check"></i><b>3.5</b> Discussion</a></li>
+<li class="chapter" data-level="3.6" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#acknowledgements-1"><i class="fa fa-check"></i><b>3.6</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><i class="fa fa-check"></i><b>4</b> Spatial and Temporal Analysis of Populations of the Sudden Oak Death Pathogen in Oregon Forests</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#abstract-2"><i class="fa fa-check"></i><b>4.1</b> Abstract</a></li>
+<li class="chapter" data-level="4.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#materials-and-methods-1"><i class="fa fa-check"></i><b>4.3</b> Materials and Methods</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#location"><i class="fa fa-check"></i><b>4.3.1</b> Location</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#sampling"><i class="fa fa-check"></i><b>4.3.2</b> Sampling</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#isolation-identification-and-dna-extraction"><i class="fa fa-check"></i><b>4.3.3</b> Isolation, identification and DNA extraction</a></li>
+<li class="chapter" data-level="4.3.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#genotyping-data-validation-and-harmonization"><i class="fa fa-check"></i><b>4.3.4</b> Genotyping, data validation, and harmonization</a></li>
+<li class="chapter" data-level="4.3.5" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#nursery-populations"><i class="fa fa-check"></i><b>4.3.5</b> Nursery populations</a></li>
+<li class="chapter" data-level="4.3.6" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#data-analysis-1"><i class="fa fa-check"></i><b>4.3.6</b> Data analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#results"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#demographic-pattern-and-genetic-diversity"><i class="fa fa-check"></i><b>4.4.1</b> Demographic pattern and genetic diversity</a></li>
+<li class="chapter" data-level="4.4.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#spatial-correlation"><i class="fa fa-check"></i><b>4.4.2</b> Spatial Correlation</a></li>
+<li class="chapter" data-level="4.4.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#population-differentiation"><i class="fa fa-check"></i><b>4.4.3</b> Population differentiation</a></li>
+<li class="chapter" data-level="4.4.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#clustering-of-forest-with-nursery-populations"><i class="fa fa-check"></i><b>4.4.4</b> Clustering of forest with nursery populations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#discussion-1"><i class="fa fa-check"></i><b>4.5</b> Discussion</a></li>
+<li class="chapter" data-level="4.6" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#acknowledgements-2"><i class="fa fa-check"></i><b>4.6</b> Acknowledgements</a></li>
+<li class="chapter" data-level="4.7" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-material"><i class="fa fa-check"></i><b>4.7</b> Supplementary Material</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#text:S1"><i class="fa fa-check"></i><b>4.7.1</b> Supplementary Text</a></li>
+<li class="chapter" data-level="4.7.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-figures"><i class="fa fa-check"></i><b>4.7.2</b> Supplementary Figures</a></li>
+<li class="chapter" data-level="4.7.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-tables"><i class="fa fa-check"></i><b>4.7.3</b> Supplementary Tables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><i class="fa fa-check"></i><b>5</b> Factors Influencing Inference of Clonality in Diploid Populations</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#abstract-3"><i class="fa fa-check"></i><b>5.1</b> Abstract</a></li>
+<li class="chapter" data-level="5.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#introduction-4"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#methods"><i class="fa fa-check"></i><b>5.3</b> Methods</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#simulating-microsatellite-loci"><i class="fa fa-check"></i><b>5.3.1</b> Simulating Microsatellite Loci</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#simulating-snp-loci"><i class="fa fa-check"></i><b>5.3.2</b> Simulating SNP Loci</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#mating"><i class="fa fa-check"></i><b>5.3.3</b> Mating</a></li>
+<li class="chapter" data-level="5.3.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#analysis-of-microsatellite-data"><i class="fa fa-check"></i><b>5.3.4</b> Analysis of Microsatellite Data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#analysis-of-snp-data"><i class="fa fa-check"></i><b>5.3.5</b> Analysis of SNP Data</a></li>
+<li class="chapter" data-level="5.3.6" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#power-analysis"><i class="fa fa-check"></i><b>5.3.6</b> Power Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#results-1"><i class="fa fa-check"></i><b>5.4</b> Results</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#clone-correction-negatively-impacts-clonal-inference"><i class="fa fa-check"></i><b>5.4.1</b> Clone Correction Negatively Impacts Clonal Inference</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#negative-values-of-barr_d-in-clonal-populations-correlated-with-low-allelic-diversity"><i class="fa fa-check"></i><b>5.4.2</b> Negative Values of <span class="math inline">\(\bar{r}_d\)</span> in Clonal Populations Correlated With Low Allelic Diversity</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#power-to-detect-clonal-reproduction-in-snp-data"><i class="fa fa-check"></i><b>5.4.3</b> Power To Detect Clonal Reproduction in SNP Data</a></li>
+<li class="chapter" data-level="5.4.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#common-features-of-microsatellite-and-snp-markers"><i class="fa fa-check"></i><b>5.4.4</b> Common Features of Microsatellite and SNP Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#discussion-2"><i class="fa fa-check"></i><b>5.5</b> Discussion</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#clone-correction-increases-false-negatives"><i class="fa fa-check"></i><b>5.5.1</b> Clone Correction Increases False Negatives</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#mutation-rates-and-barr_d"><i class="fa fa-check"></i><b>5.5.2</b> Mutation Rates and <span class="math inline">\(\bar{r}_d\)</span></a></li>
+<li class="chapter" data-level="5.5.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#allelic-diversity-influences-the-value-of-barr_d-in-clonal-populations"><i class="fa fa-check"></i><b>5.5.3</b> Allelic Diversity Influences the value of <span class="math inline">\(\bar{r}_d\)</span> in Clonal Populations</a></li>
+<li class="chapter" data-level="5.5.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#linkage-in-snp-data-increases-barr_d-unilaterally"><i class="fa fa-check"></i><b>5.5.4</b> Linkage in SNP Data Increases <span class="math inline">\(\bar{r}_d\)</span> Unilaterally</a></li>
+<li class="chapter" data-level="5.5.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#limitations-of-this-study"><i class="fa fa-check"></i><b>5.5.5</b> Limitations of This Study</a></li>
+<li class="chapter" data-level="5.5.6" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#conclusions-1"><i class="fa fa-check"></i><b>5.5.6</b> Conclusions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-conclusions-2.html"><a href="6-conclusions-2.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a></li>
+<li class="chapter" data-level="7" data-path="7-bibliography.html"><a href="7-bibliography.html"><i class="fa fa-check"></i><b>7</b> Bibliography</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Development and Application of Tools for Genetic Analysis of Clonal Populations</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Spatial and Temporal Analysis of Populations of the Sudden Oak Death Pathogen in Oregon Forests</h1>
+<p>Zhian N. Kamvar, Meredeth M. Larsen, Alan M. Kanaskie, Everett M. Hansen, and Niklaus J. Grünwald</p>
+<p>Journal: <strong>Phytopathology</strong></p>
+<p>3340 Pilot Knob Rd, St Paul, MN 55121, USA</p>
+<p>Published 2015-07, Volume 105, Issue: <strong>7</strong>, DOI: <a href="http://dx.doi.org/10.1094/PHYTO-12-14-0350-FI">10.1094/PHYTO-12-14-0350-FI</a></p>
+<div id="abstract-2" class="section level2">
+<h2><span class="header-section-number">4.1</span> Abstract</h2>
+<p>Sudden oak death caused by the oomycete <em>Phytophthora ramorum</em> was first discovered in California toward the end of the 20th century and subsequently emerged on tanoak forests in Oregon before its first detection in 2001 by aerial surveys. The Oregon Department of Forestry has since monitored the epidemic and sampled symptomatic tanoak trees from 2001 to the present. Populations sampled over this period were genotyped using microsatellites and studied to infer the population genetic history. To date, only the NA1 clonal lineage is established in this region, although three lineages exist on the North American west coast. The original introduction into the Joe Hall area eventually spread to several regions: mostly north but also east and southwest. A new introduction into Hunter Creek appears to correspond to a second introduction not clustering with the early introduction. Our data are best explained by both introductions originating from nursery populations in California or Oregon and resulting from two distinct introduction events. Continued vigilance and eradication of nursery populations of <em>P. ramorum</em> are important to avoid further emergence and potential introduction of other clonal lineages.</p>
+</div>
+<div id="introduction-3" class="section level2">
+<h2><span class="header-section-number">4.2</span> Introduction</h2>
+<p>Sudden oak death (SOD) emerged as a severe epidemic disease on coast live oak (<em>Quercus agrifolia</em>) and tanoak (<em>Notholithocarpus densiflorus</em>) in California in the mid 1990s and reemerged shortly thereafter on tanoak in Oregon in the early 2000s <span class="citation">(Everhart et al., <a href="#ref-everhart2014phytophthora">2014</a>; Grünwald et al., <a href="#ref-grunwald2008phytophthora">2008</a><a href="#ref-grunwald2008phytophthora">a</a>; Hansen et al., <a href="#ref-hansen2008epidemiology">2008</a>; Rizzo et al., <a href="#ref-rizzo2005phytophthora">2005</a>)</span>. SOD is caused by <em>Phytophthora ramorum</em> Werres, De Cock &amp; Man in’t Veld, and is considered to be one of the top two oomycete pathogens based on its scientific and economic importance <span class="citation">(Kamoun et al., <a href="#ref-kamoun2014top">2014</a>; Werres et al., <a href="#ref-werres2001phytophthora">2001</a>)</span>. The Oregon epidemic was first detected during aerial surveys in 2001 on tanoak but likely derived from initial introductions in the late 1990s. The Oregon Department of Forestry has since monitored the epidemic and sampled symptomatic tanoaks since 2001 <span class="citation">(Hansen et al., <a href="#ref-hansen2008epidemiology">2008</a>)</span>. Strains sampled from infected sites in forest or nursery environments have been genotyped in several labs using a range of microsatellite loci <span class="citation">(Grünwald et al., <a href="#ref-grunwald2009standardizing">2009</a>; Ivors et al., <a href="#ref-ivors2006microsatellite">2006</a>; Prospero et al., <a href="#ref-prospero2004isolation">2004</a>, <a href="#ref-prospero2009migration">2009</a>, <a href="#ref-prospero2007population">2007</a>)</span>.</p>
+<p><em>P. ramorum</em> has emerged repeatedly around the world as 4 distinct clonal lineages found in North America (lineages NA1, NA2, and EU1) and Europe (EU1 and EU2) <span class="citation">(Grünwald et al., <a href="#ref-grunwald2012emergence">2012</a>; Ivors et al., <a href="#ref-ivors2006microsatellite">2006</a>; Poucke et al., <a href="#ref-vanpoucke2012discovery">2012</a>)</span>. The lineages have been named by the continent on which they first appeared, i.e. North America (= NA) or Europe (= EU) and are numbered in order of discovery <span class="citation">(Grünwald et al., <a href="#ref-grunwald2009standardizing">2009</a>)</span>. The NA1 clonal lineage was first discovered in California causing SOD on tanoak and coast live oak and is the one currently found in Curry County, Oregon, USA <span class="citation">(Mascheretti et al., <a href="#ref-mascheretti2008reconstruction">2008</a>)</span>. The EU1 and NA2 populations were discovered later in nursery environments and are currently only found in California, Oregon, Washington and British Columbia while the NA1 clone has been shipped with nursery plants from the West to the Southern and Southwestern US <span class="citation">(Goss et al., <a href="#ref-goss2009population">2009</a>, <a href="#ref-goss2011phytophthora">2011</a>; Grünwald et al., <a href="#ref-grunwald2012emergence">2012</a>; Ivors et al., <a href="#ref-ivors2006microsatellite">2006</a>; Mascheretti et al., <a href="#ref-mascheretti2008reconstruction">2008</a>; Prospero et al., <a href="#ref-prospero2009migration">2009</a>)</span>. The EU1 clonal lineage is the one first discovered in Europe, but in 2007 the new EU2 lineage emerged in Northern Ireland and since migrated to Western Scotland <span class="citation">(Poucke et al., <a href="#ref-vanpoucke2012discovery">2012</a>; Werres et al., <a href="#ref-werres2001phytophthora">2001</a>)</span>. EU1 was first introduced to Europe and eventually migrated to the Pacific Northwest of North America <span class="citation">(Goss et al., <a href="#ref-goss2011phytophthora">2011</a>)</span>.</p>
+<p><em>P. ramorum</em> populations sampled in Oregon forests to date belong exclusively to the NA1 clonal lineage <span class="citation">(Hansen et al., <a href="#ref-hansen2008epidemiology">2008</a>; Prospero et al., <a href="#ref-prospero2007population">2007</a>)</span>. Given that NA2 and/or EU1 clones have been found in California, Oregon, Washington, and/or British Columbia in association with nursery plant movements, introduction of NA2 or EU1 from nursery environments to Curry County forests is a plausible scenario <span class="citation">(Goss et al., <a href="#ref-goss2009population">2009</a>, <a href="#ref-goss2011phytophthora">2011</a>; Grünwald et al., <a href="#ref-grunwald2012emergence">2012</a>; Prospero et al., <a href="#ref-prospero2009migration">2009</a>, <a href="#ref-prospero2007population">2007</a>)</span>. Our present work thus monitors populations and potential emergence of novel lineages in Oregon forests.</p>
+<p>Our main objectives here are to describe the spatial and temporal pattern of the populations and clonal dynamic of the SOD pathogen in Curry County in southwestern Oregon from 2001 to the present. Specifically, we asked (1) if novel lineages have been introduced into the forests in Curry County, (2) if multiple introductions occurred, and (3) whether introduction might have come from nursery populations. We sampled infected tanoaks between 2001-2014 and characterized populations using microsatellite analysis.</p>
+</div>
+<div id="materials-and-methods-1" class="section level2">
+<h2><span class="header-section-number">4.3</span> Materials and Methods</h2>
+<div id="location" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Location</h3>
+<p>The SOD infested areas are located in the Siskiyou Mountains of Curry County in south western Oregon near the town of Brookings (42.0575<span class="math inline">\(^{\circ}\)</span> N, 124.2864<span class="math inline">\(^{\circ}\)</span> W) on the coast (Figure <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum1">4.1</a>) <span class="citation">(Prospero et al., <a href="#ref-prospero2007population">2007</a>)</span>. The Siskiyou mountains form part of the Klamath Mountain range (Franklin and Dyrness 1988). The vegetation in SOD infested areas is a mosaic of different vegetation types including mixed-evergreen, redwood (<em>Sequoia sempervirens</em>) and Douglas-fir (<em>Pseudotsuga menziesii</em>) forests with tanoak as the dominant SOD host.</p>
+<div class="figure" style="text-align: center"><span id="fig:ramorum1"></span>
+<img src="figure/phytopathology/figure_1.png" alt="Spatial distribution of the SOD epidemic and multilocus genotypes of
+*Phytophthora ramorum* in Curry County, Oregon. The yellow crosses mark
+tanoak trees found positive for *P. ramorum* during aerial surveys. A
+total of 70 multilocus genotypes have been identified between 2001-2014
+and are marked by color as shown in the legend. The abbreviations for
+regions shown in the map are explained in Table \@ref(tab:ramorum1). The
+inset shows the placement of Curry county (red dot) in SW Oregon." width="80%" />
+<p class="caption">
+Figure 4.1: Spatial distribution of the SOD epidemic and multilocus genotypes of <em>Phytophthora ramorum</em> in Curry County, Oregon. The yellow crosses mark tanoak trees found positive for <em>P. ramorum</em> during aerial surveys. A total of 70 multilocus genotypes have been identified between 2001-2014 and are marked by color as shown in the legend. The abbreviations for regions shown in the map are explained in Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum1">4.1</a>. The inset shows the placement of Curry county (red dot) in SW Oregon.
+</p>
+</div>
+</div>
+<div id="sampling" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Sampling</h3>
+<p>Commencing in 2001, 2-4 aerial surveys per year were conducted over the tanoak range by the Oregon Department of Forestry and the USDA Forest Service in Curry County. The survey detects recently killed tanoaks based on the reddish-brown color of foliage <span class="citation">(Hansen et al., <a href="#ref-hansen2008epidemiology">2008</a>)</span>. All trees identified by aerial surveys were ground checked and geographically referenced using a hand-held GPS instrument (Garmin GPS 12XL or 60CX, Garmin International, Olathe, KS). Bark or foliage samples were collected for determination of <em>P. ramorum</em> presence by culturing in the field and laboratory. Host plants within the area of the delimitation survey, generally 300 feet, were also inspected and sampled if they were symptomatic. Maps of distribution were prepared using ArcView GIS version 3.3 and ArcMap version 10.2 (Environmental Systems Research Institute, Redlands, CA).</p>
+</div>
+<div id="isolation-identification-and-dna-extraction" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Isolation, identification and DNA extraction</h3>
+<table>
+<caption><span id="tab:ramorum1">Table 4.1: </span> Summary of <em>P. ramorum</em> isolates sampled in Oregon forests and multilocus genotypes (MLG)observed across regions and years.</caption>
+<thead>
+<tr class="header">
+<th align="left"><strong>Abbreviation</strong></th>
+<th align="left"><strong>Region name</strong></th>
+<th align="left"><strong>Year</strong></th>
+<th align="left"><strong>Number of isolates</strong></th>
+<th align="left"><strong>MLGs detected (region specific)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">JHallCr</td>
+<td align="left">Joe Hall Creek</td>
+<td align="left">2001, 2002, 2003, 2004, 2005, 2013, 2014</td>
+<td align="left">244</td>
+<td align="left">30 (19)</td>
+</tr>
+<tr class="even">
+<td align="left">NFChetHigh</td>
+<td align="left">North Fork Chetco</td>
+<td align="left">2003, 2012, 2013, 2014</td>
+<td align="left">114</td>
+<td align="left">35 (19)</td>
+</tr>
+<tr class="odd">
+<td align="left">Coast</td>
+<td align="left">Coastal Region</td>
+<td align="left">2006, 2010, 2011, 2012, 2013, 2014</td>
+<td align="left">34</td>
+<td align="left">12 (7)</td>
+</tr>
+<tr class="even">
+<td align="left">HunterCr</td>
+<td align="left">Hunter Creek; Cape Sebastian</td>
+<td align="left">2011</td>
+<td align="left">66</td>
+<td align="left">4 (4)</td>
+</tr>
+<tr class="odd">
+<td align="left">Winchuck</td>
+<td align="left"></td>
+<td align="left">2012, 2013</td>
+<td align="left">35</td>
+<td align="left">9 (3)</td>
+</tr>
+<tr class="even">
+<td align="left">ChetcoMain</td>
+<td align="left"></td>
+<td align="left">2013, 2014</td>
+<td align="left">16</td>
+<td align="left">7 (1)</td>
+</tr>
+<tr class="odd">
+<td align="left">PistolRSF</td>
+<td align="left">Pistol River South Fork</td>
+<td align="left">2013</td>
+<td align="left">4</td>
+<td align="left">2 (0)</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total</strong></td>
+<td align="left"><strong>-</strong></td>
+<td align="left"><strong>2001-2014</strong></td>
+<td align="left"><strong>513</strong></td>
+<td align="left"><strong>70 (53)</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Isolations were made from symptomatic plant tissue onto selective CARP agar (Difco corn meal agar, 10 ppm natamycin, 200pm NA-ampicillin, and 10 ppm rifampicin) <span class="citation">(Prospero et al., <a href="#ref-prospero2007population">2007</a>)</span>. Candidate <em>Phytophthora</em> cultures were transferred onto corn meal agar with 30 ppm <span class="math inline">\(\beta\)</span>-sitosterol. <em>P. ramorum</em> identification was confirmed by microscopic inspection for presence of characteristic chlamydospores and deciduous sporangia <span class="citation">(Werres et al., <a href="#ref-werres2001phytophthora">2001</a>)</span>. Genomic DNA was extracted using either the FastDNA SPIN kit (MP Biomedicals, LLC; 116540600) <span class="citation">(Goss et al., <a href="#ref-goss2009population">2009</a>)</span> or the cetyltrimethyl ammonium bromide (CTAB )-chloroform-isopropanol method <span class="citation">(Winton &amp; Hansen, <a href="#ref-winton2001molecular">2001</a>)</span>. Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum1">4.1</a> provides an overview of strains collected by year and region following regions as shown in figure <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum1">4.1</a>.</p>
+</div>
+<div id="genotyping-data-validation-and-harmonization" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Genotyping, data validation, and harmonization</h3>
+<p>Five microsatellite loci were utilized in this analysis: PrMS6, Pr9C3, PrMS39, PrMS45, and PrMS43 <span class="citation">(Grünwald et al., <a href="#ref-grunwald2009standardizing">2009</a>, <a href="#ref-grunwald2008susceptibility">2008</a><a href="#ref-grunwald2008susceptibility">b</a>; Prospero et al., <a href="#ref-prospero2004isolation">2004</a>, <a href="#ref-prospero2007population">2007</a>)</span>. Genotyping (see specific protocols in supplementary text) of <em>P. ramorum</em> strains collected 2001-2012 occurred over several years and in several laboratories, with different protocols and sequencers. Consequently, a concerted effort was made to create a comprehensive dataset with identical allele calls. To detect errors, allele calls from all five genotyped loci were generated for a subsample of 40 isolates representing the most common multilocus genotypes from the culture collection, and then compared to data from participating laboratories. Three of the five loci, PrMS6, Pr9C3, and PrMS39 had identical allele calls between laboratories for the subsampled isolates. The remaining two loci, PrMS45 and PrMS43, had allele calls that differed by a single bp between laboratories. Data from PrMS45 and PrMS43 were therefore corrected to allow consistent comparisons of allele calls. Given the varied nature of the genotyping data described above genotyping of <em>P. ramorum</em> strains consists of two datasets including either 5 loci (2001-14) or a newly developed, multiplexed method including 14 loci (samples 2013-14) (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum2">4.2</a>). Details on both genotyping methods can be found in the supplementary text <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#text:S1">4.7.1</a> and figure <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS1">4.6</a>.</p>
+<table style="width:98%;">
+<caption><span id="tab:ramorum2">Table 4.2: </span> Newly multiplexed protocol for <em>P. ramorum</em> primer sequences of simple sequence repeat (SSR) loci and final concentrations used to determine multilocus genotypes for four clonal lineages. PrMS6, Pr9C3, PrMS39, PrMS45, and PrMS43 were utilized in this study as they were commonly genotyped across all laboratories.</caption>
+<colgroup>
+<col width="15%" />
+<col width="7%" />
+<col width="17%" />
+<col width="27%" />
+<col width="18%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>SSR Locus</strong></th>
+<th align="left"><strong>Dye</strong></th>
+<th align="left"><strong>Product (bp)<sup>c</sup></strong></th>
+<th align="left"><strong>Primer sequence<sup>b</sup></strong></th>
+<th align="left"><strong>Final conc. (µM)</strong></th>
+<th align="left"><strong>Reaction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ILVOPrMS145abc<sup>f</sup></td>
+<td align="left">6-FAM</td>
+<td align="left">167-257</td>
+<td align="left">Fwd6FAM-TGGCAGTGTTCTTCAACAGC<br />
+Rev-<em>GTTT</em>ATTCCCGTGAACAGCGTATC</td>
+<td align="left">0.04</td>
+<td align="left">8-plex</td>
+</tr>
+<tr class="even">
+<td align="left">PrMS39<sup>d</sup></td>
+<td align="left">NED</td>
+<td align="left">130-258</td>
+<td align="left">FwdNED-GCACGGCCAGAGATTGATAG<br />
+Rev-<em>GTTT</em>ATCTGCCGACGTGAAGAAGT</td>
+<td align="left">0.07</td>
+<td align="left">8-plex</td>
+</tr>
+<tr class="odd">
+<td align="left">PrMS9C3<sup>d</sup></td>
+<td align="left">PET</td>
+<td align="left">210-226</td>
+<td align="left">FwdVIC-TCACACGAAGCAGCAACTCT<br />
+Rev-<em>GTTT</em>AGCGGCACTACGGAATACAT</td>
+<td align="left">0.04</td>
+<td align="left">8-plex</td>
+</tr>
+<tr class="even">
+<td align="left">ILVOPrMS79<sup>af</sup></td>
+<td align="left">6-FAM</td>
+<td align="left">342-396</td>
+<td align="left">Fwd6FAM-AGGCGGAAAACGTCAGAAC<br />
+Rev-<em>GTTT</em>CTCGAGAGGCTGGAAGTACG</td>
+<td align="left">0.15</td>
+<td align="left">8-plex</td>
+</tr>
+<tr class="odd">
+<td align="left">KI18<sup>e</sup></td>
+<td align="left">VIC</td>
+<td align="left">217-279</td>
+<td align="left">FwdPET-TGCCATCACAACACAAATCC<br />
+Rev-<em>GTT</em>TGTGCTATCTTTCCTGAACGG</td>
+<td align="left">1.0</td>
+<td align="left">8-plex</td>
+</tr>
+<tr class="even">
+<td align="left">KI64<sup>e</sup></td>
+<td align="left">NED</td>
+<td align="left">342-401</td>
+<td align="left">FwdNED-GCGCTAAGAAAGACACTCCG<br />
+Rev-<em>GTTT</em>CAACATGTAGCCATTGCAGG</td>
+<td align="left">0.35</td>
+<td align="left">8-plex</td>
+</tr>
+<tr class="odd">
+<td align="left">PrMS45<sup>d</sup></td>
+<td align="left">VIC</td>
+<td align="left">138-186</td>
+<td align="left">FwdVIC-CGTGCTGCATCTGGTGTAGT<br />
+Rev-GAAAGTCCGGATTTGCGTTA</td>
+<td align="left">0.15</td>
+<td align="left">8-plex</td>
+</tr>
+<tr class="even">
+<td align="left">PrMS6<sup>d</sup></td>
+<td align="left">PET</td>
+<td align="left">165-168</td>
+<td align="left">FwdPET-AATCGATCTCTCGGCTTTGA<br />
+Rev-TATAGCCCCAGCTGCAACA</td>
+<td align="left">0.15</td>
+<td align="left">8-plex</td>
+</tr>
+<tr class="odd">
+<td align="left">ILVOPrMS131<sup>f</sup></td>
+<td align="left">VIC</td>
+<td align="left">146-414</td>
+<td align="left">FwdVIC-CGGCCGTTTTTGTAAGTTTG<br />
+Rev-<em>GTTT</em>CAGATCAAACCAAAATCTGCTC</td>
+<td align="left">0.2</td>
+<td align="left">2-plex</td>
+</tr>
+<tr class="even">
+<td align="left">KI82ab<sup>e</sup></td>
+<td align="left">NED</td>
+<td align="left">95-243</td>
+<td align="left">FwdNED-CCACGTCATTGGGTGACTTC<br />
+Rev-<em>GTTT</em>CGTACAAGTCACGACTCCCC</td>
+<td align="left">0.2</td>
+<td align="left">2-plex</td>
+</tr>
+<tr class="odd">
+<td align="left">PrMS43<sup>d</sup></td>
+<td align="left">6-FAM</td>
+<td align="left">122-493</td>
+<td align="left">Fwd6FAM-AAATATGCAAAAAGGCAGGA<br />
+Rev-<em>GTTT</em>CCGCGTAACCTAGTCTGCTC</td>
+<td align="left">0.3</td>
+<td align="left">Simplex</td>
+</tr>
+</tbody>
+</table>
+<p><sup>a</sup> ILVOPrMS79 amplifies three alleles in the NA1 lineage. The first two alleles are fixed and the third is polymorphic.<br />
+<sup>b</sup> Reverse (Rev) primer includes PIG tail addition except for PrMS45 and PrMS6. Indicated in italic.<br />
+<sup>c</sup> Product size range is for four lineages (EU1, EU2, NA1, NA2). Only the NA1 lineage has been reported in Curry County,OR forests.<br />
+<sup>d</sup> Described by <span class="citation">Prospero et al. (<a href="#ref-prospero2004isolation">2004</a>)</span> and/or <span class="citation">Prospero et al. (<a href="#ref-prospero2007population">2007</a>)</span>.<br />
+<sup>e</sup> Described by <span class="citation">Ivors et al. (<a href="#ref-ivors2006microsatellite">2006</a>)</span>.<br />
+<sup>f</sup> Described by <span class="citation">Vercauteren et al. (<a href="#ref-vercauteren2010clonal">2010</a>)</span>, and <span class="citation">Vercauteren et al. (<a href="#ref-vercauteren2011identification">2011</a>)</span>.</p>
+</div>
+<div id="nursery-populations" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> Nursery populations</h3>
+<p>To determine if forest populations cluster with different nursery populations from Oregon or California, we used previously published data from our work to determine relationships among nursery and Curry County forest populations <span class="citation">(Goss et al., <a href="#ref-goss2009population">2009</a>, <a href="#ref-goss2011phytophthora">2011</a>; Grünwald et al., <a href="#ref-grunwald2009standardizing">2009</a>; Prospero et al., <a href="#ref-prospero2009migration">2009</a>, <a href="#ref-prospero2007population">2007</a>)</span>.</p>
+</div>
+<div id="data-analysis-1" class="section level3">
+<h3><span class="header-section-number">4.3.6</span> Data analysis</h3>
+<p>All individuals genotyped for this effort belonged to the NA1 clonal lineage <span class="citation">(Grünwald et al., <a href="#ref-grunwald2009standardizing">2009</a>)</span>. Thus, all analyses presented here focused on describing the clonal dynamic using model-free approaches that avoid violation of population genetic theory. Samples were grouped into different multilocus genotypes (MLGs) defined by the unique combination of alleles across all observed loci from the consensus five SSR loci genotyped across all years. For identification purposes, unique MLGs were then assigned an arbitrary number from 1 to the total number of observed MLGs. Population genetic analysis was conducted using the computer and statistical language R <span class="citation">(R Core Team, <a href="#ref-R2014">2014</a>)</span> using various packages as well as R functions written specifically for this project (see github link below). Graphs and figures were created using the R packages <em>ggplot2, ape, igraph, ggmap,</em> and <em>poppr</em> <span class="citation">(Csardi &amp; Nepusz, <a href="#ref-csardi2006igraph">2006</a>; Kahle &amp; Wickham, <a href="#ref-khale2013ggmap">2013</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>; Paradis et al., <a href="#ref-paradis2004ape">2004</a>; Wickham, <a href="#ref-wickham2009ggplot2">2009</a>)</span>. Within-locus allelic diversity was analyzed across and within years and regions using the function <code>locus_table()</code> from the R package <em>poppr</em> (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramtabS1">4.5</a>) <span class="citation">(Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span>. To address the temporal and spatial aspects of the data, populations were analyzed both by year isolated and watershed region (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum1">4.1</a>; Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum1">4.1</a>). Watershed regions were drawn with ArcMap version 10.2 (Environmental Systems Research Institute, Redlands, CA). The regions represent drainages or portions of drainages in which infected trees were discovered as the disease progressed over time. In most cases, ridgelines dividing drainages formed the boundary of a region. These regions were saved as shapefiles and imported into R with <em>rgdal</em> <span class="citation">(Bivand et al., <a href="#ref-bivand2014rgdal">2014</a>)</span>.</p>
+<p>Genotypic diversity was analyzed within and across years and populations, with the Shannon-Wiener index (<em>H</em>) and the Stoddard and Taylor’s index (<em>G</em>), <span class="citation">(Shannon, <a href="#ref-shannon2001mathematical">1948</a>; Stoddart &amp; Taylor, <a href="#ref-stoddart1988genotypic">1988</a>)</span>. Both <em>G</em> and <em>H</em> measure genotypic diversity, combining richness and evenness. If all genotypes are equally abundant, then the value of <em>G</em> will be the number of MLGs and the value of <em>H</em> will be the natural log of the number of MLGs. Both <em>G</em> and <em>H</em> are used as they weigh more or less abundant MLGs more heavily, respectively <span class="citation">(Grünwald et al., <a href="#ref-grunwald2003analysis">2003</a>)</span>. Evenness was calculated as <em>E<sub>5</sub></em>, which is an estimator of evenness that utilizes both <em>H</em> and <em>G</em> that gives a ratio of the number of abundant genotypes to rare genotypes <span class="citation">(Grünwald et al., <a href="#ref-grunwald2003analysis">2003</a>; Ludwig &amp; Reynolds, <a href="#ref-ludwig1988statistical">1988</a>; Pielou, <a href="#ref-pielou1975ecological">1975</a>)</span>. These were calculated with the R packages <em>poppr</em> and <em>vegan</em> <span class="citation">(Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>; Oksanen et al., <a href="#ref-oksanen2013vegan">2013</a>)</span>. Confidence intervals were calculated using the R package <em>boot</em> with 9,999 bootstrap resamplings <span class="citation">(Canty &amp; Ripley, <a href="#ref-canty2015boot">2015</a>)</span>. Richness, or the expected number of MLGs (<em>eMLG</em>), was calculated using rarefaction from the R packages <em>poppr</em> and <em>vegan</em> <span class="citation">(Heck et al., <a href="#ref-heck1975explicit">1975</a>; Hurlbert, <a href="#ref-hurlbert1971nonconcept">1971</a>)</span>. Some statistics (AMOVA, genotypic diversity, index of association, allelic diversity, and Nei’s distance) were also performed on clone-censored data where each MLG was represented once per population hierarchy.</p>
+<p>Because the analysis of genotypic diversity, richness and evenness is agnostic to specific alleles within MLGs, assessment of genetic relatedness between MLGs was performed using the function <code>bruvo.dist()</code> using <em>poppr</em>, which calculates Bruvo’s genetic distance, utilizing a stepwise mutation model for microsatellite loci <span class="citation">(Bruvo et al., <a href="#ref-bruvo2004simple">2004</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span>. This distance thus gives a more fine-scale picture of relationships between individuals than band-sharing models. These relationships were visualized with minimum spanning networks generated using the R packages <em>igraph</em> and <em>poppr</em> <span class="citation">(Csardi &amp; Nepusz, <a href="#ref-csardi2006igraph">2006</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span>.</p>
+<p>If the epidemic had a single origin, a correlation between genetic and geographic distance would be expected as populations acquire mutations over time and clonally diverge regardless of rates of spread. This was tested by performing Mantel tests across all hierarchical levels in the data set utilizing the function <code>mantel.randtest()</code> in the R package <em>ade4</em> between Bruvo’s distance as described above and Euclidean distances between geographic coordinates <span class="citation">(Dray &amp; Dufour, <a href="#ref-dray2007ade4">2007</a>; Mantel, <a href="#ref-mantel1967detection">1967</a>)</span>. <em>P</em>-values were calculated using 99,999 bootstrap replicates.</p>
+<p>As the eradication efforts destroy the immediate habitat in an infected area, one question that we wanted to address was whether or not genotypes were clustering to specific regions or if they were evenly spread throughout Curry County <span class="citation">(Prospero et al., <a href="#ref-prospero2007population">2007</a>)</span>. This was tested using three methods: bootstrap analysis of Nei’s genetic distance, Analysis of MOlecular VAriance (AMOVA), and Discriminant Analysis of Principal Components (DAPC) in the R packages <em>poppr</em>, <em>ade4</em>, and <em>adegenet</em> <span class="citation">(Excoffier et al., <a href="#ref-excoffier1992analysis">1992</a>; Jombart et al., <a href="#ref-jombart2010discriminant">2010</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span>. The bootstrap analysis utilized 10,000 bootstrap replicates treating loci as independent units with the function <code>aboot()</code> in <em>poppr</em> and was visualized as an unrooted neighbor-joining tree in figtree v. 1.4.2 (Figure <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum5">4.5</a>). AMOVA utilizes a distance matrix between genotypes for which hierarchical partitions are defined and attempts to analyze the variation within samples, between samples, between subpopulations within populations and finally between populations. In this case, we used both the hierarchies of samples within years within regions and samples within regions within years. DAPC is a multivariate, model-free approach to clustering based on prior population information <span class="citation">(Jombart et al., <a href="#ref-jombart2010discriminant">2010</a>)</span>. This allows us to analyze the population structure by assessing how well samples can be reassigned into previously defined populations. Both DAPC and AMOVA were run with and without Hunter Creek and Pistol River South Fork due to isolated genotypes and small sample size, respectively. For the DAPC analysis, these removed populations had their origins predicted from the DAPC object using the function predict.dapc in the R package <em>adegenet</em> <span class="citation">(Jombart et al., <a href="#ref-jombart2010discriminant">2010</a>)</span>.</p>
+<p>Since DAPC is sensitive to the number of principal components used in analysis, the function <code>xvalDapc()</code> from the R package <em>adegenet</em> was used to select the correct number of principal components with 1,000 replicates using a training set of 90% of the data. The number of principal components was chosen based on the criteria that it had to produce the highest average percent of successful reassignment and lowest root mean squared error <span class="citation">(Jombart et al., <a href="#ref-jombart2010discriminant">2010</a>)</span>. Significant deviations from random population structure was tested in AMOVA utilizing the function <code>randtest()</code> from the R package <em>ade4</em> with 9,999 bootstrap replicates <span class="citation">(Dray &amp; Dufour, <a href="#ref-dray2007ade4">2007</a>)</span>.</p>
+<p>All data and R scripts to reproduce the analyses shown here are deposited publicly on github (<a href="https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests" class="uri">https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests</a>) and citable (DOI: 10.5281/zenodo.13007).</p>
+</div>
+</div>
+<div id="results" class="section level2">
+<h2><span class="header-section-number">4.4</span> Results</h2>
+<div id="demographic-pattern-and-genetic-diversity" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> Demographic pattern and genetic diversity</h3>
+<p>The epidemic has expanded over time from the initial focus in Joe Hall Creek NE of Brookings, Oregon mostly north (first to N Fork Chetco High) and northwest (Coast, Pistol River South Fork), but also east (Chetco Main and Winchuck) (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum1">4.1</a>; Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum1">4.1</a>). To date a total of 70 multilocus genotypes have been found in forest populations (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum1">4.1</a>). MLG 22 is most abundant and the only MLG detected across the whole period (although it was not sampled in every year) (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum2">4.2</a>). MLG 59, the second most abundant MLG, was only detected in 2011 and has a high frequency due to the sampling design applied: all 2011 strains were sampled in one concentrated area in the northwestern sampling range geographically distant from any other location (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum2">4.2</a>). Given that sampling strategies for some years were not comprehensive, samples from some years have to be interpreted with caution (e.g., 2005-6, 2010-11). Samples from 2013 and 2014 are sampled from all regions and can be considered more representative.</p>
+<div class="figure" style="text-align: center"><span id="fig:ramorum2"></span>
+<img src="figure/phytopathology/figure_2.png" alt="Rank distribution of multilocus genotypes (MLGs) of *P. ramorum* and
+recovery per year. The vertical axis denotes unique MLGs detected in the
+whole data set with decreasing abundance as indicated by the barplot on
+the right side. The horizontal axis indicates year of sampling. Each
+numbered circle represents the number of observations of each MLG with
+lines connecting genotypes found in multiple years." width="40%" />
+<p class="caption">
+Figure 4.2: Rank distribution of multilocus genotypes (MLGs) of <em>P. ramorum</em> and recovery per year. The vertical axis denotes unique MLGs detected in the whole data set with decreasing abundance as indicated by the barplot on the right side. The horizontal axis indicates year of sampling. Each numbered circle represents the number of observations of each MLG with lines connecting genotypes found in multiple years.
+</p>
+</div>
+<p>Allelic and genotype diversity within loci revealed that PrMS43 had, on average, the highest number of alleles (n = 18). All other loci had 5 or fewer alleles with a moderate to high amount of diversity (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramtabS2">4.6</a>). Nevertheless, the genotype accumulation curve showed a slight plateau, indicating that we have enough power in our data to describe a significant number of MLGs (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS2">4.7</a>). Genotypic diversity (<em>H</em> = 2.98, <em>G</em> = 8.64), evenness (<em>E<sub>5</sub></em> = 0.41), and richness (<em>eMLG</em> = 7) were low as expected for a clonal population slowly accumulating mutations over space and time (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramtabS3">4.7</a>). A pattern of increasing diversity across years (with number of MLGs not fewer than 10) was also observed (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramtabS3">4.7</a>). The minimum spanning network showed that MLGs 17, 22, and 28 clustered in the center of the network and had the highest number of connections to other genotypes in the forest populations (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum3">4.3</a>). Most genotypes were connected to their immediate neighbors by a genetic distance of 0.05 or the equivalent of one mutational step across 5 diploid loci.</p>
+<div class="figure" style="text-align: center"><span id="fig:ramorum3"></span>
+<img src="figure/phytopathology/figure_3.png" alt="Minimum spanning network based on Bruvo's genetic distance for
+microsatellite markers for *P. ramorum* populations. Nodes (circles)
+represent individual multilocus genotypes. The 10 most abundant forest
+genotypes are labeled with their MLG designation. Node colors represent
+population membership proportional to the pie size. Node sizes are
+relatively scaled to *log~1.75~n,* where *n* is the number of samples in
+the nodes to avoid node overlap. Edges (lines) represent minimum genetic
+distance between individuals determined by Prim's algorithm. Nodes that
+are more closely related will have darker and thicker edges whereas
+nodes more distantly related will have lighter and thinner edges or no
+edge at all. Reticulation was introduced by finding exact ties in
+genetic distance after Prim's algorithm was run. Subgroups of &amp;gt;3 MLGs
+where all nodes are no more than one mutational step (d = 0.05) away
+from its neighbors, are highlighted in arbitrary colors." width="75%" />
+<p class="caption">
+Figure 4.3: Minimum spanning network based on Bruvo’s genetic distance for microsatellite markers for <em>P. ramorum</em> populations. Nodes (circles) represent individual multilocus genotypes. The 10 most abundant forest genotypes are labeled with their MLG designation. Node colors represent population membership proportional to the pie size. Node sizes are relatively scaled to <em>log<sub>1.75</sub>n,</em> where <em>n</em> is the number of samples in the nodes to avoid node overlap. Edges (lines) represent minimum genetic distance between individuals determined by Prim’s algorithm. Nodes that are more closely related will have darker and thicker edges whereas nodes more distantly related will have lighter and thinner edges or no edge at all. Reticulation was introduced by finding exact ties in genetic distance after Prim’s algorithm was run. Subgroups of &gt;3 MLGs where all nodes are no more than one mutational step (d = 0.05) away from its neighbors, are highlighted in arbitrary colors.
+</p>
+</div>
+</div>
+<div id="spatial-correlation" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Spatial Correlation</h3>
+<p>A Mantel test revealed significant correlations of genetic distance and geographic distance for most samples collected after 2003 (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum3">4.3</a>). When partitioned by year, this correlation appears to increase and become more pronounced with the progression of the epidemic. When partitioned by region, those that are closer to the origin of the epidemic (Joe Hall Creek and N Fork Chetco River) show significant correlation. When the overall mantel test was run without Hunter Creek, the correlation coefficient was reduced (0.175), but was still significant (<em>p</em> = 0.0001).</p>
+<table>
+<caption><span id="tab:ramorum3">Table 4.3: </span> Table of correlation coefficients generated across forest regions and years of <em>P. ramorum</em> isolates using the Mantel test. Euclidean distances were calculated from geographic coordinates while genetic distance was based on Bruvo’s distance. Significance of values are based on 99,999 Monte-Carlo permutations and marked as follows: * ≤ 0.05, ** ≤ 0.01, *** ≤ 0.001, - = no data, NaN = insufficient data for analysis.</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="left"><strong>2001</strong></th>
+<th align="left"><strong>2002</strong></th>
+<th align="left"><strong>2003</strong></th>
+<th align="left"><strong>2004</strong></th>
+<th align="left"><strong>2005</strong></th>
+<th align="left"><strong>2006</strong></th>
+<th align="left"><strong>2010</strong></th>
+<th align="left"><strong>2011</strong></th>
+<th align="left"><strong>2012</strong></th>
+<th align="left"><strong>2013</strong></th>
+<th align="left"><strong>2014</strong></th>
+<th align="left"><strong>Pooled</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>JHallCr</td>
+<td align="left">0.06</td>
+<td align="left">0.24</td>
+<td align="left">0.14***</td>
+<td align="left">0.28***</td>
+<td align="left">NaN</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">0.18**</td>
+<td align="left">NaN</td>
+<td align="left">0.14***</td>
+</tr>
+<tr class="even">
+<td>NFChetHigh</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">NaN</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">0.68</td>
+<td align="left">0.41***</td>
+<td align="left">-0.23</td>
+<td align="left">0.35***</td>
+</tr>
+<tr class="odd">
+<td>Coast</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">NaN</td>
+<td align="left">NaN</td>
+<td align="left">NaN</td>
+<td align="left">NaN</td>
+<td align="left">0.55*</td>
+<td align="left">-0.25</td>
+<td align="left">0.13</td>
+</tr>
+<tr class="even">
+<td>HunterCr</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">0.06</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">0.06</td>
+</tr>
+<tr class="odd">
+<td>Winchuck</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">0.41**</td>
+<td align="left">0.03</td>
+<td align="left">-</td>
+<td align="left">0.11</td>
+</tr>
+<tr class="even">
+<td>ChetcoMain</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">0.53</td>
+<td align="left">NaN</td>
+<td align="left">0.63*</td>
+</tr>
+<tr class="odd">
+<td>PistolRSF</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">0.94</td>
+<td align="left">-</td>
+<td align="left">0.94</td>
+</tr>
+<tr class="even">
+<td>Pooled</td>
+<td align="left">0.06</td>
+<td align="left">0.24</td>
+<td align="left">0.13***</td>
+<td align="left">0.28***</td>
+<td align="left">NaN</td>
+<td align="left">NaN</td>
+<td align="left">NaN</td>
+<td align="left">0.87***</td>
+<td align="left">0.59***</td>
+<td align="left">0.15***</td>
+<td align="left">0.14*</td>
+<td align="left"><strong>0.52***</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="population-differentiation" class="section level3">
+<h3><span class="header-section-number">4.4.3</span> Population differentiation</h3>
+<p>Cluster analysis of populations with respect to year using Nei’s genetic distance showed no significant (&gt;70%) bootstrap support for any clades, but does show that these tend to cluster by region as opposed to year (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS3">4.8</a>). AMOVA analysis revealed significant population structure between regions on both clone-corrected (with respect to hierarchy) and uncorrected data sets (Table <a href="#tab:ramtab4"><strong>??</strong></a>). Significant structure was only found between years within regions on the uncorrected data set. Both patterns were observed without Hunter Creek and Pistol River South Fork isolates. DAPC clustering showed that the first discriminant component separated Hunter Creek from all other regions and the second discriminant component shows a gradient from Joe Hall Creek to the coast (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramfig4">4.4</a>). This distinction was reflected in the percent of correct posterior assignment of isolates to their original populations. Over the whole data set there was an 81.5% assignment- success rate. Hunter Creek received 100% successful reassignment. Joe Hall Creek, Winchuck, and Coast all had &gt;85% successful reassignment whereas Chetco Main, North Fork of the Chetco, and Pistol River South Fork all had &lt;69% successful reassignment (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS4">4.9</a>). The isolation of the Hunter Creek isolates in the DAPC analysis was found to be mainly driven by allele 493 at locus PrMS43 (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS5">4.10</a>). The only other population to share this allele was Joe Hall Creek where it was present in a total of 4 isolates, and only isolates found in the coastal region or North Fork Chetco contained the allele 489, which is one mutational step away in a stepwise mutation model of a tetranucleotide repeat locus. When DAPC was run without Hunter Creek and Pistol River South Fork data, percent successful reassignment for all regions did not change significantly. Prediction of sources for the Hunter Creek data revealed that over 98% of the genotypes were assigned to the Coast with a 99% probability.</p>
+<table>
+<caption><span id="tab:ramotab4">Table 4.4: </span>AMOVA table generated comparing <em>P. ramorum</em> isolates for two different hierarchies, year within region and region within year, respectively. Results are rounded to three significant figures. Clone corrected results are provided in parentheses. P values are based on 9,999 permutations.</caption>
+<thead>
+<tr class="header">
+<th align="center">Heirarchy</th>
+<th align="center">df</th>
+<th align="center">Sum of squares</th>
+<th align="center">Variation (%)</th>
+<th align="center"><em>P</em></th>
+<th align="center"><span class="math inline">\(\phi\)</span> statistic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>Region by year</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Between region</td>
+<td align="center">10 (10)</td>
+<td align="center">160 (21)</td>
+<td align="center">11.6 (3)</td>
+<td align="center">0.366 (0.175)</td>
+<td align="center">0.448 (0.101)</td>
+</tr>
+<tr class="odd">
+<td align="center">Between year within region</td>
+<td align="center">12 (12)</td>
+<td align="center">59.5 (19.1)</td>
+<td align="center">33.3 (7.07)</td>
+<td align="center">1e-04 (2e-04)</td>
+<td align="center">0.376 (0.0729)</td>
+</tr>
+<tr class="even">
+<td align="center">Within year within region</td>
+<td align="center">490 (129)</td>
+<td align="center">281 (141)</td>
+<td align="center">55.2 (89.9)</td>
+<td align="center">1e-04 (1e-04)</td>
+<td align="center">0.116 (0.03)</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Year by region</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Between year</td>
+<td align="center">6 (6)</td>
+<td align="center">197 (23)</td>
+<td align="center">45 (12.3)</td>
+<td align="center">1e-04 (1e-04)</td>
+<td align="center">0.496 (0.12)</td>
+</tr>
+<tr class="odd">
+<td align="center">Between region within year</td>
+<td align="center">16 (16)</td>
+<td align="center">22.5 (17.2)</td>
+<td align="center">4.56 (-0.283)</td>
+<td align="center">1e-04 (0.446)</td>
+<td align="center">0.0829 (-0.00323)</td>
+</tr>
+<tr class="even">
+<td align="center">Within region within year</td>
+<td align="center">490 (129)</td>
+<td align="center">281 (141)</td>
+<td align="center">50.4 (88)</td>
+<td align="center">1e-04 (1e-04)</td>
+<td align="center">0.45 (0.123)</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span id="fig:ramfig4"></span>
+<img src="dissertation_files/figure-html/ramfig4-1.png" alt="Scatterplot from DAPC of the first two principal components
+discriminating *P. ramorum* populations by regions. Points represent
+individual observations. Colors and lines represent population
+membership. Inertia ellipses represent an analog of a 67% confidence
+interval based on a bivariate normal distribution." width="80%" />
+<p class="caption">
+Figure 4.4: Scatterplot from DAPC of the first two principal components discriminating <em>P. ramorum</em> populations by regions. Points represent individual observations. Colors and lines represent population membership. Inertia ellipses represent an analog of a 67% confidence interval based on a bivariate normal distribution.
+</p>
+</div>
+</div>
+<div id="clustering-of-forest-with-nursery-populations" class="section level3">
+<h3><span class="header-section-number">4.4.4</span> Clustering of forest with nursery populations</h3>
+<p>We used previously published data to determine if nursery populations in California or Oregon could have been source populations for the Oregon forest epidemic <span class="citation">(Goss et al., <a href="#ref-goss2009population">2009</a>, <a href="#ref-goss2011phytophthora">2011</a>; Grünwald et al., <a href="#ref-grunwald2009standardizing">2009</a>; Prospero et al., <a href="#ref-prospero2009migration">2009</a>, <a href="#ref-prospero2007population">2007</a>)</span>. Nursery data included 40 MLGs across 216 samples of NA1 clones. Of these 40, 12 MLGs matched the forest sample and 28 MLGs were unique to the nurseries. The only region that did not contain genotypes that matched those found in nurseries was Pistol River South Fork. When considering those 12 genotypes that were present in both data sets, with the exception of Joe Hall Creek, all genotypes were first isolated from nurseries before discovery in the forest. At the most variable locus, PrMS43, both nursery populations had the allele 281 at frequencies of 4.5% and 4.9% for CA and OR, respectively. This allele was not observed in the forest population. Both populations contained allele 489 at &gt;10% frequency and the CA nursery population contained allele 493 at a frequency of 1.4%.</p>
+<p>When nursery genotypes were added to the minimum spanning network, MLGs found at Hunter Creek, previously isolated in the network, connected by only a single MLG from the coast, gained more connections to nursery MLGs. Clustering with Nei’s distance revealed the Nursery isolates from CA consistently clustering closest with Hunter Creek isolates in both clone-corrected and uncorrected data sets (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum5">4.5</a>). DAPC clustering revealed a decrease in overall assignment-success rate at 78%. The nursery isolates received 74% and 83% assignment success for CA and OR nurseries, respectively.</p>
+<div class="figure" style="text-align: center"><span id="fig:ramorum5"></span>
+<img src="figure/phytopathology/figure_5.png" alt="Unrooted, neighbor-joining tree with 10,000 bootstrap replicates of
+Nei's genetic distance for *P. ramorum* populations defined by region.
+Tip labels are colored by region. Branches with bootstrap values greater
+than 50% are shown in blue. Nursery populations are shown as originating
+from California (CA) or Oregon (OR)." width="80%" />
+<p class="caption">
+Figure 4.5: Unrooted, neighbor-joining tree with 10,000 bootstrap replicates of Nei’s genetic distance for <em>P. ramorum</em> populations defined by region. Tip labels are colored by region. Branches with bootstrap values greater than 50% are shown in blue. Nursery populations are shown as originating from California (CA) or Oregon (OR).
+</p>
+</div>
+<p>The assignment successes for the regions before or after inclusion of nursery data changed less than 5% for all regions except for the coast, which saw a decrease of 17.6% when nursery populations were included (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS4">4.9</a>). Prediction of sources for nursery genotypes against the forest data revealed that 48% of these nursery isolates were predicted to share membership with the coast at <span class="math inline">\(\geq\)</span> 95% probability (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS6">4.11</a>, <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS7">4.12</a>). A total of 3.2% of the isolates were predicted to share membership with Hunter Creek at <span class="math inline">\(\geq\)</span> 99.9% membership probability. Furthermore, 21.75% of the nursery data could not be assigned to any of the forest populations at &gt;60% probability.</p>
+<p>Since 3.2% of the nursery isolates had a very strong signal for Hunter Creek, we predicted sources for Hunter Creek isolates when considering nursery isolates. This approach determines if Hunter Creek isolates cluster more readily with nursery or coast populations. Indeed, 92% of the Hunter Creek isolates were predicted to share membership with California nurseries at <span class="math inline">\(\geq\)</span> 99% membership probability (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS8">4.13</a>). No Hunter Creek isolate was predicted to share membership with a forest population at &gt;0.45% membership probability.</p>
+</div>
+</div>
+<div id="discussion-1" class="section level2">
+<h2><span class="header-section-number">4.5</span> Discussion</h2>
+<p>To date populations monitored from 2001-14 show presence of only the NA1 clonal lineage observed previously <span class="citation">(Prospero et al., <a href="#ref-prospero2009migration">2009</a>, <a href="#ref-prospero2007population">2007</a>)</span>. The fact that individuals belonging to the EU1 and NA2 clonal lineages have not been found in Oregon forests, despite their presence on the west coast from British Columbia to California is welcome news <span class="citation">(Goss et al., <a href="#ref-goss2009population">2009</a>, <a href="#ref-goss2011phytophthora">2011</a>; Grünwald et al., <a href="#ref-grunwald2012emergence">2012</a>)</span>. The lack of EU1 or NA2 isolates provides evidence that monitoring for <em>P. ramorum</em> in nurseries by federal and state agencies is helping avoid emergence of new clones in Oregon’s Forests.</p>
+<p>Our analysis provides support for a most parsimonious scenario of two introductions into Curry county from nurseries: one initial introduction into Curry County sometime before detection of the first infected tanoaks in 2001 from California (or less likely Oregon) nurseries followed by a second introduction into the Hunter Creek area again from nurseries. The relative position of the nursery populations in the minimum spanning network and DAPC scatter plot (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum3">4.3</a>, <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramfig4">4.4</a>) suggest that the introductions from nurseries were rare, though more even sampling and migration models could disprove this hypothesis. Since 2001, the epidemic has spread clonally throughout Southwestern Curry County mostly north, but also west, towards the coast, and southeast. This clonal spread of the pathogen from the Joe Hall area is supported partially by Mantel tests showing significant levels of isolation by distance in years following 2002 (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum3">4.3</a>) along with significant AMOVA results across regions (Table <a href="#tab:ramtab4"><strong>??</strong></a>). The populations sampled in 2011 in Hunter Creek (Cape Sebastian) appear to have originated from a new source and cluster into a distinct group based on DAPC (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramfig4">4.4</a>). Based on the minimum spanning network, this population would appear isolated in the epidemic if it were not for MLG 32, which is connected with MLG 33 (found on the coast in 2010) by one mutational step at locus PrMS43. This, in turn, is connected with the other MLGs from Hunter Creek by one mutational step at locus PrMS39. When considering clustering via Bruvo’s distance in combination with data from nursery populations, however, these genotypes from Hunter Creek appear to be more similar to California nursery populations (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum3">4.3</a>) than Oregon forest populations. Predictions based on DAPC place samples from Hunter Creek as coming from California nurseries (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS8">4.13</a>). This, in combination with the observation that purely forest genotypes (i.e. those only found in the forest) are connected to Hunter Creek genotypes through nursery genotypes, indicates a possible contribution from nursery populations to the epidemic. This is supported by the observation that all population level clustering, with and without clone correction, places the Hunter Creek isolates adjacent to the nursery isolates from CA (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramfig4">4.4</a>, <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramorum5">4.5</a>). This appears to be driven by the high frequency of allele 246 at locus PrMS39, which interestingly appears to segregate in an east to west fashion and is increasing in frequency over time (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS9">4.14</a>, <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS10">4.15</a>). This, along with the results from the DAPC clustering and subsequent prediction (Fig. <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS6">4.11</a>, <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#fig:ramS7">4.12</a>) provide weak support for a potential third introduction into the coastal region from nurseries sometime after the Hunter Creek introduction event.</p>
+<p>An interesting aspect is the observation that there appeared to be more than one cluster of genotypes introduced into the Joe Hall area during the early stages of the epidemic. The two dominant clusters that appeared were the ones that contained MLG 22 and MLG 68. The former has been found in the most recent sampling year, whereas the latter has not been observed since 2005 or beyond the Joe Hall area. This latter group was also the most distantly related group overall, more distant than some nursery genotypes. While it is clear that the eradication effort has not been entirely successful, there is some evidence that it is having an effect as a major genotype cluster has effectively been eradicated, although disappearance of MLGs could also be explained by being less fit than lineages dominating now.</p>
+<p>The Curry County epidemic is in many ways different from the epidemic in California. When introduced into California in the mid 1990’s, the causal agent of sudden oak death was unknown and thus gave it time to clonally expand and diversify as management strategies in natural forest systems were limited <span class="citation">(Rizzo et al., <a href="#ref-rizzo2002phytophthora">2002</a>)</span>. With the foresight of the epidemic in central California, the ODF was able to implement a quarantine effort against the import of hosts as soon as the causal agent was known (A Kanaskie, pers. comm.). This quarantine along with aggressive eradication efforts have affected the spread of <em>P. ramorum</em> <span class="citation">(Mascheretti et al., <a href="#ref-mascheretti2008reconstruction">2008</a>)</span>. Drawing conclusions from previous population studies in California and applying them to the Oregon epidemic should be undertaken with great care given the drastically differing management scenarios <span class="citation">(Mascheretti et al., <a href="#ref-mascheretti2009genetic">2009</a>, <a href="#ref-mascheretti2008reconstruction">2008</a>)</span>.</p>
+<p>Our work has some inherent drawbacks. Given the cost of aerial surveys and subsequent ground crew work, and the fact that trees are eradicated once found, populations are not hierarchically sampled across all years. The destructive nature of the management approach means that it was not possible to conduct controlled ecological experiments focusing on effects of climate and rainfall on the spread of disease as was possible in California trials <span class="citation">(Eyre et al., <a href="#ref-eyre2013poulation">2013</a>)</span>. In addition, most of our work only used 5 microsatellite loci for genotyping. Ideally, more loci should have been used as was done in other studies <span class="citation">(Croucher et al., <a href="#ref-croucher2013combining">2013</a>)</span>. Although only 5 loci were used, clear patterns of population dynamics in space and time emerged and the MLG accumulation curve supported the fact that loci are informative. Finally, the populations genotyped here are clonal and belong to the NA1 clonal lineage. Thus, much of the analytical power provided by population genetic theory does not apply given that basic assumptions would be violated <span class="citation">(Grünwald &amp; Goss, <a href="#ref-grunwald2011evolution">2011</a>)</span>. Our work uses appropriate methods to infer patterns that are model free, yet informative such as spatial clustering. Thus, we believe that this work provides novel and important insights into the <em>P. ramorum</em> population biology in the Siskiyou forest. Our data indicates that there might have been at least two introductions into Oregon forests from nurseries. The nature of the data does not allow inference of directional migrations given the uneven sampling strategy and moderate number of loci used across all years. We are currently exploring genotyping-by-sequencing (GBS) as a method that could provide further detail on how these populations evolved over space and time <span class="citation">(Elshire et al., <a href="#ref-elshire2011robust">2011</a>)</span>. GBS can provide richer detail by providing codominant SNP data across several thousand loci sampling the whole genome.</p>
+</div>
+<div id="acknowledgements-2" class="section level2">
+<h2><span class="header-section-number">4.6</span> Acknowledgements</h2>
+<p>This work was supported in part by US Department of Agriculture (USDA) Agricultural Research Service Grant 5358-22000-039-00D, USDA APHIS, the USDA-ARS Floriculture Nursery Initiative, the Oregon Department of Agriculture/Oregon Association of Nurseries (ODA-OAN) and the USDA-Forest Service Forest Health Monitoring Program.</p>
+</div>
+<div id="supplementary-material" class="section level2">
+<h2><span class="header-section-number">4.7</span> Supplementary Material</h2>
+<div id="text:S1" class="section level3">
+<h3><span class="header-section-number">4.7.1</span> Supplementary Text</h3>
+<p>For the years up to and including 2012, the multilocus genotype (MLG) of each <em>P. ramorum</em> strain was determined based on microsatellite analysis of five loci, PrMS6, Pr9C3, PrMS39, PrMS45 and PrMS43, using previously published protocols <span class="citation">(Grünwald et al., <a href="#ref-grunwald2009standardizing">2009</a>, <a href="#ref-grunwald2008susceptibility">2008</a><a href="#ref-grunwald2008susceptibility">b</a>; Prospero et al., <a href="#ref-prospero2004isolation">2004</a>, <a href="#ref-prospero2007population">2007</a>)</span>. Multilocus genotyping of <em>P. ramorum</em> strains collected in 2013 and 2014 included an extra nine loci, KI18, KI64, KI82a, KI82b, ILVOPrMS79, ILVOPrMS131, ILVOPrMS145a, ILVOPrMS145b, ILVOPrMS145c which are amplified by an additional six primer pairs <span class="citation">(Ivors et al., <a href="#ref-ivors2006microsatellite">2006</a>; Vercauteren et al., <a href="#ref-vercauteren2010clonal">2010</a>, <a href="#ref-vercauteren2011identification">2011</a>)</span>. The locus ILVOPrMS79, amplifies up to three alleles, however two separate loci have yet to be described <span class="citation">(Vercauteren et al., <a href="#ref-vercauteren2011identification">2011</a>)</span>. The addition of nine loci to the genotyping assay coincided with the discovery by the Oregon Department of Agriculture of an EU1 <em>P. ramorum</em> isolate in a Curry County nursery in 2012. Preceding 2012, only NA1 isolates had been found in Curry County. Because different loci are polymorphic for different clonal lineages, the entire panel of 14 loci was necessary to adequately describe the <em>P. ramorum</em> population in the event that multiple lineages were discovered in the forest.</p>
+<p>Methods for genotyping the 2013 and 2014 <em>P. ramorum</em> strains with all 14 loci use new multiplex protocol. Previously published primers were modified by the addition of a 5’ PIG tail “GTTT” to reverse primers in an effort to reduced stutter peaks and hence to better facilitate allele scoring (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum2">4.2</a>) <span class="citation">(Brownstein et al., <a href="#ref-brownstein1996modulation">1996</a>)</span>. In two cases (PrMS45, PrMS6), a PIG tail was not added to reverse primers to simplify scoring of overlapping alleles. Also, where a T residue was already present at the 5’ end of a reverse primer, as in the case of KI18, a “GTT” was added instead of “GTTT”. Forward primers were assigned fluorescent labels, 6-FAM, NED, VIC, or PET, to facilitate separation of overlapping markers (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum2">4.2</a>). Primer concentrations were determined by visual inspection of electropherograms (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum2">4.2</a>).</p>
+<p>Amplification of all 14 loci was separated into three reactions (8-plex, 2-plex and simplex). The simplex reaction amplified the PrMS43 locus using methods described earlier <span class="citation">(Grünwald et al., <a href="#ref-grunwald2009standardizing">2009</a>; Prospero et al., <a href="#ref-prospero2007population">2007</a>)</span>. The 8-plex and 2-plex amplified the remaining loci and were performed under identical conditions with the exception of primers and primer concentrations (Table <a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#tab:ramorum2">4.2</a>). For the multiplex reactions, the QIAGEN Type-it Mutation Detect PCR Kit (QIAGEN, 206343, Valencia, CA) was used. Multiplex PCR reactions were performed in 5<span class="math inline">\(\mu\)</span>l volumes with 10ng template DNA and1X final buffer concentration. Amplifications were run on a Veriti thermal cycler (Life Technologies, Grand Island, NY) with an initial denaturation at 95 <span class="math inline">\(^{\circ}\)</span>C for 5 min, followed by 33 cycles of 95 <span class="math inline">\(^{\circ}\)</span>C for 30 s, 60 <span class="math inline">\(^{\circ}\)</span>C for 90 s, and 72 <span class="math inline">\(^{\circ}\)</span>C for 20 s, and a final extension at 60 <span class="math inline">\(^{\circ}\)</span>C for 30 min. Genotyping prior to 2012 included three reference DNA lineages (EU1, NA1, and NA2). After 2012, a fourth lineage (EU2) was added as a reference <span class="citation">(Poucke et al., <a href="#ref-vanpoucke2012discovery">2012</a>)</span>.</p>
+<p>Electrophoresis and visualization of all microsatellites were performed on ABI3100, ABI3100 Avant, or ABI3130 genetic analyzers (Applied Biosystems). For evaluation of the loci, genotyped prior to 2013, the PCR products were diluted 10 times in ultrapure H<sub>2</sub>0 and 1.5 <span class="math inline">\(\mu\)</span>l of diluted product was added to both 8.5 <span class="math inline">\(\mu\)</span>l of Hi-Di Formamide (Applied Biosystems, 4311320) and 0.25 <span class="math inline">\(\mu\)</span>l of GeneScan 500 LIZ size standard (Applied Biosystems, 4322682). The simplex reaction (PrMS43) was also diluted 10 times while the 8-plex and 2-plex products were diluted 75 times. After dilution, 2.5 <span class="math inline">\(\mu\)</span>l of the 8-plex, 2-plex and simplex products were added to 7.5 <span class="math inline">\(\mu\)</span>l of Hi-Di Formamide containing GeneScan 500 LIZ size standard at a ratio of 6 <span class="math inline">\(\mu\)</span>l size standard to 1 ml Hi-Di Formamide. Allele sizing was determined using GeneMapper v3.7 and v5.0 software (Applied Biosystems).</p>
+</div>
+<div id="supplementary-figures" class="section level3">
+<h3><span class="header-section-number">4.7.2</span> Supplementary Figures</h3>
+<div class="figure" style="text-align: center"><span id="fig:ramS1"></span>
+<img src="figure/phytopathology/figureS1.png" alt="Diagram of DNA extraction, genotyping, and sequencing protocols 
+utilized by two labs from 2001 to 2014. See supplementary text for details." width="100%" />
+<p class="caption">
+Figure 4.6: Diagram of DNA extraction, genotyping, and sequencing protocols utilized by two labs from 2001 to 2014. See supplementary text for details.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ramS2"></span>
+<img src="dissertation_files/figure-html/ramS2-1.png" alt="Genotype accumulation curve for OR forest *P. ramorum* isolates. The
+vertical axis denotes the number of observed MLGs, from 0 to the
+observed number of MLG in the forest populations, for a number of loci,
+indicated on the horizontal axis, randomly sampled without replacement.
+Each boxplot contains 1,000 random samples representing different
+possible combinations of *n* loci. The horizontal red dashed line
+represents 90% of MLG resolution." width="80%" />
+<p class="caption">
+Figure 4.7: Genotype accumulation curve for OR forest <em>P. ramorum</em> isolates. The vertical axis denotes the number of observed MLGs, from 0 to the observed number of MLG in the forest populations, for a number of loci, indicated on the horizontal axis, randomly sampled without replacement. Each boxplot contains 1,000 random samples representing different possible combinations of <em>n</em> loci. The horizontal red dashed line represents 90% of MLG resolution.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ramS3"></span>
+<img src="figure/phytopathology/figureS3.png" alt="Neighbor joining tree based on Nei's distance of the forest *P. ramorum*
+isolates by region with respect to year. Bootstrap values &amp;gt; 50% of
+10,000 replicates are shown in blue." width="80%" />
+<p class="caption">
+Figure 4.8: Neighbor joining tree based on Nei’s distance of the forest <em>P. ramorum</em> isolates by region with respect to year. Bootstrap values &gt; 50% of 10,000 replicates are shown in blue.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ramS4"></span>
+<img src="dissertation_files/figure-html/ramS4-1.png" alt="Loading plot from DAPC of *P. ramorum from* forest populations showing
+the contribution of alleles to the first DAPC eigenvalue separating
+Hunter Creek isolates from all other regions." width="80%" />
+<p class="caption">
+Figure 4.9: Loading plot from DAPC of <em>P. ramorum from</em> forest populations showing the contribution of alleles to the first DAPC eigenvalue separating Hunter Creek isolates from all other regions.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ramS5"></span>
+<img src="figure/phytopathology/figureS5.png" alt="Fractions of posterior population assignments from DAPC clustering of
+*P. ramorum* isolates from forest populations. The horizontal axis
+represents the fraction of samples whose posterior group membership
+matched their prior group membership on the vertical axis. Shape
+indicates presence or absence of nursery populations in the DAPC." width="80%" />
+<p class="caption">
+Figure 4.10: Fractions of posterior population assignments from DAPC clustering of <em>P. ramorum</em> isolates from forest populations. The horizontal axis represents the fraction of samples whose posterior group membership matched their prior group membership on the vertical axis. Shape indicates presence or absence of nursery populations in the DAPC.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ramS6"></span>
+<img src="figure/phytopathology/figureS6.png" alt="Prediction of nursery genotypes of *P. ramorum* into forest watershed
+regions. The horizontal axis indicates the fraction of nursery genotypes
+to be predicted to be similar to the populations on the vertical axis
+with a 95, 99, and 99.9% probability as indicated by the size of the
+points." width="80%" />
+<p class="caption">
+Figure 4.11: Prediction of nursery genotypes of <em>P. ramorum</em> into forest watershed regions. The horizontal axis indicates the fraction of nursery genotypes to be predicted to be similar to the populations on the vertical axis with a 95, 99, and 99.9% probability as indicated by the size of the points.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ramS7"></span>
+<img src="figure/phytopathology/figureS7.png" alt="Graphical representation of prediction of nursery isolates of *P.
+ramorum* into forest watershed regions. Each column represents a
+different isolate. Colors within the columns represent membership
+probabilities from forest populations." width="80%" />
+<p class="caption">
+Figure 4.12: Graphical representation of prediction of nursery isolates of <em>P. ramorum</em> into forest watershed regions. Each column represents a different isolate. Colors within the columns represent membership probabilities from forest populations.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ramS8"></span>
+<img src="figure/phytopathology/figureS8.png" alt="Graphical representation of predicted membership of *P. ramorum*
+isolates from Hunter Creek and Pistol River South Fork in forest and
+nursery populations. Each column represents a different isolate. Colors
+within the columns represent membership probabilities from the
+populations indicated in the legend." width="80%" />
+<p class="caption">
+Figure 4.13: Graphical representation of predicted membership of <em>P. ramorum</em> isolates from Hunter Creek and Pistol River South Fork in forest and nursery populations. Each column represents a different isolate. Colors within the columns represent membership probabilities from the populations indicated in the legend.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ramS9"></span>
+<img src="figure/phytopathology/figureS9.png" alt="Allele frequencies of locus PrMS39 of *P. ramorum* across years of the
+forest populations. Years 2005 through 2011 have been omitted due to
+small sample sizes and outlier genotypes." width="80%" />
+<p class="caption">
+Figure 4.14: Allele frequencies of locus PrMS39 of <em>P. ramorum</em> across years of the forest populations. Years 2005 through 2011 have been omitted due to small sample sizes and outlier genotypes.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ramS10"></span>
+<img src="figure/phytopathology/figureS10.png" alt="Map of the infected area in Curry county showing the *P. ramorum*
+genotypes at locus PrMS39. Each colored circle represents a different
+forest isolate while each yellow cross represents a sampled tree. Yellow
+borders denote different regions." width="80%" />
+<p class="caption">
+Figure 4.15: Map of the infected area in Curry county showing the <em>P. ramorum</em> genotypes at locus PrMS39. Each colored circle represents a different forest isolate while each yellow cross represents a sampled tree. Yellow borders denote different regions.
+</p>
+</div>
+</div>
+<div id="supplementary-tables" class="section level3">
+<h3><span class="header-section-number">4.7.3</span> Supplementary Tables</h3>
+<table>
+<caption><span id="tab:ramtabS1">Table 4.5: </span> Mean allelic diversity metrics of clone-corrected populations of <em>Phytophthora ramorum</em> sampled in Curry County, Oregon between 2001-14 causing sudden oak death. MLG = Number of Multilocus Genotypes; alleles = Average number of alleles across 5 loci; 1-D = Simpson’s Index averaged across 5 loci; Hexp = Nei’s 1978 expected heterozygosity; Evenness = Evenness averaged across 5 loci</caption>
+<thead>
+<tr class="header">
+<th align="left">Population</th>
+<th align="right">MLG</th>
+<th align="right">alleles</th>
+<th align="right">1-D</th>
+<th align="right">Hexp</th>
+<th align="right">Evenness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ChetcoMain</td>
+<td align="right">7</td>
+<td align="right">3.0</td>
+<td align="right">0.58</td>
+<td align="right">0.97</td>
+<td align="right">0.94</td>
+</tr>
+<tr class="even">
+<td align="left">Coast</td>
+<td align="right">12</td>
+<td align="right">3.8</td>
+<td align="right">0.59</td>
+<td align="right">0.97</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="odd">
+<td align="left">HunterCr</td>
+<td align="right">4</td>
+<td align="right">2.6</td>
+<td align="right">0.56</td>
+<td align="right">0.96</td>
+<td align="right">0.95</td>
+</tr>
+<tr class="even">
+<td align="left">JHallCr</td>
+<td align="right">30</td>
+<td align="right">4.4</td>
+<td align="right">0.57</td>
+<td align="right">0.91</td>
+<td align="right">0.89</td>
+</tr>
+<tr class="odd">
+<td align="left">NFChetHigh</td>
+<td align="right">35</td>
+<td align="right">4.8</td>
+<td align="right">0.60</td>
+<td align="right">0.90</td>
+<td align="right">0.89</td>
+</tr>
+<tr class="even">
+<td align="left">PistolRSF</td>
+<td align="right">2</td>
+<td align="right">2.4</td>
+<td align="right">0.55</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+</tr>
+<tr class="odd">
+<td align="left">Winchuck</td>
+<td align="right">9</td>
+<td align="right">3.4</td>
+<td align="right">0.56</td>
+<td align="right">0.94</td>
+<td align="right">0.92</td>
+</tr>
+<tr class="even">
+<td align="left">2001</td>
+<td align="right">10</td>
+<td align="right">3.6</td>
+<td align="right">0.56</td>
+<td align="right">0.94</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="left">2002</td>
+<td align="right">9</td>
+<td align="right">3.0</td>
+<td align="right">0.56</td>
+<td align="right">0.94</td>
+<td align="right">0.93</td>
+</tr>
+<tr class="even">
+<td align="left">2003</td>
+<td align="right">20</td>
+<td align="right">4.2</td>
+<td align="right">0.56</td>
+<td align="right">0.90</td>
+<td align="right">0.89</td>
+</tr>
+<tr class="odd">
+<td align="left">2004</td>
+<td align="right">8</td>
+<td align="right">2.8</td>
+<td align="right">0.50</td>
+<td align="right">0.84</td>
+<td align="right">0.85</td>
+</tr>
+<tr class="even">
+<td align="left">2005</td>
+<td align="right">2</td>
+<td align="right">2.4</td>
+<td align="right">0.50</td>
+<td align="right">0.90</td>
+<td align="right">0.92</td>
+</tr>
+<tr class="odd">
+<td align="left">2006</td>
+<td align="right">1</td>
+<td align="right">2.0</td>
+<td align="right">0.50</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+</tr>
+<tr class="even">
+<td align="left">2010</td>
+<td align="right">1</td>
+<td align="right">2.0</td>
+<td align="right">0.50</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+</tr>
+<tr class="odd">
+<td align="left">2011</td>
+<td align="right">6</td>
+<td align="right">3.0</td>
+<td align="right">0.58</td>
+<td align="right">0.98</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="even">
+<td align="left">2012</td>
+<td align="right">7</td>
+<td align="right">3.2</td>
+<td align="right">0.58</td>
+<td align="right">0.96</td>
+<td align="right">0.95</td>
+</tr>
+<tr class="odd">
+<td align="left">2013</td>
+<td align="right">47</td>
+<td align="right">5.4</td>
+<td align="right">0.60</td>
+<td align="right">0.89</td>
+<td align="right">0.90</td>
+</tr>
+<tr class="even">
+<td align="left">2014</td>
+<td align="right">17</td>
+<td align="right">3.8</td>
+<td align="right">0.59</td>
+<td align="right">0.97</td>
+<td align="right">0.93</td>
+</tr>
+<tr class="odd">
+<td align="left">pooled</td>
+<td align="right">70</td>
+<td align="right">6.0</td>
+<td align="right">0.60</td>
+<td align="right">0.89</td>
+<td align="right">0.90</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:ramtabS2">Table 4.6: </span> Allelic diversity metrics for each locus of clone-corrected <em>Phytophthora ramorum</em> data in Curry County, Oregon between 2001-14 causing sudden oak death. alleles = number of observed alleles; 1-D = Simpson’s Index; Hexp = Nei’s 1978 expected heterozygosity; E.5 = Evenness</caption>
+<thead>
+<tr class="header">
+<th align="left">locus</th>
+<th align="right">alleles</th>
+<th align="right">1-D</th>
+<th align="right">Hexp</th>
+<th align="right">E.5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">PrMS6</td>
+<td align="right">2</td>
+<td align="right">0.50</td>
+<td align="right">0.99</td>
+<td align="right">0.99</td>
+</tr>
+<tr class="even">
+<td align="left">Pr9C3</td>
+<td align="right">2</td>
+<td align="right">0.50</td>
+<td align="right">0.99</td>
+<td align="right">0.99</td>
+</tr>
+<tr class="odd">
+<td align="left">PrMS39</td>
+<td align="right">5</td>
+<td align="right">0.62</td>
+<td align="right">0.78</td>
+<td align="right">0.78</td>
+</tr>
+<tr class="even">
+<td align="left">PrMS45</td>
+<td align="right">3</td>
+<td align="right">0.51</td>
+<td align="right">0.76</td>
+<td align="right">0.95</td>
+</tr>
+<tr class="odd">
+<td align="left">PrMS43</td>
+<td align="right">18</td>
+<td align="right">0.89</td>
+<td align="right">0.95</td>
+<td align="right">0.78</td>
+</tr>
+<tr class="even">
+<td align="left">mean</td>
+<td align="right">6</td>
+<td align="right">0.60</td>
+<td align="right">0.89</td>
+<td align="right">0.90</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:ramtabS3">Table 4.7: </span>Genotypic diversity metrics or populations of <em>Phytophthora ramorum</em> sampled in Curry County, Oregon between 2001-14 causing sudden oak death. Pop = Population name (Total == Pooled) N = Census population size MLG = Number of unique multilocus genotypes (MLG) observed eMLG = Number of expected MLG based on rarefaction at smallest N &gt;= 10 SE = Standard error of rarefaction analysis H = Shannon-Wiener Index of MLG diversity (95% CI in parentheses) G = Stoddart and Taylor’s Index of MLG diversity (95% CI in parentheses) E.5 = Evenness (95% CI in parentheses) rbarD = Standardized index of association p.rbarD = p-value for the standardized index of association based on 999 permutations NaN = Insufficient data for analysis</caption>
+<thead>
+<tr class="header">
+<th align="left">Population</th>
+<th align="right">N</th>
+<th align="right">MLG</th>
+<th align="right">eMLG</th>
+<th align="right">SE</th>
+<th align="left">H</th>
+<th align="left">G</th>
+<th align="left">E.5</th>
+<th align="right">rbarD</th>
+<th align="right">p.rD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2001</td>
+<td align="right">39</td>
+<td align="right">10</td>
+<td align="right">3.65</td>
+<td align="right">1.160</td>
+<td align="left">1.19 (0.61-1.48)</td>
+<td align="left">1.9 (1.38-2.81)</td>
+<td align="left">0.4 (0.4-0.57)</td>
+<td align="right">-0.068</td>
+<td align="right">0.999</td>
+</tr>
+<tr class="even">
+<td align="left">2002</td>
+<td align="right">36</td>
+<td align="right">9</td>
+<td align="right">4.20</td>
+<td align="right">1.130</td>
+<td align="left">1.37 (0.79-1.64)</td>
+<td align="left">2.34 (1.52-3.52)</td>
+<td align="left">0.45 (0.43-0.65)</td>
+<td align="right">0.193</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">2003</td>
+<td align="right">102</td>
+<td align="right">20</td>
+<td align="right">4.75</td>
+<td align="right">1.300</td>
+<td align="left">1.81 (1.39-2)</td>
+<td align="left">2.92 (2.19-3.96)</td>
+<td align="left">0.38 (0.36-0.49)</td>
+<td align="right">0.143</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="even">
+<td align="left">2004</td>
+<td align="right">35</td>
+<td align="right">8</td>
+<td align="right">4.56</td>
+<td align="right">1.010</td>
+<td align="left">1.57 (1.12-1.76)</td>
+<td align="left">3.53 (2.3-4.77)</td>
+<td align="left">0.66 (0.56-0.84)</td>
+<td align="right">0.184</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">2005</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2.00</td>
+<td align="right">0.000</td>
+<td align="left">0.69 (0-0.69)</td>
+<td align="left">2 (1-2)</td>
+<td align="left">1 (1-1)</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">2006</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1.00</td>
+<td align="right">0.000</td>
+<td align="left">0 (0-0)</td>
+<td align="left">1 (1-1)</td>
+<td align="left">NaN (NA)</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">2010</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1.00</td>
+<td align="right">0.000</td>
+<td align="left">0 (0-0)</td>
+<td align="left">1 (1-1)</td>
+<td align="left">NaN (NA)</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">2011</td>
+<td align="right">68</td>
+<td align="right">6</td>
+<td align="right">2.15</td>
+<td align="right">0.827</td>
+<td align="left">0.56 (0.26-0.79)</td>
+<td align="left">1.32 (1.13-1.59)</td>
+<td align="left">0.42 (0.38-0.56)</td>
+<td align="right">0.181</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">2012</td>
+<td align="right">20</td>
+<td align="right">7</td>
+<td align="right">5.01</td>
+<td align="right">0.916</td>
+<td align="left">1.62 (1.03-1.78)</td>
+<td align="left">4 (2.2-5.26)</td>
+<td align="left">0.74 (0.59-0.92)</td>
+<td align="right">-0.175</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="even">
+<td align="left">2013</td>
+<td align="right">179</td>
+<td align="right">47</td>
+<td align="right">7.74</td>
+<td align="right">1.200</td>
+<td align="left">3.15 (2.83-3.17)</td>
+<td align="left">13.8 (10.2-16.3)</td>
+<td align="left">0.57 (0.54-0.7)</td>
+<td align="right">0.029</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">2014</td>
+<td align="right">30</td>
+<td align="right">17</td>
+<td align="right">8.09</td>
+<td align="right">1.030</td>
+<td align="left">2.67 (2.08-2.61)</td>
+<td align="left">12.2 (6.16-12.2)</td>
+<td align="left">0.83 (0.69-0.93)</td>
+<td align="right">-0.006</td>
+<td align="right">0.555</td>
+</tr>
+<tr class="even">
+<td align="left">JHallCr</td>
+<td align="right">244</td>
+<td align="right">30</td>
+<td align="right">4.89</td>
+<td align="right">1.330</td>
+<td align="left">1.97 (1.69-2.12)</td>
+<td align="left">3.13 (2.57-3.83)</td>
+<td align="left">0.34 (0.33-0.41)</td>
+<td align="right">0.103</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">NFChetHigh</td>
+<td align="right">114</td>
+<td align="right">35</td>
+<td align="right">6.81</td>
+<td align="right">1.340</td>
+<td align="left">2.74 (2.3-2.82)</td>
+<td align="left">7.07 (4.8-9.88)</td>
+<td align="left">0.42 (0.4-0.59)</td>
+<td align="right">0.066</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="even">
+<td align="left">Coast</td>
+<td align="right">34</td>
+<td align="right">12</td>
+<td align="right">5.91</td>
+<td align="right">1.170</td>
+<td align="left">2.05 (1.49-2.16)</td>
+<td align="left">5.56 (3.36-7.22)</td>
+<td align="left">0.68 (0.61-0.85)</td>
+<td align="right">0.283</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">HunterCr</td>
+<td align="right">66</td>
+<td align="right">4</td>
+<td align="right">1.88</td>
+<td align="right">0.690</td>
+<td align="left">0.42 (0.18-0.62)</td>
+<td align="left">1.24 (1.1-1.46)</td>
+<td align="left">0.46 (0.39-0.6)</td>
+<td align="right">-0.047</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="even">
+<td align="left">Winchuck</td>
+<td align="right">35</td>
+<td align="right">9</td>
+<td align="right">4.29</td>
+<td align="right">1.070</td>
+<td align="left">1.47 (0.95-1.7)</td>
+<td align="left">2.88 (1.89-4.15)</td>
+<td align="left">0.56 (0.49-0.77)</td>
+<td align="right">-0.014</td>
+<td align="right">0.756</td>
+</tr>
+<tr class="odd">
+<td align="left">ChetcoMain</td>
+<td align="right">16</td>
+<td align="right">7</td>
+<td align="right">5.00</td>
+<td align="right">0.926</td>
+<td align="left">1.45 (0.69-1.69)</td>
+<td align="left">2.84 (1.49-4.74)</td>
+<td align="left">0.56 (0.49-0.88)</td>
+<td align="right">0.396</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="even">
+<td align="left">PistolRSF</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2.00</td>
+<td align="right">0.000</td>
+<td align="left">0.56 (0-0.69)</td>
+<td align="left">1.6 (1-2)</td>
+<td align="left">0.8 (0.8-1)</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">513</td>
+<td align="right">70</td>
+<td align="right">6.95</td>
+<td align="right">1.330</td>
+<td align="left">2.98 (2.78-3.04)</td>
+<td align="left">8.64 (7.19-10.1)</td>
+<td align="left">0.41 (0.39-0.48)</td>
+<td align="right">0.082</td>
+<td align="right">0.001</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-everhart2014phytophthora">
+<p>Everhart, S. E., Tabima, J. F., &amp; Grünwald, N. J. (2014). <em>Phytophthora ramorum</em>. In <em>Genomics of plant-associated fungi and oomycetes: Dicot pathogens</em> (pp. 159–174). Berlin, Heidelberg: Springer. <a href="https://doi.org/10.1007/978-3-662-44056-8_8" class="uri">https://doi.org/10.1007/978-3-662-44056-8_8</a></p>
+</div>
+<div id="ref-grunwald2008phytophthora">
+<p>Grünwald, N. J., Goss, E. M., &amp; Press, C. M. (2008a). <em>Phytophthora ramorum</em>: a pathogen with a remarkably wide host range causing Sudden Oak Death on oaks and ramorum blight on woody ornamentals. <em>Molecular Plant Pathology</em>, <em>9</em>(6), 729–740. <a href="https://doi.org/10.1111/j.1364-3703.2008.00500.x" class="uri">https://doi.org/10.1111/j.1364-3703.2008.00500.x</a></p>
+</div>
+<div id="ref-hansen2008epidemiology">
+<p>Hansen, E. M., Kanaskie, A., Prospero, S., McWilliams, M., Goheen, E. M., Osterbauer, N., Reeser, P., &amp; Sutton, W. (2008).  Epidemiology of <em>Phytophthora ramorum</em> in Oregon tanoak forests. <em>Canadian Journal of Forest Research</em>, <em>38</em>(5), 1133–1143. <a href="https://doi.org/10.1139/x07-217" class="uri">https://doi.org/10.1139/x07-217</a></p>
+</div>
+<div id="ref-rizzo2005phytophthora">
+<p>Rizzo, D. M., Garbelotto, M., &amp; Hansen, E. M. (2005). <em>Phytophthora ramorum</em>: Integrative research and management of an emerging pathogen in California and Oregon forests. <em>Annual Review of Phytopathology</em>, <em>43</em>(1), 309–335. <a href="https://doi.org/10.1146/annurev.phyto.42.040803.140418" class="uri">https://doi.org/10.1146/annurev.phyto.42.040803.140418</a></p>
+</div>
+<div id="ref-kamoun2014top">
+<p>Kamoun, S., Furzer, O., Jones, J. D. G., Judelson, H. S., Ali, G. S., Dalio, R. J. D., Roy, S. G., Schena, L., Zambounis, A., Panabières, F., Cahill, D., Ruocco, M., Figueiredo, A., Chen, X.-R., Hulvey, J., Stam, R., Lamour, K., Gijzen, M., Tyler, B. M., Grünwald, N. J., Mukhtar, M. S., Toé, D. F. A., Tör, M., Ackerveken, G. V. D., McDowell, J., Daayf, F., Fry, W. E., Lindqvist-Kreuze, H., Meijer, H. J. G., Petre, B., Ristaino, J., Yoshida, K., Birch, P. R. J., &amp; Govers, F. (2014). The top 10 oomycete pathogens in molecular plant pathology. <em>Molecular Plant Pathology</em>, <em>16</em>(4), 413–434. <a href="https://doi.org/10.1111/mpp.12190" class="uri">https://doi.org/10.1111/mpp.12190</a></p>
+</div>
+<div id="ref-werres2001phytophthora">
+<p>Werres, S., Marwitz, R., Man In’t veld, W. A., de Cock, A. W., Bonants, P. J., de Weerdt, M., Themann, K., Ilieva, E., &amp; Baayen, R. P. (2001). <em>Phytophthora ramorum sp. nov.</em>, a new pathogen on <em>Rhododendron</em> and <em>Viburnum</em>. <em>Mycological Research</em>, <em>105</em>(10), 1155–1165. <a href="https://doi.org/10.1016/s0953-7562(08)61986-3" class="uri">https://doi.org/10.1016/s0953-7562(08)61986-3</a></p>
+</div>
+<div id="ref-grunwald2009standardizing">
+<p>Grünwald, N. J., Goss, E. M., Ivors, K., Garbelotto, M., Martin, F. N., Prospero, S., Hansen, E., Bonants, P. J. M., Hamelin, R. C., Chastagner, G., Werres, S., Rizzo, D. M., Abad, G., Beales, P., Bilodeau, G. J., Blomquist, C. L., Brasier, C., Bri‘ere, S. C., Chandelier, A., Davidson, J. M., Denman, S., Elliott, M., Frankel, S. J., Goheen, E. M., de Gruyter, H., Heungens, K., James, D., Kanaskie, A., McWilliams, M. G., in ‘t Veld, W. M., Moralejo, E., Osterbauer, N. K., Palm, M. E., Parke, J. L., Sierra, A. M. P., Shamoun, S. F., Shishkoff, N., Tooley, P. W., Vettraino, A. M., Webber, J., &amp; Widmer, T. L. (2009). Standardizing the nomenclature for clonal lineages of the sudden oak death pathogen, <em>Phytophthora ramorum</em>. <em>Phytopathology</em>, <em>99</em>(7), 792–795. <a href="https://doi.org/10.1094/phyto-99-7-0792" class="uri">https://doi.org/10.1094/phyto-99-7-0792</a></p>
+</div>
+<div id="ref-ivors2006microsatellite">
+<p>Ivors, K., Garbelotto, M., Vries, I. D. E., Ruyter-spira, C., Hekkert, B. T., Rosenzweig, N., &amp; Bonants, P. (2006). Microsatellite markers identify three lineages of <em>Phytophthora ramorum</em> in US nurseries, yet single lineages in US forest and European nursery populations. <em>Molecular Ecology</em>, <em>15</em>(6), 1493–1505. <a href="https://doi.org/10.1111/j.1365-294x.2006.02864.x" class="uri">https://doi.org/10.1111/j.1365-294x.2006.02864.x</a></p>
+</div>
+<div id="ref-prospero2004isolation">
+<p>Prospero, S., Black, J. A., &amp; Winton, L. M. (2004). Isolation and characterization of microsatellite markers in <em>Phytophthora ramorum</em>, the causal agent of Sudden Oak Death. <em>Molecular Ecology Notes</em>, <em>4</em>(4), 672–674. <a href="https://doi.org/10.1111/j.1471-8286.2004.00778.x" class="uri">https://doi.org/10.1111/j.1471-8286.2004.00778.x</a></p>
+</div>
+<div id="ref-prospero2009migration">
+<p>Prospero, S., Grünwald, N. J., Winton, L. M., &amp; Hansen, E. M. (2009).  Migration Patterns of the Emerging Plant Pathogen <em>Phytophthora ramorum</em> on the West Coast of the United States of America. <em>Phytopathology</em>, <em>99</em>(6), 739–749. <a href="https://doi.org/10.1094/phyto-99-6-0739" class="uri">https://doi.org/10.1094/phyto-99-6-0739</a></p>
+</div>
+<div id="ref-prospero2007population">
+<p>Prospero, S., Hansen, E. M., Grünwald, N. J., &amp; Winton, L. M. (2007). Population dynamics of the Sudden Oak Death pathogen <em>Phytophthora ramorum</em> in Oregon from 2001 to 2004. <em>Molecular Ecology</em>, <em>16</em>(14), 2958–2973. <a href="https://doi.org/10.1111/j.1365-294x.2007.03343.x" class="uri">https://doi.org/10.1111/j.1365-294x.2007.03343.x</a></p>
+</div>
+<div id="ref-grunwald2012emergence">
+<p>Grünwald, N. J., Garbelotto, M., Goss, E. M., Heungens, K., &amp; Prospero, S. (2012). Emergence of the Sudden Oak Death pathogen <em>Phytophthora ramorum</em>. <em>Trends in Microbiology</em>, <em>20</em>(3), 131–138. <a href="https://doi.org/10.1016/j.tim.2011.12.006" class="uri">https://doi.org/10.1016/j.tim.2011.12.006</a></p>
+</div>
+<div id="ref-vanpoucke2012discovery">
+<p>Poucke, K. V., Franceschini, S., Webber, J. F., Vercauteren, A., Turner, J. A., McCracken, A. R., Heungens, K., &amp; Brasier, C. M. (2012). Discovery of a fourth evolutionary lineage of <em>Phytophthora ramorum</em>: EU2. <em>Fungal Biology</em>, <em>116</em>(11), 1178–1191. <a href="https://doi.org/10.1016/j.funbio.2012.09.003" class="uri">https://doi.org/10.1016/j.funbio.2012.09.003</a></p>
+</div>
+<div id="ref-mascheretti2008reconstruction">
+<p>Mascheretti, S., Croucher, P. J. P., Vettraino, A., Prospero, S., &amp; Garbelotto, M. (2008).  Reconstruction of the Sudden Oak Death epidemic in California through microsatellite analysis of the pathogen <em>Phytophthora ramorum</em>. <em>Molecular Ecology</em>, <em>17</em>(11), 2755–2768. <a href="https://doi.org/10.1111/j.1365-294x.2008.03773.x" class="uri">https://doi.org/10.1111/j.1365-294x.2008.03773.x</a></p>
+</div>
+<div id="ref-goss2009population">
+<p>Goss, E. M., Larsen, M., Chastagner, G. A., Givens, D. R., &amp; Grünwald, N. J. (2009). Population genetic analysis infers migration pathways of <em>Phytophthora ramorum</em> in US nurseries. <em>PLoS Pathogens</em>, <em>5</em>(9), e1000583. <a href="https://doi.org/10.1371/journal.ppat.1000583" class="uri">https://doi.org/10.1371/journal.ppat.1000583</a></p>
+</div>
+<div id="ref-goss2011phytophthora">
+<p>Goss, E. M., Larsen, M., Vercauteren, A., Werres, S., Heungens, K., &amp; Grünwald, N. J. (2011). <em>Phytophthora ramorum</em> in Canada: Evidence for migration within North America and from Europe. <em>Phytopathology</em>, <em>101</em>(1), 166–171. <a href="https://doi.org/10.1094/phyto-05-10-0133" class="uri">https://doi.org/10.1094/phyto-05-10-0133</a></p>
+</div>
+<div id="ref-winton2001molecular">
+<p>Winton, L. M., &amp; Hansen, E. M. (2001). Molecular diagnosis of <em>Phytophthora lateralis</em> in trees, water, and foliage baits using multiplex polymerase chain reaction. <em>Forest Pathology</em>, <em>31</em>(5), 275–283. <a href="https://doi.org/10.1046/j.1439-0329.2001.00251.x" class="uri">https://doi.org/10.1046/j.1439-0329.2001.00251.x</a></p>
+</div>
+<div id="ref-grunwald2008susceptibility">
+<p>Grünwald, N. J., Kitner, M., McDonald, V., &amp; Goss, E. M. (2008b).  Susceptibility in <em>Viburnum</em> to <em>Phytophthora ramorum</em>. <em>Plant Disease</em>, <em>92</em>(2), 210–214. <a href="https://doi.org/10.1094/pdis-92-2-0210" class="uri">https://doi.org/10.1094/pdis-92-2-0210</a></p>
+</div>
+<div id="ref-vercauteren2010clonal">
+<p>Vercauteren, A., Dobbelaere, I. D., Grünwald, N. J., Bonants, P., van Bockstaele, E., Maes, M., &amp; Heungens, K. (2010).  Clonal expansion of the Belgian <em>Phytophthora ramorum</em> populations based on new microsatellite markers. <em>Molecular Ecology</em>, <em>19</em>(1), 92–107. <a href="https://doi.org/10.1111/j.1365-294x.2009.04443.x" class="uri">https://doi.org/10.1111/j.1365-294x.2009.04443.x</a></p>
+</div>
+<div id="ref-vercauteren2011identification">
+<p>Vercauteren, A., Larsen, M., Goss, E., Grünwald, N. J., Maes, M., &amp; Heungens, K. (2011). Identification of new polymorphic microsatellite markers in the NA1 and NA2 lineages of <em>Phytophthora ramorum</em>. <em>Mycologia</em>, <em>103</em>(6), 1245–1249. <a href="https://doi.org/10.3852/10-420" class="uri">https://doi.org/10.3852/10-420</a></p>
+</div>
+<div id="ref-R2014">
+<p>R Core Team. (2014). <em>R: A language and environment for statistical computing</em>. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a></p>
+</div>
+<div id="ref-csardi2006igraph">
+<p>Csardi, G., &amp; Nepusz, T. (2006). The igraph software package for complex network research. <em>InterJournal</em>, <em>Complex Systems</em>, 1695. Retrieved from <a href="http://igraph.org" class="uri">http://igraph.org</a></p>
+</div>
+<div id="ref-khale2013ggmap">
+<p>Kahle, D., &amp; Wickham, H. (2013). ggmap: Spatial Visualization with ggplot2. <em>The R Journal</em>, <em>5</em>(1), 144–161. Retrieved from <a href="http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf" class="uri">http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf</a></p>
+</div>
+<div id="ref-kamvar2014poppr">
+<p>Kamvar, Z. N., Tabima, J. F., &amp; Grünwald, N. J. (2014b).  Poppr : an R package for genetic analysis of populations with clonal, partially clonal, and/or sexual reproduction. <em>PeerJ</em>, <em>2</em>, e281. <a href="https://doi.org/10.7717/peerj.281" class="uri">https://doi.org/10.7717/peerj.281</a></p>
+</div>
+<div id="ref-paradis2004ape">
+<p>Paradis, E., Claude, J., &amp; Strimmer, K. (2004). APE: Analyses of phylogenetics and evolution in R language. <em>Bioinformatics</em>, <em>20</em>(2), 289–290. <a href="https://doi.org/10.1093/bioinformatics/btg412" class="uri">https://doi.org/10.1093/bioinformatics/btg412</a></p>
+</div>
+<div id="ref-wickham2009ggplot2">
+<p>Wickham, H. (2009). <em>ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. Retrieved from <a href="http://ggplot2.org" class="uri">http://ggplot2.org</a></p>
+</div>
+<div id="ref-bivand2014rgdal">
+<p>Bivand, R., Keitt, T., &amp; Rowlingson, B. (2014). <em>rgdal: Bindings for the Geospatial Data Abstraction Library</em>. Retrieved from <a href="https://CRAN.R-project.org/package=rgdal" class="uri">https://CRAN.R-project.org/package=rgdal</a></p>
+</div>
+<div id="ref-shannon2001mathematical">
+<p>Shannon, C. E. (1948). A mathematical theory of communication. <em>ACM SIGMOBILE Mobile Computing and Communications Review</em>, <em>5</em>(1), 3–55.</p>
+</div>
+<div id="ref-stoddart1988genotypic">
+<p>Stoddart, J. A., &amp; Taylor, J. F. (1988). Genotypic diversity: Estimation and prediction in samples. <em>Genetics</em>, <em>118</em>(4), 705–11.</p>
+</div>
+<div id="ref-grunwald2003analysis">
+<p>Grünwald, N. J., Goodwin, S. B., Milgroom, M. G., &amp; Fry, W. E. (2003). Analysis of genotypic diversity data for populations of microorganisms. <em>Phytopathology</em>, <em>93</em>(6), 738–746. <a href="https://doi.org/10.1094/phyto.2003.93.6.738" class="uri">https://doi.org/10.1094/phyto.2003.93.6.738</a></p>
+</div>
+<div id="ref-ludwig1988statistical">
+<p>Ludwig, J. A., &amp; Reynolds, J. F. (1988). <em>Statistical ecology: A primer in methods and computing</em> (Vol. 1). John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-pielou1975ecological">
+<p>Pielou, E. (1975). <em>Ecological diversity</em>. New York: Wiley &amp; Sons.</p>
+</div>
+<div id="ref-oksanen2013vegan">
+<p>Oksanen, J., Blanchet, F. G., Kindt, R., Legendre, P., Minchin, P. R., O’Hara, R. B., Simpson, G. L., Solymos, P., Stevens, M. H. H., &amp; Wagner, H. (2013). <em>Vegan: Community ecology package</em>. Retrieved from <a href="https://CRAN.R-project.org/package=vegan" class="uri">https://CRAN.R-project.org/package=vegan</a></p>
+</div>
+<div id="ref-canty2015boot">
+<p>Canty, A., &amp; Ripley, B. D. (2015). <em>Boot: Bootstrap r (s-plus) functions</em>. Retrieved from <a href="https://CRAN.R-project.org/package=boot" class="uri">https://CRAN.R-project.org/package=boot</a></p>
+</div>
+<div id="ref-heck1975explicit">
+<p>Heck, K. L., van Belle, G., &amp; Simberloff, D. (1975). Explicit calculation of the rarefaction diversity measurement and the determination of sufficient sample size. <em>Ecology</em>, <em>56</em>(6), 1459–1461. <a href="https://doi.org/10.2307/1934716" class="uri">https://doi.org/10.2307/1934716</a></p>
+</div>
+<div id="ref-hurlbert1971nonconcept">
+<p>Hurlbert, S. H. (1971). The nonconcept of species diversity: A critique and alternative parameters. <em>Ecology</em>, <em>52</em>(4), 577–586. <a href="https://doi.org/10.2307/1934145" class="uri">https://doi.org/10.2307/1934145</a></p>
+</div>
+<div id="ref-bruvo2004simple">
+<p>Bruvo, R., Michiels, N. K., D’Souza, T. G., &amp; Schulenburg, H. (2004). A simple method for the calculation of microsatellite genotype distances irrespective of ploidy level. <em>Molecular Ecology</em>, <em>13</em>(7), 2101–2106.</p>
+</div>
+<div id="ref-dray2007ade4">
+<p>Dray, S., &amp; Dufour, A.-B. (2007). The ade4 package: Implementing the duality diagram for ecologists. <em>Journal of Statistical Software</em>, <em>22</em>(4). <a href="https://doi.org/10.18637/jss.v022.i04" class="uri">https://doi.org/10.18637/jss.v022.i04</a></p>
+</div>
+<div id="ref-mantel1967detection">
+<p>Mantel, N. (1967). The detection of disease clustering and a generalized regression approach. <em>Cancer Research</em>, <em>27</em>(2 Part 1), 209–220.</p>
+</div>
+<div id="ref-excoffier1992analysis">
+<p>Excoffier, L., Smouse, P. E., &amp; Quattro, J. M. (1992). Analysis of molecular variance inferred from metric distances among DNA haplotypes: Application to human mitochondrial DNA restriction data. <em>Genetics</em>, <em>131</em>(2), 479–91.</p>
+</div>
+<div id="ref-jombart2010discriminant">
+<p>Jombart, T., Devillard, S., &amp; Balloux, F. (2010). Discriminant analysis of principal components: A new method for the analysis of genetically structured populations. <em>BMC Genetics</em>, <em>11</em>(1), 94. <a href="https://doi.org/10.1186/1471-2156-11-94" class="uri">https://doi.org/10.1186/1471-2156-11-94</a></p>
+</div>
+<div id="ref-rizzo2002phytophthora">
+<p>Rizzo, D. M., Garbelotto, M., Davidson, J. M., Slaughter, G. W., &amp; Koike, S. T. (2002). <em>Phytophthora ramorum</em> as the cause of extensive mortality of <em>Quercus</em> spp. and <em>Lithocarpus densiflorus</em> in California. <em>Plant Disease</em>, <em>86</em>(3), 205–214. <a href="https://doi.org/10.1094/pdis.2002.86.3.205" class="uri">https://doi.org/10.1094/pdis.2002.86.3.205</a></p>
+</div>
+<div id="ref-mascheretti2009genetic">
+<p>Mascheretti, S., Croucher, P. J. P., Kozanitas, M., Baker, L., &amp; Garbelotto, M. (2009).  Genetic epidemiology of the Sudden Oak Death pathogen <em>Phytophthora ramorum</em> in California. <em>Molecular Ecology</em>, <em>18</em>(22), 4577–4590. <a href="https://doi.org/10.1111/j.1365-294x.2009.04379.x" class="uri">https://doi.org/10.1111/j.1365-294x.2009.04379.x</a></p>
+</div>
+<div id="ref-eyre2013poulation">
+<p>Eyre, C. A., Kozanitas, M., &amp; Garbelotto, M. (2013). Population dynamics of aerial and terrestrial populations of <em>Phytophthora ramorum</em> in a California forest under different climatic conditions. <em>Phytopathology</em>, <em>103</em>(11), 1141–1152. <a href="https://doi.org/10.1094/phyto-11-12-0290-r" class="uri">https://doi.org/10.1094/phyto-11-12-0290-r</a></p>
+</div>
+<div id="ref-croucher2013combining">
+<p>Croucher, P. J. P., Mascheretti, S., &amp; Garbelotto, M. (2013). Combining field epidemiological information and genetic data to comprehensively reconstruct the invasion history and the microevolution of the Sudden Oak Death agent <em>Phytophthora ramorum</em> (Stramenopila: Oomycetes) in California. <em>Biological Invasions</em>, <em>15</em>(10), 2281–2297. <a href="https://doi.org/10.1007/s10530-013-0453-8" class="uri">https://doi.org/10.1007/s10530-013-0453-8</a></p>
+</div>
+<div id="ref-grunwald2011evolution">
+<p>Grünwald, N. J., &amp; Goss, E. M. (2011). Evolution and population genetics of exotic and re-emerging pathogens: Novel tools and approaches. <em>Annual Review of Phytopathology</em>, <em>49</em>(1), 249–267. <a href="https://doi.org/10.1146/annurev-phyto-072910-095246" class="uri">https://doi.org/10.1146/annurev-phyto-072910-095246</a></p>
+</div>
+<div id="ref-elshire2011robust">
+<p>Elshire, R. J., Glaubitz, J. C., Sun, Q., Poland, J. A., Kawamoto, K., Buckler, E. S., &amp; Mitchell, S. E. (2011). A robust, simple genotyping-by-sequencing (GBS) approach for high diversity species. <em>PLoS ONE</em>, <em>6</em>(5), e19379. <a href="https://doi.org/10.1371/journal.pone.0019379" class="uri">https://doi.org/10.1371/journal.pone.0019379</a></p>
+</div>
+<div id="ref-brownstein1996modulation">
+<p>Brownstein, M. J., Carpten, J. D., &amp; Smith, J. R. (1996). Modulation of non-templated nucleotide addition by Taq DNA polymerase: Primer modifications that facilitate genotyping. <em>BioTechniques</em>, <em>20</em>(6), 1004–6, 1008–10.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": [["http://hdl.handle.net/1957/60042", "PDF"], ["dissertation.tex", "TEX"], ["https://github.com/zkamvar/dissertation", "SOURCE CODE"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Development and Application of Tools for Genetic Analysis of Clonal Populations</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Development and Application of Tools for Genetic Analysis of Clonal Populations">
+  <meta name="generator" content="bookdown 0.1.18 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Development and Application of Tools for Genetic Analysis of Clonal Populations" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Development and Application of Tools for Genetic Analysis of Clonal Populations" />
+  
+  
+  
+
+<meta name="author" content="Zhian N. Kamvar">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html">
+<link rel="next" href="7-bibliography.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="1-introduction.html"><a href="1-introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-introduction.html"><a href="1-introduction.html#population-genetics-and-clonality"><i class="fa fa-check"></i><b>1.1</b> Population Genetics and Clonality</a></li>
+<li class="chapter" data-level="1.2" data-path="1-introduction.html"><a href="1-introduction.html#population-genetics-under-the-lens-of-plant-pathology"><i class="fa fa-check"></i><b>1.2</b> Population Genetics Under the Lens of Plant Pathology</a></li>
+<li class="chapter" data-level="1.3" data-path="1-introduction.html"><a href="1-introduction.html#the-need-for-reproducible-research"><i class="fa fa-check"></i><b>1.3</b> The Need For Reproducible Research</a></li>
+<li class="chapter" data-level="1.4" data-path="1-introduction.html"><a href="1-introduction.html#overview"><i class="fa fa-check"></i><b>1.4</b> Overview</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-2"><i class="fa fa-check"></i><b>1.4.1</b> Summary of Chapter 2</a></li>
+<li class="chapter" data-level="1.4.2" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-3"><i class="fa fa-check"></i><b>1.4.2</b> Summary of Chapter 3</a></li>
+<li class="chapter" data-level="1.4.3" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-4"><i class="fa fa-check"></i><b>1.4.3</b> Summary of Chapter 4</a></li>
+<li class="chapter" data-level="1.4.4" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-5"><i class="fa fa-check"></i><b>1.4.4</b> Summary of Chapter 5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><i class="fa fa-check"></i><b>2</b> <em>Poppr</em>: an R Package For Genetic Analysis of Populations With Clonal, Partially Clonal, and/or Sexual Reproduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#abstract"><i class="fa fa-check"></i><b>2.1</b> Abstract</a></li>
+<li class="chapter" data-level="2.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#introduction-1"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#materials-and-methods"><i class="fa fa-check"></i><b>2.3</b> Materials and Methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#data-import"><i class="fa fa-check"></i><b>2.3.1</b> Data import</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#data-analysis"><i class="fa fa-check"></i><b>2.3.2</b> Data analysis</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#visualizations"><i class="fa fa-check"></i><b>2.3.3</b> Visualizations</a></li>
+<li class="chapter" data-level="2.3.4" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#performance"><i class="fa fa-check"></i><b>2.3.4</b> Performance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#citation-of-methods-implemented-in-poppr"><i class="fa fa-check"></i><b>2.4</b> Citation of methods implemented in <em>poppr</em></a></li>
+<li class="chapter" data-level="2.5" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#results-and-discussion"><i class="fa fa-check"></i><b>2.5</b> Results and Discussion</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#new-functionalities"><i class="fa fa-check"></i><b>2.5.1</b> New functionalities</a></li>
+<li class="chapter" data-level="2.5.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#performance-1"><i class="fa fa-check"></i><b>2.5.2</b> Performance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#conclusions"><i class="fa fa-check"></i><b>2.6</b> Conclusions</a></li>
+<li class="chapter" data-level="2.7" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#acknowledgements"><i class="fa fa-check"></i><b>2.7</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><i class="fa fa-check"></i><b>3</b> Novel R Tools For Analysis of Genome-Wide Population Genetic Data With Emphasis on Clonality</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#abstract-1"><i class="fa fa-check"></i><b>3.1</b> Abstract</a></li>
+<li class="chapter" data-level="3.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#introduction-2"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#implementations-and-examples"><i class="fa fa-check"></i><b>3.3</b> Implementations and Examples</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#clonal-identification"><i class="fa fa-check"></i><b>3.3.1</b> Clonal identification</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#minimum-spanning-networks-with-reticulation"><i class="fa fa-check"></i><b>3.3.2</b> Minimum Spanning Networks with Reticulation</a></li>
+<li class="chapter" data-level="3.3.3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#bootstrapping"><i class="fa fa-check"></i><b>3.3.3</b> Bootstrapping</a></li>
+<li class="chapter" data-level="3.3.4" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#genotype-accumulation-curve"><i class="fa fa-check"></i><b>3.3.4</b> Genotype Accumulation Curve</a></li>
+<li class="chapter" data-level="3.3.5" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#index-of-association"><i class="fa fa-check"></i><b>3.3.5</b> Index of association</a></li>
+<li class="chapter" data-level="3.3.6" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#data-format-updates-population-strata-and-hierarchies"><i class="fa fa-check"></i><b>3.3.6</b> Data format updates: population strata and hierarchies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#availability"><i class="fa fa-check"></i><b>3.4</b> Availability</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#requirements"><i class="fa fa-check"></i><b>3.4.1</b> Requirements</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#installation"><i class="fa fa-check"></i><b>3.4.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#discussion"><i class="fa fa-check"></i><b>3.5</b> Discussion</a></li>
+<li class="chapter" data-level="3.6" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#acknowledgements-1"><i class="fa fa-check"></i><b>3.6</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><i class="fa fa-check"></i><b>4</b> Spatial and Temporal Analysis of Populations of the Sudden Oak Death Pathogen in Oregon Forests</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#abstract-2"><i class="fa fa-check"></i><b>4.1</b> Abstract</a></li>
+<li class="chapter" data-level="4.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#materials-and-methods-1"><i class="fa fa-check"></i><b>4.3</b> Materials and Methods</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#location"><i class="fa fa-check"></i><b>4.3.1</b> Location</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#sampling"><i class="fa fa-check"></i><b>4.3.2</b> Sampling</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#isolation-identification-and-dna-extraction"><i class="fa fa-check"></i><b>4.3.3</b> Isolation, identification and DNA extraction</a></li>
+<li class="chapter" data-level="4.3.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#genotyping-data-validation-and-harmonization"><i class="fa fa-check"></i><b>4.3.4</b> Genotyping, data validation, and harmonization</a></li>
+<li class="chapter" data-level="4.3.5" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#nursery-populations"><i class="fa fa-check"></i><b>4.3.5</b> Nursery populations</a></li>
+<li class="chapter" data-level="4.3.6" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#data-analysis-1"><i class="fa fa-check"></i><b>4.3.6</b> Data analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#results"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#demographic-pattern-and-genetic-diversity"><i class="fa fa-check"></i><b>4.4.1</b> Demographic pattern and genetic diversity</a></li>
+<li class="chapter" data-level="4.4.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#spatial-correlation"><i class="fa fa-check"></i><b>4.4.2</b> Spatial Correlation</a></li>
+<li class="chapter" data-level="4.4.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#population-differentiation"><i class="fa fa-check"></i><b>4.4.3</b> Population differentiation</a></li>
+<li class="chapter" data-level="4.4.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#clustering-of-forest-with-nursery-populations"><i class="fa fa-check"></i><b>4.4.4</b> Clustering of forest with nursery populations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#discussion-1"><i class="fa fa-check"></i><b>4.5</b> Discussion</a></li>
+<li class="chapter" data-level="4.6" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#acknowledgements-2"><i class="fa fa-check"></i><b>4.6</b> Acknowledgements</a></li>
+<li class="chapter" data-level="4.7" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-material"><i class="fa fa-check"></i><b>4.7</b> Supplementary Material</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#text:S1"><i class="fa fa-check"></i><b>4.7.1</b> Supplementary Text</a></li>
+<li class="chapter" data-level="4.7.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-figures"><i class="fa fa-check"></i><b>4.7.2</b> Supplementary Figures</a></li>
+<li class="chapter" data-level="4.7.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-tables"><i class="fa fa-check"></i><b>4.7.3</b> Supplementary Tables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><i class="fa fa-check"></i><b>5</b> Factors Influencing Inference of Clonality in Diploid Populations</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#abstract-3"><i class="fa fa-check"></i><b>5.1</b> Abstract</a></li>
+<li class="chapter" data-level="5.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#introduction-4"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#methods"><i class="fa fa-check"></i><b>5.3</b> Methods</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#simulating-microsatellite-loci"><i class="fa fa-check"></i><b>5.3.1</b> Simulating Microsatellite Loci</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#simulating-snp-loci"><i class="fa fa-check"></i><b>5.3.2</b> Simulating SNP Loci</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#mating"><i class="fa fa-check"></i><b>5.3.3</b> Mating</a></li>
+<li class="chapter" data-level="5.3.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#analysis-of-microsatellite-data"><i class="fa fa-check"></i><b>5.3.4</b> Analysis of Microsatellite Data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#analysis-of-snp-data"><i class="fa fa-check"></i><b>5.3.5</b> Analysis of SNP Data</a></li>
+<li class="chapter" data-level="5.3.6" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#power-analysis"><i class="fa fa-check"></i><b>5.3.6</b> Power Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#results-1"><i class="fa fa-check"></i><b>5.4</b> Results</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#clone-correction-negatively-impacts-clonal-inference"><i class="fa fa-check"></i><b>5.4.1</b> Clone Correction Negatively Impacts Clonal Inference</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#negative-values-of-barr_d-in-clonal-populations-correlated-with-low-allelic-diversity"><i class="fa fa-check"></i><b>5.4.2</b> Negative Values of <span class="math inline">\(\bar{r}_d\)</span> in Clonal Populations Correlated With Low Allelic Diversity</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#power-to-detect-clonal-reproduction-in-snp-data"><i class="fa fa-check"></i><b>5.4.3</b> Power To Detect Clonal Reproduction in SNP Data</a></li>
+<li class="chapter" data-level="5.4.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#common-features-of-microsatellite-and-snp-markers"><i class="fa fa-check"></i><b>5.4.4</b> Common Features of Microsatellite and SNP Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#discussion-2"><i class="fa fa-check"></i><b>5.5</b> Discussion</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#clone-correction-increases-false-negatives"><i class="fa fa-check"></i><b>5.5.1</b> Clone Correction Increases False Negatives</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#mutation-rates-and-barr_d"><i class="fa fa-check"></i><b>5.5.2</b> Mutation Rates and <span class="math inline">\(\bar{r}_d\)</span></a></li>
+<li class="chapter" data-level="5.5.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#allelic-diversity-influences-the-value-of-barr_d-in-clonal-populations"><i class="fa fa-check"></i><b>5.5.3</b> Allelic Diversity Influences the value of <span class="math inline">\(\bar{r}_d\)</span> in Clonal Populations</a></li>
+<li class="chapter" data-level="5.5.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#linkage-in-snp-data-increases-barr_d-unilaterally"><i class="fa fa-check"></i><b>5.5.4</b> Linkage in SNP Data Increases <span class="math inline">\(\bar{r}_d\)</span> Unilaterally</a></li>
+<li class="chapter" data-level="5.5.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#limitations-of-this-study"><i class="fa fa-check"></i><b>5.5.5</b> Limitations of This Study</a></li>
+<li class="chapter" data-level="5.5.6" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#conclusions-1"><i class="fa fa-check"></i><b>5.5.6</b> Conclusions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-conclusions-2.html"><a href="6-conclusions-2.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a></li>
+<li class="chapter" data-level="7" data-path="7-bibliography.html"><a href="7-bibliography.html"><i class="fa fa-check"></i><b>7</b> Bibliography</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Development and Application of Tools for Genetic Analysis of Clonal Populations</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="conclusions-2" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Conclusions</h1>
+<blockquote>
+<p><em>Clearly, a discipline is defined by the questions asked, not the tools used.</em></p>
+<p>– <span class="citation">Milgroom &amp; Fry (<a href="#ref-milgroom1997contributions">1997</a>, p. 4)</span></p>
+</blockquote>
+<p>The above quote by Michael Milgroom and William Fry was in reference to the use of molecular markers in molecular biology as compared to population genetics. While it is undisputed that questions shape a field of inquiry, the notion that tools are not influential in disciplines is misleading. Tools are necessary for providing answers to the questions proposed; they are the vehicle whereby we apply our scientific theory to the unknown world.</p>
+<p>A tool, in this sense is any instrument, physical or analytical, that is used to collect, measure, manipulate, represent, or analyze data <span class="citation">(Gigerenzer, <a href="#ref-gigerenzer1991tools">1991</a>)</span>. This definition encompasses things like hammers, hand lenses, mass spectrometers, maps, axioms, algorithms, gel electrophoresis, equations, etc. All of these tools are used within a theoretical framework (e.g. gravity, refraction); any observations or results produced with a particular tool are ultimately tied to the theory employed by the scientist using it (and would thus invoke different interpretations under a different theoretical framework) <span class="citation">(Kuhn, <a href="#ref-kuhn1996structure">1996</a>)</span>. If all the assumptions of the theoretical framework are met, the tool will produce an observation or result that will help the scientist describe the natural phenomena accurately in terms of a testable theory.</p>
+<p>These tools, however, should not simply be seen as a means to an end for answering questions. Many tools will produce answers whether or not they are correct. A simple example of this concept was demonstrated by <span class="citation">Anscombe (<a href="#ref-anscombe1973graphs">1973</a>)</span>, showing the need for graphical visualization in statistical analysis. Reproduced in Fig. <a href="6-conclusions-2.html#fig:introduction2">6.1</a> are four data sets showing a fitted trendline. Using linear regression, all four data sets produce the exact same result (slope, intercept, variance, correlation). Upon visual inspection, their differences are striking.</p>
+<div class="figure" style="text-align: center"><span id="fig:introduction2"></span>
+<img src="dissertation_files/figure-html/introduction2-1.png" alt="A reproduction of Anscombe's quartet [@anscombe1973graphs] demonstrating
+different situations in which linear regression would give the same
+answer." width="50%" />
+<p class="caption">
+Figure 6.1: A reproduction of Anscombe’s quartet <span class="citation">(Anscombe, <a href="#ref-anscombe1973graphs">1973</a>)</span> demonstrating different situations in which linear regression would give the same answer.
+</p>
+</div>
+<p>If we imagine each data set as a separate population and linear regression as our tool, it wouldn’t matter what our question was, because there would be no hope of detecting any differentiation between these populations with the tool (e.g. molecular marker) chosen.</p>
+<p>Science moves forward by asking questions about natural phenomena and then investigating the results of these questions further, narrowing the scope of the succeeding questions to pin down a detailed mechanism that can explain the phenomena observed. The tools provide the observations and results that set the context for future questions <span class="citation">(Searls, <a href="#ref-searls2010roots">2010</a>)</span>. I have presented such tools in the form of scientific software, which can enable reproducible research in the context of computational science.</p>
+<blockquote>
+<p><em>An article about computational science in a scientific publication is not the scholarship itself, it is merely advertising of the scholarship. The actual scholarship is the complete software development environment and the complete set of instructions which generated the figures.</em></p>
+<p>– John Buckheit and David Donho paraphrasing John Claerbout <span class="citation">(<a href="#ref-buckheit1995wavelab">1995</a>)</span></p>
+</blockquote>
+<p><span class="citation">Buckheit &amp; Donoho (<a href="#ref-buckheit1995wavelab">1995</a>)</span> didn’t invent the concept of reproducible research in scientific computing, but they did show the computational research community that such a concept was possible. The ultimate goal of reproducible research lies in the term itself: to ensure that research is produced in a manner such that future researchers can faithfully reproduce and verify the results <span class="citation">(Goecks et al., <a href="#ref-goecks2010galaxy">2010</a>)</span>. Lack of reproducibility has been (and still is) a problem due to varying factors, including software and point-and-click user interfaces <span class="citation">(Ioannidis et al., <a href="#ref-ioannidis2008repeatability">2008</a>; Ziemann et al., <a href="#ref-ziemann2016gene">2016</a>)</span>.</p>
+<p>The development of scientific software does not stand apart from science itself, but rather it serves as implementation of scientific theory <span class="citation">(Baxter et al., <a href="#ref-baxter2006scientific">2006</a>; Ouzounis &amp; Valencia, <a href="#ref-ouzounis2003bioinformatics">2003</a>; Partridge et al., <a href="#ref-partridge1984computer">1984</a>; Searls, <a href="#ref-searls2010roots">2010</a>)</span>. Scientific software has been used to implement new theory <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>; Ali et al., <a href="#ref-ali2016cloncase">2016</a>; Arnaud-Haond &amp; Belkhir, <a href="#ref-arnaud2006genclone">2006</a>; Felsenstein, <a href="#ref-felsenstein1989phylip">1989</a>)</span> and it has been used to make accessible existing theory and methods in a way that is more accessible <span class="citation">(Bailleul et al., <a href="#ref-bailleul2016rclone">2016</a>; Goudet, <a href="#ref-goudet1995fstat">1995</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>; Winter, <a href="#ref-winter2012mmod">2012</a>)</span>. Ultimately, publication and maintenance of scientific software exists to standardize the protocols in which we manipulate and analyze our data, allowing researchers to more efficiently and reliably produce answers to their questions. When scientists produce their research in an open and reproducible manner, the benefits not only include higher citation counts, but also increased potential for collaboration and data reuse <span class="citation">(McKiernan et al., <a href="#ref-mckiernan2016open">2016</a>; Wilson et al., <a href="#ref-wilson2014best">2014</a>, <a href="#ref-wilson2016good">2016</a>)</span>. It is thus imperative that the software available not simply exist as a black box from which a researcher can produce an answer; it must be useful, well tested, extensible, and open. In our experience, writing educational user manuals for software and responding to user feedback also help adoption and reproducibility.</p>
+<p>We have provided in this dissertation descriptions of the research software, <em>poppr</em>. Chapters 2 and 3 expounded on the functionalities and benefits of <em>poppr</em> in terms of reproducible research, ease of use, and speed. It is important to acknowledge the fact that the progress of this work could not exist without open and collaborative software development. Chapter 3 was only possible because of the contributions I was able to make to <em>adegenet</em> (the package <em>poppr</em> depends on) during and after the NESCent Population Genetics in R Hackathon in 2014 <span class="citation">(Jombart &amp; Ahmed, <a href="#ref-jombart2011adegenet">2011</a>; Kamvar et al., <a href="#ref-kamvar2015novel">2015</a><a href="#ref-kamvar2015novel">a</a>; Paradis et al., <a href="#ref-paradis2016towards">2016</a>)</span>. An important aspect of software development is ‘eating your own dogfood’, that is, using your own software the way it was intended <span class="citation">(Kamvar et al., <a href="#ref-kamvar2016developing">2016</a>)</span>. We have used <em>poppr</em> in conjunction with the larger ecosystem of R packages to give evidence of two introductions of <em>Phytophthora ramorum</em> in Curry County, OR in a reproducible manner <span class="citation">(Kamvar et al., <a href="#ref-kamvar2014sudden">2014</a><a href="#ref-kamvar2014sudden">a</a>, <a href="#ref-kamvar2015spatial">2015</a><a href="#ref-kamvar2015spatial">c</a>)</span> and to show that the power of <span class="math inline">\(\bar{r}_d\)</span> is affected by both sample size and allelic diversity in diploids. Beyond what has been published in scientific journals, we continue to develop <em>poppr</em> so that it holds to standards of scientific software development such as the use of rigorous testing, continuous integration, version control, community support, and sensible documentation <span class="citation">(Baxter et al., <a href="#ref-baxter2006scientific">2006</a>; Prlić &amp; Procter, <a href="#ref-prliac2012software">2012</a>; Wilson et al., <a href="#ref-wilson2016good">2016</a>)</span>.</p>
+
+<!--
+The bib chunk below must go last in this document according to how R Markdown renders.  More info is at http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+-->
+<p></p>
+<!-- 
+If you'd like to change the name of the bibliography to something else,
+delete "References" and replace it.
+-->
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-milgroom1997contributions">
+<p>Milgroom, M., &amp; Fry, W. (1997). Contributions of population genetics to plant disease epidemiology and management. In <em>Advances in botanical research</em> (pp. 1–30). Elsevier BV. <a href="https://doi.org/10.1016/s0065-2296(08)60069-5" class="uri">https://doi.org/10.1016/s0065-2296(08)60069-5</a></p>
+</div>
+<div id="ref-gigerenzer1991tools">
+<p>Gigerenzer, G. (1991). From tools to theories: A heuristic of discovery in cognitive psychology. <em>Psychological Review</em>, <em>98</em>(2), 254–267. <a href="https://doi.org/10.1037/0033-295x.98.2.254" class="uri">https://doi.org/10.1037/0033-295x.98.2.254</a></p>
+</div>
+<div id="ref-kuhn1996structure">
+<p>Kuhn, T. S. (1996). <em>The structure of scientific revolutions</em>. University of Chicago Press. <a href="https://doi.org/10.7208/chicago/9780226458106.001.0001" class="uri">https://doi.org/10.7208/chicago/9780226458106.001.0001</a></p>
+</div>
+<div id="ref-anscombe1973graphs">
+<p>Anscombe, F. J. (1973). Graphs in statistical analysis. <em>The American Statistician</em>, <em>27</em>(1), 17. <a href="https://doi.org/10.2307/2682899" class="uri">https://doi.org/10.2307/2682899</a></p>
+</div>
+<div id="ref-searls2010roots">
+<p>Searls, D. B. (2010). The roots of bioinformatics. <em>PLoS Computational Biology</em>, <em>6</em>(6), e1000809. <a href="https://doi.org/10.1371/journal.pcbi.1000809" class="uri">https://doi.org/10.1371/journal.pcbi.1000809</a></p>
+</div>
+<div id="ref-buckheit1995wavelab">
+<p>Buckheit, J. B., &amp; Donoho, D. L. (1995). WaveLab and reproducible research. In <em>Wavelets and statistics</em> (pp. 55–81). Springer. <a href="https://doi.org/10.1007/978-1-4612-2544-7_5" class="uri">https://doi.org/10.1007/978-1-4612-2544-7_5</a></p>
+</div>
+<div id="ref-goecks2010galaxy">
+<p>Goecks, J., Nekrutenko, A., Taylor, J., &amp; Team, T. G. (2010). Galaxy: A comprehensive approach for supporting accessible, reproducible, and transparent computational research in the life sciences. <em>Genome Biology</em>, <em>11</em>(8), R86. <a href="https://doi.org/10.1186/gb-2010-11-8-r86" class="uri">https://doi.org/10.1186/gb-2010-11-8-r86</a></p>
+</div>
+<div id="ref-ioannidis2008repeatability">
+<p>Ioannidis, J. P. A., Allison, D. B., Ball, C. A., Coulibaly, I., Cui, X., Culhane, A., Falchi, M., Furlanello, C., Game, L., Jurman, G., Mangion, J., Mehta, T., Nitzberg, M., Page, G. P., Petretto, E., &amp; van Noort, V. (2008). Repeatability of published microarray gene expression analyses. <em>Nature Genetics</em>, <em>41</em>(2), 149–155. <a href="https://doi.org/10.1038/ng.295" class="uri">https://doi.org/10.1038/ng.295</a></p>
+</div>
+<div id="ref-ziemann2016gene">
+<p>Ziemann, M., Eren, Y., &amp; El-Osta, A. (2016). Gene name errors are widespread in the scientific literature. <em>Genome Biology</em>, <em>17</em>(1). <a href="https://doi.org/10.1186/s13059-016-1044-7" class="uri">https://doi.org/10.1186/s13059-016-1044-7</a></p>
+</div>
+<div id="ref-baxter2006scientific">
+<p>Baxter, S. M., Day, S. W., Fetrow, J. S., &amp; Reisinger, S. J. (2006). Scientific software development is not an oxymoron. <em>PLoS Computational Biology</em>, <em>2</em>(9), e87. <a href="https://doi.org/10.1371/journal.pcbi.0020087" class="uri">https://doi.org/10.1371/journal.pcbi.0020087</a></p>
+</div>
+<div id="ref-ouzounis2003bioinformatics">
+<p>Ouzounis, C. A., &amp; Valencia, A. (2003). Early bioinformatics: The birth of a discipline–a personal view. <em>Bioinformatics</em>, <em>19</em>(17), 2176–2190. <a href="https://doi.org/10.1093/bioinformatics/btg309" class="uri">https://doi.org/10.1093/bioinformatics/btg309</a></p>
+</div>
+<div id="ref-partridge1984computer">
+<p>Partridge, D., Lopez, P. D., &amp; Johnston, V. S. (1984). Computer programs as theories in biology. <em>Journal of Theoretical Biology</em>, <em>108</em>(4), 539–564. <a href="https://doi.org/10.1016/s0022-5193(84)80079-x" class="uri">https://doi.org/10.1016/s0022-5193(84)80079-x</a></p>
+</div>
+<div id="ref-Agapow_2001">
+<p>Agapow, P.-M., &amp; Burt, A. (2001). Indices of multilocus linkage disequilibrium. <em>Molecular Ecology Notes</em>, <em>1</em>(1-2), 101–102. <a href="https://doi.org/10.1046/j.1471-8278.2000.00014.x" class="uri">https://doi.org/10.1046/j.1471-8278.2000.00014.x</a></p>
+</div>
+<div id="ref-ali2016cloncase">
+<p>Ali, S., Soubeyrand, S., Gladieux, P., Giraud, T., Leconte, M., Gautier, A., Mboup, M., Chen, W., Vallavieille-Pope, C., &amp; Enjalbert, J. (2016). Cloncase: Estimation of sex frequency and effective population size by clonemate resampling in partially clonal organisms. <em>Molecular Ecology Resources</em>. <a href="https://doi.org/10.1111/1755-0998.12511" class="uri">https://doi.org/10.1111/1755-0998.12511</a></p>
+</div>
+<div id="ref-arnaud2006genclone">
+<p>Arnaud-Haond, S., &amp; Belkhir, K. (2006). Genclone: A computer program to analyse genotypic data, test for clonality and describe spatial clonal organization. <em>Molecular Ecology Notes</em>, <em>7</em>(1), 15–17. <a href="https://doi.org/10.1111/j.1471-8286.2006.01522.x" class="uri">https://doi.org/10.1111/j.1471-8286.2006.01522.x</a></p>
+</div>
+<div id="ref-felsenstein1989phylip">
+<p>Felsenstein, J. (1989). PHYLIP-phylogeny inference package (version 3.2). <em>Cladistics</em>, <em>5</em>, 163–166.</p>
+</div>
+<div id="ref-bailleul2016rclone">
+<p>Bailleul, D., Stoeckel, S., &amp; Arnaud-Haond, S. (2016). RClone: A package to identify MultiLocus clonal lineages and handle clonal data sets inr. <em>Methods in Ecology and Evolution</em>, <em>7</em>(8), 966–970. <a href="https://doi.org/10.1111/2041-210x.12550" class="uri">https://doi.org/10.1111/2041-210x.12550</a></p>
+</div>
+<div id="ref-goudet1995fstat">
+<p>Goudet, J. (1995). FSTAT (version 1.2): A computer program to calculate F-statistics. <em>Journal of Heredity</em>, <em>86</em>(6), 485–486. Retrieved from <a href="http://jhered.oxfordjournals.org/content/86/6/485" class="uri">http://jhered.oxfordjournals.org/content/86/6/485</a></p>
+</div>
+<div id="ref-kamvar2014poppr">
+<p>Kamvar, Z. N., Tabima, J. F., &amp; Grünwald, N. J. (2014b).  Poppr : an R package for genetic analysis of populations with clonal, partially clonal, and/or sexual reproduction. <em>PeerJ</em>, <em>2</em>, e281. <a href="https://doi.org/10.7717/peerj.281" class="uri">https://doi.org/10.7717/peerj.281</a></p>
+</div>
+<div id="ref-winter2012mmod">
+<p>Winter, D. J. (2012). mmod: An R library for the calculation of population differentiation statistics. <em>Molecular Ecology Resources</em>, <em>12</em>(6), 1158–1160. <a href="https://doi.org/10.1111/j.1755-0998.2012.03174.x" class="uri">https://doi.org/10.1111/j.1755-0998.2012.03174.x</a></p>
+</div>
+<div id="ref-mckiernan2016open">
+<p>McKiernan, E. C., Bourne, P. E., Brown, C. T., Buck, S., Kenall, A., Lin, J., McDougall, D., Nosek, B. A., Ram, K., Soderberg, C. K., Spies, J. R., Thaney, K., Updegrove, A., Woo, K. H., &amp; Yarkoni, T. (2016). How open science helps researchers succeed. <em>eLife</em>, <em>5</em>. <a href="https://doi.org/10.7554/elife.16800" class="uri">https://doi.org/10.7554/elife.16800</a></p>
+</div>
+<div id="ref-wilson2014best">
+<p>Wilson, G., Aruliah, D., Brown, C. T., Hong, N. P. C., Davis, M., Guy, R. T., Haddock, S. H., Huff, K. D., Mitchell, I. M., Plumbley, M. D., &amp; others. (2014). Best practices for scientific computing. <em>PLoS Biology</em>, <em>12</em>(1), e1001745.</p>
+</div>
+<div id="ref-wilson2016good">
+<p>Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., &amp; Teal, T. K. (2016). Good enough practices in scientific computing (Version 2). Retrieved from <a href="http://arxiv.org/abs/1609.00037v2" class="uri">http://arxiv.org/abs/1609.00037v2</a></p>
+</div>
+<div id="ref-jombart2011adegenet">
+<p>Jombart, T., &amp; Ahmed, I. (2011). Adegenet 1.3-1: New tools for the analysis of genome-wide SNP data. <em>Bioinformatics</em>, <em>27</em>(21), 3070–3071.</p>
+</div>
+<div id="ref-kamvar2015novel">
+<p>Kamvar, Z. N., Brooks, J. C., &amp; Grünwald, N. J. (2015a). Novel R tools for analysis of genome-wide population genetic data with emphasis on clonality. <em>Frontiers in Genetics</em>, <em>6</em>. <a href="https://doi.org/10.3389/fgene.2015.00208" class="uri">https://doi.org/10.3389/fgene.2015.00208</a></p>
+</div>
+<div id="ref-paradis2016towards">
+<p>Paradis, E., Gosselin, T., Grünwald, N. J., Jombart, T., Manel, S., &amp; Lapp, H. (2016). Towards an integrated ecosystem of R packages for the analysis of population genetic data. <em>Molecular Ecology Resources</em>. <a href="https://doi.org/10.1111/1755-0998.12636" class="uri">https://doi.org/10.1111/1755-0998.12636</a></p>
+</div>
+<div id="ref-kamvar2016developing">
+<p>Kamvar, Z. N., López-Uribe, M. M., Coughlan, S., Grünwald, N. J., Lapp, H., &amp; Manel, S. (2016). Developing educational resources for population genetics in R: An open and collaborative approach. <em>Molecular Ecology Resources</em>. <a href="https://doi.org/10.1111/1755-0998.12558" class="uri">https://doi.org/10.1111/1755-0998.12558</a></p>
+</div>
+<div id="ref-kamvar2014sudden">
+<p>Kamvar, Z. N., Larsen, M. M., Kanaskie, A. M., Hansen, E. M., &amp; Grünwald, N. J. (2014a, December). Sudden_Oak_Death_in_Oregon_Forests: Spatial and temporal population dynamics of the sudden oak death epidemic in Oregon Forests. ZENODO. <a href="https://doi.org/10.5281/zenodo.13007" class="uri">https://doi.org/10.5281/zenodo.13007</a></p>
+</div>
+<div id="ref-kamvar2015spatial">
+<p>Kamvar, Z. N., Larsen, M. M., Kanaskie, A. M., Hansen, E. M., &amp; Grünwald, N. J. (2015c). Spatial and temporal analysis of populations of the sudden oak death pathogen in oregon forests. <em>Phytopathology</em>, <em>105</em>(7), 982–989. <a href="https://doi.org/10.1094/phyto-12-14-0350-fi" class="uri">https://doi.org/10.1094/phyto-12-14-0350-fi</a></p>
+</div>
+<div id="ref-prliac2012software">
+<p>Prlić, A., &amp; Procter, J. B. (2012). Ten simple rules for the open development of scientific software. <em>PLoS Computational Biology</em>, <em>8</em>(12), e1002802. <a href="https://doi.org/10.1371/journal.pcbi.1002802" class="uri">https://doi.org/10.1371/journal.pcbi.1002802</a></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="7-bibliography.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": [["http://hdl.handle.net/1957/60042", "PDF"], ["dissertation.tex", "TEX"], ["https://github.com/zkamvar/dissertation", "SOURCE CODE"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

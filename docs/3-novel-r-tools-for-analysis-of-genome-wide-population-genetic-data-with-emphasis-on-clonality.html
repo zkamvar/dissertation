@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Development and Application of Tools for Genetic Analysis of Clonal Populations</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Development and Application of Tools for Genetic Analysis of Clonal Populations">
+  <meta name="generator" content="bookdown 0.1.18 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Development and Application of Tools for Genetic Analysis of Clonal Populations" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Development and Application of Tools for Genetic Analysis of Clonal Populations" />
+  
+  
+  
+
+<meta name="author" content="Zhian N. Kamvar">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html">
+<link rel="next" href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="1-introduction.html"><a href="1-introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-introduction.html"><a href="1-introduction.html#population-genetics-and-clonality"><i class="fa fa-check"></i><b>1.1</b> Population Genetics and Clonality</a></li>
+<li class="chapter" data-level="1.2" data-path="1-introduction.html"><a href="1-introduction.html#population-genetics-under-the-lens-of-plant-pathology"><i class="fa fa-check"></i><b>1.2</b> Population Genetics Under the Lens of Plant Pathology</a></li>
+<li class="chapter" data-level="1.3" data-path="1-introduction.html"><a href="1-introduction.html#the-need-for-reproducible-research"><i class="fa fa-check"></i><b>1.3</b> The Need For Reproducible Research</a></li>
+<li class="chapter" data-level="1.4" data-path="1-introduction.html"><a href="1-introduction.html#overview"><i class="fa fa-check"></i><b>1.4</b> Overview</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-2"><i class="fa fa-check"></i><b>1.4.1</b> Summary of Chapter 2</a></li>
+<li class="chapter" data-level="1.4.2" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-3"><i class="fa fa-check"></i><b>1.4.2</b> Summary of Chapter 3</a></li>
+<li class="chapter" data-level="1.4.3" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-4"><i class="fa fa-check"></i><b>1.4.3</b> Summary of Chapter 4</a></li>
+<li class="chapter" data-level="1.4.4" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-5"><i class="fa fa-check"></i><b>1.4.4</b> Summary of Chapter 5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><i class="fa fa-check"></i><b>2</b> <em>Poppr</em>: an R Package For Genetic Analysis of Populations With Clonal, Partially Clonal, and/or Sexual Reproduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#abstract"><i class="fa fa-check"></i><b>2.1</b> Abstract</a></li>
+<li class="chapter" data-level="2.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#introduction-1"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#materials-and-methods"><i class="fa fa-check"></i><b>2.3</b> Materials and Methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#data-import"><i class="fa fa-check"></i><b>2.3.1</b> Data import</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#data-analysis"><i class="fa fa-check"></i><b>2.3.2</b> Data analysis</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#visualizations"><i class="fa fa-check"></i><b>2.3.3</b> Visualizations</a></li>
+<li class="chapter" data-level="2.3.4" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#performance"><i class="fa fa-check"></i><b>2.3.4</b> Performance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#citation-of-methods-implemented-in-poppr"><i class="fa fa-check"></i><b>2.4</b> Citation of methods implemented in <em>poppr</em></a></li>
+<li class="chapter" data-level="2.5" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#results-and-discussion"><i class="fa fa-check"></i><b>2.5</b> Results and Discussion</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#new-functionalities"><i class="fa fa-check"></i><b>2.5.1</b> New functionalities</a></li>
+<li class="chapter" data-level="2.5.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#performance-1"><i class="fa fa-check"></i><b>2.5.2</b> Performance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#conclusions"><i class="fa fa-check"></i><b>2.6</b> Conclusions</a></li>
+<li class="chapter" data-level="2.7" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#acknowledgements"><i class="fa fa-check"></i><b>2.7</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><i class="fa fa-check"></i><b>3</b> Novel R Tools For Analysis of Genome-Wide Population Genetic Data With Emphasis on Clonality</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#abstract-1"><i class="fa fa-check"></i><b>3.1</b> Abstract</a></li>
+<li class="chapter" data-level="3.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#introduction-2"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#implementations-and-examples"><i class="fa fa-check"></i><b>3.3</b> Implementations and Examples</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#clonal-identification"><i class="fa fa-check"></i><b>3.3.1</b> Clonal identification</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#minimum-spanning-networks-with-reticulation"><i class="fa fa-check"></i><b>3.3.2</b> Minimum Spanning Networks with Reticulation</a></li>
+<li class="chapter" data-level="3.3.3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#bootstrapping"><i class="fa fa-check"></i><b>3.3.3</b> Bootstrapping</a></li>
+<li class="chapter" data-level="3.3.4" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#genotype-accumulation-curve"><i class="fa fa-check"></i><b>3.3.4</b> Genotype Accumulation Curve</a></li>
+<li class="chapter" data-level="3.3.5" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#index-of-association"><i class="fa fa-check"></i><b>3.3.5</b> Index of association</a></li>
+<li class="chapter" data-level="3.3.6" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#data-format-updates-population-strata-and-hierarchies"><i class="fa fa-check"></i><b>3.3.6</b> Data format updates: population strata and hierarchies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#availability"><i class="fa fa-check"></i><b>3.4</b> Availability</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#requirements"><i class="fa fa-check"></i><b>3.4.1</b> Requirements</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#installation"><i class="fa fa-check"></i><b>3.4.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#discussion"><i class="fa fa-check"></i><b>3.5</b> Discussion</a></li>
+<li class="chapter" data-level="3.6" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#acknowledgements-1"><i class="fa fa-check"></i><b>3.6</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><i class="fa fa-check"></i><b>4</b> Spatial and Temporal Analysis of Populations of the Sudden Oak Death Pathogen in Oregon Forests</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#abstract-2"><i class="fa fa-check"></i><b>4.1</b> Abstract</a></li>
+<li class="chapter" data-level="4.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#materials-and-methods-1"><i class="fa fa-check"></i><b>4.3</b> Materials and Methods</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#location"><i class="fa fa-check"></i><b>4.3.1</b> Location</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#sampling"><i class="fa fa-check"></i><b>4.3.2</b> Sampling</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#isolation-identification-and-dna-extraction"><i class="fa fa-check"></i><b>4.3.3</b> Isolation, identification and DNA extraction</a></li>
+<li class="chapter" data-level="4.3.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#genotyping-data-validation-and-harmonization"><i class="fa fa-check"></i><b>4.3.4</b> Genotyping, data validation, and harmonization</a></li>
+<li class="chapter" data-level="4.3.5" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#nursery-populations"><i class="fa fa-check"></i><b>4.3.5</b> Nursery populations</a></li>
+<li class="chapter" data-level="4.3.6" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#data-analysis-1"><i class="fa fa-check"></i><b>4.3.6</b> Data analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#results"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#demographic-pattern-and-genetic-diversity"><i class="fa fa-check"></i><b>4.4.1</b> Demographic pattern and genetic diversity</a></li>
+<li class="chapter" data-level="4.4.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#spatial-correlation"><i class="fa fa-check"></i><b>4.4.2</b> Spatial Correlation</a></li>
+<li class="chapter" data-level="4.4.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#population-differentiation"><i class="fa fa-check"></i><b>4.4.3</b> Population differentiation</a></li>
+<li class="chapter" data-level="4.4.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#clustering-of-forest-with-nursery-populations"><i class="fa fa-check"></i><b>4.4.4</b> Clustering of forest with nursery populations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#discussion-1"><i class="fa fa-check"></i><b>4.5</b> Discussion</a></li>
+<li class="chapter" data-level="4.6" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#acknowledgements-2"><i class="fa fa-check"></i><b>4.6</b> Acknowledgements</a></li>
+<li class="chapter" data-level="4.7" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-material"><i class="fa fa-check"></i><b>4.7</b> Supplementary Material</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#text:S1"><i class="fa fa-check"></i><b>4.7.1</b> Supplementary Text</a></li>
+<li class="chapter" data-level="4.7.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-figures"><i class="fa fa-check"></i><b>4.7.2</b> Supplementary Figures</a></li>
+<li class="chapter" data-level="4.7.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-tables"><i class="fa fa-check"></i><b>4.7.3</b> Supplementary Tables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><i class="fa fa-check"></i><b>5</b> Factors Influencing Inference of Clonality in Diploid Populations</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#abstract-3"><i class="fa fa-check"></i><b>5.1</b> Abstract</a></li>
+<li class="chapter" data-level="5.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#introduction-4"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#methods"><i class="fa fa-check"></i><b>5.3</b> Methods</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#simulating-microsatellite-loci"><i class="fa fa-check"></i><b>5.3.1</b> Simulating Microsatellite Loci</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#simulating-snp-loci"><i class="fa fa-check"></i><b>5.3.2</b> Simulating SNP Loci</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#mating"><i class="fa fa-check"></i><b>5.3.3</b> Mating</a></li>
+<li class="chapter" data-level="5.3.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#analysis-of-microsatellite-data"><i class="fa fa-check"></i><b>5.3.4</b> Analysis of Microsatellite Data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#analysis-of-snp-data"><i class="fa fa-check"></i><b>5.3.5</b> Analysis of SNP Data</a></li>
+<li class="chapter" data-level="5.3.6" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#power-analysis"><i class="fa fa-check"></i><b>5.3.6</b> Power Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#results-1"><i class="fa fa-check"></i><b>5.4</b> Results</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#clone-correction-negatively-impacts-clonal-inference"><i class="fa fa-check"></i><b>5.4.1</b> Clone Correction Negatively Impacts Clonal Inference</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#negative-values-of-barr_d-in-clonal-populations-correlated-with-low-allelic-diversity"><i class="fa fa-check"></i><b>5.4.2</b> Negative Values of <span class="math inline">\(\bar{r}_d\)</span> in Clonal Populations Correlated With Low Allelic Diversity</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#power-to-detect-clonal-reproduction-in-snp-data"><i class="fa fa-check"></i><b>5.4.3</b> Power To Detect Clonal Reproduction in SNP Data</a></li>
+<li class="chapter" data-level="5.4.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#common-features-of-microsatellite-and-snp-markers"><i class="fa fa-check"></i><b>5.4.4</b> Common Features of Microsatellite and SNP Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#discussion-2"><i class="fa fa-check"></i><b>5.5</b> Discussion</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#clone-correction-increases-false-negatives"><i class="fa fa-check"></i><b>5.5.1</b> Clone Correction Increases False Negatives</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#mutation-rates-and-barr_d"><i class="fa fa-check"></i><b>5.5.2</b> Mutation Rates and <span class="math inline">\(\bar{r}_d\)</span></a></li>
+<li class="chapter" data-level="5.5.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#allelic-diversity-influences-the-value-of-barr_d-in-clonal-populations"><i class="fa fa-check"></i><b>5.5.3</b> Allelic Diversity Influences the value of <span class="math inline">\(\bar{r}_d\)</span> in Clonal Populations</a></li>
+<li class="chapter" data-level="5.5.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#linkage-in-snp-data-increases-barr_d-unilaterally"><i class="fa fa-check"></i><b>5.5.4</b> Linkage in SNP Data Increases <span class="math inline">\(\bar{r}_d\)</span> Unilaterally</a></li>
+<li class="chapter" data-level="5.5.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#limitations-of-this-study"><i class="fa fa-check"></i><b>5.5.5</b> Limitations of This Study</a></li>
+<li class="chapter" data-level="5.5.6" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#conclusions-1"><i class="fa fa-check"></i><b>5.5.6</b> Conclusions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-conclusions-2.html"><a href="6-conclusions-2.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a></li>
+<li class="chapter" data-level="7" data-path="7-bibliography.html"><a href="7-bibliography.html"><i class="fa fa-check"></i><b>7</b> Bibliography</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Development and Application of Tools for Genetic Analysis of Clonal Populations</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Novel R Tools For Analysis of Genome-Wide Population Genetic Data With Emphasis on Clonality</h1>
+<p>Zhian N. Kamvar, Jonah C. Brooks, and Niklaus J. Grünwald</p>
+<p>Journal: <strong>Frontiers in Genetics</strong></p>
+<p>EPFL Innovation Park, Building I, CH – 1015 Lausanne Switzerland</p>
+<p>Published 2015-06-10. Issue: <strong>6</strong>, DOI: <a href="http://dx.doi.org/10.3389/fgene.2015.00208">10.3389/fgene.2015.00208</a></p>
+<div id="abstract-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Abstract</h2>
+<p>To gain a detailed understanding of how plant microbes evolve and adapt to hosts, pesticides, and other factors, knowledge of the population dynamics and evolutionary history of populations is crucial. Plant pathogen populations are often clonal or partially clonal which requires different analytical tools. With the advent of high throughput sequencing technologies, obtaining genome-wide population genetic data has become easier than ever before. We previously contributed the R package <em>poppr</em> specifically addressing issues with analysis of clonal populations. In this paper we provide several significant extensions to <em>poppr</em> with a focus on large, genome-wide SNP data. Specifically, we provide several new functionalities including the new function <code>mlg.filter</code> to define clone boundaries allowing for inspection and definition of what is a clonal lineage, minimum spanning networks with reticulation, a sliding-window analysis of the index of association, modular bootstrapping of any genetic distance, and analyses across any level of hierarchies.</p>
+</div>
+<div id="introduction-2" class="section level2">
+<h2><span class="header-section-number">3.2</span> Introduction</h2>
+<p>To paraphrase Dobzhansky, nothing in the field of plant-microbe interactions makes sense except in the light of population genetics <span class="citation">(Dobzhansky, <a href="#ref-dobzhansky2013nothing">1973</a>)</span>. Genetic forces such as selection and drift act on alleles in a population. Thus, a true understanding of how plant pathogens emerge, evolve and adapt to crops, fungicides, or other factors, can only be elucidated in the context of population level phenomena given the demographic history of populations <span class="citation">(Grünwald &amp; Goss, <a href="#ref-grunwald2011evolution">2011</a>; McDonald &amp; Linde, <a href="#ref-Mcdonald2002">2002</a><a href="#ref-Mcdonald2002">b</a>; Milgroom et al., <a href="#ref-milgroom1989population">1989</a>)</span>. The field of population genetics, in the era of whole genome resequencing, provides unprecedented power to describe the evolutionary history and population processes that drive coevolution between pathogens and hosts. This powerful field thus critically enables effective deployment of R genes, design of pathogen informed plant resistance breeding programs, and implementation of fungicide rotations that minimize emergence of resistance.</p>
+<p>Most computational tools for population genetics are based on concepts developed for sexual model organisms. Populations that reproduce clonally or are polyploid are thus difficult to characterize using classical population genetic tools because theoretical assumptions underlying the theory are violated. Yet, many plant pathogen populations are at least partially clonal if not completely clonal <span class="citation">(Anderson &amp; Kohn, <a href="#ref-anderson1995clonality">1995</a>; Milgroom, <a href="#ref-milgroom1996recombination">1996</a>)</span>. Thus, development of tools for analysis of clonal or polyploid populations is needed.</p>
+<p>Genotyping by sequencing and whole genome resequencing provide the unprecedented ability to identify thousands of single nucleotide polymorphisms (SNPs) in populations <span class="citation">(Davey et al., <a href="#ref-davey2011genome">2011</a>; Elshire et al., <a href="#ref-elshire2011robust">2011</a>; Luikart et al., <a href="#ref-luikart2003power">2003</a>)</span>. With traditional marker data (e.g., SSR, AFLP) a clone was typically defined as a unique multilocus genotype (MLG) <span class="citation">(Cooke et al., <a href="#ref-cooke2012genome">2012</a>; Falush et al., <a href="#ref-Falush01082003">2003</a>; Goss et al., <a href="#ref-goss2009population">2009</a>; Grünwald &amp; Hoheisel, <a href="#ref-grunwald2006hierarchical">2006</a>; Taylor &amp; Fisher, <a href="#ref-taylor2003fungal">2003</a>)</span>. Availability of large SNP data sets provides new challenges for data analysis. These data are based on reduced representation libraries and high throughput sequencing with moderate sequencing depth which invariably results in substantial missing data, error in SNP calling due to sequencing error, lack of read depth or other sources of spurious allele calls <span class="citation">(Mastretta-Yanes et al., <a href="#ref-mastretta2015restriction">2014</a>)</span>. It is thus not clear what a clone is in large SNP data sets and novel tools are required for definition of clone boundaries.</p>
+<p>The research community using the R statistical and computing language <span class="citation">(R Core Team, <a href="#ref-R">2015</a>)</span> has developed a plethora of new resources for population genetic analysis. R is particularly appealing because all code is open source and functions can be evaluated and modified by any user. Recently, we introduced the R package <em>poppr</em> specifically developed for analysis of clonal populations <span class="citation">(Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span>. <em>Poppr</em> previously introduced several novel features including the ability to conduct a hierarchical analysis across unlimited hierarchies, test for linkage association, graph minimum spanning networks or provide bootstrap support for Bruvo’s distance in resulting trees. <em>Poppr</em> has been rapidly adopted and applied to a range of studies including for example horizontal transmission in leukemia of clams <span class="citation">(Metzger et al., <a href="#ref-metzger2015horizontal">2015</a>)</span>, study of the vector-mediated parent-to-offspring transmission in an avian malaria-like parasite <span class="citation">(Chakarov et al., <a href="#ref-chakarov2015apparent">2015</a>)</span>, and characterization of the emergence of the invasive forest pathogen <em>Hymenoscyphus pseudoalbidus</em> <span class="citation">(Gross et al., <a href="#ref-gross2014population">2014</a>)</span>. It has also been used to implement real-time, online R based tools for visualizing relationships among unknown MLGs in reference databases<br />
+(<a href="http://phytophthora-id.org/" class="uri">http://phytophthora-id.org/</a>) <span class="citation">(Grünwald et al., <a href="#ref-grunwald2011phytophthora">2011</a>)</span>.</p>
+<p>Here, we introduce <em>poppr</em> 2.0, which provides a major update to <em>poppr</em> <span class="citation">(Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span> including novel tools for analysis of clonal populations specifically addressing large SNP data. Significant novel tools include functions for calculating clone boundaries and collapsing individuals into clonal groups based on a user-specified genetic distance threshold, sliding window analyses, genotype accumulation curves, reticulations in minimum spanning networks, and bootstrapping for any genetic distance.</p>
+</div>
+<div id="implementations-and-examples" class="section level2">
+<h2><span class="header-section-number">3.3</span> Implementations and Examples</h2>
+<div id="clonal-identification" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Clonal identification</h3>
+<p>As highlighted in previous work, clone correction is an important component of population genetic analysis of organisms that are known to reproduce asexually <span class="citation">(Grünwald et al., <a href="#ref-grunwald2003analysis">2003</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>; Milgroom, <a href="#ref-milgroom1996recombination">1996</a>)</span>. This method is a partial correction for bias that affects metrics that rely on allele frequencies assuming panmixia and was initially designed for data with only a handful of markers. With the advent of large-scale sequencing and reduced- representation libraries, it has become easier to sequence tens of thousands of markers from hundreds of individuals <span class="citation">(Davey &amp; Blaxter, <a href="#ref-davey2010rad">2010</a>; Davey et al., <a href="#ref-davey2011genome">2011</a>; Elshire et al., <a href="#ref-elshire2011robust">2011</a>)</span>. With this larger number of markers, the genetic resolution is much greater, but the chance of genotyping error is also greatly increased and missing data is frequent <span class="citation">(Mastretta-Yanes et al., <a href="#ref-mastretta2015restriction">2014</a>)</span>. Taking this fact and occasional somatic mutations into account, it would be impossible to separate true clones from independent individuals by just comparing what MLGs are different. We introduce a new method for collapsing unique multilocus genotypes determined by naive string comparison into multilocus lineages utilizing any genetic distance given three different clustering algorithms: farthest neighbor, nearest neighbor, and UPGMA (average neighbor) <span class="citation">(Sokal, <a href="#ref-sokal1958statistical">1958</a>)</span>.</p>
+<p>These clustering algorithms act on a distance matrix that is either provided by the user or generated via a function that will calculate a distance from genetic data such as <code>bruvo.dist</code>, which in particular applies to any level of ploidy <span class="citation">(Bruvo et al., <a href="#ref-bruvo2004simple">2004</a>)</span>. All algorithms have been implemented in C and utilize the OpenMP framework for optional parallel processing <span class="citation">(Dagum &amp; Menon, <a href="#ref-dagum1998openmp">1998</a>)</span>. Default is the conservative farthest neighbor algorithm (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure1">3.1</a>A), which will only cluster samples together if all samples in the cluster are at a distance less than the given threshold. By contrast, the nearest neighbor algorithm will have a chaining effect that will cluster samples akin to adding links on a chain where a sample can be included in a cluster if all of the samples have at least one connection below a given threshold (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure1">3.1</a>C). The UPGMA, or average neighbor clustering algorithm is the one most familiar to biologists as it is often used to generate ultra-metric trees based on genetic distance (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure1">3.1</a>B). This algorithm will cluster by creating a representative sample per cluster and joining clusters if these representative samples are closer than the given threshold.</p>
+<div class="figure" style="text-align: center"><span id="fig:Figure1"></span>
+<img src="figure/frontiers/Figure-1.png" alt="Diagrammatic representation of the three clustering algorithms
+implemented in `mlg.filter`. (**A-C**) Represent different clustering
+algorithms on the same imaginary network with a threshold of 0.451. Edge
+weights are represented in arbitrary units noted by the line thickness
+and numerical values next to the lines. All outer angles are 90 degrees,
+so the un-labeled edge weights can be obtained with simply geometry.
+Colored circles represent clusters of genotypes. (**A**) Farthest
+neighbor clustering does not cluster nodes B and C because nodes A and C
+are more than a distance of 0.451 apart. (**B**) UPGMA (average
+neighbor) clustering clusters nodes A, B, and C together because the
+average distance between them and C is &amp;lt; 0.451. (**C**) Nearest
+neighbor clustering clusters all nodes together because the minimum
+distance between them is always &amp;lt; 0.451." width="50%" />
+<p class="caption">
+Figure 3.1: Diagrammatic representation of the three clustering algorithms implemented in <code>mlg.filter</code>. (<strong>A-C</strong>) Represent different clustering algorithms on the same imaginary network with a threshold of 0.451. Edge weights are represented in arbitrary units noted by the line thickness and numerical values next to the lines. All outer angles are 90 degrees, so the un-labeled edge weights can be obtained with simply geometry. Colored circles represent clusters of genotypes. (<strong>A</strong>) Farthest neighbor clustering does not cluster nodes B and C because nodes A and C are more than a distance of 0.451 apart. (<strong>B</strong>) UPGMA (average neighbor) clustering clusters nodes A, B, and C together because the average distance between them and C is &lt; 0.451. (<strong>C</strong>) Nearest neighbor clustering clusters all nodes together because the minimum distance between them is always &lt; 0.451.
+</p>
+</div>
+<p>We utilize data from the microbe <em>Phytophthora infestans</em> to show how the <code>mlg.filter</code> function collapses multilocus genotypes with Bruvo’s distance assuming a genome addition model <span class="citation">(Bruvo et al., <a href="#ref-bruvo2004simple">2004</a>)</span>. <em>P. infestans</em> is the causal agent of potato late blight originating from Mexico that spread to Europe in the mid 19th century <span class="citation">(Goss et al., <a href="#ref-goss2014irish">2014</a>; Yoshida et al., <a href="#ref-yoshida2013rise">2013</a>)</span>. <em>P. infestans</em> reproduces both clonally and sexually. The clonal lineages of <em>P. infestans</em> have been formally defined into 18 separate clonal lineages using a combination of various molecular methods including AFLP and microsatellite markers <span class="citation">(Lees et al., <a href="#ref-lees2006novel">2006</a>; Li et al., <a href="#ref-li2013efficient">2013</a>)</span>. For these data, we used <code>mlg.filter</code> to detect all of the distance thresholds at which 18 multilocus lineages would be resolved. We used these thresholds to define multilocus lineages and create contingency tables and dendrograms to determine how well the multilocus lineages were detected.</p>
+<p>For the <em>P. infestans</em> population, the three algorithms were able to detect 18 multilocus lineages at different distance thresholds (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure-2">3.2</a>). Contingency tables between the described multilocus genotypes and the genotypes defined by distance show that most of the 18 lineages were resolved, except for US-8, which is polytomic (Table <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#tab:pinftable">3.1</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:Figure-2"></span>
+<img src="dissertation_files/figure-html/Figure-2-1.png" alt="Graphical representation of three different clustering algorithms
+collapsing multilocus genotypes for 12 SSR loci from *Phytophthora
+infestans* representing 18 clonal lineages. The horizontal axis is
+Bruvo's genetic distance assuming the genome addition model. The
+vertical axis represents the number of multilocus lineages observed.
+Each point shows the threshold at which one would observe a given number
+of multilocus genotypes. The horizontal black line represents 18
+multilocus genotypes and vertical dashed lines mark the thresholds used
+to collapse the multilocus genotypes into 18 multilocus lineages." width="80%" />
+<p class="caption">
+Figure 3.2: Graphical representation of three different clustering algorithms collapsing multilocus genotypes for 12 SSR loci from <em>Phytophthora infestans</em> representing 18 clonal lineages. The horizontal axis is Bruvo’s genetic distance assuming the genome addition model. The vertical axis represents the number of multilocus lineages observed. Each point shows the threshold at which one would observe a given number of multilocus genotypes. The horizontal black line represents 18 multilocus genotypes and vertical dashed lines mark the thresholds used to collapse the multilocus genotypes into 18 multilocus lineages.
+</p>
+</div>
+<table>
+<caption><span id="tab:pinftable">Table 3.1: </span>Contingency table comparing multilocus lineages (MLL) defined in <span class="citation">Li et al. (<a href="#ref-li2013efficient">2013</a>)</span> and <span class="citation">Lees et al. (<a href="#ref-lees2006novel">2006</a>)</span> (rows) to MLLs inferred from Bruvo’s genetic distance (columns) at a threshold of 0.07 with the average neighbor algorithm <span class="citation">(Bruvo et al., <a href="#ref-bruvo2004simple">2004</a>; Sokal, <a href="#ref-sokal1958statistical">1958</a>)</span>. Values in the table represent the number of times any given inferred MLL matches with a previously defined MLL. For example, in our original data set, there were three genotypes previously defined as the US-24 MLL. All three genotypes were also determined to cluster into a single MLL by filtering. In contrast, US-8 was determined to cluster into three different MLLs by filtering.</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">8</th>
+<th align="center">10</th>
+<th align="center">12</th>
+<th align="center">15</th>
+<th align="center">16</th>
+<th align="center">17</th>
+<th align="center">18</th>
+<th align="center">20</th>
+<th align="center">21</th>
+<th align="center">22</th>
+<th align="center">24</th>
+<th align="center">25</th>
+<th align="center">27</th>
+<th align="center">28</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="odd">
+<td>D.1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="even">
+<td>D.2</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="odd">
+<td>EU-13</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="even">
+<td>EU-4</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="odd">
+<td>EU-5</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">2</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="even">
+<td>EU-8</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="odd">
+<td>US-11</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td>US-12</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="odd">
+<td>US-14</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="even">
+<td>US-17</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="odd">
+<td>US-20</td>
+<td align="center">2</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="even">
+<td>US-21</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">2</td>
+<td align="center">.</td>
+</tr>
+<tr class="odd">
+<td>US-22</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">2</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="even">
+<td>US-23</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">3</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="odd">
+<td>US-24</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">3</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+<tr class="even">
+<td>US-8</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">.</td>
+<td align="center">2</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+<td align="center">.</td>
+</tr>
+</tbody>
+</table>
+<p>We utilized simulated data to evaluate the effect of sequencing error and missing data on MLG calling. We constructed the data using the <code>glSim</code> function in <em>adegenet</em> <span class="citation">(Jombart &amp; Ahmed, <a href="#ref-jombart2011adegenet">2011</a>)</span> to obtain a SNP data set for demonstration. Two diploid data sets were created, each with 10k SNPs (25% structured into two groups) and 200 samples with 10 ancestral populations of even sizes. Clones were created in one data set by marking each sample with a unique identifier and then randomly sampling with replacement. It is well documented that reduced- representation sequencing can introduce several erroneous calls and missing data <span class="citation">(Mastretta-Yanes et al., <a href="#ref-mastretta2015restriction">2014</a>)</span>. To reflect this, we mutated SNPs at a rate of 10% and inserted an average of 10% missing data for each sample after clones were created, ensuring that no two sequences were alike. The number of mutations and missing data per sample were determined by sampling from a Poisson distribution with <span class="math inline">\(\lambda = 1000\)</span>. After pooling, 20% of the data set was randomly sampled for analysis. Genetic distance was obtained with the function <code>bitwise.dist</code>, which calculates the fraction of different sites between samples equivalent to Provesti’s distance, counting missing data as equivalent in comparison <span class="citation">(Prevosti et al., <a href="#ref-prevosti1975distances">1975</a>)</span>.</p>
+<p>All three filtering algorithms were run with a threshold of 1, returning a numeric vector of length <span class="math inline">\(n - 1\)</span> where each element represented a threshold at which two samples/clusters would join. Since each data set would have varying distances between samples, the clonal boundary threshold was defined as the midpoint of the largest gap between two thresholds that collapsed less than 50% of the data.</p>
+<p>Out of the 100 simulations run, we found that across all methods, detection of duplicated samples had <span class="math inline">\(\sim\)</span> 98% true positive fraction and <span class="math inline">\(\sim\)</span> 0.8% false positive fraction indicating that this method is robust to simulated populations (supplementary materials<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>).</p>
+</div>
+<div id="minimum-spanning-networks-with-reticulation" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Minimum Spanning Networks with Reticulation</h3>
+<p>In its original iteration, <em>poppr</em> introduced minimum spanning networks that were based on the <em>igraph</em> function <code>minimum.spanning.tree</code> <span class="citation">(Csardi &amp; Nepusz, <a href="#ref-csardi2006igraph">2006</a>)</span>. This algorithm produces a minimum spanning tree with no reticulations where nodes represent individual MLGs. In other minimum spanning network programs, reticulation is obtained by calculating the minimum spanning tree several times and returning the set of all edges included in the trees. Due to the way <em>igraph</em> has implemented Prim’s algorithm, it is not possible to utilize this strategy, thus we implemented an internal C function to walk the space of minimum spanning trees based on genetic distance to connect groups of nodes with edges of equal weight.</p>
+<p>To demonstrate the utility of minimum spanning networks with reticulation, we used two clonal data sets: the H3N2 flu virus data from the <em>adegenet</em> package using years of each epidemic as the population factor, and <em>Phytophthora ramorum</em> data from Nurseries and Oregon forests <span class="citation">(Jombart et al., <a href="#ref-jombart2010discriminant">2010</a>; Kamvar et al., <a href="#ref-kamvar2014sudden">2014</a><a href="#ref-kamvar2014sudden">a</a>)</span>. Minimum spanning networks were created with and without reticulation using the <em>poppr</em> functions <code>diss.dist</code> and <code>bruvo.msn</code> for the H3N2 and <em>P. ramorum</em> data, respectively <span class="citation">(Bruvo et al., <a href="#ref-bruvo2004simple">2004</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span>. To detect mlg clusters, the infoMAP community detection algorithm was applied with 10,000 trials as implemented in the R package <em>igraph</em> version 0.7.1 utilizing genetic distance as edge weights and number of samples in each MLG as vertex weights <span class="citation">(Csardi &amp; Nepusz, <a href="#ref-csardi2006igraph">2006</a>; Rosvall &amp; Bergstrom, <a href="#ref-rosvall2008maps">2008</a>)</span>.</p>
+<p>To evaluate the results, we compared the number, size, and entropy (<span class="math inline">\(H\)</span>) of the resulting communities as we expect a highly clonal organism with low genetic diversity to result in a few, large communities. We also created contingency tables of the community assignments with the defined populations and used those to calculate entropy using Shannon’s index with the function <code>diversity</code> from the R package <em>vegan</em> version 2.2-1 <span class="citation">(Oksanen et al., <a href="#ref-oksanen2015vegan">2015</a>; Shannon, <a href="#ref-shannon2001mathematical">1948</a>)</span>. A low entropy indicates presence of a few large communities whereas high entropy indicates presence of many small communities.</p>
+<p>The infoMAP algorithm revealed 63 communities with a maximum community size of 77 and <span class="math inline">\(H = 3.56\)</span> for the reticulate network of the H3N2 data and 117 communities with a maximum community size of 26 and <span class="math inline">\(H = 4.65\)</span> for the minimum spanning tree. The entropy across years was greatly decreased for all populations with the reticulate network compared to the minimum spanning tree (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure-3">3.3</a>). Note that the reticulated network (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure-3">3.3</a>B) showed patterns corresponding with those resulting from a discriminant analysis of principal components (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure-3">3.3</a>D) <span class="citation">(Jombart et al., <a href="#ref-jombart2010discriminant">2010</a>)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:Figure-3"></span>
+<img src="figure/frontiers/Figure-3.png" alt="(**A-B**) Minimum spanning networks of the hemagglutinin (HA) segment of
+H3N2 viral DNA from the *adegenet* package representing flu epidemics
+from 2001 to 2006 without reticulation (**A**) and with reticulation
+(**B**) [@Jombart_2008; @jombart2010discriminant]. Each node represents
+a unique multilocus genotype, colors represent epidemic year, and edge
+color represents absolute genetic distance. (**C**) Shannon entropy
+values for population assignments compared with communities determined
+by the infoMAP algorithm on (**A**) and (**B**). (**D**) Graphic
+reproduced from @jombart2010discriminant showing that the 2006 epidemic
+does not cluster neatly with the other years via Discriminant Analysis
+of Principal Components. Horizontal axis represents the first
+discriminant component. Vertical axis represents the second discriminant
+component." width="80%" />
+<p class="caption">
+Figure 3.3: (<strong>A-B</strong>) Minimum spanning networks of the hemagglutinin (HA) segment of H3N2 viral DNA from the <em>adegenet</em> package representing flu epidemics from 2001 to 2006 without reticulation (<strong>A</strong>) and with reticulation (<strong>B</strong>) <span class="citation">(Jombart, <a href="#ref-Jombart_2008">2008</a>; Jombart et al., <a href="#ref-jombart2010discriminant">2010</a>)</span>. Each node represents a unique multilocus genotype, colors represent epidemic year, and edge color represents absolute genetic distance. (<strong>C</strong>) Shannon entropy values for population assignments compared with communities determined by the infoMAP algorithm on (<strong>A</strong>) and (<strong>B</strong>). (<strong>D</strong>) Graphic reproduced from <span class="citation">Jombart et al. (<a href="#ref-jombart2010discriminant">2010</a>)</span> showing that the 2006 epidemic does not cluster neatly with the other years via Discriminant Analysis of Principal Components. Horizontal axis represents the first discriminant component. Vertical axis represents the second discriminant component.
+</p>
+</div>
+<p>Graph walking of the reticulated minimum spanning network of <em>P. ramorum</em> by the infoMAP algorithm revealed 16 communities with a maximum community size of 13 and <span class="math inline">\(H = 2.60\)</span>. The un-reticulated minimum spanning tree revealed 20 communities with a maximum community size of 7 and <span class="math inline">\(H = 2.96\)</span>. In the ability to predict Hunter Creek as belonging to a single community, the reticulated network was successful whereas the minimum spanning tree separated one genotype from that community. The entropy for the reticulated network was lower for all populations except for the coast population (supplementary materials<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>).</p>
+</div>
+<div id="bootstrapping" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Bootstrapping</h3>
+<p>Assessing population differentiation through methods such as <span class="math inline">\(G_{st}\)</span>, AMOVA, and Mantel tests relies on comparing samples within and across populations <span class="citation">(Excoffier et al., <a href="#ref-excoffier1992analysis">1992</a>; Mantel, <a href="#ref-mantel1967detection">1967</a>; Nei, <a href="#ref-nei1973analysis">1973</a>)</span>. Confidence in distance metrics is related to the confidence in the markers to accurately represent the diversity of the data. Especially true with microsatellite markers, a single hyper-diverse locus can make a population appear to have more diversity based on genetic distance. Using a bootstrapping procedure of randomly sampling loci with replacement when calculating a distance matrix provides support for clades in hierarchical clustering.</p>
+<p>Data in genind and genpop objects are represented as matrices with individuals in rows and alleles in columns <span class="citation">(Jombart, <a href="#ref-Jombart_2008">2008</a>)</span>. This gives the advantage of being able to use R’s matrix algebra capabilities to efficiently calculate genetic distance. Unfortunately, this also means that bootstrapping is a non- trivial task as all alleles at a single locus need to be sampled together. To remedy this, we have created an internal S4 class called “bootgen”, which extends the internal “gen” class from <em>adegenet</em>. This class can be created from any genind, genclone, or genpop object, and allows loci to be sampled with replacement. To further facilitate bootstrapping, a function called <code>aboot</code>, which stands for “any boot”, is introduced that will bootstrap any genclone, genind, or genpop object with any genetic distance that can be calculated from it.</p>
+<p>To demonstrate calculating a dendrogram with bootstrap support, we used the <em>poppr</em> function <code>aboot</code> on population allelic frequencies derived from the data set <code>microbov</code> in the <em>adegenet</em> package with 1000 bootstrap replicates <span class="citation">(Jombart, <a href="#ref-Jombart_2008">2008</a>; Laloë et al., <a href="#ref-laloe2007consensus">2007</a>)</span>. The resulting dendrogram shows bootstrap support values <span class="math inline">\(&gt;50\%\)</span> (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:microboot">3.4</a>) and used the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;poppr&quot;</span>);
+<span class="kw">data</span>(<span class="st">&quot;microbov&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;adegenet&quot;</span>);
+<span class="kw">strata</span>(microbov) &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">other</span>(microbov));
+<span class="kw">setPop</span>(microbov) &lt;-<span class="st"> </span><span class="er">~</span>coun/spe/breed;
+bov_pop &lt;-<span class="st"> </span><span class="kw">genind2genpop</span>(microbov);
+
+<span class="kw">set.seed</span>(<span class="dv">20150428</span>);
+pop_tree &lt;-<span class="st"> </span><span class="kw">aboot</span>(bov_pop, <span class="dt">sample =</span> <span class="dv">1000</span>, <span class="dt">cutoff =</span> <span class="dv">50</span>);</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:microboot"></span>
+<img src="dissertation_files/figure-html/microboot-1.png" alt="UPGMA dendrogram generated from Nei's genetic distance on 15 breeds of
+*Bos taurus* (BT) or *Bos indicus* (BI) from Africa (AF) or France (FR).
+These data are from @laloe2007consensus. Node labels represent bootstrap
+support $&gt;50\%$ out of 1,000 bootstrap replicates." width="80%" />
+<p class="caption">
+Figure 3.4: UPGMA dendrogram generated from Nei’s genetic distance on 15 breeds of <em>Bos taurus</em> (BT) or <em>Bos indicus</em> (BI) from Africa (AF) or France (FR). These data are from <span class="citation">Laloë et al. (<a href="#ref-laloe2007consensus">2007</a>)</span>. Node labels represent bootstrap support <span class="math inline">\(&gt;50\%\)</span> out of 1,000 bootstrap replicates.
+</p>
+</div>
+</div>
+<div id="genotype-accumulation-curve" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> Genotype Accumulation Curve</h3>
+<p>Analysis of population genetics of clonal organisms often borrows from ecological methods such as analysis of diversity within populations <span class="citation">(Arnaud-Hanod et al., <a href="#ref-arnaud2007standardizing">2007</a>; Grünwald et al., <a href="#ref-grunwald2003analysis">2003</a>; Milgroom, <a href="#ref-milgroom1996recombination">1996</a>)</span>. When choosing markers for analysis, it is important to make sure that the observed diversity in your sample will not appreciably increase if an additional marker is added <span class="citation">(Arnaud-Hanod et al., <a href="#ref-arnaud2007standardizing">2007</a>)</span>. This concept is analogous to a species accumulation curve, obtained by rarefaction. The genotype accumulation curve in <em>poppr</em> is implemented in the function <code>genotype_curve</code>. The curve is constructed by randomly sampling <span class="math inline">\(x\)</span> loci and counting the number of observed MLGs. This repeated <span class="math inline">\(r\)</span> times for 1 locus up to <span class="math inline">\(n-1\)</span> loci, creating <span class="math inline">\(n-1\)</span> distributions of observed MLGs.</p>
+<p>The following code example demonstrates the genotype accumulation curve for data from <span class="citation">Everhart &amp; Scherm (<a href="#ref-everhart2014fine">2015</a>)</span> showing that these data reach a small plateau and have a greatly decreased variance with 12 markers, indicating that there are enough markers such that adding more markers to the analysis will not create very many new genotypes (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:moniliniacurve">3.5</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;poppr&quot;</span>);
+<span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>);
+<span class="kw">data</span>(<span class="st">&quot;monpop&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;poppr&quot;</span>);
+
+<span class="kw">set.seed</span>(<span class="dv">20150428</span>);
+<span class="kw">genotype_curve</span>(monpop, <span class="dt">sample =</span> <span class="dv">1000</span>);
+p &lt;-<span class="st"> </span><span class="kw">last_plot</span>() +<span class="st"> </span><span class="kw">theme_bw</span>();   <span class="co"># get the last plot</span>
+p +<span class="st"> </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">group =</span> <span class="dv">1</span>)); <span class="co"># plot with a trendline</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:moniliniacurve"></span>
+<img src="dissertation_files/figure-html/moniliniacurve-1.png" alt="Genotype accumulation curve for 694 isolates of the peach brown rot
+pathogen, *Monilinia fructicola* genotyped over 13 loci from
+@everhart2014fine. The horizontal axis represents the number of loci
+randomly sampled without replacement up to *n - 1* loci, the vertical
+axis shows the number of multilocus genotypes observed, up to 262, the
+number of unique multilocus genotypes in the data set. The red dashed
+line represents 90% of the total observed multilocus genotypes. A
+trendline (blue) has been added using the *ggplot2* function
+`stat_smooth`." width="80%" />
+<p class="caption">
+Figure 3.5: Genotype accumulation curve for 694 isolates of the peach brown rot pathogen, <em>Monilinia fructicola</em> genotyped over 13 loci from <span class="citation">Everhart &amp; Scherm (<a href="#ref-everhart2014fine">2015</a>)</span>. The horizontal axis represents the number of loci randomly sampled without replacement up to <em>n - 1</em> loci, the vertical axis shows the number of multilocus genotypes observed, up to 262, the number of unique multilocus genotypes in the data set. The red dashed line represents 90% of the total observed multilocus genotypes. A trendline (blue) has been added using the <em>ggplot2</em> function <code>stat_smooth</code>.
+</p>
+</div>
+</div>
+<div id="index-of-association" class="section level3">
+<h3><span class="header-section-number">3.3.5</span> Index of association</h3>
+<p>The index of association (<span class="math inline">\(I_A\)</span>) is a measure of multilocus linkage disequilibrium that is most often used to detect clonal reproduction within organisms that have the ability to reproduce via sexual or asexual processes <span class="citation">(Brown et al., <a href="#ref-brown1980multilocus">1980</a>; Milgroom, <a href="#ref-milgroom1996recombination">1996</a>; Smith et al., <a href="#ref-smith1993how">1993</a>)</span>. It was standardized in 2001 as <span class="math inline">\(\bar{r}_d\)</span> by <span class="citation">Agapow &amp; Burt (<a href="#ref-Agapow_2001">2001</a>)</span> to address the issue of scaling with increasing number of loci. This metric is typically applied to traditional dominant and co-dominant markers such as AFLPs, SNPs, or microsatellite markers. With the advent of high throughput sequencing, SNP data is now available in a genome-wide context and in very large matrices including thousands of SNPs. For this reason, we devised two approaches using the index of association for large numbers of markers typical for population genomic studies. Both functions utilize <em>adegenet</em>’s “genlight” object class, which efficiently stores 8 binary alleles in a single byte <span class="citation">(Jombart &amp; Ahmed, <a href="#ref-jombart2011adegenet">2011</a>)</span>. As calculation of the <span class="math inline">\(\bar{r}_d\)</span> requires distance matrices of absolute number of differences, we utilize a function that calculates these distances directly from the compressed data called <code>bitwise.dist</code>.</p>
+<p>The first approach is a sliding window analysis implemented in the function <code>win.ia</code>. It utilizes the position of markers in the genome to calculate <span class="math inline">\(\bar{r}_d\)</span> among any number of SNPs found within a user-specified windowed region. It is important that this calculation utilize <span class="math inline">\(\bar{r}_d\)</span> as the number of loci will be different within each window <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>)</span>. This approach would be suited for a quick calculation of linkage disequilibrium across the genome that can detect potential hotspots of LD that could be investigated further with more computationally intensive methods assuming that the number of samples &lt;&lt; the number of loci.</p>
+<p>As it would necessarily focus on loci within a short section of the genome that may or may not be recombining, a sliding window approach would not be good for utilizing <span class="math inline">\(\bar{r}_d\)</span> as a test for clonal reproduction. A remedy for this is implemented in the function <code>samp.ia</code>, which will randomly sample <span class="math inline">\(m\)</span> loci, calculate <span class="math inline">\(\bar{r}_d\)</span>, and repeat <span class="math inline">\(r\)</span> times, thus creating a distribution of expected values of <span class="math inline">\(\bar{r}_d\)</span>.</p>
+<p>To demonstrate the sliding window and random sampling of <span class="math inline">\(\bar{r}_d\)</span> with respect to clonal populations, we simulated two populations containing 1,100 neutral SNPs for 100 diploid individuals under the same initial seed. One population had individuals randomly sampled with replacement, representing the clonal population. After sampling, both populations had 5% random error and 1% missing data independently propagated across all samples. On average, we obtained a higher value of <span class="math inline">\(\bar{r}_d\)</span> for the clonal population compared to the sexual population for both methods (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure-6">3.6</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:Figure-6"></span>
+<img src="dissertation_files/figure-html/Figure-6-1.png" alt="**(A)** Sliding window analysis of the standardized index of association
+($\bar{r}_d$) across a simulated $1.1 \times 10^4$ nt chromosome
+containing 1,100 variants among 100 individuals. Each window analyzed
+variants within 500nt chunks. The black line refers to the clonal and
+the blue line to the sexual populations. **(B)** boxplots showing 100
+random samples of 50 variants to calculate a distribution of $\bar{r}_d$
+for the clonal (red) and sexual (blue) populations. Each box is centered
+around the mean, with whiskers extending out to 1.5 times the
+interquartile range. The median is indicated by the center line. **(A)**
+and **(B)** are plotted on the same y-axis." width="80%" />
+<p class="caption">
+Figure 3.6: <strong>(A)</strong> Sliding window analysis of the standardized index of association (<span class="math inline">\(\bar{r}_d\)</span>) across a simulated <span class="math inline">\(1.1 \times 10^4\)</span> nt chromosome containing 1,100 variants among 100 individuals. Each window analyzed variants within 500nt chunks. The black line refers to the clonal and the blue line to the sexual populations. <strong>(B)</strong> boxplots showing 100 random samples of 50 variants to calculate a distribution of <span class="math inline">\(\bar{r}_d\)</span> for the clonal (red) and sexual (blue) populations. Each box is centered around the mean, with whiskers extending out to 1.5 times the interquartile range. The median is indicated by the center line. <strong>(A)</strong> and <strong>(B)</strong> are plotted on the same y-axis.
+</p>
+</div>
+</div>
+<div id="data-format-updates-population-strata-and-hierarchies" class="section level3">
+<h3><span class="header-section-number">3.3.6</span> Data format updates: population strata and hierarchies</h3>
+<p>Assessments of population structure through methods such as hierarchical <span class="math inline">\(F_{st}\)</span> <span class="citation">(Goudet, <a href="#ref-goudet2005hierfstat">2005</a>)</span> and AMOVA <span class="citation">(Michalakis &amp; Excoffier, <a href="#ref-michalakis1996generic">1996</a>)</span> require hierarchical sampling of populations across space or time <span class="citation">(Everhart &amp; Scherm, <a href="#ref-everhart2014fine">2015</a>; Grünwald &amp; Hoheisel, <a href="#ref-grunwald2006hierarchical">2006</a>; Linde et al., <a href="#ref-linde2002population">2002</a>)</span>. With clonal organisms, basic practice has been to clone-censor data to avoid downward bias in diversity due to duplicated genotypes that may or may not represent different samples <span class="citation">(Milgroom, <a href="#ref-milgroom1996recombination">1996</a>)</span>. This correction should be performed with respect to a population hierarchy to accurately reflect the biology of the organism. Traditional data structures for population genetic data in most analysis tools allow for only one level of hierarchical definition. The investigator thus had to provide the data set for analysis at each hierarchical level.</p>
+<p>To facilitate handling hierarchical and mutlilocus genotypic metadata, <em>poppr</em> version 1.1 introduced a new S4 data object called “genclone”, extending <em>adegenet</em>’s “genind” object (Kamvar and Grünwald, unpublished). The genclone object formalized the definitions of multilocus genotypes and population hierarchies by adding two slots called “mlg” and “hierarchy” that carried a numeric vector and a data frame, respectively. These new slots allow for increased efficiency and ease of use by allowing these metadata to travel with the genetic data. The hierarchy slot in particular contains a data frame where each column represents a separate hierarchical level. This is then used to set the population factor of the data by supplying a hierarchical formula containing one or more column names of the data frame in the hierarchy slot.</p>
+<p>The functionality represented by the hierarchy slot has now been migrated from the <em>poppr</em> to the <em>adegenet</em> package version 2.0 to allow hierarchical analysis in <em>adegenet</em>, <em>poppr</em>, and other dependent packages. The prior <em>poppr</em> <code>hierarchy</code> slot and methods have now been renamed <code>strata</code> in <em>adegenet</em>. A short example of the utility of these methods can be seen in the code segment under <strong>Bootstrapping</strong>, above. This migration provides end users with a broader ability to analyze data hierarchically in R across packages.</p>
+</div>
+</div>
+<div id="availability" class="section level2">
+<h2><span class="header-section-number">3.4</span> Availability</h2>
+<p>As of this writing, the <em>poppr</em> R package version 2.0 containing all of the features described here is located at <a href="https://github.com/grunwaldlab/poppr/tree/2.0-rc" class="uri">https://github.com/grunwaldlab/poppr/tree/2.0-rc</a>. It is necessary to install <em>adegenet</em> 2.0 before installing <em>poppr</em>. It can be found at <a href="https://github.com/thibautjombart/adegenet" class="uri">https://github.com/thibautjombart/adegenet</a>. Both of these can be installed via the R package <em>devtools</em> <span class="citation">(Wickham &amp; Chang, <a href="#ref-wickham2015devtools">2015</a>)</span>. More information and example code can be found in the supplementary materials<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p>
+<div id="requirements" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Requirements</h3>
+<ul>
+<li>R version 3.0 or better</li>
+<li>A C compiler. For windows, it can be obtained via Rtools (<a href="http://cran.r-project.org/bin/windows/Rtools/" class="uri">http://cran.r-project.org/bin/windows/Rtools/</a>). On OSX, it can be obtained via Xcode. For parallel support, gcc version 4.6 or better is needed.</li>
+</ul>
+</div>
+<div id="installation" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Installation</h3>
+<p>From within R, <em>poppr</em> can be installed via:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;devtools&quot;</span>)
+<span class="kw">install_github</span>(<span class="st">&quot;thibautjombart/adegenet&quot;</span>)
+<span class="kw">install_github</span>(<span class="st">&quot;grunwaldlab/poppr@2.0-rc&quot;</span>)</code></pre></div>
+<p>Several population genetics packages in R are currently going through a major upgrade following the 2015 R hackathon on population genetics (<a href="https://github.com/NESCent/r-popgen-hackathon" class="uri">https://github.com/NESCent/r-popgen-hackathon</a>) and have not yet been updated in CRAN. We will upload <em>poppr</em> 2.0 to CRAN once all other reverse dependent packages have been updated.</p>
+</div>
+</div>
+<div id="discussion" class="section level2">
+<h2><span class="header-section-number">3.5</span> Discussion</h2>
+<p>Given low cost and high throughput of current sequencing technologies we are entering a new era of population genetics where large SNP data sets with thousands of markers are becoming available for large populations in a genome- wide context. This data provides new possibilities and challenges for population genetic analyses. We provide novel tools that enable analysis of this data in R with a particular emphasis on clonal organisms.</p>
+<p>Particularly useful is the implementation of <span class="math inline">\(\bar{r}_d\)</span> in a genomic context <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>)</span>. Random sampling of loci across the genome can give an expected distribution of <span class="math inline">\(\bar{r}_d\)</span>, which is expected to have a mean of zero for panmictic populations. This metric is not affected by the number of loci sampled, is model free, and has the ability to detect population structure. <span class="math inline">\(\bar{r}_d\)</span> is also implemented for sliding window analyses that are useful to detect candidate regions of linkage disequilibrium for further analysis.</p>
+<p>Clustering multilocus genotypes into multilocus lineages based on genetic distances is a non-trivial task given large SNP data sets. Moreover, this has not previously been implemented for genomic data for clonal populations. Clonal assignment has previously been available in the programs  and  for classical markers <span class="citation">(Arnaud-Hanod et al., <a href="#ref-arnaud2007standardizing">2007</a>; Meirmans &amp; Van Tienderen, <a href="#ref-meirmans2004genotype">2004</a>)</span>. Our method with <code>mlg.filter</code> builds upon this idea and allows the user to choose between three different approaches for clustering MLGs. The choice of clustering algorithm has an impact on the data (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure1">3.1</a>, <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure-2">3.2</a>), where for example a genetic distance cutoff of 0.1 would be the difference between 14 multilocus lineages (MLLs) and 17 MLLs for nearest neighbor and UPGMA clustering, respectively (Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure-2">3.2</a>). The option to choose the clustering algorithm gives the user the ability to choose what is biologically relevant to their populations. While there is not one optimal procedure for defining boundaries in clonal lineages, our tool provides a means of exploring the potential MLG or MLL boundary space.</p>
+<p>Minimum spanning networks are a useful tool to analyze the relationships between individuals in a population, because it reduces the complexity of a distance matrix to the connections that are strongest. By default, these networks are drawn without reticulations, but for clonal organisms where many of the connections between samples are equivalent, the minimum spanning network appears as a chain and reduces the information that can be communicated. This is problematic because the ability to detect population structure with one instance of a minimum spanning network is limited. Adding reticulation into the minimum spanning network thus presents all equivalent connections and allows population structure to be more readily detectable. As shown in Fig. <a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fig:Figure-3">3.3</a>, population structure is apparent both visually and by graph community detection algorithms such as the infoMAP algorithm <span class="citation">(Rosvall &amp; Bergstrom, <a href="#ref-rosvall2008maps">2008</a>)</span>. Additionally, the current implementation in <em>poppr</em> has been successfully used in analyses such as reconstruction of the <em>P. ramorum</em> epidemic in Oregon forests <span class="citation">(Kamvar et al., <a href="#ref-kamvar2014sudden">2014</a><a href="#ref-kamvar2014sudden">a</a>, <a href="#ref-kamvar2015spatial">2015</a><a href="#ref-kamvar2015spatial">c</a>)</span>.</p>
+<p><em>Poppr</em> 2.0 is open source and available on GitHub. Members of the community are invited to contribute by raising issues or pull requests on our repository at <a href="https://github.com/grunwaldlab/poppr/issues" class="uri">https://github.com/grunwaldlab/poppr/issues</a>.</p>
+</div>
+<div id="acknowledgements-1" class="section level2">
+<h2><span class="header-section-number">3.6</span> Acknowledgements</h2>
+<p>We thank Ignazio Carbone for discussions on the index of association; David Cooke, Sanmohan Baby, and Jens Hansen for beta testing; and Thibaut Jombart for allowing us to incorporate the <code>strata</code> slot and related methods in <em>adegenet</em>. We also thank all the members of the 2015 R hackathon on population genetics in Durham, NC for their advice and input (<a href="https://github.com/NESCent/r-popgen-hackathon" class="uri">https://github.com/NESCent/r-popgen-hackathon</a>). This work was supported in part by US Department of Agriculture (USDA) Agricultural Research Service Grant 5358-22000-039-00D, USDA National Institute of Food and Agriculture Grant 2011-68004-30154, USDA APHIS, the USDA-ARS Floriculture Nursery Initiative, and the USDA-Forest Service Forest Health Monitoring Program (to NJG).</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-dobzhansky2013nothing">
+<p>Dobzhansky, T. (1973). Nothing in biology makes sense except in the light of evolution. <em>The American Biology Teacher</em>, <em>75</em>(2), 87–91.</p>
+</div>
+<div id="ref-grunwald2011evolution">
+<p>Grünwald, N. J., &amp; Goss, E. M. (2011). Evolution and population genetics of exotic and re-emerging pathogens: Novel tools and approaches. <em>Annual Review of Phytopathology</em>, <em>49</em>(1), 249–267. <a href="https://doi.org/10.1146/annurev-phyto-072910-095246" class="uri">https://doi.org/10.1146/annurev-phyto-072910-095246</a></p>
+</div>
+<div id="ref-Mcdonald2002">
+<p>McDonald, B. A., &amp; Linde, C. (2002b). The population genetics of plant pathogens and breeding strategies for durable resistance. <em>Euphytica</em>, <em>124</em>(2), 163–180. <a href="https://doi.org/10.1023/A:1015678432355" class="uri">https://doi.org/10.1023/A:1015678432355</a></p>
+</div>
+<div id="ref-milgroom1989population">
+<p>Milgroom, M. G., Levin, S. A., &amp; Fry, W. E. (1989). Population genetics theory and fungicide resistance. <em>Plant Disease Epidemiology</em>, <em>2</em>, 340–367.</p>
+</div>
+<div id="ref-anderson1995clonality">
+<p>Anderson, J. B., &amp; Kohn, L. M. (1995). Clonality in soilborne, plant-pathogenic fungi. <em>Annual Review of Phytopathology</em>, <em>33</em>(1), 369–391. <a href="https://doi.org/10.1146/annurev.py.33.090195.002101" class="uri">https://doi.org/10.1146/annurev.py.33.090195.002101</a></p>
+</div>
+<div id="ref-milgroom1996recombination">
+<p>Milgroom, M. G. (1996). Recombination and the multilocus structure of fungal populations. <em>Annual Review of Phytopathology</em>, <em>34</em>(1), 457–477.</p>
+</div>
+<div id="ref-davey2011genome">
+<p>Davey, J. W., Hohenlohe, P. A., Etter, P. D., Boone, J. Q., Catchen, J. M., &amp; Blaxter, M. L. (2011). Genome-wide genetic marker discovery and genotyping using next-generation sequencing. <em>Nature Reviews Genetics</em>, <em>12</em>(7), 499–510. <a href="https://doi.org/10.1038/nrg3012" class="uri">https://doi.org/10.1038/nrg3012</a></p>
+</div>
+<div id="ref-elshire2011robust">
+<p>Elshire, R. J., Glaubitz, J. C., Sun, Q., Poland, J. A., Kawamoto, K., Buckler, E. S., &amp; Mitchell, S. E. (2011). A robust, simple genotyping-by-sequencing (GBS) approach for high diversity species. <em>PLoS ONE</em>, <em>6</em>(5), e19379. <a href="https://doi.org/10.1371/journal.pone.0019379" class="uri">https://doi.org/10.1371/journal.pone.0019379</a></p>
+</div>
+<div id="ref-luikart2003power">
+<p>Luikart, G., England, P. R., Tallmon, D., Jordan, S., &amp; Taberlet, P. (2003). The power and promise of population genomics: From genotyping to genome typing. <em>Nature Reviews Genetics</em>, <em>4</em>(12), 981–994.</p>
+</div>
+<div id="ref-cooke2012genome">
+<p>Cooke, D. E. L., Cano, L. M., Raffaele, S., Bain, R. A., Cooke, L. R., Etherington, G. J., Deahl, K. L., Farrer, R. A., Gilroy, E. M., Goss, E. M., Grünwald, N. J., Hein, I., MacLean, D., McNicol, J. W., Randall, E., Oliva, R. F., Pel, M. A., Shaw, D. S., Squires, J. N., Taylor, M. C., Vleeshouwers, V. G. A. A., Birch, P. R. J., Lees, A. K., &amp; Kamoun, S. (2012). Genome analyses of an aggressive and invasive lineage of the irish potato famine pathogen. <em>PLoS Pathogens</em>, <em>8</em>(10), e1002940. <a href="https://doi.org/10.1371/journal.ppat.1002940" class="uri">https://doi.org/10.1371/journal.ppat.1002940</a></p>
+</div>
+<div id="ref-Falush01082003">
+<p>Falush, D., Stephens, M., &amp; Pritchard, J. K. (2003). Inference of population structure using multilocus genotype data: Linked loci and correlated allele frequencies. <em>Genetics</em>, <em>164</em>(4), 1567–1587. Retrieved from <a href="http://www.genetics.org/content/164/4/1567.abstract" class="uri">http://www.genetics.org/content/164/4/1567.abstract</a></p>
+</div>
+<div id="ref-goss2009population">
+<p>Goss, E. M., Larsen, M., Chastagner, G. A., Givens, D. R., &amp; Grünwald, N. J. (2009). Population genetic analysis infers migration pathways of <em>Phytophthora ramorum</em> in US nurseries. <em>PLoS Pathogens</em>, <em>5</em>(9), e1000583. <a href="https://doi.org/10.1371/journal.ppat.1000583" class="uri">https://doi.org/10.1371/journal.ppat.1000583</a></p>
+</div>
+<div id="ref-grunwald2006hierarchical">
+<p>Grünwald, N. J., &amp; Hoheisel, G.-A. (2006). Hierarchical analysis of diversity, selfing, and genetic differentiation in populations of the oomycete <em>Aphanomyces euteiches</em>. <em>Phytopathology</em>, <em>96</em>(10), 1134–1141.</p>
+</div>
+<div id="ref-taylor2003fungal">
+<p>Taylor, J. W., &amp; Fisher, M. C. (2003). Fungal multilocus sequence typing – it’s not just for bacteria. <em>Current Opinion in Microbiology</em>, <em>6</em>(4), 351–356.</p>
+</div>
+<div id="ref-mastretta2015restriction">
+<p>Mastretta-Yanes, A., Arrigo, N., Alvarez, N., Jorgensen, T. H., Piñero, D., &amp; Emerson, B. C. (2014). Restriction site-associated DNA sequencing, genotyping error estimation and <em>de novo</em> assembly optimization for population genetic inference. <em>Molecular Ecology Resources</em>, <em>15</em>(1), 28–41. <a href="https://doi.org/10.1111/1755-0998.12291" class="uri">https://doi.org/10.1111/1755-0998.12291</a></p>
+</div>
+<div id="ref-R">
+<p>R Core Team. (2015). <em>R: A language and environment for statistical computing</em>. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from <a href="http://www.R-project.org/" class="uri">http://www.R-project.org/</a></p>
+</div>
+<div id="ref-kamvar2014poppr">
+<p>Kamvar, Z. N., Tabima, J. F., &amp; Grünwald, N. J. (2014b).  Poppr : an R package for genetic analysis of populations with clonal, partially clonal, and/or sexual reproduction. <em>PeerJ</em>, <em>2</em>, e281. <a href="https://doi.org/10.7717/peerj.281" class="uri">https://doi.org/10.7717/peerj.281</a></p>
+</div>
+<div id="ref-metzger2015horizontal">
+<p>Metzger, M. J., Reinisch, C., Sherry, J., &amp; Goff, S. P. (2015). Horizontal transmission of clonal cancer cells causes leukemia in soft-shell clams. <em>Cell</em>, <em>161</em>(2), 255–263.</p>
+</div>
+<div id="ref-chakarov2015apparent">
+<p>Chakarov, N., Linke, B., Boerner, M., Goesmann, A., Krüger, O., &amp; Hoffman, J. I. (2015). Apparent vector-mediated parent-to-offspring transmission in an avian malaria-like parasite. <em>Molecular Ecology</em>, <em>24</em>(6), 1355–1363.</p>
+</div>
+<div id="ref-gross2014population">
+<p>Gross, A., Hosoya, T., &amp; Queloz, V. (2014). Population structure of the invasive forest pathogen <em>Hymenoscyphus pseudoalbidus</em>. <em>Molecular Ecology</em>, <em>23</em>(12), 2943–2960.</p>
+</div>
+<div id="ref-grunwald2011phytophthora">
+<p>Grünwald, N. J., Martin, F. N., Larsen, M. M., Sullivan, C. M., Press, C. M., Coffey, M. D., Hansen, E. M., &amp; Parke, J. L. (2011). Phytophthora-ID.org: a sequence-based <em>Phytophthora</em> identification tool. <em>Plant Disease</em>, <em>95</em>(3), 337–342.</p>
+</div>
+<div id="ref-grunwald2003analysis">
+<p>Grünwald, N. J., Goodwin, S. B., Milgroom, M. G., &amp; Fry, W. E. (2003). Analysis of genotypic diversity data for populations of microorganisms. <em>Phytopathology</em>, <em>93</em>(6), 738–746. <a href="https://doi.org/10.1094/phyto.2003.93.6.738" class="uri">https://doi.org/10.1094/phyto.2003.93.6.738</a></p>
+</div>
+<div id="ref-davey2010rad">
+<p>Davey, J. W., &amp; Blaxter, M. L. (2010). RADSeq: next-generation population genetics. <em>Briefings in Functional Genomics</em>, <em>9</em>(5-6), 416–423. <a href="https://doi.org/10.1093/bfgp/elq031" class="uri">https://doi.org/10.1093/bfgp/elq031</a></p>
+</div>
+<div id="ref-sokal1958statistical">
+<p>Sokal, R. R. (1958). A statistical method for evaluating systematic relationships. <em>Univ Kans Sci Bull</em>, <em>38</em>, 1409–1438.</p>
+</div>
+<div id="ref-bruvo2004simple">
+<p>Bruvo, R., Michiels, N. K., D’Souza, T. G., &amp; Schulenburg, H. (2004). A simple method for the calculation of microsatellite genotype distances irrespective of ploidy level. <em>Molecular Ecology</em>, <em>13</em>(7), 2101–2106.</p>
+</div>
+<div id="ref-dagum1998openmp">
+<p>Dagum, L., &amp; Menon, R. (1998). OpenMP: An industry standard API for shared-memory programming. <em>Computational Science &amp; Engineering, IEEE</em>, <em>5</em>(1), 46–55.</p>
+</div>
+<div id="ref-goss2014irish">
+<p>Goss, E. M., Tabima, J. F., Cooke, D. E., Restrepo, S., Fry, W. E., Forbes, G. A., Fieland, V. J., Cardenas, M., &amp; Grünwald, N. J. (2014). The Irish potato famine pathogen <em>Phytophthora infestans</em> originated in central Mexico rather than the Andes. <em>Proceedings of the National Academy of Sciences</em>, <em>111</em>(24), 8791–8796.</p>
+</div>
+<div id="ref-yoshida2013rise">
+<p>Yoshida, K., Schuenemann, V. J., Cano, L. M., Pais, M., Mishra, B., Sharma, R., Lanz, C., Martin, F. N., Kamoun, S., Krause, J., Thines, M., Weigel, D., &amp; Burbano, H. A. (2013). The rise and fall of the <em>Phytophthora infestans</em> lineage that triggered the Irish potato famine. <em>eLife</em>, <em>2</em>. <a href="https://doi.org/10.7554/elife.00731" class="uri">https://doi.org/10.7554/elife.00731</a></p>
+</div>
+<div id="ref-lees2006novel">
+<p>Lees, A., Wattier, R., Shaw, D., Sullivan, L., Williams, N., &amp; Cooke, D. (2006). Novel microsatellite markers for the analysis of <em>Phytophthora infestans</em> populations. <em>Plant Pathology</em>, <em>55</em>(3), 311–319.</p>
+</div>
+<div id="ref-li2013efficient">
+<p>Li, Y., Cooke, D. E., Jacobsen, E., &amp; Lee, T. van der. (2013). Efficient multiplex simple sequence repeat genotyping of the oomycete plant pathogen <em>Phytophthora infestans</em>. <em>Journal of Microbiological Methods</em>, <em>92</em>(3), 316–322.</p>
+</div>
+<div id="ref-jombart2011adegenet">
+<p>Jombart, T., &amp; Ahmed, I. (2011). Adegenet 1.3-1: New tools for the analysis of genome-wide SNP data. <em>Bioinformatics</em>, <em>27</em>(21), 3070–3071.</p>
+</div>
+<div id="ref-prevosti1975distances">
+<p>Prevosti, A., Ocaña, J., &amp; Alonso, G. (1975). Distances between populations of <em>Drosophila subobscura</em>, based on chromosome arrangement frequencies. <em>Theoretical and Applied Genetics</em>, <em>45</em>(6), 231–241.</p>
+</div>
+<div id="ref-csardi2006igraph">
+<p>Csardi, G., &amp; Nepusz, T. (2006). The igraph software package for complex network research. <em>InterJournal</em>, <em>Complex Systems</em>, 1695. Retrieved from <a href="http://igraph.org" class="uri">http://igraph.org</a></p>
+</div>
+<div id="ref-jombart2010discriminant">
+<p>Jombart, T., Devillard, S., &amp; Balloux, F. (2010). Discriminant analysis of principal components: A new method for the analysis of genetically structured populations. <em>BMC Genetics</em>, <em>11</em>(1), 94. <a href="https://doi.org/10.1186/1471-2156-11-94" class="uri">https://doi.org/10.1186/1471-2156-11-94</a></p>
+</div>
+<div id="ref-kamvar2014sudden">
+<p>Kamvar, Z. N., Larsen, M. M., Kanaskie, A. M., Hansen, E. M., &amp; Grünwald, N. J. (2014a, December). Sudden_Oak_Death_in_Oregon_Forests: Spatial and temporal population dynamics of the sudden oak death epidemic in Oregon Forests. ZENODO. <a href="https://doi.org/10.5281/zenodo.13007" class="uri">https://doi.org/10.5281/zenodo.13007</a></p>
+</div>
+<div id="ref-rosvall2008maps">
+<p>Rosvall, M., &amp; Bergstrom, C. T. (2008). Maps of random walks on complex networks reveal community structure. <em>Proceedings of the National Academy of Sciences</em>, <em>105</em>(4), 1118–1123.</p>
+</div>
+<div id="ref-oksanen2015vegan">
+<p>Oksanen, J., Blanchet, F. G., Kindt, R., Legendre, P., Minchin, P. R., O’Hara, R. B., Simpson, G. L., Solymos, P., Stevens, M. H. H., &amp; Wagner, H. (2015). <em>Vegan: Community ecology package</em>. Retrieved from <a href="http://CRAN.R-project.org/package=vegan" class="uri">http://CRAN.R-project.org/package=vegan</a></p>
+</div>
+<div id="ref-shannon2001mathematical">
+<p>Shannon, C. E. (1948). A mathematical theory of communication. <em>ACM SIGMOBILE Mobile Computing and Communications Review</em>, <em>5</em>(1), 3–55.</p>
+</div>
+<div id="ref-Jombart_2008">
+<p>Jombart, T. (2008). Adegenet: a R package for the multivariate analysis of genetic markers. <em>Bioinformatics</em>, <em>24</em>(11), 1403–1405. <a href="https://doi.org/10.1093/bioinformatics/btn129" class="uri">https://doi.org/10.1093/bioinformatics/btn129</a></p>
+</div>
+<div id="ref-excoffier1992analysis">
+<p>Excoffier, L., Smouse, P. E., &amp; Quattro, J. M. (1992). Analysis of molecular variance inferred from metric distances among DNA haplotypes: Application to human mitochondrial DNA restriction data. <em>Genetics</em>, <em>131</em>(2), 479–91.</p>
+</div>
+<div id="ref-mantel1967detection">
+<p>Mantel, N. (1967). The detection of disease clustering and a generalized regression approach. <em>Cancer Research</em>, <em>27</em>(2 Part 1), 209–220.</p>
+</div>
+<div id="ref-nei1973analysis">
+<p>Nei, M. (1973). Analysis of gene diversity in subdivided populations. <em>Proceedings of the National Academy of Sciences</em>, <em>70</em>(12), 3321–3323.</p>
+</div>
+<div id="ref-laloe2007consensus">
+<p>Laloë, D., Jombart, T., Dufour, A.-B., &amp; Moazami-Goudarzi, K. (2007). Consensus genetic structuring and typological value of markers using multiple co-inertia analysis. <em>Genetics Selection Evolution</em>, <em>39</em>(5), 1–23.</p>
+</div>
+<div id="ref-arnaud2007standardizing">
+<p>Arnaud-Hanod, S., Duarte, C. M., Alberto, F., &amp; Serrão, E. A. (2007). Standardizing methods to address clonality in population studies. <em>Molecular Ecology</em>, <em>16</em>(24), 5115–5139. <a href="https://doi.org/10.1111/j.1365-294X.2007.03535.x" class="uri">https://doi.org/10.1111/j.1365-294X.2007.03535.x</a></p>
+</div>
+<div id="ref-everhart2014fine">
+<p>Everhart, S. E., &amp; Scherm, H. (2015). Fine-scale genetic structure of <em>Monilinia fructicola</em> during brown rot epidemics within individual peach tree canopies. <em>Phytopathology</em>, <em>105</em>(4), 542–549. <a href="https://doi.org/10.1094/phyto-03-14-0088-r" class="uri">https://doi.org/10.1094/phyto-03-14-0088-r</a></p>
+</div>
+<div id="ref-brown1980multilocus">
+<p>Brown, A., Feldman, M., &amp; Nevo, E. (1980). Multilocus structure of natural populations of <em>Hordeum spontaneum</em>. <em>Genetics</em>, <em>96</em>(2), 523–536. Retrieved from <a href="http://www.genetics.org/content/96/2/523.abstract" class="uri">http://www.genetics.org/content/96/2/523.abstract</a></p>
+</div>
+<div id="ref-smith1993how">
+<p>Smith, J. M., Smith, N. H., O’Rourke, M., &amp; Spratt, B. G. (1993). How clonal are bacteria? <em>Proceedings of the National Academy of Sciences</em>, <em>90</em>(10), 4384–4388. <a href="https://doi.org/10.1073/pnas.90.10.4384" class="uri">https://doi.org/10.1073/pnas.90.10.4384</a></p>
+</div>
+<div id="ref-Agapow_2001">
+<p>Agapow, P.-M., &amp; Burt, A. (2001). Indices of multilocus linkage disequilibrium. <em>Molecular Ecology Notes</em>, <em>1</em>(1-2), 101–102. <a href="https://doi.org/10.1046/j.1471-8278.2000.00014.x" class="uri">https://doi.org/10.1046/j.1471-8278.2000.00014.x</a></p>
+</div>
+<div id="ref-goudet2005hierfstat">
+<p>Goudet, J. (2005). Hierfstat, a package for R to compute and test hierarchical F-statistics. <em>Molecular Ecology Notes</em>, <em>5</em>(1), 184–186.</p>
+</div>
+<div id="ref-michalakis1996generic">
+<p>Michalakis, Y., &amp; Excoffier, L. (1996). A generic estimation of population subdivision using distances between alleles with special reference for microsatellite loci. <em>Genetics</em>, <em>142</em>(3), 1061–1064.</p>
+</div>
+<div id="ref-linde2002population">
+<p>Linde, C., Zhan, J., &amp; McDonald, B. (2002). Population structure of <em>Mycosphaerella graminicola</em>: From lesions to continents. <em>Phytopathology</em>, <em>92</em>(9), 946–955.</p>
+</div>
+<div id="ref-wickham2015devtools">
+<p>Wickham, H., &amp; Chang, W. (2015). <em>Devtools: Tools to make developing R packages easier</em>. Retrieved from <a href="http://CRAN.R-project.org/package=devtools" class="uri">http://CRAN.R-project.org/package=devtools</a></p>
+</div>
+<div id="ref-meirmans2004genotype">
+<p>Meirmans, P. G., &amp; Van Tienderen, P. H. (2004). GENOTYPE and GENODIVE: Two programs for the analysis of genetic diversity of asexual organisms. <em>Molecular Ecology Notes</em>, <em>4</em>(4), 792–794. <a href="https://doi.org/10.1111/j.1471-8286.2004.00770.x" class="uri">https://doi.org/10.1111/j.1471-8286.2004.00770.x</a></p>
+</div>
+<div id="ref-kamvar2015spatial">
+<p>Kamvar, Z. N., Larsen, M. M., Kanaskie, A. M., Hansen, E. M., &amp; Grünwald, N. J. (2015c). Spatial and temporal analysis of populations of the sudden oak death pathogen in oregon forests. <em>Phytopathology</em>, <em>105</em>(7), 982–989. <a href="https://doi.org/10.1094/phyto-12-14-0350-fi" class="uri">https://doi.org/10.1094/phyto-12-14-0350-fi</a></p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Supplementary data available at <a href="https://github.com/grunwaldlab/supplementary-poppr-2.0" class="uri">https://github.com/grunwaldlab/supplementary-poppr-2.0</a>; DOI: <a href="http://dx.doi.org/10.5281/zenodo.17424">10.5281/zenodo.17424</a><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fnref2">↩</a></p></li>
+<li id="fn3"><p>Supplementary data available at <a href="https://github.com/grunwaldlab/supplementary-poppr-2.0" class="uri">https://github.com/grunwaldlab/supplementary-poppr-2.0</a>; DOI: <a href="http://dx.doi.org/10.5281/zenodo.17424">10.5281/zenodo.17424</a><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>Supplementary data available at <a href="https://github.com/grunwaldlab/supplementary-poppr-2.0" class="uri">https://github.com/grunwaldlab/supplementary-poppr-2.0</a>; DOI: <a href="http://dx.doi.org/10.5281/zenodo.17424">10.5281/zenodo.17424</a><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#fnref4">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": [["http://hdl.handle.net/1957/60042", "PDF"], ["dissertation.tex", "TEX"], ["https://github.com/zkamvar/dissertation", "SOURCE CODE"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

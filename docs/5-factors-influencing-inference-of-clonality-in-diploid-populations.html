@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Development and Application of Tools for Genetic Analysis of Clonal Populations</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Development and Application of Tools for Genetic Analysis of Clonal Populations">
+  <meta name="generator" content="bookdown 0.1.18 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Development and Application of Tools for Genetic Analysis of Clonal Populations" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Development and Application of Tools for Genetic Analysis of Clonal Populations" />
+  
+  
+  
+
+<meta name="author" content="Zhian N. Kamvar">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html">
+<link rel="next" href="6-conclusions-2.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="1-introduction.html"><a href="1-introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-introduction.html"><a href="1-introduction.html#population-genetics-and-clonality"><i class="fa fa-check"></i><b>1.1</b> Population Genetics and Clonality</a></li>
+<li class="chapter" data-level="1.2" data-path="1-introduction.html"><a href="1-introduction.html#population-genetics-under-the-lens-of-plant-pathology"><i class="fa fa-check"></i><b>1.2</b> Population Genetics Under the Lens of Plant Pathology</a></li>
+<li class="chapter" data-level="1.3" data-path="1-introduction.html"><a href="1-introduction.html#the-need-for-reproducible-research"><i class="fa fa-check"></i><b>1.3</b> The Need For Reproducible Research</a></li>
+<li class="chapter" data-level="1.4" data-path="1-introduction.html"><a href="1-introduction.html#overview"><i class="fa fa-check"></i><b>1.4</b> Overview</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-2"><i class="fa fa-check"></i><b>1.4.1</b> Summary of Chapter 2</a></li>
+<li class="chapter" data-level="1.4.2" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-3"><i class="fa fa-check"></i><b>1.4.2</b> Summary of Chapter 3</a></li>
+<li class="chapter" data-level="1.4.3" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-4"><i class="fa fa-check"></i><b>1.4.3</b> Summary of Chapter 4</a></li>
+<li class="chapter" data-level="1.4.4" data-path="1-introduction.html"><a href="1-introduction.html#summary-of-chapter-5"><i class="fa fa-check"></i><b>1.4.4</b> Summary of Chapter 5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><i class="fa fa-check"></i><b>2</b> <em>Poppr</em>: an R Package For Genetic Analysis of Populations With Clonal, Partially Clonal, and/or Sexual Reproduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#abstract"><i class="fa fa-check"></i><b>2.1</b> Abstract</a></li>
+<li class="chapter" data-level="2.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#introduction-1"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#materials-and-methods"><i class="fa fa-check"></i><b>2.3</b> Materials and Methods</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#data-import"><i class="fa fa-check"></i><b>2.3.1</b> Data import</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#data-analysis"><i class="fa fa-check"></i><b>2.3.2</b> Data analysis</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#visualizations"><i class="fa fa-check"></i><b>2.3.3</b> Visualizations</a></li>
+<li class="chapter" data-level="2.3.4" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#performance"><i class="fa fa-check"></i><b>2.3.4</b> Performance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#citation-of-methods-implemented-in-poppr"><i class="fa fa-check"></i><b>2.4</b> Citation of methods implemented in <em>poppr</em></a></li>
+<li class="chapter" data-level="2.5" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#results-and-discussion"><i class="fa fa-check"></i><b>2.5</b> Results and Discussion</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#new-functionalities"><i class="fa fa-check"></i><b>2.5.1</b> New functionalities</a></li>
+<li class="chapter" data-level="2.5.2" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#performance-1"><i class="fa fa-check"></i><b>2.5.2</b> Performance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#conclusions"><i class="fa fa-check"></i><b>2.6</b> Conclusions</a></li>
+<li class="chapter" data-level="2.7" data-path="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html"><a href="2-poppr-an-r-package-for-genetic-analysis-of-populations-with-clonal-partially-clonal-andor-sexual-reproduction.html#acknowledgements"><i class="fa fa-check"></i><b>2.7</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><i class="fa fa-check"></i><b>3</b> Novel R Tools For Analysis of Genome-Wide Population Genetic Data With Emphasis on Clonality</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#abstract-1"><i class="fa fa-check"></i><b>3.1</b> Abstract</a></li>
+<li class="chapter" data-level="3.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#introduction-2"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#implementations-and-examples"><i class="fa fa-check"></i><b>3.3</b> Implementations and Examples</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#clonal-identification"><i class="fa fa-check"></i><b>3.3.1</b> Clonal identification</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#minimum-spanning-networks-with-reticulation"><i class="fa fa-check"></i><b>3.3.2</b> Minimum Spanning Networks with Reticulation</a></li>
+<li class="chapter" data-level="3.3.3" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#bootstrapping"><i class="fa fa-check"></i><b>3.3.3</b> Bootstrapping</a></li>
+<li class="chapter" data-level="3.3.4" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#genotype-accumulation-curve"><i class="fa fa-check"></i><b>3.3.4</b> Genotype Accumulation Curve</a></li>
+<li class="chapter" data-level="3.3.5" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#index-of-association"><i class="fa fa-check"></i><b>3.3.5</b> Index of association</a></li>
+<li class="chapter" data-level="3.3.6" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#data-format-updates-population-strata-and-hierarchies"><i class="fa fa-check"></i><b>3.3.6</b> Data format updates: population strata and hierarchies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#availability"><i class="fa fa-check"></i><b>3.4</b> Availability</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#requirements"><i class="fa fa-check"></i><b>3.4.1</b> Requirements</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#installation"><i class="fa fa-check"></i><b>3.4.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#discussion"><i class="fa fa-check"></i><b>3.5</b> Discussion</a></li>
+<li class="chapter" data-level="3.6" data-path="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html"><a href="3-novel-r-tools-for-analysis-of-genome-wide-population-genetic-data-with-emphasis-on-clonality.html#acknowledgements-1"><i class="fa fa-check"></i><b>3.6</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><i class="fa fa-check"></i><b>4</b> Spatial and Temporal Analysis of Populations of the Sudden Oak Death Pathogen in Oregon Forests</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#abstract-2"><i class="fa fa-check"></i><b>4.1</b> Abstract</a></li>
+<li class="chapter" data-level="4.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#materials-and-methods-1"><i class="fa fa-check"></i><b>4.3</b> Materials and Methods</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#location"><i class="fa fa-check"></i><b>4.3.1</b> Location</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#sampling"><i class="fa fa-check"></i><b>4.3.2</b> Sampling</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#isolation-identification-and-dna-extraction"><i class="fa fa-check"></i><b>4.3.3</b> Isolation, identification and DNA extraction</a></li>
+<li class="chapter" data-level="4.3.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#genotyping-data-validation-and-harmonization"><i class="fa fa-check"></i><b>4.3.4</b> Genotyping, data validation, and harmonization</a></li>
+<li class="chapter" data-level="4.3.5" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#nursery-populations"><i class="fa fa-check"></i><b>4.3.5</b> Nursery populations</a></li>
+<li class="chapter" data-level="4.3.6" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#data-analysis-1"><i class="fa fa-check"></i><b>4.3.6</b> Data analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#results"><i class="fa fa-check"></i><b>4.4</b> Results</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#demographic-pattern-and-genetic-diversity"><i class="fa fa-check"></i><b>4.4.1</b> Demographic pattern and genetic diversity</a></li>
+<li class="chapter" data-level="4.4.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#spatial-correlation"><i class="fa fa-check"></i><b>4.4.2</b> Spatial Correlation</a></li>
+<li class="chapter" data-level="4.4.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#population-differentiation"><i class="fa fa-check"></i><b>4.4.3</b> Population differentiation</a></li>
+<li class="chapter" data-level="4.4.4" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#clustering-of-forest-with-nursery-populations"><i class="fa fa-check"></i><b>4.4.4</b> Clustering of forest with nursery populations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#discussion-1"><i class="fa fa-check"></i><b>4.5</b> Discussion</a></li>
+<li class="chapter" data-level="4.6" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#acknowledgements-2"><i class="fa fa-check"></i><b>4.6</b> Acknowledgements</a></li>
+<li class="chapter" data-level="4.7" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-material"><i class="fa fa-check"></i><b>4.7</b> Supplementary Material</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#text:S1"><i class="fa fa-check"></i><b>4.7.1</b> Supplementary Text</a></li>
+<li class="chapter" data-level="4.7.2" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-figures"><i class="fa fa-check"></i><b>4.7.2</b> Supplementary Figures</a></li>
+<li class="chapter" data-level="4.7.3" data-path="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html"><a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html#supplementary-tables"><i class="fa fa-check"></i><b>4.7.3</b> Supplementary Tables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><i class="fa fa-check"></i><b>5</b> Factors Influencing Inference of Clonality in Diploid Populations</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#abstract-3"><i class="fa fa-check"></i><b>5.1</b> Abstract</a></li>
+<li class="chapter" data-level="5.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#introduction-4"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#methods"><i class="fa fa-check"></i><b>5.3</b> Methods</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#simulating-microsatellite-loci"><i class="fa fa-check"></i><b>5.3.1</b> Simulating Microsatellite Loci</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#simulating-snp-loci"><i class="fa fa-check"></i><b>5.3.2</b> Simulating SNP Loci</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#mating"><i class="fa fa-check"></i><b>5.3.3</b> Mating</a></li>
+<li class="chapter" data-level="5.3.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#analysis-of-microsatellite-data"><i class="fa fa-check"></i><b>5.3.4</b> Analysis of Microsatellite Data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#analysis-of-snp-data"><i class="fa fa-check"></i><b>5.3.5</b> Analysis of SNP Data</a></li>
+<li class="chapter" data-level="5.3.6" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#power-analysis"><i class="fa fa-check"></i><b>5.3.6</b> Power Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#results-1"><i class="fa fa-check"></i><b>5.4</b> Results</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#clone-correction-negatively-impacts-clonal-inference"><i class="fa fa-check"></i><b>5.4.1</b> Clone Correction Negatively Impacts Clonal Inference</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#negative-values-of-barr_d-in-clonal-populations-correlated-with-low-allelic-diversity"><i class="fa fa-check"></i><b>5.4.2</b> Negative Values of <span class="math inline">\(\bar{r}_d\)</span> in Clonal Populations Correlated With Low Allelic Diversity</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#power-to-detect-clonal-reproduction-in-snp-data"><i class="fa fa-check"></i><b>5.4.3</b> Power To Detect Clonal Reproduction in SNP Data</a></li>
+<li class="chapter" data-level="5.4.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#common-features-of-microsatellite-and-snp-markers"><i class="fa fa-check"></i><b>5.4.4</b> Common Features of Microsatellite and SNP Markers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#discussion-2"><i class="fa fa-check"></i><b>5.5</b> Discussion</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#clone-correction-increases-false-negatives"><i class="fa fa-check"></i><b>5.5.1</b> Clone Correction Increases False Negatives</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#mutation-rates-and-barr_d"><i class="fa fa-check"></i><b>5.5.2</b> Mutation Rates and <span class="math inline">\(\bar{r}_d\)</span></a></li>
+<li class="chapter" data-level="5.5.3" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#allelic-diversity-influences-the-value-of-barr_d-in-clonal-populations"><i class="fa fa-check"></i><b>5.5.3</b> Allelic Diversity Influences the value of <span class="math inline">\(\bar{r}_d\)</span> in Clonal Populations</a></li>
+<li class="chapter" data-level="5.5.4" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#linkage-in-snp-data-increases-barr_d-unilaterally"><i class="fa fa-check"></i><b>5.5.4</b> Linkage in SNP Data Increases <span class="math inline">\(\bar{r}_d\)</span> Unilaterally</a></li>
+<li class="chapter" data-level="5.5.5" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#limitations-of-this-study"><i class="fa fa-check"></i><b>5.5.5</b> Limitations of This Study</a></li>
+<li class="chapter" data-level="5.5.6" data-path="5-factors-influencing-inference-of-clonality-in-diploid-populations.html"><a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#conclusions-1"><i class="fa fa-check"></i><b>5.5.6</b> Conclusions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-conclusions-2.html"><a href="6-conclusions-2.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a></li>
+<li class="chapter" data-level="7" data-path="7-bibliography.html"><a href="7-bibliography.html"><i class="fa fa-check"></i><b>7</b> Bibliography</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Development and Application of Tools for Genetic Analysis of Clonal Populations</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="factors-influencing-inference-of-clonality-in-diploid-populations" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Factors Influencing Inference of Clonality in Diploid Populations</h1>
+<p>Zhian N. Kamvar and Niklaus J. Grünwald</p>
+<p>Target Journal: <strong>Molecular Ecology</strong></p>
+<div id="abstract-3" class="section level2">
+<h2><span class="header-section-number">5.1</span> Abstract</h2>
+<p>The index of association is a measure of multilocus linkage disequilibrium, which reflects the deviation of observed genetic variation from expected. In sexual populations, loci are randomly assorting due to recombination, resulting in a near-zero value of the index of association. In clonal populations, recombination is non-existent, meaning that loci are passed from parent to offspring in a non-independent fashion, resulting in a significantly non-zero value of the index of association. We build on previous work by investigating the effect of sample size, mutation rate, and clone correction on the power of the index of association to detect clonal reproduction in simulated data sets generated with microsatellite and genomic markers. Our findings suggest that power decreases with small sample sizes and low allelic diversity, and physical linkage in genomic markers does not affect power if permutation tests are performed with linkage groups. We hope that these novel insights provide useful to the study of molecular pathogens.</p>
+</div>
+<div id="introduction-4" class="section level2">
+<h2><span class="header-section-number">5.2</span> Introduction</h2>
+<p>Population genetic theory is largely based on model populations such as the neutral Wright-Fisher model in which populations are assumed to be infinitely large, with discrete generations, randomly assorting alleles, with no migration and no mutation <span class="citation">(Hartl &amp; Clark, <a href="#ref-hartl1997principles">2007</a>; Nielsen &amp; Slatkin, <a href="#ref-nielsen2013introduction">2013</a>)</span>. By using such reductionist models, population geneticists are able to reduce the complexity and enable analyses to ask fundamental questions and test hypotheses about evolutionary processes that could explain population structure and history.</p>
+<p>These neutral models, however, cannot be applied to populations whose life history violate the fundamental assumption of random assortment of alleles, such as populations that undergo clonal reproduction <span class="citation">(Milgroom, <a href="#ref-milgroom1996recombination">1996</a>; Orive, <a href="#ref-orive1993effective">1993</a>)</span>. For many clonal populations, the contribution of genetic variation from mutation is greater than that of recombination. While this increases the risk of the accumulation of deleterious mutations, the two-fold cost of sex is drastically reduced, meaning that selectively advantageous combinations of alleles are maintained <span class="citation">(Heitman et al., <a href="#ref-heitman2012evolution">2012</a>)</span>.</p>
+<p>Pathogenic microorganisms can reproduce sexually or clonally <span class="citation">(Milgroom, <a href="#ref-milgroom1996recombination">1996</a>; Tibayrenc, <a href="#ref-tibayrenc1996towards">1996</a>)</span>. Diseases caused by these organisms are in part managed by the use of antimicrobial compounds that kill these organisms. Detecting recombination in populations of pathogenic microorganisms is therefore important for the implementation of rational management strategies as a prevalence of sexual reproduction could lead to the repeated emergence of novel, resistant genotypes <span class="citation">(de Meeûs et al., <a href="#ref-de2006molecular">2006</a>; Goss et al., <a href="#ref-goss2014irish">2014</a>; Milgroom, <a href="#ref-milgroom1996recombination">1996</a>; Nieuwenhuis &amp; James, <a href="#ref-nieuwenhuis2016frequency">2016</a>; Smith et al., <a href="#ref-smith1993how">1993</a>)</span>.</p>
+<p>Several studies have attempted to infer the degree of sex in populations that undergo clonal reproduction <span class="citation">(Ali et al., <a href="#ref-ali2016cloncase">2016</a>; Balloux et al., <a href="#ref-balloux2003population">2003</a>; de Meeûs &amp; Balloux, <a href="#ref-de2004clonal">2004</a>; Nieuwenhuis &amp; James, <a href="#ref-nieuwenhuis2016frequency">2016</a>; Smith et al., <a href="#ref-smith1993how">1993</a>)</span>. For populations with well-defined sexual and clonal phases occurring at separate times, such as rust fungi, methods like <em>CloNcaSe</em> are effective for estimating the rate of sexual reproduction and effective population size <span class="citation">(Ali et al., <a href="#ref-ali2016cloncase">2016</a>)</span>. However, this method cannot be applied to populations where the reproductive cycle is not partitioned into discrete generations.</p>
+<p>Simply detecting the presence of clonal reproduction, however can be useful in and of itself <span class="citation">(Milgroom, <a href="#ref-milgroom1996recombination">1996</a>)</span>. A method commonly used to assess this is the index of association (<span class="math inline">\(I_A\)</span>), and its standardized version, <span class="math inline">\(\bar{r}_d\)</span>, which measure multilocus linkage disequilibrium <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>; Brown et al., <a href="#ref-brown1980multilocus">1980</a>; de Meeûs &amp; Balloux, <a href="#ref-de2004clonal">2004</a>; Haubold et al., <a href="#ref-haubold1998detecting">1998</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>; Smith et al., <a href="#ref-smith1993how">1993</a>)</span>. The value of <span class="math inline">\(I_A\)</span>, as shown in equation <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#eq:ia">(5.1)</a>, is measured as the ratio of observed variance (<span class="math inline">\(V_O\)</span>) and expected variance (<span class="math inline">\(V_E\)</span>) in genetic distance between samples <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>; Smith et al., <a href="#ref-smith1993how">1993</a>)</span>:</p>
+<span class="math display" id="eq:ia">\[\begin{equation}
+I_A = \frac{V_O}{V_E} - 1 \tag{5.1}
+\end{equation}\]</span>
+<p>The expected variance is practically modeled as the sum of the variances over <em>m</em> loci: <span class="math inline">\(V_E = \sum^m{var_j}\)</span> <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>; Haubold et al., <a href="#ref-haubold1998detecting">1998</a>)</span>. If the differences between samples are randomly distributed (linkage equilibrium), we can expect the value of <span class="math inline">\(I_A\)</span> to be zero <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>; Smith et al., <a href="#ref-smith1993how">1993</a>)</span>. Under scenarios of non-random mating (e.g. population structure or clonal reproduction), the observed variance would be greater than the expected variance due to a multi-modal distribution of distances, and <span class="math inline">\(I_A\)</span> would be greater than zero <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>; Milgroom, <a href="#ref-milgroom2015population">2015</a>; Smith et al., <a href="#ref-smith1993how">1993</a>)</span>. <span class="citation">Agapow &amp; Burt (<a href="#ref-Agapow_2001">2001</a>)</span> noted that this metric does not have an upper limit and increases with the number of loci. To correct this, they developed <span class="math inline">\(\bar{r}_d\)</span> (equation <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#eq:rd">(5.2)</a>), which has a similar structure to a correlation coefficient and ranges from 0 (no linkage) to 1 (complete linkage):</p>
+<span class="math display" id="eq:rd">\[\begin{align} % This mode aligns the equations to the &#39;&amp;=&#39; signs
+\begin{split} % This mode groups the equations into one.
+\bar{r}_d &amp;= \frac{\sum\sum{cov_{j,k}}}{
+                   \sum\sum{\sqrt{var_{j} \cdot var_{k}}}} \\
+          &amp;= \frac{V_O - V_E}{2\sum\sum{\sqrt{var_{j} \cdot var_{k}}}}
+\end{split}
+\tag{5.2}
+\end{align}\]</span>
+<p>De Meeûx &amp; Balloux <span class="citation">(<a href="#ref-de2004clonal">2004</a>)</span> investigated the effect of increasing levels of sexual reproduction on <span class="math inline">\(\bar{r}_d\)</span> (noted in their publication as <span class="math inline">\(\bar{r}_D\)</span>). They found that very little (<span class="math inline">\(\sim\)</span> 1%) sexual reproduction is required to produce a value of <span class="math inline">\(\bar{r}_d\)</span> close to zero. This indicates that <span class="math inline">\(\bar{r}_d\)</span> alone might not be well suited as a measure of clonal reproduction. <span class="citation">Prugnolle &amp; de Meeûs (<a href="#ref-prugnolle2010apparent">2010</a>)</span> tested the effect of sampling design on <span class="math inline">\(\bar{r}_d\)</span>, finding that its value is drastically reduced when clones from multiple populations are sampled, leading to an over-estimation of the level of recombination.</p>
+<p>These studies laid the groundwork for understanding the behavior of <span class="math inline">\(\bar{r}_d\)</span> under different scenarios of non-random mating in diploid organisms, but there were some limitations in available technology. For both studies, the only software available for calculation of <span class="math inline">\(\bar{r}_d\)</span> for diploid organisms was <span style="font-variant: small-caps;">Multilocus</span>, which could only take one data set at a time <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>; de Meeûs &amp; Balloux, <a href="#ref-de2004clonal">2004</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>; Prugnolle &amp; de Meeûs, <a href="#ref-prugnolle2010apparent">2010</a>)</span>. This constrained researchers to only analyze a minimal set of 20 populations per scenario.</p>
+<p>A non-zero value of <span class="math inline">\(I_A\)</span> and <span class="math inline">\(\bar{r}_d\)</span> does not always indicate a significant departure from the null assumption of unlinked loci. Since the distribution of <span class="math inline">\(I_A\)</span> and <span class="math inline">\(\bar{r}_d\)</span> are not known, the safest way to test for significance are random permutation tests. These tests effectively create unlinked populations by shuffling individuals at each locus, independently and re-calculating <span class="math inline">\(I_A\)</span> and <span class="math inline">\(\bar{r}_d\)</span> <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>; Haubold et al., <a href="#ref-haubold1998detecting">1998</a>; Smith et al., <a href="#ref-smith1993how">1993</a>)</span>. An upper one-sided test of significance is then used to see if the observed statistic is greater than the observed distribution.</p>
+<p>Standard practice for analyzing microbial populations is to perform this test on both the whole data set (wd) and clone-corrected data (cc), where each multilocus genotype is represented only once per population to avoid signatures of linkage that arise from re-sampling the same individual <span class="citation">(Goss et al., <a href="#ref-goss2014irish">2014</a>; McDonald, <a href="#ref-mcdonald1997population">1997</a>; Milgroom, <a href="#ref-milgroom1996recombination">1996</a>)</span>. If the p-value for <span class="math inline">\(\bar{r}_d\)</span> is significant after clone-correction, then the population is expected to be clonal. While significance testing is available in <span style="font-variant: small-caps;">Multilocus</span> in the form of random permutations, it is computationally expensive, and can only take one data set at a time <span class="citation">(Agapow &amp; Burt, <a href="#ref-Agapow_2001">2001</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span>. As a result, power analysis of <span class="math inline">\(\bar{r}_d\)</span> to detect clonal reproduction with and without clone-correction has not yet been performed <span class="citation">(de Meeûs &amp; Balloux, <a href="#ref-de2004clonal">2004</a>)</span>.</p>
+<p>In the years since the studies conducted by <span class="citation">de Meeûs &amp; Balloux (<a href="#ref-de2004clonal">2004</a>)</span> and <span class="citation">Prugnolle &amp; de Meeûs (<a href="#ref-prugnolle2010apparent">2010</a>)</span>, reduced-representation, high-throughput sequencing methods such as Genotyping-By-Sequencing (GBS) and Restriction site associated DNA sequencing (RAD-seq) have become popular tools for population genetic analysis <span class="citation">(Davey &amp; Blaxter, <a href="#ref-davey2010rad">2010</a>; Davey et al., <a href="#ref-davey2011genome">2011</a>; Elshire et al., <a href="#ref-elshire2011robust">2011</a>)</span>. These methods have the capability to generate thousands of unlinked markers at a fraction of the cost and time necessary to develop high quality microsatellite markers. These marker systems are also prone to missing data and high error rates <span class="citation">(Mastretta-Yanes et al., <a href="#ref-mastretta2015restriction">2014</a>)</span>. The index of association was developed for multiple loci at a time when obtaining even 100 unlinked markers posed a significant challenge. With the advent of these technologies, it is unclear how marker choice and genotyping error affect the index of association.</p>
+<p>We developed the R package <em>poppr</em> for analysis of clonal populations, removing the limitations of data input and computational expense of analyzing the index of association <span class="citation">(Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span> and further expanded this to analysis of genome-wide SNP data <span class="citation">(Kamvar et al., <a href="#ref-kamvar2015novel">2015</a><a href="#ref-kamvar2015novel">a</a>; R Core Team, <a href="#ref-R2016">2016</a>)</span>. With these tools we expand on previous studies by asking how sample size, marker choice, clone-correction, and the assumption of homogeneous mutation rates affect our ability to detect clonal reproduction in diploid populations. Our objectives to answer these questions are to (1) re-analyze <span class="math inline">\(\bar{r}_d\)</span> against increasing rates of sexual reproduction in both microsatellite and SNP data sets, (2) perform a power analysis of <span class="math inline">\(\bar{r}_d\)</span> to assess sensitivity and specificity, and (3) assess how genotypic and allelic evenness and diversity affects <span class="math inline">\(\bar{r}_d\)</span>. Because studies have observed significantly negative values of <span class="math inline">\(I_A\)</span> and <span class="math inline">\(\bar{r}_d\)</span> (p <span class="math inline">\(\geq\)</span> 0.95), we additionally seek to determine what factors result in negative <span class="math inline">\(\bar{r}_d\)</span> values. This work provides novel insights into the sensitivity and scope of the index of association for inferring clonality.</p>
+</div>
+<div id="methods" class="section level2">
+<h2><span class="header-section-number">5.3</span> Methods</h2>
+<p>We used simulations to evaluate the behavior of <span class="math inline">\(\bar{r}_d\)</span> under different population scenarios. Initial sets of simulations were created for different levels of sexual reproduction for each marker type. All simulations were performed with the python package simuPOP version 1.1.7 in python version 3.4 <span class="citation">(Peng &amp; Amos, <a href="#ref-peng2008forward">2008</a>)</span>. For each scenario, 100 simulations with 10 replicates were created with a census size of 10,000 diploid individuals with equal mating type proportions evolved over 10,000 generations. We chose a census size of 10,000 individuals to minimize the effect of drift. We chose to run the simulations for 10,000 generations because this was previously shown in <span class="citation">de Meeûs &amp; Balloux (<a href="#ref-de2004clonal">2004</a>)</span> to be sufficient in reaching equilibrium for summary statistics.</p>
+<p>The simulated populations were first stored in the native simuPOP format and then transferred to feather format using the python and R packages <em>feather</em> version 0.3.0 for downstream analyses. Microsatellite simulations were performed on Ubuntu Linux version 14.04; SNP simulations were performed on CentOS Linux version 6.8. During downstream analysis, 10, 25, 50, and 100 individuals were sampled without replacement for each replicate in R version 3.2 with the package <em>poppr</em> version 2.3.0 <span class="citation">(Kamvar et al., <a href="#ref-kamvar2015novel">2015</a><a href="#ref-kamvar2015novel">a</a>, <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>; R Core Team, <a href="#ref-R2016">2016</a>)</span>. Analyses (described below) were performed on both full and clone-corrected data sets. All downstream analyses were run on the OSU CGRB Core Computing Facility.</p>
+<div id="simulating-microsatellite-loci" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Simulating Microsatellite Loci</h3>
+<p>Each population was simulated with 21 co-dominant, unlinked loci containing 6 to 10 alleles per locus with frequencies drawn from a uniform distribution and subsequently normalized so that allele frequencies at each locus sum to one. We used 6 to 10 alleles per locus as this is the number of alleles commonly used for population genetic studies to avoid statistical noise. Before mating, mutations occurred at each locus at a rate of 1e-5 mutations/generation with the exception of the first locus, at which the mutation rate was set to 1e-3. The mutation rate of 1e-5 was selected as this was previously used in <span class="citation">de Meeûs &amp; Balloux (<a href="#ref-de2004clonal">2004</a>)</span> and is close to the estimated recombination rate of <em>Saccharomyces cerevisiae</em> microsatellite loci <span class="citation">(Lynch et al., <a href="#ref-lynch2008genome">2008</a>)</span>. All mutations were applied in a stepwise manner using the <code>StepwiseMutator()</code> operator in simuPOP.</p>
+</div>
+<div id="simulating-snp-loci" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Simulating SNP Loci</h3>
+<p>Simulations of 10,000 diploid, biallelic loci spread evenly over 10 chromosomal fragments were simulated with a mutation rate of 1e-5 mutations per generation for forward and backward mutations using the <code>SNPMutator()</code> operator and and a recombination rate of 0.01 between adjacent loci using the <code>Recombinator()</code> operator in simuPOP.</p>
+</div>
+<div id="mating" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Mating</h3>
+<p>Simulations of sexual reproduction were conducted at 10 rates of sexual reproduction over a log scale (0.0, 1e-4, 5e-4, 1e-3, 5e-3, 1e-2, 5e-2, 0.1, 0.5, 1.0) reflecting the fraction of individuals in generation <em>t+1</em> produced via sexual reproduction. One to three offspring could be produced at each mating event. Rates were chosen to investigate the dynamics of <span class="math inline">\(\bar{r}_d\)</span> at low levels of clonal reproduction. For sexual events, two parents were chosen randomly from the population with the <code>RandomSelection()</code> operator and offspring genotypes were created via the <code>MendelianGenoTransmitter()</code> operator. The clonal fraction was created by randomly sampling individuals from the population and duplicating their genotypes with the <code>CloneGenoTransmitter()</code> operator. If one mating type was lost before 10,000 generations, the simulation would continue to completion with only clonal reproduction.</p>
+</div>
+<div id="analysis-of-microsatellite-data" class="section level3">
+<h3><span class="header-section-number">5.3.4</span> Analysis of Microsatellite Data</h3>
+<p>The standardized index of association (<span class="math inline">\(\bar{r}_d\)</span>, <span class="citation">Agapow &amp; Burt (<a href="#ref-Agapow_2001">2001</a>)</span>) was calculated for full and clone-corrected data using the <em>poppr</em> function <code>ia()</code> <span class="citation">(Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span>. Tests for significance were performed by randomly permuting the alleles at each locus independently and then assessing <span class="math inline">\(\bar{r}_d\)</span>. A total of 999 permutations were conducted for each replicate population to evaluate statistical support. Analyses were done for both full and clone-corrected data. The p-values reflect the proportion of observations greater than the observed statistic. Estimates of genotypic diversity were assessed with the <em>poppr</em> function <code>diversity_boot()</code> with 999 bootstrap replicates, recording the estimate and variance <span class="citation">(Kamvar et al., <a href="#ref-kamvar2015novel">2015</a><a href="#ref-kamvar2015novel">a</a>)</span>. The genotypic diversity statistics we calculated were Shannon’s Index, <span class="math inline">\(H = -\sum p_i ln p_i\)</span> <span class="citation">(Shannon, <a href="#ref-shannon2001mathematical">1948</a>)</span>, Stoddart and Taylor’s Index, <span class="math inline">\(G = 1/\sum p_i^2\)</span> <span class="citation">(Stoddart &amp; Taylor, <a href="#ref-stoddart1988genotypic">1988</a>)</span>, and Evenness, <span class="math inline">\(E_5 = (G - 1)/(e^H - 1)\)</span> <span class="citation">(Pielou, <a href="#ref-pielou1975ecological">1975</a>)</span> where <span class="math inline">\(p_i\)</span> is the frequency of the <em>i</em>th genotype. We additionally calculated Nei’s expected heterozygosity, also known as gene diversity <span class="citation">(Nei, <a href="#ref-Nei:1978">1978</a>)</span>, and mean allelic evenness <span class="math inline">\(E_{5A} = (1/m) \sum E_{5l}\)</span>, where <em>m</em> is the number of loci and <span class="math inline">\(E_{5l}\)</span> is the evenness of the alleles at locus <em>l</em> with the <em>poppr</em> function <code>locus_table()</code> <span class="citation">(Grünwald et al., <a href="#ref-grunwald2003analysis">2003</a>; Kamvar et al., <a href="#ref-kamvar2014poppr">2014</a><a href="#ref-kamvar2014poppr">b</a>)</span>.</p>
+</div>
+<div id="analysis-of-snp-data" class="section level3">
+<h3><span class="header-section-number">5.3.5</span> Analysis of SNP Data</h3>
+<p>The overall value of <span class="math inline">\(\bar{r}_d\)</span> was calculated for each simulation with the <em>poppr</em> function <code>bitwise.ia()</code> <span class="citation">(Kamvar et al., <a href="#ref-kamvar2015novel">2015</a><a href="#ref-kamvar2015novel">a</a>)</span>. Significance was first assessed by randomly shuffling genotypes at each locus independently and then, to preserve existing background linkage structure, at each chromosome independently. This was done 999 times for each replicate population. P-values represent the proportion of random samples greater than or equal to the observed statistic.</p>
+<p>Because GBS data are associated with high error rates, we additionally wanted to assess the effect of missing data on analysis. To do this, we used scripts written for <span class="citation">Kamvar et al. (<a href="#ref-kamvar2015novel">2015</a><a href="#ref-kamvar2015novel">a</a>)</span> to randomly insert missing data via the <code>pop_NA()</code> function <span class="citation">(Kamvar et al., <a href="#ref-kamvar2015poppr2supp">2015</a><a href="#ref-kamvar2015poppr2supp">b</a>)</span> at rates of 1%, 5%, and 10% each.</p>
+</div>
+<div id="power-analysis" class="section level3">
+<h3><span class="header-section-number">5.3.6</span> Power Analysis</h3>
+<p>Permutation analysis of the index of association is commonly used to calculate statistical support for detecting non-random mating. If the observed value of <span class="math inline">\(\bar{r}_d\)</span> is greater than 95% of the results from the permutations, then the null hypothesis of linkage equilibrium is rejected. The power or sensitivity of this test can be seen as the fraction of significant results within a set of simulation parameters when the rate of sexual reproduction is &lt; 1.</p>
+<p>The Receiver Operating Characteristic (ROC) curve is a statistical method of assessing the balance between sensitivity and specificity of a diagnostic method <span class="citation">(Metz, <a href="#ref-metz1978basic">1978</a>)</span>. This is done by simultaneously assessing the true positive fraction of tests to a false positive fraction along a gradient of thresholds of increasing leniency. A simple way of thinking about ROC analysis is to imagine two factories that both make marbles. On average, factory A makes marbles half the size of factory B. Both factories manufacture for the same distributor, which mixes the marbles from both factories. You are tasked with finding the best sieve that can accurately and precisely separate the marbles. To measure this quantity, you order a set of orange marbles from factory A and a set of blue marbles from factory B. To calculate the ROC curve, you would take a range of sieves and stack them such that the one with the largest mesh size is on top and the one with the smallest mesh size is on the bottom and pour both orange and blue marbles through. The fractions of orange and blue marbles that passed through each sieve are the true positive and false positive fractions, respectively. Plot the true positive fraction against the false positive fraction for each sieve respectively, and you can assess how well the sieve method works by examining the shape of the ROC curve.</p>
+<p>A useful summary of the ROC curve is to calculate the area under the ROC curve (AURC). Briefly, if a method has perfect explanatory power, the area under the ROC curve will be equal to 1. If a method has no explanatory power, the AURC will be equal to 0.5. We used this method to assess the efficacy of <span class="math inline">\(\bar{r}_d\)</span> to detect non-random mating.</p>
+<p>To calculate the ROC curve, we first define what a positive value is. If we consider the p-value of <span class="math inline">\(\bar{r}_d\)</span> as a classifier to determine clonality, we can define the false positive fraction as the fraction of observations where <span class="math inline">\(p \leq \alpha\)</span> for simulations where the rate of sexual reproduction is set to 1.0 (Table <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#tab:simtab1">5.1</a>). In contrast, the true positive fraction is the fraction of observations where <span class="math inline">\(p \leq \alpha\)</span> in simulations where clonality is introduced (e.g. all simulations where the rate of sexual reproduction is less than 1.0).</p>
+<table>
+<caption><span id="tab:simtab1">Table 5.1: </span> Definitions of false positive and true positive values for ROC analysis of simulations. <em>p</em> is the p-value for <span class="math inline">\(\bar{r}_d\)</span>, <span class="math inline">\(\alpha\)</span> is a threshold value in [0, 1]. Randomly mating populations are simulated with a sex rate of 1. Non-Random mating populations are simulated with a sex rate less than one.</caption>
+<thead>
+<tr class="header">
+<th align="center">Reproductive Mode</th>
+<th align="center"><span class="math inline">\(p \leq \alpha\)</span></th>
+<th align="center"><span class="math inline">\(p &gt; \alpha\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Non-Random Mating</td>
+<td align="center">True Positive</td>
+<td align="center">False Negative</td>
+</tr>
+<tr class="even">
+<td align="center">Random Mating</td>
+<td align="center">False Positive</td>
+<td align="center">True Negative</td>
+</tr>
+</tbody>
+</table>
+<p>We constructed each ROC curve by plotting the true positive fraction on the y axis and the false positive fraction on the x axis with values of <span class="math inline">\(\alpha\)</span> in increments of 0.01 from 0 to 1. Curves were calculated hierarchically by rate of sexual reproduction (&lt; 1) and a unique seed was used to generate the populations. For each hierarchical level, separate curves were calculated for sample size, mutation rate, and clone-correction. The areas under the ROC curves (AURC) were calculated using the <code>auc()</code> function in the R package <em>flux</em> version 0.3-0 <span class="citation">(Jurasinski et al., <a href="#ref-jurasinski2014flux">2014</a>)</span>.</p>
+<p>Because simulations across rates of sexual reproduction were generated from unique seeds, we additionally constructed ROC curves for each seed with respect to clone-correction, sample size, and mutation rate. To test for significant effects of clone-correction, sample size, and mutation rate on the inference of non-random mating on microsatellite data, we then separated the data by rate of sexual reproduction and performed a three way (type III) ANOVA on each rate separately with formula <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#eq:anova">(5.3)</a>. For SNP data, we did not have clone correction or mutation rate differences, so we set these variables to 1.</p>
+<span class="math display" id="eq:anova">\[\begin{equation}
+AURC \sim Clone Correction \times Sample Size \times Mutation Rate \tag{5.3}
+\end{equation}\]</span>
+<p>Because of a pattern that we saw in the results of <span class="math inline">\(E_{5A}\)</span> for microsatellite data, we asked whether or not using a value of <span class="math inline">\(E_{5A} \geq 0.85\)</span> could help detect clonal reproduction even if the p-value was non-significant. To assess this, we conducted an additional ROC analysis to condition p-values on <span class="math inline">\(E_{5A}\)</span> such that non-significant values that also had <span class="math inline">\(E_{5A} \geq 0.85\)</span> would be considered significant.</p>
+</div>
+</div>
+<div id="results-1" class="section level2">
+<h2><span class="header-section-number">5.4</span> Results</h2>
+<div id="clone-correction-negatively-impacts-clonal-inference" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Clone Correction Negatively Impacts Clonal Inference</h3>
+<p>For microsatellite data, the values of <span class="math inline">\(\bar{r}_d\)</span> for completely clonal and nearly clonal populations ranged from -0.577 to 1 in completely clonal data sets (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim1">5.1</a>). Genotypic diversity statistics (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:simdiv">5.2</a>, top six panels) showed a predictable pattern of genotypic diversity increasing with sexual reproduction with diversity being higher on average for clonal populations with uneven mutation rates as compared to even mutation rates. Allelic diversity statistics (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:simdiv">5.2</a>, bottom four panels) showed few differences in means due to mutation rate, but <span class="math inline">\(E_{5A}\)</span> showed consistent differences in rate of sexual reproduction and sample size. Both <span class="math inline">\(E_{5A}\)</span> and <span class="math inline">\(H_{exp}\)</span> showed higher values for populations where the rate of sexual reproduction is &lt; 0.1%. Not shown in the graph is a bimodal pattern in the <span class="math inline">\(H_{exp}\)</span> distributions with a rate of sexual reproduction &lt; 0.1%.</p>
+<p>The power (p &lt;= 0.01) to detect non-random mating decreases significantly at low levels of sexual reproduction (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim4">5.3</a>). This is further affected by both mutation rate, sample size, and clone correction. Clone correction, however, appears to affect even mutation rates more strongly than uneven mutation rates. For all scenarios the power to detect non-random mating drops to below 0.25 with rates of sexual reproduction greater than 1%. This trend is only moderately improved when the threshold is raised to p &lt;= 0.05 (data not shown). There is less power to detect non-random mating at 0% and 0.01% sex as compared to 0.05% and 0.1% sex. This appears to be due to the observed negative values of <span class="math inline">\(\bar{r}_d\)</span> that result in a p-value of 1. At p &lt;= 0.01, we observe a false positive rate of 1.5% in the worst case scenario.</p>
+<div class="figure" style="text-align: center"><span id="fig:sim1"></span>
+<img src="figure/simulations/rd_sexrate.png" alt="Effect of rate of sexual reproduction, sample size (n), mutation rate,
+and clone-correction on $\bar{r}_d$ for microsatellite data. Violin
+plots represent data sets simulated with even and uneven mutation rates
+over 20 and 21 loci, respectively (columns) and sub-sampled in four
+different population sizes (rows). Color indicates whether or not the
+calculations were performed on whole or clone-corrected data sets. Each
+violin plot contains 1000 unique data sets. Black lines in violins mark
+the 25, 50, and 75th percentile." width="80%" />
+<p class="caption">
+Figure 5.1: Effect of rate of sexual reproduction, sample size (n), mutation rate, and clone-correction on <span class="math inline">\(\bar{r}_d\)</span> for microsatellite data. Violin plots represent data sets simulated with even and uneven mutation rates over 20 and 21 loci, respectively (columns) and sub-sampled in four different population sizes (rows). Color indicates whether or not the calculations were performed on whole or clone-corrected data sets. Each violin plot contains 1000 unique data sets. Black lines in violins mark the 25, 50, and 75th percentile.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:simdiv"></span>
+<img src="figure/simulations/diversity_stats.png" alt="Effect rate of sexual reproduction and sample size (n) on genotypic and
+allelic diversity for microsatellite data. Genotypic diversity: H =
+Shannon-Wiener index, $E_5$ = evenness, G = Stoddart and Taylor's index.
+Allelic Diversity: $E_{5A}$ = allelic evenness, $H_{exp}$ = Nei's
+expected heterozygosity (gene diversity). Allelic diversity estimates
+calculated for clone-corrected data. Points indicate means and lines
+extend to to standard deviations on either side of the mean.
+Color/shading indicates sample size. Vertical axis on different scales." width="80%" />
+<p class="caption">
+Figure 5.2: Effect rate of sexual reproduction and sample size (n) on genotypic and allelic diversity for microsatellite data. Genotypic diversity: H = Shannon-Wiener index, <span class="math inline">\(E_5\)</span> = evenness, G = Stoddart and Taylor’s index. Allelic Diversity: <span class="math inline">\(E_{5A}\)</span> = allelic evenness, <span class="math inline">\(H_{exp}\)</span> = Nei’s expected heterozygosity (gene diversity). Allelic diversity estimates calculated for clone-corrected data. Points indicate means and lines extend to to standard deviations on either side of the mean. Color/shading indicates sample size. Vertical axis on different scales.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:sim4"></span>
+<img src="figure/simulations/ssr_power.png" alt="Effect of rate of sexual reproduction, sample size (n), mutation rate,
+and clone-correction on the power of permutation analysis for microsatellite
+data. Power (true positive rate) is on the vertical axis. Values are shown for p
+= 0.01. Plots are arranged in a grid with clone-correction in rows and mutation
+rate in columns. Color indicates sample size." width="100%" />
+<p class="caption">
+Figure 5.3: Effect of rate of sexual reproduction, sample size (n), mutation rate, and clone-correction on the power of permutation analysis for microsatellite data. Power (true positive rate) is on the vertical axis. Values are shown for p = 0.01. Plots are arranged in a grid with clone-correction in rows and mutation rate in columns. Color indicates sample size.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:simroc"></span>
+<img src="figure/simulations/ROC_Curve.png" alt="Effect of rate of sexual reproduction, sample size (n), mutation rate,
+clone-correction, and $E_{5A}$ augmentation on ROC analysis of
+$\bar{r}_d$. Rate of sexual reproduction arranged in rows. Clone
+corrected (cc) and whole (wd) data sets with even and uneven mutation
+rates arranged in columns. Line type indicates the use of $E_{5A}$ &amp;gt;
+0.85 to augment the analysis. Line shade indicates sample size. A dotted
+line of unity is shown in each plot. Each ROC curve is calculated over
+100 values of $\alpha$ from 0 to 1." width="80%" />
+<p class="caption">
+Figure 5.4: Effect of rate of sexual reproduction, sample size (n), mutation rate, clone-correction, and <span class="math inline">\(E_{5A}\)</span> augmentation on ROC analysis of <span class="math inline">\(\bar{r}_d\)</span>. Rate of sexual reproduction arranged in rows. Clone corrected (cc) and whole (wd) data sets with even and uneven mutation rates arranged in columns. Line type indicates the use of <span class="math inline">\(E_{5A}\)</span> &gt; 0.85 to augment the analysis. Line shade indicates sample size. A dotted line of unity is shown in each plot. Each ROC curve is calculated over 100 values of <span class="math inline">\(\alpha\)</span> from 0 to 1.
+</p>
+</div>
+<p>The ROC and AURC analyses showed a steady decrease in the ability to detect non- random mating with increasing levels of sexual reproduction, mainly due to a loss in sensitivity with increasing levels of <span class="math inline">\(\alpha\)</span> (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:simroc">5.4</a>, <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim2">5.5</a>). As seen in the power analysis (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim4">5.3</a>), clone correction consistently appears to lower the power to detect linkage based on the AURC. For all scenarios, the diagnostic power of <span class="math inline">\(\bar{r}_d\)</span> to detect non-random mating is no better than random at rates of sexual reproduction greater than 10%.</p>
+<p>A three-way ANOVA adds support for the hypothesis that clone correction significantly affects the diagnostic power of <span class="math inline">\(\bar{r}_d\)</span> (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim3">5.6</a>, Table <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#tab:sim3">5.2</a>). While there are no significant effects at 50% sex, clone correction, mutation rate, and sample size all have a significant effect on <span class="math inline">\(\bar{r}_d\)</span>’s diagnostic properties. At low levels of sex (&lt; 1%), the interaction of clone correction and mutation rate shows a significant effect, which is not seen in the interaction of clone correction and sample size. Only at sex rates of 0.1% and 0.05% do we see significant effects across all interactions.</p>
+<div class="figure" style="text-align: center"><span id="fig:sim2"></span>
+<img src="figure/simulations/AURC_box_plot.png" alt="Effect of rate of sexual reproduction, sample size (n), mutation rate,
+and clone-correction on area under the ROC curve. Box plots showing the
+distribution of the AURC for each independent seed. Boxes span the interquartile
+range (IQR) and the whiskers extend to 1.5 * IQR. An AURC of 1 indicates a
+perfect classifier, while an AURC of 0.5 indicates the classifier is no better
+than a random guess. Any values below 0.5 (shaded in grey) are considered worse
+than random." width="80%" />
+<p class="caption">
+Figure 5.5: Effect of rate of sexual reproduction, sample size (n), mutation rate, and clone-correction on area under the ROC curve. Box plots showing the distribution of the AURC for each independent seed. Boxes span the interquartile range (IQR) and the whiskers extend to 1.5 * IQR. An AURC of 1 indicates a perfect classifier, while an AURC of 0.5 indicates the classifier is no better than a random guess. Any values below 0.5 (shaded in grey) are considered worse than random.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:sim3"></span>
+<img src="figure/simulations/AURC_ANOVA.png" alt="P-values from ANOVA analysis assessing AURC distributions with the model
+$AURC \sim Clone Correction \times Sample Size \times Mutation Rate$ for
+each rate of sexual reproduction, separately." width="100%" />
+<p class="caption">
+Figure 5.6: P-values from ANOVA analysis assessing AURC distributions with the model <span class="math inline">\(AURC \sim Clone Correction \times Sample Size \times Mutation Rate\)</span> for each rate of sexual reproduction, separately.
+</p>
+</div>
+<table>
+<caption><span id="tab:sim3">Table 5.2: </span> ANOVA table comparing the model <span class="math inline">\(AURC \sim Clone Correction \times Sample Size \times Mutation Rate\)</span> for each rate of sexual reproduction separately. Columns: sexrate = rate of sexual reproduction, term = ANOVA term, sumsq = sum of squares, df = degrees of freedom, statistic = F statistic, p.value = p-value, Terms are as follows: CC = Clone Correction, SS = Sample Size, MR = Mutation Rate.</caption>
+<thead>
+<tr class="header">
+<th align="left">sexrate</th>
+<th align="left">term</th>
+<th align="right">sumsq</th>
+<th align="right">df</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.0000</td>
+<td align="left">(Intercept)</td>
+<td align="right">63.936</td>
+<td align="right">1</td>
+<td align="right">10569.674</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.855</td>
+<td align="right">1</td>
+<td align="right">141.309</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.060</td>
+<td align="right">3</td>
+<td align="right">3.289</td>
+<td align="right">0.020</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.556</td>
+<td align="right">1</td>
+<td align="right">91.913</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.049</td>
+<td align="right">0.985</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.174</td>
+<td align="right">1</td>
+<td align="right">28.747</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.002</td>
+<td align="right">3</td>
+<td align="right">0.100</td>
+<td align="right">0.960</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.000</td>
+<td align="right">3</td>
+<td align="right">0.006</td>
+<td align="right">0.999</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">9.582</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.0001</td>
+<td align="left">(Intercept)</td>
+<td align="right">70.972</td>
+<td align="right">1</td>
+<td align="right">14652.094</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.496</td>
+<td align="right">1</td>
+<td align="right">102.400</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.027</td>
+<td align="right">3</td>
+<td align="right">1.886</td>
+<td align="right">0.130</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.340</td>
+<td align="right">1</td>
+<td align="right">70.257</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.009</td>
+<td align="right">3</td>
+<td align="right">0.596</td>
+<td align="right">0.617</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.076</td>
+<td align="right">1</td>
+<td align="right">15.698</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.077</td>
+<td align="right">0.972</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.003</td>
+<td align="right">3</td>
+<td align="right">0.241</td>
+<td align="right">0.868</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">7.673</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.0005</td>
+<td align="left">(Intercept)</td>
+<td align="right">91.939</td>
+<td align="right">1</td>
+<td align="right">245382.751</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.072</td>
+<td align="right">1</td>
+<td align="right">191.181</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.089</td>
+<td align="right">3</td>
+<td align="right">78.753</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.050</td>
+<td align="right">1</td>
+<td align="right">132.414</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.047</td>
+<td align="right">3</td>
+<td align="right">42.205</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.027</td>
+<td align="right">1</td>
+<td align="right">72.663</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.035</td>
+<td align="right">3</td>
+<td align="right">31.105</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.018</td>
+<td align="right">3</td>
+<td align="right">15.818</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.593</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.0010</td>
+<td align="left">(Intercept)</td>
+<td align="right">86.202</td>
+<td align="right">1</td>
+<td align="right">157278.033</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.224</td>
+<td align="right">1</td>
+<td align="right">408.905</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.269</td>
+<td align="right">3</td>
+<td align="right">163.853</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.113</td>
+<td align="right">1</td>
+<td align="right">206.697</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.135</td>
+<td align="right">3</td>
+<td align="right">82.053</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.060</td>
+<td align="right">1</td>
+<td align="right">109.071</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.067</td>
+<td align="right">3</td>
+<td align="right">40.994</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.034</td>
+<td align="right">3</td>
+<td align="right">20.426</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.868</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.0050</td>
+<td align="left">(Intercept)</td>
+<td align="right">52.266</td>
+<td align="right">1</td>
+<td align="right">14127.572</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.936</td>
+<td align="right">1</td>
+<td align="right">253.111</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">2.592</td>
+<td align="right">3</td>
+<td align="right">233.531</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.138</td>
+<td align="right">1</td>
+<td align="right">37.393</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.234</td>
+<td align="right">3</td>
+<td align="right">21.126</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.028</td>
+<td align="right">1</td>
+<td align="right">7.675</td>
+<td align="right">0.006</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.026</td>
+<td align="right">3</td>
+<td align="right">2.385</td>
+<td align="right">0.068</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.022</td>
+<td align="right">3</td>
+<td align="right">1.974</td>
+<td align="right">0.116</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">5.860</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.0100</td>
+<td align="left">(Intercept)</td>
+<td align="right">39.376</td>
+<td align="right">1</td>
+<td align="right">5724.212</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.686</td>
+<td align="right">1</td>
+<td align="right">99.672</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">2.455</td>
+<td align="right">3</td>
+<td align="right">118.955</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.068</td>
+<td align="right">1</td>
+<td align="right">9.817</td>
+<td align="right">0.002</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.173</td>
+<td align="right">3</td>
+<td align="right">8.380</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.003</td>
+<td align="right">1</td>
+<td align="right">0.378</td>
+<td align="right">0.539</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.051</td>
+<td align="right">3</td>
+<td align="right">2.488</td>
+<td align="right">0.059</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.056</td>
+<td align="right">3</td>
+<td align="right">2.720</td>
+<td align="right">0.043</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">10.896</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.0500</td>
+<td align="left">(Intercept)</td>
+<td align="right">28.671</td>
+<td align="right">1</td>
+<td align="right">1903.303</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.072</td>
+<td align="right">1</td>
+<td align="right">4.806</td>
+<td align="right">0.029</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.239</td>
+<td align="right">3</td>
+<td align="right">5.293</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.001</td>
+<td align="right">1</td>
+<td align="right">0.080</td>
+<td align="right">0.778</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.391</td>
+<td align="right">3</td>
+<td align="right">8.646</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.032</td>
+<td align="right">0.858</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.037</td>
+<td align="right">3</td>
+<td align="right">0.809</td>
+<td align="right">0.489</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.028</td>
+<td align="right">0.994</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">23.861</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.1000</td>
+<td align="left">(Intercept)</td>
+<td align="right">26.010</td>
+<td align="right">1</td>
+<td align="right">1441.495</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.009</td>
+<td align="right">1</td>
+<td align="right">0.524</td>
+<td align="right">0.469</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.131</td>
+<td align="right">3</td>
+<td align="right">2.419</td>
+<td align="right">0.065</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.001</td>
+<td align="right">0.979</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.162</td>
+<td align="right">3</td>
+<td align="right">2.984</td>
+<td align="right">0.030</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.013</td>
+<td align="right">0.908</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.014</td>
+<td align="right">3</td>
+<td align="right">0.256</td>
+<td align="right">0.857</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.015</td>
+<td align="right">0.998</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">28.581</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.5000</td>
+<td align="left">(Intercept)</td>
+<td align="right">25.669</td>
+<td align="right">1</td>
+<td align="right">1489.342</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.001</td>
+<td align="right">1</td>
+<td align="right">0.033</td>
+<td align="right">0.857</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.042</td>
+<td align="right">3</td>
+<td align="right">0.806</td>
+<td align="right">0.491</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.002</td>
+<td align="right">1</td>
+<td align="right">0.099</td>
+<td align="right">0.753</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.025</td>
+<td align="right">0.995</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.006</td>
+<td align="right">0.939</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.004</td>
+<td align="right">3</td>
+<td align="right">0.076</td>
+<td align="right">0.973</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.011</td>
+<td align="right">0.998</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">27.301</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="negative-values-of-barr_d-in-clonal-populations-correlated-with-low-allelic-diversity" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Negative Values of <span class="math inline">\(\bar{r}_d\)</span> in Clonal Populations Correlated With Low Allelic Diversity</h3>
+<p>When using the criterion of <span class="math inline">\(E_{5A} \geq 0.85\)</span> to augment the criteria for the ROC analysis, we found that the power to detect non-random mating increased significantly whereas the false positive rate appeared to only increase with low sample sizes (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim4a">5.7</a>, <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim2a">5.8</a>). Analyzing the distributions of the AURC with ANOVA, we found that the most consistently significant effect found was that of sample size (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim3a">5.9</a>, Tab. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#tab:sim4">5.3</a>) (albeit much like Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim3">5.6</a>, all effects and interactions were significant for 0.1% and 0.05% sex).</p>
+<div class="figure" style="text-align: center"><span id="fig:sim4a"></span>
+<img src="figure/simulations/ssr_power_ea.png" alt="Effect of rate of sexual reproduction, sample size (n), mutation rate,
+and clone-correction on the power of permutation analysis for
+microsatellite data taking into account allelic evenness. Plots are
+arranged in a grid with clone-correction in rows and mutation rate in
+columns. Values are shown for $\alpha$ = 0.01 and $E_{5A} \geq 0.85$" width="100%" />
+<p class="caption">
+Figure 5.7: Effect of rate of sexual reproduction, sample size (n), mutation rate, and clone-correction on the power of permutation analysis for microsatellite data taking into account allelic evenness. Plots are arranged in a grid with clone-correction in rows and mutation rate in columns. Values are shown for <span class="math inline">\(\alpha\)</span> = 0.01 and <span class="math inline">\(E_{5A} \geq 0.85\)</span>
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:sim2a"></span>
+<img src="figure/simulations/AURC_box_plot_ea.png" alt="Effect of rate of sexual reproduction, sample size (n), mutation rate,
+and clone-correction on area under the ROC curve taking into account allelic
+evenness. Box plots showing the distribution of the area under the ROC Curve for
+each independent seed. Boxes span the interquartile range (IQR) and the whiskers
+extend to 1.5 * IQR. An AURC of 1 indicates a perfect classifier, while an AURC
+of 0.5 indicates the classifier is no better than a random guess. Any values
+below 0.5 (shaded in grey) is considered worse than random." width="80%" />
+<p class="caption">
+Figure 5.8: Effect of rate of sexual reproduction, sample size (n), mutation rate, and clone-correction on area under the ROC curve taking into account allelic evenness. Box plots showing the distribution of the area under the ROC Curve for each independent seed. Boxes span the interquartile range (IQR) and the whiskers extend to 1.5 * IQR. An AURC of 1 indicates a perfect classifier, while an AURC of 0.5 indicates the classifier is no better than a random guess. Any values below 0.5 (shaded in grey) is considered worse than random.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:sim3a"></span>
+<img src="figure/simulations/AURC_ANOVA_ea.png" alt="P-values from ANOVA analysis on AURC distributions with the model
+$AURC \sim Clone Correction \times Sample Size \times Mutation Rate$ for
+each rate of sexual reproduction separately taking into account allelic
+evenness. P-values are represented both as colors and numbers." width="100%" />
+<p class="caption">
+Figure 5.9: P-values from ANOVA analysis on AURC distributions with the model <span class="math inline">\(AURC \sim Clone Correction \times Sample Size \times Mutation Rate\)</span> for each rate of sexual reproduction separately taking into account allelic evenness. P-values are represented both as colors and numbers.
+</p>
+</div>
+<table>
+<caption><span id="tab:sim4">Table 5.3: </span> ANOVA table comparing the model <span class="math inline">\(AURC \sim Clone Correction \times Sample Size \times Mutation Rate\)</span> for each rate of sexual reproduction separately. This table generated with the allelic evenness correction. Columns: sexrate = rate of sexual reproduction, term = ANOVA term, sumsq = sum of squares, df = degrees of freedom, statistic = F statistic, p.value = p-value, Terms are as follows: CC = Clone Correction, SS = Sample Size, MR = Mutation Rate.</caption>
+<thead>
+<tr class="header">
+<th align="left">sexrate</th>
+<th align="left">term</th>
+<th align="right">sumsq</th>
+<th align="right">df</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.0000</td>
+<td align="left">(Intercept)</td>
+<td align="right">96.914</td>
+<td align="right">1</td>
+<td align="right">169384.022</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.001</td>
+<td align="right">1</td>
+<td align="right">0.952</td>
+<td align="right">0.329</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.007</td>
+<td align="right">3</td>
+<td align="right">4.365</td>
+<td align="right">0.005</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.268</td>
+<td align="right">0.605</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.638</td>
+<td align="right">0.591</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.013</td>
+<td align="right">0.908</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.704</td>
+<td align="right">0.550</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.000</td>
+<td align="right">3</td>
+<td align="right">0.104</td>
+<td align="right">0.958</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.906</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.0001</td>
+<td align="left">(Intercept)</td>
+<td align="right">96.531</td>
+<td align="right">1</td>
+<td align="right">202595.988</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.001</td>
+<td align="right">1</td>
+<td align="right">2.838</td>
+<td align="right">0.092</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.009</td>
+<td align="right">3</td>
+<td align="right">6.345</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.823</td>
+<td align="right">0.365</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.404</td>
+<td align="right">0.750</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.819</td>
+<td align="right">0.366</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.000</td>
+<td align="right">3</td>
+<td align="right">0.178</td>
+<td align="right">0.911</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.000</td>
+<td align="right">3</td>
+<td align="right">0.112</td>
+<td align="right">0.953</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.755</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.0005</td>
+<td align="left">(Intercept)</td>
+<td align="right">91.136</td>
+<td align="right">1</td>
+<td align="right">158601.676</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.051</td>
+<td align="right">1</td>
+<td align="right">89.102</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.106</td>
+<td align="right">3</td>
+<td align="right">61.325</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.036</td>
+<td align="right">1</td>
+<td align="right">61.799</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.033</td>
+<td align="right">3</td>
+<td align="right">19.237</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.019</td>
+<td align="right">1</td>
+<td align="right">33.262</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.024</td>
+<td align="right">3</td>
+<td align="right">14.139</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.012</td>
+<td align="right">3</td>
+<td align="right">7.046</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.910</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.0010</td>
+<td align="left">(Intercept)</td>
+<td align="right">84.686</td>
+<td align="right">1</td>
+<td align="right">113261.634</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.211</td>
+<td align="right">1</td>
+<td align="right">282.532</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.339</td>
+<td align="right">3</td>
+<td align="right">151.115</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.103</td>
+<td align="right">1</td>
+<td align="right">137.833</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.126</td>
+<td align="right">3</td>
+<td align="right">56.324</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.053</td>
+<td align="right">1</td>
+<td align="right">71.367</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.061</td>
+<td align="right">3</td>
+<td align="right">26.976</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.030</td>
+<td align="right">3</td>
+<td align="right">13.161</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">1.184</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.0050</td>
+<td align="left">(Intercept)</td>
+<td align="right">51.087</td>
+<td align="right">1</td>
+<td align="right">13448.247</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.888</td>
+<td align="right">1</td>
+<td align="right">233.702</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">2.812</td>
+<td align="right">3</td>
+<td align="right">246.742</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.127</td>
+<td align="right">1</td>
+<td align="right">33.301</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.226</td>
+<td align="right">3</td>
+<td align="right">19.851</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.024</td>
+<td align="right">1</td>
+<td align="right">6.284</td>
+<td align="right">0.012</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.031</td>
+<td align="right">3</td>
+<td align="right">2.682</td>
+<td align="right">0.045</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.025</td>
+<td align="right">3</td>
+<td align="right">2.186</td>
+<td align="right">0.088</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">6.017</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.0100</td>
+<td align="left">(Intercept)</td>
+<td align="right">38.906</td>
+<td align="right">1</td>
+<td align="right">5499.579</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.634</td>
+<td align="right">1</td>
+<td align="right">89.610</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">2.558</td>
+<td align="right">3</td>
+<td align="right">120.521</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.070</td>
+<td align="right">1</td>
+<td align="right">9.912</td>
+<td align="right">0.002</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.182</td>
+<td align="right">3</td>
+<td align="right">8.581</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.003</td>
+<td align="right">1</td>
+<td align="right">0.443</td>
+<td align="right">0.506</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.048</td>
+<td align="right">3</td>
+<td align="right">2.270</td>
+<td align="right">0.079</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.054</td>
+<td align="right">3</td>
+<td align="right">2.531</td>
+<td align="right">0.056</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">11.206</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.0500</td>
+<td align="left">(Intercept)</td>
+<td align="right">28.404</td>
+<td align="right">1</td>
+<td align="right">1861.840</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.064</td>
+<td align="right">1</td>
+<td align="right">4.165</td>
+<td align="right">0.041</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.274</td>
+<td align="right">3</td>
+<td align="right">5.996</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.001</td>
+<td align="right">1</td>
+<td align="right">0.072</td>
+<td align="right">0.788</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.401</td>
+<td align="right">3</td>
+<td align="right">8.760</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.001</td>
+<td align="right">1</td>
+<td align="right">0.049</td>
+<td align="right">0.825</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.035</td>
+<td align="right">3</td>
+<td align="right">0.759</td>
+<td align="right">0.517</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.020</td>
+<td align="right">0.996</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">24.165</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.1000</td>
+<td align="left">(Intercept)</td>
+<td align="right">25.985</td>
+<td align="right">1</td>
+<td align="right">1413.238</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.008</td>
+<td align="right">1</td>
+<td align="right">0.422</td>
+<td align="right">0.516</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.145</td>
+<td align="right">3</td>
+<td align="right">2.632</td>
+<td align="right">0.049</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.004</td>
+<td align="right">0.952</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.164</td>
+<td align="right">3</td>
+<td align="right">2.974</td>
+<td align="right">0.031</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.019</td>
+<td align="right">0.891</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.013</td>
+<td align="right">3</td>
+<td align="right">0.229</td>
+<td align="right">0.876</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.012</td>
+<td align="right">0.998</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">29.124</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.5000</td>
+<td align="left">(Intercept)</td>
+<td align="right">25.366</td>
+<td align="right">1</td>
+<td align="right">1459.705</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC</td>
+<td align="right">0.001</td>
+<td align="right">1</td>
+<td align="right">0.030</td>
+<td align="right">0.862</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.051</td>
+<td align="right">3</td>
+<td align="right">0.978</td>
+<td align="right">0.402</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">MR</td>
+<td align="right">0.003</td>
+<td align="right">1</td>
+<td align="right">0.158</td>
+<td align="right">0.691</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC X SS</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.026</td>
+<td align="right">0.994</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X MR</td>
+<td align="right">0.000</td>
+<td align="right">1</td>
+<td align="right">0.005</td>
+<td align="right">0.943</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS X MR</td>
+<td align="right">0.004</td>
+<td align="right">3</td>
+<td align="right">0.078</td>
+<td align="right">0.972</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">CC X SS X MR</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.010</td>
+<td align="right">0.999</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">27.526</td>
+<td align="right">1584</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="power-to-detect-clonal-reproduction-in-snp-data" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> Power To Detect Clonal Reproduction in SNP Data</h3>
+<p>Because of the computational intensity of the simulations, we were only able to run 24 unique seeds over all rates of sexual reproduction with 10 replicates per seed. Due to an unexpected corner condition, some replicates failed to save, so we randomly sampled five replicates per seed per rate of sexual reproduction, giving us a total of 1,200 total populations for analysis.</p>
+<p>Analysis of <span class="math inline">\(\bar{r}_d\)</span> for SNP data showed a similar pattern to the microsatellite data where clonal and nearly clonal (0.1% sexual reproduction) distributions of <span class="math inline">\(\bar{r}_d\)</span> were bimodal, but they did not have as many significantly negative values (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim5">5.10</a>). We observed that that none of the values of <span class="math inline">\(\bar{r}_d\)</span> for the sexual population reached zero. Increasing levels of missing data appeared to consistently decrease the value of <span class="math inline">\(\bar{r}_d\)</span> (<a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:simmisssnp">5.11</a>). This effect was magnified when missing data was treated as a new allele.</p>
+<p>We initially randomized all loci independently to test for significant departures from random mating. Our results from that analysis showed <em>p = 0.001</em> for all but two clonal data sets (data not shown). After shuffling each chromosome independently, we obtained significance values that better reflected our observations from the microsatellite data. Because of the dearth of significantly negative <span class="math inline">\(\bar{r}_d\)</span> values in clonal populations, the power of the index to detect clonal reproduction was greater, but at the cost of an increase in false positive rates (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim6">5.12</a>). An ANOVA analysis of the distributions of ROC over the 24 seeds showed significant differences for 0.5% to 10% sexual reproduction (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim7">5.13</a>, Tab. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#tab:sim5">5.4</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:sim5"></span>
+<img src="figure/simulations/genomic_rd.png" alt="Effect of rate of sexual reproduction and sample size (n) on $\bar{r}_d$
+for SNP data. Each panel represents a different sample size. Each violin
+plot contains 120 unique data sets. Points represent observed values.
+Black lines in violins mark the 25, 50, and 75th percentile." width="80%" />
+<p class="caption">
+Figure 5.10: Effect of rate of sexual reproduction and sample size (n) on <span class="math inline">\(\bar{r}_d\)</span> for SNP data. Each panel represents a different sample size. Each violin plot contains 120 unique data sets. Points represent observed values. Black lines in violins mark the 25, 50, and 75th percentile.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:simmisssnp"></span>
+<img src="figure/simulations/genomic_missing.png" alt="Effect of rate of sexual reproduction, sample size (n), and missing data
+on $\bar{r}_d$ for SNP data. Panels are arranged horizontally with
+increasing rates of missing data from left to right and vertically with
+increasing sample size from top to bottom. Shading indicates whether or
+not missing data was ignored or treated as a new allele. Black lines
+mark the 25, 50, and 75th percentile. Each violin represents 120 values." width="80%" />
+<p class="caption">
+Figure 5.11: Effect of rate of sexual reproduction, sample size (n), and missing data on <span class="math inline">\(\bar{r}_d\)</span> for SNP data. Panels are arranged horizontally with increasing rates of missing data from left to right and vertically with increasing sample size from top to bottom. Shading indicates whether or not missing data was ignored or treated as a new allele. Black lines mark the 25, 50, and 75th percentile. Each violin represents 120 values.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:sim6"></span>
+<img src="figure/simulations/genomic_power.png" alt="Effect of rate of sexual reproduction and sample size (n) the power to 
+detect non-random mating for SNP data. Color indicates sample size. False
+positive rate is shown as increasing transparency. Data shown for both p = 0.01
+and p = 0.05" width="80%" />
+<p class="caption">
+Figure 5.12: Effect of rate of sexual reproduction and sample size (n) the power to detect non-random mating for SNP data. Color indicates sample size. False positive rate is shown as increasing transparency. Data shown for both p = 0.01 and p = 0.05
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:sim7"></span>
+<img src="figure/simulations/AURC_genomic.png" alt="Effect of rate of sexual reproduction and sample size (n) on area under 
+the ROC curve for SNP data. Each point represents AURC calculated with 10 
+populations total. 5 populations with a sex rate of 1.0 and 5 populations with a 
+sex rate specified on the horizontal axis." width="80%" />
+<p class="caption">
+Figure 5.13: Effect of rate of sexual reproduction and sample size (n) on area under the ROC curve for SNP data. Each point represents AURC calculated with 10 populations total. 5 populations with a sex rate of 1.0 and 5 populations with a sex rate specified on the horizontal axis.
+</p>
+</div>
+<table>
+<caption><span id="tab:sim5">Table 5.4: </span> ANOVA table comparing the model <span class="math inline">\(AURC \sim Sample Size\)</span> for each rate of sexual reproduction separately with SNP data. Columns: sexrate = rate of sexual reproduction, term = ANOVA term, sumsq = sum of squares, df = degrees of freedom, statistic = F statistic, p.value = p-value, Terms are as follows: SS = Sample Size.</caption>
+<thead>
+<tr class="header">
+<th align="left">sexrate</th>
+<th align="left">term</th>
+<th align="right">sumsq</th>
+<th align="right">df</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.0000</td>
+<td align="left">(Intercept)</td>
+<td align="right">22.932</td>
+<td align="right">1</td>
+<td align="right">17347.604</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.004</td>
+<td align="right">3</td>
+<td align="right">1.121</td>
+<td align="right">0.345</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.122</td>
+<td align="right">92</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.0001</td>
+<td align="left">(Intercept)</td>
+<td align="right">23.602</td>
+<td align="right">1</td>
+<td align="right">29949.701</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.352</td>
+<td align="right">0.787</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.072</td>
+<td align="right">92</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.0005</td>
+<td align="left">(Intercept)</td>
+<td align="right">23.562</td>
+<td align="right">1</td>
+<td align="right">28317.512</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.339</td>
+<td align="right">0.797</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.077</td>
+<td align="right">92</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.0010</td>
+<td align="left">(Intercept)</td>
+<td align="right">23.562</td>
+<td align="right">1</td>
+<td align="right">28317.512</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.001</td>
+<td align="right">3</td>
+<td align="right">0.339</td>
+<td align="right">0.797</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.077</td>
+<td align="right">92</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.0050</td>
+<td align="left">(Intercept)</td>
+<td align="right">19.117</td>
+<td align="right">1</td>
+<td align="right">6103.399</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.174</td>
+<td align="right">3</td>
+<td align="right">18.568</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.288</td>
+<td align="right">92</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.0100</td>
+<td align="left">(Intercept)</td>
+<td align="right">13.984</td>
+<td align="right">1</td>
+<td align="right">1590.890</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.806</td>
+<td align="right">3</td>
+<td align="right">30.552</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">0.809</td>
+<td align="right">92</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.0500</td>
+<td align="left">(Intercept)</td>
+<td align="right">6.510</td>
+<td align="right">1</td>
+<td align="right">232.786</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">1.340</td>
+<td align="right">3</td>
+<td align="right">15.972</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">2.573</td>
+<td align="right">92</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">0.1000</td>
+<td align="left">(Intercept)</td>
+<td align="right">5.920</td>
+<td align="right">1</td>
+<td align="right">155.018</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.575</td>
+<td align="right">3</td>
+<td align="right">5.023</td>
+<td align="right">0.003</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">3.514</td>
+<td align="right">92</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">0.5000</td>
+<td align="left">(Intercept)</td>
+<td align="right">6.161</td>
+<td align="right">1</td>
+<td align="right">169.859</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">SS</td>
+<td align="right">0.059</td>
+<td align="right">3</td>
+<td align="right">0.542</td>
+<td align="right">0.655</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Residuals</td>
+<td align="right">3.337</td>
+<td align="right">92</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="common-features-of-microsatellite-and-snp-markers" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> Common Features of Microsatellite and SNP Markers</h3>
+<p>For both microsatellite and SNP data, as found in <span class="citation">de Meeûs &amp; Balloux (<a href="#ref-de2004clonal">2004</a>)</span>, large variances were observed with extremely low levels of sexual reproduction (Figs. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim1">5.1</a>, <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim5">5.10</a>). The variances and means of <span class="math inline">\(\bar{r}_d\)</span> decrease with increasing levels of sexual reproduction. For low levels of sexual reproduction (&lt; 0.01%), the distributions appeared bimodal. This feature appears in both the microsatellite and SNP data, but with microsatellite data, the lower part of the distribution extends into the negative values of <span class="math inline">\(\bar{r}_d\)</span>, resulting in non-significant p-values, which occur when low allelic diversity is observed. Additionally, with larger sample sizes, the variances decrease (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim1">5.1</a>, <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim5">5.10</a>) and the power to detect clonal reproduction increases (<a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim4a">5.7</a>, <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim6">5.12</a>), suggesting that the behavior of the index is affected by sample size. Based on the power analysis, we observe that the critical point to detect clonal reproduction in a population is at a maximum of 1% sexual reproduction (Fig.<a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim4">5.3</a>, <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim4a">5.7</a>, <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim6">5.12</a>).</p>
+</div>
+</div>
+<div id="discussion-2" class="section level2">
+<h2><span class="header-section-number">5.5</span> Discussion</h2>
+<p>Scientists have used the index of association to provide evidence for clonal reproduction in populations. The index of association measure the ratio of variance between observed and expected genetic distance and is a measure of linkage among markers (equation <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#eq:ia">(5.1)</a> ) <span class="citation">(Brown et al., <a href="#ref-brown1980multilocus">1980</a>; Smith et al., <a href="#ref-smith1993how">1993</a>)</span>. <span class="citation">Agapow &amp; Burt (<a href="#ref-Agapow_2001">2001</a>)</span> created a standardized version, <span class="math inline">\(\bar{r}_d\)</span>, that resembles a correlation coefficient (equation <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#eq:rd">(5.2)</a>). De Meeûx &amp; Balloux <span class="citation">(<a href="#ref-de2004clonal">2004</a>)</span> previously showed that very little sexual reproduction is required for <span class="math inline">\(\bar{r}_d\)</span> to reach values close to zero (e.g. the absence of linkage among markers). We confirmed that the power to detect clonal reproduction is greatly diminished after <span class="math inline">\(\sim\)</span> 1% sex in a population. We also provide novel insights into how <span class="math inline">\(\bar{r}_d\)</span> responds to marker type, sample size, mutation rate homogeneity, and clone-correction. We found that the power to detect significant departures of <span class="math inline">\(\bar{r}_d\)</span> from expected under random mating decreases with small sample sizes, and thus also decreases with clone-correction as sample size is by definition reduced when clone-correcting. More importantly, we found that linkage depends critically on allelic diversity at low levels of sexual reproduction (&lt; 0.1%) as discussed below.</p>
+<div id="clone-correction-increases-false-negatives" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> Clone Correction Increases False Negatives</h3>
+<p>While the presence of over-represented genotypes is often an indication of clonal reproduction, it does not explicitly rule out sexual reproduction <span class="citation">(Smith et al., <a href="#ref-smith1993how">1993</a>; Taylor et al., <a href="#ref-taylor1999evolutionary">1999</a>; Tibayrenc, <a href="#ref-tibayrenc1996towards">1996</a>)</span>. This can happen in an ‘epidemic’ population structure where there is a sudden expansion of one genotype in an otherwise panmictic population <span class="citation">(Smith et al., <a href="#ref-smith1993how">1993</a>)</span>. Thus, a common recommendation to researchers is to conduct analyses on both clone-corrected and uncorrected data with the expectation that this will reveal any underlying recombination <span class="citation">(McDonald, <a href="#ref-mcdonald1997population">1997</a>; Milgroom, <a href="#ref-milgroom1996recombination">1996</a>; Smith et al., <a href="#ref-smith1993how">1993</a>)</span>. When analyzing <span class="math inline">\(\bar{r}_d\)</span>, common wisdom says that if the result is significant with and without clone-correction, then there is strong evidence for clonal reproduction. This technique was used by Goss et al. to support the hypothesis that South American populations of the potato late blight pathogen, <em>Phytophthora infestans</em> were reproducing clonally <span class="citation">(<a href="#ref-goss2014irish">2014</a>)</span>. Our findings show that a non-significant value does not necessarily indicate the absence of clonal reproduction since the power to detect clonal reproduction consistently decreases with clone-correction(Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim2">5.5</a>, <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim2a">5.8</a>). Our results confirm the concerns raised in <span class="citation">Tibayrenc (<a href="#ref-tibayrenc1996towards">1996</a>)</span> of the increase of false negatives due to clone- correction, further highlighting the fact that a failure to reject the null hypothesis of random mating does not necessarily mean that the population is randomly mating <span class="citation">(Milgroom, <a href="#ref-milgroom1996recombination">1996</a>; Smith et al., <a href="#ref-smith1993how">1993</a>; Tibayrenc, <a href="#ref-tibayrenc1996towards">1996</a>)</span>. Clone-correction thus should be interpreted carefully in light of the fact that clone-correction reduces sample size and power is significantly reduced with small sample sizes.</p>
+</div>
+<div id="mutation-rates-and-barr_d" class="section level3">
+<h3><span class="header-section-number">5.5.2</span> Mutation Rates and <span class="math inline">\(\bar{r}_d\)</span></h3>
+<p>We assessed the effect of uneven mutation rates across loci, because we had observed that a single, hyper-variable locus with 18 alleles was the driver for most of the diversity observed in a previous study on the population dynamics of <em>Phytophthora ramorum</em> in Curry County, OR (<span class="citation">Kamvar et al. (<a href="#ref-kamvar2015spatial">2015</a><a href="#ref-kamvar2015spatial">c</a>)</span>, Supplementary Table S4). We hypothesized that the high variability would reduce linkage and thus, reduce the power of <span class="math inline">\(\bar{r}_d\)</span> to detect clonal reproduction. In contrast, we observed the opposite result; the power to detect clonal reproduction increased with the presence of a single, hyper-variable locus (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim4">5.3</a>, <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:simroc">5.4</a>). This also appears to make the effects of clone-correction less severe. We believe that this is most likely due to the observed increase in genotypic diversity, which causes an increased sample size with clone-correction (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:simdiv">5.2</a>).</p>
+</div>
+<div id="allelic-diversity-influences-the-value-of-barr_d-in-clonal-populations" class="section level3">
+<h3><span class="header-section-number">5.5.3</span> Allelic Diversity Influences the value of <span class="math inline">\(\bar{r}_d\)</span> in Clonal Populations</h3>
+<p>A novel feature, not previously observed in <span class="citation">de Meeûs &amp; Balloux (<a href="#ref-de2004clonal">2004</a>)</span>, was the observation of negative values of <span class="math inline">\(\bar{r}_d\)</span> (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim1">5.1</a>). While positive values of <span class="math inline">\(\bar{r}_d\)</span> are easy to interpret (the observed variance is greater than expected, suggesting non-random mating), negative values are often simply considered to be evidence for random mating. Significantly (p = 1) negative values of <span class="math inline">\(\bar{r}_d\)</span> have been observed for pathogens that are well studied and known to be clonal such as the sudden oak death pathogen, <em>Phytophthora ramorum</em> (<span class="citation">Kamvar et al. (<a href="#ref-kamvar2015spatial">2015</a><a href="#ref-kamvar2015spatial">c</a>)</span>, Supplementary Table S3) and the wheat stripe rust pathogen <em>Puccinia graminis</em> f.sp. <em>tritici</em> (Les Szabo, pers. comm.). A common pattern in all of these populations is that they all had values of <span class="math inline">\(E_{5A}\)</span> &gt; 0.9 and, on average, fewer than 4 alleles per locus. This pattern of <span class="math inline">\(E_{5A}\)</span> is reflected in our simulations (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:simdiv">5.2</a>). When we set a boundary condition for our power analysis based on evenness <span class="math inline">\(\{p \leq \alpha \mid E_{5A} \geq 0.85\}\)</span>, we found that this reduced the number of false negatives without significantly contributing to the number of false positives (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim4a">5.7</a>, <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim2a">5.8</a>). Levels of <span class="math inline">\(E_{5A} &gt; 0.85\)</span> also had a low number of allelic states (data not shown), which indicates that the bimodal distribution of <span class="math inline">\(\bar{r}_d\)</span> for clonal populations is driven by allelic diversity. Thus, including allelic evenness can serve as a diagnostic parameter when interpreting linkage at low levels of sexual reproduction under conditions of low allelic diversity.</p>
+</div>
+<div id="linkage-in-snp-data-increases-barr_d-unilaterally" class="section level3">
+<h3><span class="header-section-number">5.5.4</span> Linkage in SNP Data Increases <span class="math inline">\(\bar{r}_d\)</span> Unilaterally</h3>
+<p>The results we obtained from SNP data revealed almost no values of <span class="math inline">\(\bar{r}_d\)</span> at or below zero (Fig. <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim5">5.10</a>). Testing for significance by shuffling data at each locus independently rendered all the values of <span class="math inline">\(\bar{r}_d\)</span> significant, regardless of rate of sexual reproduction. Only when we shuffled linkage groups were we able to obtain the same level of significance as compared to the microsatellite data. This indicates that it is possible to detect clonal reproduction with the same power as microsatellite markers even with physically linked markers. Great care, however must be taken to ensure that linkage blocks are shuffled together or that SNP markers are not linked before assessing significance of a value of <span class="math inline">\(\bar{r}_d\)</span>. In contrast to the microsatellite data, sample size did not significantly affect power with high levels of clonal reproduction (Fig <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#fig:sim7">5.13</a>, Tab: <a href="5-factors-influencing-inference-of-clonality-in-diploid-populations.html#tab:sim5">5.4</a>).</p>
+</div>
+<div id="limitations-of-this-study" class="section level3">
+<h3><span class="header-section-number">5.5.5</span> Limitations of This Study</h3>
+<p>The scope of simulation studies are limited to the parameters used to generate the simulations. We do not know, for example, what effect selection, population subdivision, or polyploidy would have on inference of <span class="math inline">\(\bar{r}_d\)</span>. While we were able to directly compare our populations with even and uneven mutation rates, because they both represent the exact same populations, we do not know if the effect we see is due to a higher average mutation rate, thus further study is needed to detect the effect of mutation rate in clonal populations. In contrast to <span class="citation">de Meeûs &amp; Balloux (<a href="#ref-de2004clonal">2004</a>)</span>, whereas their simulations had 99 alleles per locus, our simulations were designed with a small number of alleles per locus to better reflect microsatellite markers that would be selected for typical population genetic analyses. Because of this, there was a higher chance of homoplasy in our simulations. This, however was most likely beneficial to our analysis as our results show that low allelic diversity can lead to negative <span class="math inline">\(\bar{r}_d\)</span> values, which we have previously observed in data from purely clonal organisms.</p>
+</div>
+<div id="conclusions-1" class="section level3">
+<h3><span class="header-section-number">5.5.6</span> Conclusions</h3>
+<p>The index of association is a valuable measure for lending support to the hypothesis of clonal reproduction in natural populations. We confirm that <span class="math inline">\(\bar{r}_d\)</span> can provide evidence for clonal reproduction when there is &lt; 1% sexual reproduction within the population <span class="citation">(de Meeûs &amp; Balloux, <a href="#ref-de2004clonal">2004</a>)</span>, but conclude that this inference is dependent on sample size and allelic diversity. Thus scientists should exercise caution when interpreting results from a clone-corrected data set. We found that this index is robust enough to detect the same level of clonal reproduction for SNP data, but results from permutation analyses may be misleading if linkage is present among markers.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-hartl1997principles">
+<p>Hartl, D. L., &amp; Clark, A. G. (2007). <em>Principles of population genetics</em>. Sunderland, MA, USA: Sinauer Associates.</p>
+</div>
+<div id="ref-nielsen2013introduction">
+<p>Nielsen, R., &amp; Slatkin, M. (2013). <em>An introduction to population genetics: Theory and applications</em>. Sinauer Associates, Incorporated. Retrieved from <a href="http://books.google.com/books?id=Iy08kgEACAAJ" class="uri">http://books.google.com/books?id=Iy08kgEACAAJ</a></p>
+</div>
+<div id="ref-milgroom1996recombination">
+<p>Milgroom, M. G. (1996). Recombination and the multilocus structure of fungal populations. <em>Annual Review of Phytopathology</em>, <em>34</em>(1), 457–477.</p>
+</div>
+<div id="ref-orive1993effective">
+<p>Orive, M. E. (1993). Effective population size in organisms with complex life-histories. <em>Theoretical Population Biology</em>, <em>44</em>(3), 316–340. <a href="https://doi.org/10.1006/tpbi.1993.1031" class="uri">https://doi.org/10.1006/tpbi.1993.1031</a></p>
+</div>
+<div id="ref-heitman2012evolution">
+<p>Heitman, J., Sun, S., &amp; James, T. Y. (2012). Evolution of fungal sexual reproduction. <em>Mycologia</em>, <em>105</em>(1), 1–27. <a href="https://doi.org/10.3852/12-253" class="uri">https://doi.org/10.3852/12-253</a></p>
+</div>
+<div id="ref-tibayrenc1996towards">
+<p>Tibayrenc, M. (1996). Towards a unified evolutionary genetics of microorganisms. <em>Annual Review of Microbiology</em>, <em>50</em>(1), 401–429. <a href="https://doi.org/10.1146/annurev.micro.50.1.401" class="uri">https://doi.org/10.1146/annurev.micro.50.1.401</a></p>
+</div>
+<div id="ref-de2006molecular">
+<p>de Meeûs, T., Lehmann, L., &amp; Balloux, F. (2006). Molecular epidemiology of clonal diploids: A quick overview and a short DIY (do it yourself) notice. <em>Infection, Genetics and Evolution</em>, <em>6</em>(2), 163–170. <a href="https://doi.org/10.1016/j.meegid.2005.02.004" class="uri">https://doi.org/10.1016/j.meegid.2005.02.004</a></p>
+</div>
+<div id="ref-goss2014irish">
+<p>Goss, E. M., Tabima, J. F., Cooke, D. E., Restrepo, S., Fry, W. E., Forbes, G. A., Fieland, V. J., Cardenas, M., &amp; Grünwald, N. J. (2014). The Irish potato famine pathogen <em>Phytophthora infestans</em> originated in central Mexico rather than the Andes. <em>Proceedings of the National Academy of Sciences</em>, <em>111</em>(24), 8791–8796.</p>
+</div>
+<div id="ref-nieuwenhuis2016frequency">
+<p>Nieuwenhuis, B. P. S., &amp; James, T. Y. (2016). The frequency of sex in fungi. <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em>, <em>371</em>(1706), 20150540. <a href="https://doi.org/10.1098/rstb.2015.0540" class="uri">https://doi.org/10.1098/rstb.2015.0540</a></p>
+</div>
+<div id="ref-smith1993how">
+<p>Smith, J. M., Smith, N. H., O’Rourke, M., &amp; Spratt, B. G. (1993). How clonal are bacteria? <em>Proceedings of the National Academy of Sciences</em>, <em>90</em>(10), 4384–4388. <a href="https://doi.org/10.1073/pnas.90.10.4384" class="uri">https://doi.org/10.1073/pnas.90.10.4384</a></p>
+</div>
+<div id="ref-ali2016cloncase">
+<p>Ali, S., Soubeyrand, S., Gladieux, P., Giraud, T., Leconte, M., Gautier, A., Mboup, M., Chen, W., Vallavieille-Pope, C., &amp; Enjalbert, J. (2016). Cloncase: Estimation of sex frequency and effective population size by clonemate resampling in partially clonal organisms. <em>Molecular Ecology Resources</em>. <a href="https://doi.org/10.1111/1755-0998.12511" class="uri">https://doi.org/10.1111/1755-0998.12511</a></p>
+</div>
+<div id="ref-balloux2003population">
+<p>Balloux, F., Lehmann, L., &amp; de Meeûs, T. (2003). The population genetics of clonal and partially clonal diploids. <em>Genetics</em>, <em>164</em>(4), 1635–1644.</p>
+</div>
+<div id="ref-de2004clonal">
+<p>de Meeûs, T., &amp; Balloux, F. (2004). Clonal reproduction and linkage disequilibrium in diploids: A simulation study. <em>Infection, Genetics and Evolution</em>, <em>4</em>(4), 345–351. <a href="https://doi.org/10.1016/j.meegid.2004.05.002" class="uri">https://doi.org/10.1016/j.meegid.2004.05.002</a></p>
+</div>
+<div id="ref-Agapow_2001">
+<p>Agapow, P.-M., &amp; Burt, A. (2001). Indices of multilocus linkage disequilibrium. <em>Molecular Ecology Notes</em>, <em>1</em>(1-2), 101–102. <a href="https://doi.org/10.1046/j.1471-8278.2000.00014.x" class="uri">https://doi.org/10.1046/j.1471-8278.2000.00014.x</a></p>
+</div>
+<div id="ref-brown1980multilocus">
+<p>Brown, A., Feldman, M., &amp; Nevo, E. (1980). Multilocus structure of natural populations of <em>Hordeum spontaneum</em>. <em>Genetics</em>, <em>96</em>(2), 523–536. Retrieved from <a href="http://www.genetics.org/content/96/2/523.abstract" class="uri">http://www.genetics.org/content/96/2/523.abstract</a></p>
+</div>
+<div id="ref-haubold1998detecting">
+<p>Haubold, B., Travisano, M., Rainey, P. B., &amp; Hudson, R. R. (1998). Detecting linkage disequilibrium in bacterial populations. <em>Genetics</em>, <em>150</em>(4), 1341–8.</p>
+</div>
+<div id="ref-kamvar2014poppr">
+<p>Kamvar, Z. N., Tabima, J. F., &amp; Grünwald, N. J. (2014b).  Poppr : an R package for genetic analysis of populations with clonal, partially clonal, and/or sexual reproduction. <em>PeerJ</em>, <em>2</em>, e281. <a href="https://doi.org/10.7717/peerj.281" class="uri">https://doi.org/10.7717/peerj.281</a></p>
+</div>
+<div id="ref-milgroom2015population">
+<p>Milgroom, M. G. (2015). <em>Population biology of plant pathogens: Genetics, ecology, and evolution</em>. 3340 Pilot Knob Road, St. Paul, MN 55121, USA: APS Press.</p>
+</div>
+<div id="ref-prugnolle2010apparent">
+<p>Prugnolle, F., &amp; de Meeûs, T. (2010). Apparent high recombination rates in clonal parasitic organisms due to inappropriate sampling design. <em>Heredity</em>, <em>104</em>(2), 135–140. <a href="https://doi.org/10.1038/hdy.2009.128" class="uri">https://doi.org/10.1038/hdy.2009.128</a></p>
+</div>
+<div id="ref-mcdonald1997population">
+<p>McDonald, B. A. (1997). The population genetics of fungi: tools and techniques. <em>Phytopathology</em>, <em>87</em>(4), 448–453.</p>
+</div>
+<div id="ref-davey2010rad">
+<p>Davey, J. W., &amp; Blaxter, M. L. (2010). RADSeq: next-generation population genetics. <em>Briefings in Functional Genomics</em>, <em>9</em>(5-6), 416–423. <a href="https://doi.org/10.1093/bfgp/elq031" class="uri">https://doi.org/10.1093/bfgp/elq031</a></p>
+</div>
+<div id="ref-davey2011genome">
+<p>Davey, J. W., Hohenlohe, P. A., Etter, P. D., Boone, J. Q., Catchen, J. M., &amp; Blaxter, M. L. (2011). Genome-wide genetic marker discovery and genotyping using next-generation sequencing. <em>Nature Reviews Genetics</em>, <em>12</em>(7), 499–510. <a href="https://doi.org/10.1038/nrg3012" class="uri">https://doi.org/10.1038/nrg3012</a></p>
+</div>
+<div id="ref-elshire2011robust">
+<p>Elshire, R. J., Glaubitz, J. C., Sun, Q., Poland, J. A., Kawamoto, K., Buckler, E. S., &amp; Mitchell, S. E. (2011). A robust, simple genotyping-by-sequencing (GBS) approach for high diversity species. <em>PLoS ONE</em>, <em>6</em>(5), e19379. <a href="https://doi.org/10.1371/journal.pone.0019379" class="uri">https://doi.org/10.1371/journal.pone.0019379</a></p>
+</div>
+<div id="ref-mastretta2015restriction">
+<p>Mastretta-Yanes, A., Arrigo, N., Alvarez, N., Jorgensen, T. H., Piñero, D., &amp; Emerson, B. C. (2014). Restriction site-associated DNA sequencing, genotyping error estimation and <em>de novo</em> assembly optimization for population genetic inference. <em>Molecular Ecology Resources</em>, <em>15</em>(1), 28–41. <a href="https://doi.org/10.1111/1755-0998.12291" class="uri">https://doi.org/10.1111/1755-0998.12291</a></p>
+</div>
+<div id="ref-kamvar2015novel">
+<p>Kamvar, Z. N., Brooks, J. C., &amp; Grünwald, N. J. (2015a). Novel R tools for analysis of genome-wide population genetic data with emphasis on clonality. <em>Frontiers in Genetics</em>, <em>6</em>. <a href="https://doi.org/10.3389/fgene.2015.00208" class="uri">https://doi.org/10.3389/fgene.2015.00208</a></p>
+</div>
+<div id="ref-R2016">
+<p>R Core Team. (2016). <em>R: A language and environment for statistical computing</em>. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a></p>
+</div>
+<div id="ref-peng2008forward">
+<p>Peng, B., &amp; Amos, C. I. (2008). Forward-time simulations of non-random mating populations using simuPOP. <em>Bioinformatics</em>, <em>24</em>(11), 1408–1409. <a href="https://doi.org/10.1093/bioinformatics/btn179" class="uri">https://doi.org/10.1093/bioinformatics/btn179</a></p>
+</div>
+<div id="ref-lynch2008genome">
+<p>Lynch, M., Sung, W., Morris, K., Coffey, N., Landry, C. R., Dopman, E. B., Dickinson, W. J., Okamoto, K., Kulkarni, S., Hartl, D. L., &amp; Thomas, W. K. (2008). A genome-wide view of the spectrum of spontaneous mutations in yeast. <em>Proceedings of the National Academy of Sciences</em>, <em>105</em>(27), 9272–9277. <a href="https://doi.org/10.1073/pnas.0803466105" class="uri">https://doi.org/10.1073/pnas.0803466105</a></p>
+</div>
+<div id="ref-shannon2001mathematical">
+<p>Shannon, C. E. (1948). A mathematical theory of communication. <em>ACM SIGMOBILE Mobile Computing and Communications Review</em>, <em>5</em>(1), 3–55.</p>
+</div>
+<div id="ref-stoddart1988genotypic">
+<p>Stoddart, J. A., &amp; Taylor, J. F. (1988). Genotypic diversity: Estimation and prediction in samples. <em>Genetics</em>, <em>118</em>(4), 705–11.</p>
+</div>
+<div id="ref-pielou1975ecological">
+<p>Pielou, E. (1975). <em>Ecological diversity</em>. New York: Wiley &amp; Sons.</p>
+</div>
+<div id="ref-Nei:1978">
+<p>Nei, M. (1978). Estimation of average heterozygosity and genetic distance from a small number of individuals. <em>Genetics</em>, <em>89</em>(3), 583–590. Retrieved from <a href="http://www.genetics.org/content/89/3/583.abstract" class="uri">http://www.genetics.org/content/89/3/583.abstract</a></p>
+</div>
+<div id="ref-grunwald2003analysis">
+<p>Grünwald, N. J., Goodwin, S. B., Milgroom, M. G., &amp; Fry, W. E. (2003). Analysis of genotypic diversity data for populations of microorganisms. <em>Phytopathology</em>, <em>93</em>(6), 738–746. <a href="https://doi.org/10.1094/phyto.2003.93.6.738" class="uri">https://doi.org/10.1094/phyto.2003.93.6.738</a></p>
+</div>
+<div id="ref-kamvar2015poppr2supp">
+<p>Kamvar, Z. N., Brooks, J. C., &amp; Grünwald, N. J. (2015b, May). Supplementary Material for Frontiers Plant Genetics and Genomics “Novel R tools for analysis of genome-wide population genetic data with emphasis on clonality”. ZENODO. <a href="https://doi.org/10.5281/zenodo.17424" class="uri">https://doi.org/10.5281/zenodo.17424</a></p>
+</div>
+<div id="ref-metz1978basic">
+<p>Metz, C. E. (1978). Basic principles of ROC analysis. In <em>Seminars in nuclear medicine</em> (Vol. 8, pp. 283–298). Elsevier. <a href="https://doi.org/10.1016/S0001-2998(78)80014-2" class="uri">https://doi.org/10.1016/S0001-2998(78)80014-2</a></p>
+</div>
+<div id="ref-jurasinski2014flux">
+<p>Jurasinski, G., Koebsch, F., Guenther, A., &amp; Beetz, S. (2014). <em>flux: Flux rate calculation from dynamic closed chamber measurements</em>. Retrieved from <a href="https://CRAN.R-project.org/package=flux" class="uri">https://CRAN.R-project.org/package=flux</a></p>
+</div>
+<div id="ref-taylor1999evolutionary">
+<p>Taylor, J. W., Geiser, D. M., Burt, A., &amp; Koufopanou, V. (1999). The evolutionary biology and population genetics underlying fungal strain typing. <em>Clinical Microbiology Reviews</em>, <em>12</em>(1), 126–146.</p>
+</div>
+<div id="ref-kamvar2015spatial">
+<p>Kamvar, Z. N., Larsen, M. M., Kanaskie, A. M., Hansen, E. M., &amp; Grünwald, N. J. (2015c). Spatial and temporal analysis of populations of the sudden oak death pathogen in oregon forests. <em>Phytopathology</em>, <em>105</em>(7), 982–989. <a href="https://doi.org/10.1094/phyto-12-14-0350-fi" class="uri">https://doi.org/10.1094/phyto-12-14-0350-fi</a></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="4-spatial-and-temporal-analysis-of-populations-of-the-sudden-oak-death-pathogen-in-oregon-forests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="6-conclusions-2.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": [["http://hdl.handle.net/1957/60042", "PDF"], ["dissertation.tex", "TEX"], ["https://github.com/zkamvar/dissertation", "SOURCE CODE"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
