@@ -1,72 +1,48 @@
-# Template for Zhian N. Kamvar's Dissertation
+# Development and Application of Tools for Genetic Analysis of Clonal Populations
 
-This is the unofficial Oregon State University RMarkdown thesis template. You 
-can find a copy of this template at https://github.com/zkamvar/beaverdown.
+by Zhian N. Kamvar
+
+## Abstract
+
+Research on the population genetics of microbial organisms requires the use of
+specialized analyses designed for clonal organisms to avoid violating the
+assumptions of traditional population genetic models. The tools necessary for
+performing these analyses existed as a set of unrelated software with 
+non-overlapping capabilities and did not cover all aspects of analysis. This
+meant that researchers not only had to reshape their data into different formats
+for each analysis, but they also had to switch computing platforms, thus
+creating a drain in time, and increasing the risk of propagating human
+error into the analysis. To address this problem, we created the software
+package *poppr*, written in the R statistical language, available on all
+computing platforms. This package is designed for analysis of clonal, partially
+clonal, and sexual populations, empowering researchers to perform their work in
+a reproducible manner. We additionally demonstrate the utility of *poppr* for
+both plant pathological and theoretical questions by using real-world and
+simulated data. In chapter 4, we apply these new tools to demonstrate evidence
+for at least two origins for the outbreak of the Sudden Oak Death pathogen,
+*Phytophthora ramorum* in Curry County, Oregon. In chapter 5, we use *poppr* to
+assess the power of the index of association with clone-correction, showing that
+clone-correction has the potential to reduce the power of detecting clonal
+reproduction. All of the software and analyses in this work were performed in an
+open and reproducible framework, serving as an example of the power of
+reproducible research in plant pathology.
+
+
+## Links
+
+ - Web: http://zkamvar.github.io/dissertation 
+ - Scholars Archive at Oregon State University: http://hdl.handle.net/1957/60042
+
+----
+
+# Building the document
+
+This was built with the unofficial Oregon State University RMarkdown thesis
+template. You can find a copy of this template at
+https://github.com/zkamvar/beaverdown.
 
 This should comply with the [thesis guide for Oregon State University][4]. It's
 based off of the [overleaf template][5]
-
-----
-
-## [VIEW THE PDF](_book/thesis.pdf)
-
-----
-
-## Editing Guidelines
-
-### Comments
-
-Comments will be HTML-style comments. To ensure that we have effective
-communication, I'm outlining a style guide for commenting. Comments will look
-like this:
-
-```html
-
-
-<!-- NIK
-
-This is a block comment
-
-ZHIAN
-
-With replies continuing
-
- -->
-
-Here's some text <!-- NIK This is an inline comment -->
-
-```
-
-The comments will start with the author's name in all caps so that it's easy to 
-quickly identify who wrote the comment and where the replies are in the case
-there is a long thread.
-
-### Editing
-
-Minor edits (spelling, grammar, etc.) can be made right away and committed to
-the master branch. Other commits should be made to a new branch and submitted as
-a pull request (check the second button when making changes on github). 
-
-### Bibliography
-
-To add a bibliography entry, add it to
-[bib/main_bibliography.bib](bib/main_bibliography.bib). If you can, put a note
-about what the entry is about. If the title has specific capitalization or a
-italicization, put an extra set of curly braces `{}` around it:
-
-```latex
-% Index of Association application ---------------------------------------------
-@article{burt1996molecular,
-  title={{Molecular markers reveal cryptic sex in the human pathogen \textit{Coccidioides immitis}}},
-  author={Burt, Austin and Carter, Deidre A and Koenig, Gina L and White, Thomas J and Taylor, John W},
-  journal={Proceedings of the National Academy of Sciences},
-  volume={93},
-  number={2},
-  pages={770--773},
-  year={1996},
-  publisher={National Acad Sciences}
-}
-```
 
 ## Installation
 
@@ -86,11 +62,12 @@ if (!require("beaverdown")){
   }
   devtools::install_github("zkamvar/beaverdown")
 }
+install.packages("poppr")
 ```
 
 ## Rendering
 
-### GITBOOK
+### HTML
 
 Open `index.Rmd` in RStudio and then hit the "knit" button. Alternatively, you
 can use:
@@ -104,11 +81,11 @@ bookdown::render_book("index.Rmd")
 # In the Terminal
 $ ./render.sh
 # ----------------------------------------------------------------------
-# Rendering EBOOK
+# Rendering HTML
 # 
-# If you want to render the PDF, set the -pdf flag
+# If you want to render the PDF, set the pdf flag
 # 
-#     ./render.sh -pdf
+#     ./render.sh pdf
 # ----------------------------------------------------------------------
 # 
 # 
@@ -135,7 +112,7 @@ open _book/1-introduction.html
 
 ```sh
 # On the command line
-./render.sh -pdf
+./render.sh pdf
 ```
 
 ```r
