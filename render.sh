@@ -2,11 +2,11 @@
 
 if [[ $# -eq 0 ]]; then
 	echo "----------------------------------------------------------------------"
-	echo "Rendering EBOOK"
+	echo "Rendering HTML"
 	echo
-	echo "If you want to render the PDF, set the -pdf flag"
+	echo "If you want to render the PDF, set the pdf flag"
 	echo
-	echo "    ./render.sh -pdf"
+	echo "    ./render.sh pdf"
 	echo "----------------------------------------------------------------------"
 	echo
 	Rscript -e 'bookdown::render_book("index.Rmd")'
