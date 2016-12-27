@@ -10,8 +10,8 @@ rmd_files: ["index.Rmd",
   "chapters/98-conclusions.Rmd",
   "chapters/99-references.Rmd"
   ]
-download: [["dissertation.pdf", "PDF"],
-  ["dissertation.epub", "EPUB"],
-  ["dissertation.docx", "Word"]
+download: [["http://hdl.handle.net/1957/60042", "PDF"],
+  ["dissertation.tex", "TEX"],
+  ["https://github.com/zkamvar/dissertation", "SOURCE CODE"]
   ]
   
