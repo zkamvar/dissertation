@@ -15,3 +15,4 @@ _bookdown_files/*
 _book/figure/*
 _book/dissertation_files/*
 _book/dissertation.*
+Icon^M
