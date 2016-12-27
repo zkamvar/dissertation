@@ -120,25 +120,22 @@ open _book/1-introduction.html
 bookdown::render_book("index.Rmd")
 ```
 
-You can find the thesis in [**_book/thesis.pdf**](_book/thesis.pdf)
+You can find the dissertation in [**_book/dissertation.pdf**](_book/dissertation.pdf)
 
 ## Components
 
-The following components are ones you should edit to customize your thesis:
-
 ### [_bookdown.yml](_bookdown.yml)
 
-This is the main configuration file for your thesis. Arrange the order of your
-chapters in this file and ensure that the names match the names in your folders.
+This is the main configuration file for the dissertation. 
 
 ### [index.Rmd](index.Rmd)
 
-This file contains all the meta information that goes at the beginning of your
+This file contains all the meta information that goes at the beginning of the pdf
 document.
 
 ### [pre/](pre/)
 
-This folder contains all of the Rmd files to be included in the pretext of your
+This folder contains all of the Rmd files to be included in the pretext of the
 dissertation (e.g. abstract, acknowledgments, author contributions, etc.).
 
 There is a slight caveat to all of these files: the very first line must be 
@@ -146,12 +143,11 @@ plain text or the rendering will be screwed up.
 
 ### [chapters/](chapters/)
 
-This folder contains the Rmd files for each chapter in your dissertation. Modify
-as you will.
+This folder contains the Rmd files for each chapter in the dissertation. 
 
 ### [bib/](bib/)
 
-Store your bibliography (as bibtex files) here.
+This is where any bibliographies may live
 
 ### [csl/](csl/)
 
@@ -160,8 +156,7 @@ citation styles is https://github.com/citation-style-language/styles#readme
 
 ### [figure/](figure/) and [data/](data/)
 
-These should be self explanatory. Store your figures and data here and reference
-them in your document. 
+These should be self explanatory. Figures and data are stored here.
 
 
  [0]: http://pandoc.org/
