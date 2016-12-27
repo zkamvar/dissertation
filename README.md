@@ -30,7 +30,7 @@ reproducible research in plant pathology.
 
 ## Links
 
- - Web: http://zkamvar.github.io/dissertation 
+ - Web: https://zkamvar.github.io/dissertation 
  - Scholars Archive at Oregon State University: http://hdl.handle.net/1957/60042
 
 ----
